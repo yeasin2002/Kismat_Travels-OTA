@@ -14,7 +14,8 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": {
-      "$/*": ["./src/*"]
+      "$/*": ["./src/*"],
+      "shadcn/*": ["./shadcn/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
