@@ -74,3 +74,56 @@
     @apply bg-background text-foreground;
   }
 }
+
+
+@layer components {
+  .global-btn {
+    @apply w-full transform rounded-lg bg-gray-800 px-6 py-3 text-sm font-medium capitalize tracking-wide text-white transition-colors duration-300 hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50;
+  }
+  .cardWrapper {
+    @apply max-w-sm rounded-lg border border-gray-200 bg-white p-6 shadow dark:border-gray-700 dark:bg-gray-800;
+  }
+  .formInput {
+    @apply block w-full rounded-lg border bg-white px-4 py-2 text-gray-700  focus:border-blue-400 focus:outline-none  focus:ring focus:ring-blue-300 focus:ring-opacity-40;
+  }
+  .searchCardItem {
+    @apply flex  flex-col md:justify-between md:gap-x-20;
+  }
+  .flat-center {
+    @apply flex flex-col items-center md:justify-between md:gap-x-20;
+  }
+  .stack {
+    display: grid;
+    grid-template: "container";
+  }
+
+  .stack > * {
+    grid-area: container;
+  }
+
+  .fade-edge {
+    --fade-both: 10%;
+
+    --fade-top: var(--fade-both);
+    --fade-bottom: var(--fade-both);
+
+    --mask: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0) 0,
+        rgba(0, 0, 0, 1) var(--fade-top),
+        rgba(0, 0, 0, 1) calc(var(--fade-top) + 5%),
+        rgba(0, 0, 0, 0) 100%
+      ),
+      linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0) 0,
+          rgba(0, 0, 0, 1) var(--fade-bottom),
+          rgba(0, 0, 0, 1) calc(var(--fade-bottom) + 5%),
+          rgba(0, 0, 0, 0) 100%
+        )
+        50% 50% / 100% 100% repeat-y;
+
+    -webkit-mask: var(--mask);
+    mask: var(--mask);
+  }
+}
