@@ -7,5 +7,5 @@
   "editor.codeActionsOnSave": {
     "source.sortImports": "always"
   },
-  "cSpell.words": ["immer", "shadcn", "zustand"]
+  "cSpell.words": ["immer", "lucide", "shadcn", "zustand"]
 }

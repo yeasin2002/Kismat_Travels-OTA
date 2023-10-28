@@ -3,13 +3,13 @@ import React, { useState } from "react";
 import { RxCross2 } from "react-icons/rx";
 import { Checkbox } from "shadcn/components/ui/checkbox";
 import { Slider } from "shadcn/components/ui/slider";
-
+ 
 const FilterCard = () => {
   const [isShowingMore, setIsShowingMore] = useState(false);
   const popularFilter = mockFlight.slice(0, !isShowingMore ? 5 : mockFlight.length - 1);
 
   return (
-    <div className="    min-h-full w-1/4  rounded-md bg-white p-4  shadow-md  [&>*]:mb-4 ">
+    <div className="    min-h-full w-1/4  rounded-md bg-white p-4 text-black shadow-md  [&>*]:mb-4 ">
       <div>
         <div className="flex items-center justify-between text-blue-600 ">
           <h3 className="text-lg font-bold text-blue-600">Apply filter</h3>

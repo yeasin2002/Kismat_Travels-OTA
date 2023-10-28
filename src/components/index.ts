@@ -10,6 +10,7 @@ export * from "./Footer/Footer";
 export * from "./Form";
 export * from "./Form/FancySelect";
 export * from "./Hero/Hero";
+export * from "./Icons/Times";
 export * from "./InfoDisplay/InfoDisplay";
 export * from "./JourneyType/MultiCity";
 export * from "./JourneyType/OneWay";
@@ -21,3 +22,4 @@ export * from "./TripType/TripType";
 export * from "./auth/LoginAndSingInWrapper";
 export * from "./modal/TravelersAndClass";
 export * from "./ui/Title";
+

@@ -1,10 +1,10 @@
 "use client";
 
 import { MultiCity, OneWay, TripType, TwoWay } from "$components";
+import FilterCard from "$components/Cards/FilterCard";
 import { tripType } from "$store";
 
 export function BookingForm() {
-
   const store = tripType();
 
   return (
