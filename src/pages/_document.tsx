@@ -1,19 +1,12 @@
-import { GlobalProvider } from "$context";
 import { Head, Html, Main, NextScript } from "next/document";
-import { Inter } from "next/font/google";
-import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export default function Document() {
   return (
-    <Html lang="en">
+    <Html lang="en" className="[scrollbar-gutter:_stable]">
       <Head />
-      <body className={inter.className}>
-        <GlobalProvider>
-          <Main />
-          <NextScript />
-        </GlobalProvider>
+      <body>
+        <Main />
+        <NextScript />
       </body>
     </Html>
   );

@@ -1,6 +1,6 @@
 "use client";
 
-import { useOneWay } from "$store";
+import { tripType as tripTypeValue, useOneWay } from "$store";
 import { useId } from "react";
 import { Label } from "shadcn/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "shadcn/components/ui/radio-group";
@@ -13,9 +13,9 @@ const options = [
 ];
 
 export function TripType() {
-  const [tripType, setTripType] = useOneWay((store) => [store.tripType, store.setTripType]);
   const id = useId();
-
+  const { setTripType, tripType } = tripTypeValue();
+console.log(id);
   return (
     <RadioGroup value={tripType} onValueChange={setTripType} className="flex gap-2">
       {options.map(({ value, label }) => (

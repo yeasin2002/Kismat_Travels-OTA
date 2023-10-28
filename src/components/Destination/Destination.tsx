@@ -6,7 +6,7 @@ export const Destination = () => {
       <Title subtitle=" DESTINATIONS" classSubtitle=" text-gray-300/20 sm:text-gray-300/40 ">
         POPULAR DESTINATIONS
       </Title>
-      <div className="my-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="my-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
         {[1, 2, 3, 4].map((val) => (
           <ItemCard key={val} />
         ))}

@@ -5,7 +5,7 @@ import Link from "next/link";
 const menus = [
   {
     title: "Home",
-    link: "#",
+    link: "/",
     icon: "",
   },
 

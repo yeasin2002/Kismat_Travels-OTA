@@ -1,9 +1,7 @@
-"use client";
-
 import { FancySelect } from "$components";
-import { Button } from "shadcn/components/ui/button";
+import { useOneWay } from "$store";
+import { ChevronDown } from "lucide-react";
 import { Popover, PopoverContent, PopoverTrigger } from "shadcn/components/ui/popover";
-
 interface TravelerAndClassesProps {
   travelerAndClasses: {
     adults: string;
@@ -15,10 +13,23 @@ interface TravelerAndClassesProps {
 }
 
 export function TravelersAndClass({ onValueChange, travelerAndClasses }: TravelerAndClassesProps) {
+  const totalTravelers =
+    Number(travelerAndClasses.adults) + Number(travelerAndClasses.children) + Number(travelerAndClasses.infants);
+
+  console.log(typeof totalTravelers);
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <Button variant="outline">Open popover</Button>
+        <div className=" h-full w-full   rounded-md border border-gray-300/60 bg-white p-2 shadow-md">
+          <div className="flex gap-2">
+            <p className="mb-2 text-base font-semibold">Travelers & Class</p> <ChevronDown />
+          </div>
+          <div className="space-y-1">
+            <p>{totalTravelers} Travelers</p>
+            <p>{travelerAndClasses.travelClass}</p>
+          </div>
+          {/* Adult :12 Children : 4 Infant :5 Travel Class : Economy */}
+        </div>
       </PopoverTrigger>
       <PopoverContent className="w-fit" asChild>
         <div className="grid grid-cols-2 gap-x-4 gap-y-6 text-sm">
