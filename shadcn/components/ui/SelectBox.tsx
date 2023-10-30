@@ -1,29 +1,46 @@
-import * as React from "react"
+import * as React from "react";
 
 import {
-    Select,
-    SelectContent,
-    SelectGroup,
-    SelectItem,
-    SelectLabel,
-    SelectTrigger,
-    SelectValue,
-} from "shadcn/components/ui/select"
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "shadcn/components/ui/select";
 
-export function SelectBox() {
+
+
+interface SelectBoxProps {
+  label : string , 
+value : string,
+  selectBoxItem: {
+    title: string;
+    value: string;
+}[]
+
+}
+
+export function SelectBox({selectBoxItem =[] , label,value} : SelectBoxProps) {
+  const id = React.useId()
   return (
-    <Select>
-      <SelectTrigger className="w-full">
-        <SelectValue placeholder="Select a fruit" />
+    <Select key={id}>
+      <SelectTrigger className="min-w-full">
+        <SelectValue placeholder={value}   />
       </SelectTrigger>
-      <SelectContent>
+      <SelectContent  >
         <SelectGroup>
-          <SelectLabel>Fruits</SelectLabel>
-          <SelectItem value="apple">Apple</SelectItem>
-          <SelectItem value="banana">Banana</SelectItem>
-          <SelectItem value="blueberry">Blueberry</SelectItem>
-          <SelectItem value="grapes">Grapes</SelectItem>
-          <SelectItem value="pineapple">Pineapple</SelectItem>
+          <SelectLabel>{label}</SelectLabel>
+           {
+            selectBoxItem.map((item) => { 
+              return (
+                <SelectItem value={item.value}>{item.title}</SelectItem>
+              )
+             })
+          } 
+
+
         </SelectGroup>
       </SelectContent>
     </Select>
