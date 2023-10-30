@@ -1,5 +1,6 @@
 import hotelImg from "$assets/display/hotel.jpg";
 import Image from "next/image";
+import { Fragment } from "react";
 
 const info = [
   {
@@ -36,13 +37,13 @@ export function InfoDisplay() {
         <Image src={hotelImg} alt="hotels" className="rounded" />
         <div className="flex flex-col justify-between max-sm:gap-2">
           {info.map((val, index) => (
-            <>
+            <Fragment key={JSON.stringify(val)}>
               <div key={val.title + val.data}>
                 <p className="text-2xl font-bold text-slate-800">{val.data}</p>
                 <h4 className="text-base ">{val.title}</h4>
               </div>
               {info.length !== index + 1 && <hr />}
-            </>
+            </Fragment>
           ))}
         </div>
       </div>

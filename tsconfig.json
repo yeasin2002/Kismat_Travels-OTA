@@ -28,6 +28,8 @@
       "$icons": ["./src/icons"],
       "$icons/*": ["./src/icons/*"],
       "$assets/*": ["./src/assets/*"],
+      "$interface": ["./src/interface"],
+      "$interface/*": ["./src/interface/*"],
       "$/*": ["./src/*"],
       "$backend/*": ["./backend/*"]
     }

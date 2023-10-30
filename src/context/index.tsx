@@ -1,9 +1,12 @@
 "use client";
 
-import { useSmoothScroll } from "$hooks";
-import { Fragment, ReactNode } from "react";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-export function GlobalProvider({ children }: { children: ReactNode }) {
+import { useSmoothScroll } from "$hooks";
+
+const queryClient = new QueryClient();
+
+export function GlobalProvider({ children }: { children: React.ReactNode }) {
   useSmoothScroll();
-  return <Fragment>{children}</Fragment>;
+  return <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>;
 }

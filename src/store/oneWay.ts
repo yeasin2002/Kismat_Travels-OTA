@@ -1,3 +1,4 @@
+import { AirportData } from "$interface/airport.interface";
 import { create } from "zustand";
 import { combine } from "zustand/middleware";
 import { immer } from "zustand/middleware/immer";
@@ -7,8 +8,8 @@ export const useOneWay = create(
     combine(
       {
         tripType: "one-way" as string | undefined,
-        from: "",
-        to: "",
+        from: null as AirportData | null,
+        to: null as AirportData | null,
         departure: undefined as Date | undefined,
         back: undefined as Date | undefined,
         travelerAndClasses: { adults: "", children: "", infants: "", travelClass: "" },
@@ -21,12 +22,12 @@ export const useOneWay = create(
             store.tripType = value;
           });
         },
-        setFrom(value: string) {
+        setFrom(value: AirportData | null) {
           set((store) => {
             store.from = value;
           });
         },
-        setTo(value: string) {
+        setTo(value: AirportData | null) {
           set((store) => {
             store.to = value;
           });
