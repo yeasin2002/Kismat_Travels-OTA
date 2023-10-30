@@ -11,7 +11,7 @@ export function ComboBoxItem({ code, subtitle, title }: ComboBoxItemProps) {
         <p className="line-clamp-1 text-slate-950">{title}</p>
         <span className="line-clamp-1 text-slate-500">{subtitle}</span>
       </div>
-      <span className="w-min text-base font-medium uppercase text-slate-600/80">{code}</span>
+      <span className="w-min text-sm font-medium uppercase text-slate-600/80">{code}</span>
     </div>
   );
 }
