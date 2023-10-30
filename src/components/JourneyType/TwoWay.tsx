@@ -26,9 +26,9 @@ export function TwoWay() {
         setSearchValue={store.setSearchTo}
       />
 
-      <div className="flex flex-col items-center gap-y-2">
-        <DatePicker selected={store.departure} onSelect={store.setDeparture} placeholder="Select departure date" />
-        <DatePicker selected={store.back} onSelect={store.setBack} placeholder="Select return  date" />
+      <div className="flex h-full w-full flex-col justify-between gap-y-2">
+        <DatePicker selected={store.departure} onSelect={store.setDeparture} placeholder="Departure" />
+        <DatePicker selected={store.back} onSelect={store.setBack} placeholder="Return" />
       </div>
 
       <TravelersAndClass travelerAndClasses={store.travelerAndClasses} onValueChange={store.setTravelerAndClasses} />

@@ -1,6 +1,7 @@
 import { FancySelect } from "$components";
 import { parseNumber } from "$lib";
 import { ChevronDown } from "lucide-react";
+import { Button } from "shadcn/components/ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "shadcn/components/ui/popover";
 
 interface TravelerAndClassesProps {
@@ -22,7 +23,10 @@ export function TravelersAndClass({ onValueChange, travelerAndClasses }: Travele
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <div className="h-full w-full rounded-md border border-gray-300/60 bg-white p-2 px-4 text-gray-700 ">
+        <div
+          role="button"
+          className="h-full w-full rounded-md border border-gray-300/60 bg-white p-2 px-4 text-gray-700 "
+        >
           <div className="flex items-center gap-1 text-sm">
             <p>Travelers & Class</p> <ChevronDown strokeWidth={1} />
           </div>
