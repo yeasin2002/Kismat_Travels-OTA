@@ -6,10 +6,10 @@ export const tripType = create(
   immer(
     combine(
       {
-        tripType: "one-way" || "round-tripe" || "multi-city",
+        tripType: "one-way" as "one-way" | "round-tripe" | "multi-city",
       },
       (set, get) => ({
-        setTripType(value: string) {
+        setTripType(value: "one-way" | "round-tripe" | "multi-city") {
           set((store) => {
             store.tripType = value;
           });

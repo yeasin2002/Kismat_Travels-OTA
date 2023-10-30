@@ -1,3 +1,6 @@
-export * from "./oneWay";
+import { createTripStore } from "./createTripStore";
+
 export * from "./tripType";
-export * from "./twoWay";
+
+export const useOneWay = createTripStore("one-way");
+export const useTwoWay = createTripStore("round-tripe");
