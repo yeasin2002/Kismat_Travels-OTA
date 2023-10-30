@@ -5,7 +5,7 @@ import { Calendar as CalendarIcon } from "lucide-react";
 import * as React from "react";
 
 import { Button } from "shadcn/components/ui/button";
-import { Calendar, CalendarProps } from "shadcn/components/ui/calendar";
+import { Calendar } from "shadcn/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "shadcn/components/ui/popover";
 import { cn } from "shadcn/lib/utils";
 
@@ -14,14 +14,17 @@ interface DatePickerProps     {
   onSelect: (value: Date | undefined) => void;
   placeholder?: string;
   disabled?: boolean;
+  
 }
 
-export function DatePicker({ selected, onSelect, placeholder = "Pick a date" , disabled = false }: DatePickerProps) {
+export function DatePicker({ selected, onSelect, placeholder = "Pick a date" , disabled = false , }: DatePickerProps) {
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
     <Popover open={isOpen} onOpenChange={setIsOpen}>
-      <PopoverTrigger asChild>
+      <PopoverTrigger asChild
+      
+      >
         <Button
           variant={"outline"}
           className={cn("w-[280px] justify-start text-left font-normal", !selected && "text-muted-foreground")}
@@ -32,12 +35,14 @@ export function DatePicker({ selected, onSelect, placeholder = "Pick a date" , d
       </PopoverTrigger>
       <PopoverContent className="w-auto p-0">
         <Calendar
+        
          disabled= {disabled}
           mode="single"
           selected={selected}
           onSelect={(args) => {
             setIsOpen(false);
             onSelect(args);
+            
           }}
           initialFocus
         />

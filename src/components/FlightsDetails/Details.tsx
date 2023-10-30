@@ -1,17 +1,19 @@
-import React from "react";
+import airways from "$assets/temp/qatar-airways.jpg";
+import Image from "next/image";
 
 const Details = () => {
   return (
     <>
       <div className="w-full rounded-md border border-gray-300 p-2 ">
-        <p>New Delhi to Mumbai , 26 Oct</p>
+        <p className="px-2 py-4">New Delhi to Mumbai , 26 Oct</p>
         <hr />
-        <div>
-          <div className="my-6 flex  ">
-            <span className="mr-2 h-6 w-6 bg-teal-500"></span>
-            <p>SpiceJet SG </p>
-            <p className="mx-2">|</p>
-            <p>8709 </p>
+        <div className="p-2">
+          <div className="flex items-center space-x-2 ">
+            <Image src={airways} alt="Picture of the airways" className="h-10 w-10 rounded-sm" />
+            <span>
+              <p className="text-base font-semibold">Qatar Airways</p>
+              <p className="text-xs">QR-123</p>
+            </span>
           </div>
 
           <div className="grid grid-cols-1  gap-x-10 lg:grid-cols-2 ">

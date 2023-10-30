@@ -8,14 +8,14 @@ import { cn } from "shadcn/lib/utils";
 
 const options = [
   { value: "one-way", label: "One Way" },
-  { value: "round-trip", label: "Round Trip" },
+  { value: "round-tripe", label: "Round Trip" },
   { value: "multi-city", label: "Multi City" },
 ];
 
 export function TripType() {
   const id = useId();
   const { setTripType, tripType } = tripTypeValue();
-console.log(id);
+
   return (
     <RadioGroup value={tripType} onValueChange={setTripType} className="flex gap-2">
       {options.map(({ value, label }) => (

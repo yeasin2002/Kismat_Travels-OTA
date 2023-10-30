@@ -1,4 +1,4 @@
-import logoPng from "$assets/logo.png";
+import logoPng from "$assets/display/logo.png";
 import Image from "next/image";
 import Link from "next/link";
 import type { FunctionComponent, HTMLAttributes } from "react";

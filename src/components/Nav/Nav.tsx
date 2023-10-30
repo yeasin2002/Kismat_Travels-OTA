@@ -1,7 +1,8 @@
-import { AiOutlineMenu } from "react-icons/ai";
-
 import { Logo } from "$components/Global";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { AiOutlineMenu } from "react-icons/ai";
+import { twMerge } from "tailwind-merge";
 const menus = [
   {
     title: "Home",
@@ -22,18 +23,26 @@ const menus = [
 ];
 
 export function Nav() {
+  const currentPath = useRouter().asPath;
+
   return (
-    <nav className="border-1 border-slate-500 bg-transparent   ">
+    <nav className="border-1 border-slate-500 bg-slate-600   bg-transparent ">
       <div className="container flex items-center justify-between py-2">
         <Logo />
 
         <div className="max-md:hidden">
           <ul className="flex justify-between gap-x-4 text-base">
             {menus.map((value) => (
-              <li key={value.title}>
-                <Link href={value.link} className="rounded-md px-4 py-2 text-slate-100 hover:bg-gray-800/70 ">
+              <li key={value.title} className={`group flex flex-col transition-all `}>
+                <Link href={value.link} className="rounded-md  px-4 py-2 capitalize   text-slate-800 ">
                   {value.title}
                 </Link>
+                <span
+                  className={twMerge(
+                    `inline-block h-1 w-0 bg-teal-500 transition-all  duration-500 group-hover:w-full`,
+                    currentPath === value.link && "w-full"
+                  )}
+                ></span>
               </li>
             ))}
           </ul>

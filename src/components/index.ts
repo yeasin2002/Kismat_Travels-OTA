@@ -1,4 +1,3 @@
-export * from "./BookingForm/BookingForm";
 export * from "./Cards/CardWrapper";
 export * from "./Cards/DisplayCard";
 export * from "./Cards/ItemCard";
@@ -10,6 +9,7 @@ export * from "./Footer/Footer";
 export * from "./Form";
 export * from "./Form/FancySelect";
 export * from "./Hero/Hero";
+export * from "./Icons/Times";
 export * from "./InfoDisplay/InfoDisplay";
 export * from "./JourneyType/MultiCity";
 export * from "./JourneyType/OneWay";

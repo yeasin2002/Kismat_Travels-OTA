@@ -1,10 +1,10 @@
-import { BookingForm, Destination, Faq, Footer, Hero, InfoDisplay, Process, ShowCase } from "$components";
+import { Destination, Faq, Footer, Hero, InfoDisplay, Nav, Process, ShowCase } from "$components";
 
 export default function () {
   return (
     <main>
+      <Nav />
       <Hero />
-      <BookingForm />
       <Destination />
       <ShowCase />
       <Process />

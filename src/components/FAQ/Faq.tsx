@@ -1,6 +1,6 @@
 "use client";
 
-import FaqImage from "$assets/faq.jpg";
+import FaqImage from "$assets/display/faq.jpg";
 import Image from "next/image";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "shadcn/components/ui/accordion";
 

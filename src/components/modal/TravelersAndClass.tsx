@@ -16,11 +16,10 @@ export function TravelersAndClass({ onValueChange, travelerAndClasses }: Travele
   const totalTravelers =
     Number(travelerAndClasses.adults) + Number(travelerAndClasses.children) + Number(travelerAndClasses.infants);
 
-  console.log(typeof totalTravelers);
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <div className=" h-full w-full   rounded-md border border-gray-300/60 bg-white p-2 shadow-md">
+        <div className=" h-full w-full   rounded-md border border-gray-300/60 bg-white p-2 text-slate-700 shadow-md">
           <div className="flex gap-2">
             <p className="mb-2 text-base font-semibold">Travelers & Class</p> <ChevronDown />
           </div>

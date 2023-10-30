@@ -15,3 +15,11 @@ export default function App({ Component, pageProps }: AppProps) {
     </GlobalProvider>
   );
 }
+
+/* 
+const arr = [1,3,4,]
+  
+  now how to remove an element from this array that is provider by the user
+  for example user wants to remove 3 from this array
+  so how to remove it
+ */

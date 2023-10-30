@@ -1,4 +1,4 @@
-import hotelImg from "$assets/hotel.jpg";
+import hotelImg from "$assets/display/hotel.jpg";
 import Image from "next/image";
 
 const info = [
