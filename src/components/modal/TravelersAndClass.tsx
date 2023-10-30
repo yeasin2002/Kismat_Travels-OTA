@@ -1,7 +1,8 @@
 import { FancySelect } from "$components";
-import { useOneWay } from "$store";
+import { parseNumber } from "$lib";
 import { ChevronDown } from "lucide-react";
 import { Popover, PopoverContent, PopoverTrigger } from "shadcn/components/ui/popover";
+
 interface TravelerAndClassesProps {
   travelerAndClasses: {
     adults: string;
@@ -14,20 +15,21 @@ interface TravelerAndClassesProps {
 
 export function TravelersAndClass({ onValueChange, travelerAndClasses }: TravelerAndClassesProps) {
   const totalTravelers =
-    Number(travelerAndClasses.adults) + Number(travelerAndClasses.children) + Number(travelerAndClasses.infants);
+    parseNumber(travelerAndClasses.adults, 10) +
+    parseNumber(travelerAndClasses.children, 7) +
+    parseNumber(travelerAndClasses.infants, 7);
 
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <div className=" h-full w-full   rounded-md border border-gray-300/60 bg-white p-2 text-slate-700 shadow-md">
-          <div className="flex gap-2">
-            <p className="mb-2 text-base font-semibold">Travelers & Class</p> <ChevronDown />
+        <div className="h-full w-full rounded-md border border-gray-300/60 bg-white p-2 px-4 text-gray-700 ">
+          <div className="flex items-center gap-1 text-sm">
+            <p>Travelers & Class</p> <ChevronDown strokeWidth={1} />
           </div>
-          <div className="space-y-1">
-            <p>{totalTravelers} Travelers</p>
-            <p>{travelerAndClasses.travelClass}</p>
+          <div>
+            <p className="text-2xl font-bold text-slate-950/90">{totalTravelers} Travelers</p>
+            <p className="text-sm ">{travelerAndClasses.travelClass}</p>
           </div>
-          {/* Adult :12 Children : 4 Infant :5 Travel Class : Economy */}
         </div>
       </PopoverTrigger>
       <PopoverContent className="w-fit" asChild>

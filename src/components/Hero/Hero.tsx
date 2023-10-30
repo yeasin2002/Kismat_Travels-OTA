@@ -1,7 +1,7 @@
 import heroImg from "$assets/cover/hero-cover.jpg";
 import { Button, MultiCity, OneWay, TripType, TwoWay } from "$components";
 import { tripType } from "$store";
-import { SearchCheck } from "lucide-react";
+import { Search, SearchCheck } from "lucide-react";
 
 export const Hero = () => {
   const store = tripType();
@@ -21,9 +21,9 @@ export const Hero = () => {
             {store.tripType === "round-tripe" && <TwoWay />}
             {store.tripType === "multi-city" && <MultiCity />}
             <div className="absolute -bottom-6 mt-2 flex w-full items-center justify-center ">
-              <Button className="flex items-center justify-center gap-x-3 rounded-lg border border-transparent bg-brandBlue-100 px-8 py-2.5 text-sm text-white transition-colors duration-300 hover:bg-brandBlue-600 sm:text-base ">
-                <span>Search </span>
-                <SearchCheck className="text-xm text-white/90" />
+              <Button className="gap-2 rounded-full bg-[linear-gradient(93deg,rgb(83,178,254),rgb(6,90,243))] px-12 shadow-sm">
+                <Search className="text-white/90" size={18} strokeWidth={2.5} />
+                <span className="text-lg font-bold uppercase tracking-wide">Search</span>
               </Button>
             </div>
           </div>

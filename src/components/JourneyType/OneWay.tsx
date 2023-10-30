@@ -1,7 +1,6 @@
-import { Button, CardWrapper, ComboBoxItem, TravelersAndClass } from "$components";
+import { TravelersAndClass } from "$components";
 import { SelectAirport } from "$components/SelectAirport/SelectAirport";
 import { useOneWay } from "$store";
-import { SearchCheck } from "lucide-react";
 import { useId } from "react";
 import { DatePicker } from "shadcn/components/ui/date-picker";
 
@@ -31,11 +30,8 @@ export const OneWay = () => {
         <DatePicker selected={store.departure} onSelect={store.setDeparture} placeholder="Select departure date" />
         <DatePicker selected={store.back} onSelect={store.setBack} placeholder="Select return  date" />
       </div>
-      <div>
-        <TravelersAndClass travelerAndClasses={store.travelerAndClasses} onValueChange={store.setTravelerAndClasses} />
-      </div>
+
+      <TravelersAndClass travelerAndClasses={store.travelerAndClasses} onValueChange={store.setTravelerAndClasses} />
     </div>
   );
 };
-
-//
