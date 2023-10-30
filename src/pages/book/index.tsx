@@ -19,12 +19,12 @@ const Book: FC<BookProps> = ({ ...rest }) => {
           <div>
             <div className="    rounded-sm bg-gray-100">
               <div className="mx-3 my-5 py-5    shadow-lg">
-                <div className="flex justify-between">
+                <div className="flex flex-col justify-between space-y-10 sm:flex-row sm:items-center sm:space-y-0">
                   <div>
-                    <p> New Delhi → Mumbai</p>
-                    <div className="my-2 flex justify-between">
+                    <p className="text-2xl font-bold"> New Delhi → Mumbai</p>
+                    <div className="my-2  flex justify-between">
                       <p>
-                        <span className="mb-2 mr-3 flex items-center  justify-center gap-x-1 rounded-sm p-1 ">
+                        <span className="mb-2 mr-3 flex items-center  justify-center gap-x-1 rounded-sm p-1  font-semibold ">
                           <CalendarCheck2 size={18} />
                           Tuesday, 20 July 2021{" "}
                         </span>
@@ -34,34 +34,34 @@ const Book: FC<BookProps> = ({ ...rest }) => {
                   </div>
                   <div className="    rounded-sm bg-gray-100 ">
                     <div className="flex justify-between ">
-                      <p className="text-base font-semibold text-slate-600">Base Fare</p>
-                      <p className="text-base font-semibold text-slate-600">₹ 100</p>
+                      <p className="text-base font-medium text-slate-700">Base Fare</p>
+                      <p className="text-base font-medium text-slate-700">₹ 100</p>
                     </div>
 
                     <div className="mt-2 flex justify-between">
-                      <p className="text-base font-semibold text-slate-600">Taxes and Surcharges</p>
-                      <p className="text-base font-semibold text-slate-600">₹ 100</p>
+                      <p className="text-base font-medium text-slate-700">Taxes and Surcharges</p>
+                      <p className="text-base font-medium text-slate-700">₹ 100</p>
                     </div>
                     <div className="h-1 w-full rounded-lg bg-slate-700" />
                     <div className=" mt-4 flex justify-between">
-                      <p className="text-base font-semibold text-slate-600">Total Amount</p>
-                      <p className="text-base font-semibold text-slate-600">₹ 100</p>
+                      <p className="text-base font-medium text-slate-700">Total Amount</p>
+                      <p className="text-base font-medium text-slate-700">₹ 100</p>
                     </div>
                   </div>
                 </div>
 
-                <div className="mx-4   mt-10 space-y-8  rounded-lg bg-gray-200  p-6">
-                  <div className="  flex items-center gap-x-2">
+                <div className="mt-10   space-y-8 rounded-lg  bg-gray-200 p-2 sm:mx-4  sm:p-6">
+                  <div className="  flex items-center  gap-x-1  sm:gap-x-2  ">
                     <Image src={AirbusLogo} alt="Airbus Logo" className="h-10 w-10" />
                     <p className="font-semibold text-gray-600"> Qatar Airways</p>
                     <span className="rounded-full border border-gray-400 px-2 text-gray-400">Airbus A320</span>
                   </div>
 
                   <div className="space-y-4 ">
-                    <p className="flex items-center   gap-x-4">
+                    <p className="flex items-center  gap-x-2 sm:gap-x-4">
                       <PlaneTakeoff /> New Delhi, Indira Gandhi International Airport, Terminal T2
                     </p>
-                    <p className="flex items-center   gap-x-4">
+                    <p className="flex items-center   gap-x-2 sm:gap-x-4">
                       <PlaneLanding />
                       Mumbai . Chhatrapati Shivaji International Airport, Terminal T1
                     </p>
@@ -73,22 +73,22 @@ const Book: FC<BookProps> = ({ ...rest }) => {
         </div>
 
         <div id="travelerDetails" className="space-y-8 rounded-lg bg-gray-100 p-4 shadow-lg">
-          <h3 className="text-lg font-semibold">Booking Details be sent to</h3>
+          <h3 className="text-xl font-bold">Booking Details be sent to</h3>
           <div className="space-y-4  ">
-            <div className="flex  gap-x-2">
-              <div className="flex flex-col  justify-center gap-y-2">
+            <div className="flex  flex-wrap gap-x-2 sm:flex-nowrap">
+              <div className="flex w-full  flex-col justify-center gap-y-2">
                 <p>Country Code </p>
                 <SelectBox />
               </div>
 
-              <div className="flex flex-col  justify-center gap-y-2">
+              <div className="flex w-full  flex-col justify-center gap-y-2">
                 <label htmlFor="mobileNo" className="te mb-2 block text-sm font-medium text-gray-900">
                   Mobile Number
                 </label>
                 <input type="number" id="mobileNo" className="formInput " placeholder="01" />
               </div>
 
-              <div className="flex flex-col  justify-center gap-y-2">
+              <div className="flex w-full  flex-col justify-center gap-y-2">
                 <label htmlFor="address" className="te mb-2 block text-sm font-medium text-gray-900">
                   Mobile Number
                 </label>
@@ -105,7 +105,7 @@ const Book: FC<BookProps> = ({ ...rest }) => {
               */}
             </div>
             {isGstExist && (
-              <div className="flex  gap-x-2">
+              <div className="flex  flex-wrap gap-x-2 sm:flex-nowrap">
                 <div className="flex flex-col  justify-center gap-y-2">
                   <label htmlFor="mobileNo" className="te mb-2 block text-sm font-medium text-gray-900">
                     Company Name
@@ -129,23 +129,23 @@ const Book: FC<BookProps> = ({ ...rest }) => {
           </div>
         </div>
 
-        <div id="pinCodeAndState" className="mt-4 space-y-8 rounded-lg bg-gray-100 p-4 shadow-lg">
-          <h3 className="text-lg font-semibold">Booking Details be sent to</h3>
+        <div id="pinCodeAndState" className="mt-4 space-y-8 rounded-lg bg-gray-100 p-4 shadow-lg ">
+          <h3 className="text-lg font-semibold">Your Pin Code And State </h3>
           <div className="space-y-4  ">
-            <div className="flex  gap-x-2">
-              <div className="flex flex-col  justify-center gap-y-2">
+            <div className="flex  flex-wrap gap-x-2 sm:flex-nowrap">
+              <div className="flex w-full  flex-col justify-center gap-y-2">
                 <label htmlFor="pinCode" className="te mb-2 block text-sm font-medium text-gray-900">
                   Pin Code
                 </label>
                 <input type="text" id="pinCode" className="formInput " placeholder="your pin code" />
               </div>
 
-              <div className="flex flex-col  justify-center gap-y-2">
+              <div className="flex w-full  flex-col justify-center gap-y-2">
                 <p>State </p>
                 <SelectBox />
               </div>
 
-              <div className="flex flex-col  justify-center gap-y-2">
+              <div className="flex w-full  flex-col justify-center gap-y-2">
                 <label htmlFor="address" className="te mb-2 block text-sm font-medium text-gray-900">
                   Address
                 </label>
@@ -155,11 +155,11 @@ const Book: FC<BookProps> = ({ ...rest }) => {
 
             <div className="flex items-center gap-x-3">
               <Checkbox />
-              <p>I have a GST number (Optional)</p>
+              <p>Confirm and save billing details to your profile</p>
             </div>
           </div>
         </div>
-        <Button className="mt-4 px-8 bg-white text-slate-800">Continue</Button>
+        <Button className="mt-4 bg-white px-10 text-xl font-semibold text-slate-800">Continue</Button>
       </section>
     </div>
   );

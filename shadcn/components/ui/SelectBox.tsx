@@ -13,7 +13,7 @@ import {
 export function SelectBox() {
   return (
     <Select>
-      <SelectTrigger className="w-[180px]">
+      <SelectTrigger className="w-full">
         <SelectValue placeholder="Select a fruit" />
       </SelectTrigger>
       <SelectContent>
