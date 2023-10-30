@@ -7,6 +7,9 @@ export const searchState = create(
     combine(
       {
         appliedFilter: [] as string[],
+        price: 0 as number,
+        totalStops: 0 as number,
+        airlines: [] as string[],
       },
       (set, get) => ({
         setAppliedFilter(value: string) {

@@ -1,4 +1,4 @@
-import mountainImg from "$assets/mountain.jpg";
+import mountainImg from "$assets/display/mountain.jpg";
 import { Title } from "$components";
 import { AirplaneIcon, CalendarIcon, MapIcon, WorkIcon } from "$icons";
 import Image from "next/image";

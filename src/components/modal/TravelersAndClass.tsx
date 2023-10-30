@@ -16,7 +16,6 @@ export function TravelersAndClass({ onValueChange, travelerAndClasses }: Travele
   const totalTravelers =
     Number(travelerAndClasses.adults) + Number(travelerAndClasses.children) + Number(travelerAndClasses.infants);
 
-  console.log(typeof totalTravelers);
   return (
     <Popover>
       <PopoverTrigger asChild>

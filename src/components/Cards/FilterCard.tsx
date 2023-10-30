@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { RxCross2 } from "react-icons/rx";
 import { Checkbox } from "shadcn/components/ui/checkbox";
 import { Slider } from "shadcn/components/ui/slider";
- 
+
 const FilterCard = () => {
   const [isShowingMore, setIsShowingMore] = useState(false);
   const popularFilter = mockFlight.slice(0, !isShowingMore ? 5 : mockFlight.length - 1);

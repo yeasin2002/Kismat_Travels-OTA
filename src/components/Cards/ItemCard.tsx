@@ -1,6 +1,6 @@
 "use client";
 
-import venue from "$assets/venue.jpg";
+import venue from "$assets/display/venue.jpg";
 import Image from "next/image";
 import Link from "next/link";
 import { CiLocationOn } from "react-icons/ci";

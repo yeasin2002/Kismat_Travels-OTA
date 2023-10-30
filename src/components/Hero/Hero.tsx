@@ -1,31 +1,22 @@
-import heroImg from "$assets/Hero.jpeg";
-import { Nav } from "$components";
+import heroImg from "$assets/cover/hero-cover.jpg";
+import { MultiCity, OneWay, TripType, TwoWay } from "$components";
+import { tripType } from "$store";
 
 export const Hero = () => {
+  const store = tripType();
   return (
     <main
-      className="h-screen w-full bg-cover bg-no-repeat"
+      className="grid h-screen w-full place-items-center bg-cover bg-center bg-no-repeat"
       style={{
         backgroundImage: `url(${heroImg.src})`,
       }}
     >
-      <Nav />
-
-      <div className="text-gray-300s flex h-full  w-full   flex-col items-center justify-center gap-x-4 px-5">
-        <p className=" text-sm font-semibold   text-slate-200 sm:text-lg">DISCOVER YOU NEXT </p>
-        <h1
-          className="bg-gradient-to-r from-gray-100 to-gray-300
-          bg-clip-text text-4xl font-extrabold text-gray-50 text-transparent sm:text-7xl
-          lg:text-9xl 
-        "
-        >
-          ADVENTURE
-        </h1>
-        <p className="mx-auto mt-3 max-w-[70ch] text-center  text-base text-slate-200  [text-wrap:balance] sm:mt-1 sm:px-10  lg:text-lg ">
-          Experience the thrill of exploring the world's most fascinating destinations with our expertly curated travel
-          packages
-        </p>
-      </div>
+      <section className="space-y-4 rounded-md border border-slate-200 bg-white/80 px-4 py-8 shadow-sm backdrop-blur-lg ">
+        <TripType />
+        {store.tripType === "one-way" && <OneWay />}
+        {store.tripType === "round-tripe" && <TwoWay />}
+        {store.tripType === "multi-city" && <MultiCity />}
+      </section>
     </main>
   );
 };

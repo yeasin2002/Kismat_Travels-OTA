@@ -1,4 +1,3 @@
-export * from "./BookingForm/BookingForm";
 export * from "./Cards/CardWrapper";
 export * from "./Cards/DisplayCard";
 export * from "./Cards/ItemCard";
@@ -22,4 +21,3 @@ export * from "./TripType/TripType";
 export * from "./auth/LoginAndSingInWrapper";
 export * from "./modal/TravelersAndClass";
 export * from "./ui/Title";
-

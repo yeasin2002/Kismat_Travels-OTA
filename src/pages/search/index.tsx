@@ -22,8 +22,8 @@ export default function Search() {
         <div>
           <div className="mt-8 flex w-full">
             <FilterCard />
-            <div className="p-4 flex-1">
-              <FlightDetails  />
+            <div className="flex-1 p-4">
+              <FlightDetails />
             </div>
           </div>
         </div>

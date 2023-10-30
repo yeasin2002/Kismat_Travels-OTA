@@ -1,5 +1,5 @@
-import desertCamel from "$assets/desert-camel.jpeg";
-import desertHuman from "$assets/desert-human.jpg";
+import desertCamel from "$assets/display/desert-camel.jpeg";
+import desertHuman from "$assets/display/desert-human.jpg";
 import { DisplayCard } from "$components";
 
 export function ShowCase() {
