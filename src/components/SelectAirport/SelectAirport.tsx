@@ -36,7 +36,7 @@ export function SelectAirport({
       searchValue={searchValue}
       setSearchValue={setSearchValue}
       size={size}
-      notFoundMessage={notFoundMessage}
+      notFoundMessage={isLoading ? "Loading ..." : notFoundMessage}
     />
   );
 }
