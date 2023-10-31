@@ -28,7 +28,7 @@ interface ComboBoxHeadingProps {
 
 function ComboBoxHeading({ heading, title, subtitle }: ComboBoxHeadingProps) {
   return (
-    <div className="flex flex-col text-base font-normal text-gray-700 [&>*]:text-left">
+    <div className="flex flex-col text-base font-normal text-gray-700 [&>*]:text-left [&>*]:w-full overflow-hidden">
       <p className="mb-1 truncate text-sm">{heading}</p>
       <p className={cn("truncate text-2xl font-bold text-slate-950/90")}>{title || "Not selected"}</p>
       <p className={cn("-mt-1 truncate text-base", { "opacity-0": subtitle === undefined })}>
