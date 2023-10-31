@@ -132,6 +132,7 @@ const Book: FC<BookProps> = ({ ...rest }) => {
             //! Optional 
               */}
             </div>
+
             {isGstExist && (
               <div className="  !mt-10 flex flex-wrap gap-x-2 sm:flex-nowrap">
                 <div className="flex flex-col  justify-center ">
@@ -182,7 +183,7 @@ const Book: FC<BookProps> = ({ ...rest }) => {
             </div>
 
             <div className="flex items-center gap-x-3">
-              <Checkbox id="confirmBilling " />
+              <Checkbox id="confirmBilling" />
               <label htmlFor="confirmBilling" className="bookLabel">
                 Confirm and save billing details to your profile
               </label>
