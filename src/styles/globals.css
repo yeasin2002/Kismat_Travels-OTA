@@ -135,3 +135,22 @@
 .inter {
   font-family: "Inter", sans-serif;
 }
+
+/* --------// admin draft style //-------- */
+.Admin_Layout {
+  @apply relative flex h-screen w-full flex-row items-start;
+}
+.admin_main {
+  width: 100%;
+}
+
+.Admin_Layout aside {
+  position: relative;
+  top: 0px;
+  height: 100vh;
+}
+.Admin_Layout aside .con-aside {
+  position: fixed;
+  top: 0;
+  height: 100%;
+}
