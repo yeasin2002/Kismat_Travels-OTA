@@ -20,4 +20,8 @@ export * from "./ShowCase/ShowCase";
 export * from "./TripType/TripType";
 export * from "./auth/LoginAndSingInWrapper";
 export * from "./modal/TravelersAndClass";
+export * from "./profile/Account";
+export * from "./profile/ChangePassword";
+export * from "./profile/ShowTickets";
 export * from "./ui/Title";
+

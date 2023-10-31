@@ -97,7 +97,7 @@
     @apply flex flex-col items-center md:justify-between md:gap-x-20;
   }
   .profileHeading {
-    @apply mb-5 mt-10 text-xl font-bold text-gray-700
+    @apply mb-2 mt-7 text-xl font-bold text-gray-700
   }
   .stack {
     display: grid;
