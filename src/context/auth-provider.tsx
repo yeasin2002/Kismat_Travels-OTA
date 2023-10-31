@@ -1,36 +1,33 @@
-"use client";
-
 import { Prettify, User, UserCredential } from "$interface";
-import { POST, PUT, dispatchManualChange, onLocalStorageChange, parseLocal, removeLocal, setLocal } from "$lib";
+import { GET, POST, PUT, dispatchManualChange, onLocalStorageChange, parseLocal, removeLocal, setLocal } from "$lib";
 import { isString, validate } from "nested-object-validate";
-import type { FunctionComponent, ReactNode } from "react";
-import { createContext, useContext, useEffect, useState } from "react";
+import { FunctionComponent, ReactNode, createContext, useEffect, useState } from "react";
 
 interface CallBackFun<Res = any> {
   onError: (e: unknown) => void;
   onSuccess: (r?: Res) => void;
 }
 
-type AuthFun<TObject, Res = any> = (
-  values: TObject & Partial<CallBackFun<Res>>
-) => Promise<[Res, null] | [null, unknown]>;
+type AuthFunWrapper<AugmentType, ReturnType = any> = (
+  values: AugmentType & Partial<CallBackFun<ReturnType>>
+) => Promise<[ReturnType, null] | [null, unknown]>;
 
-type SingUpFun = AuthFun<UserCredential, User>;
-type SingInFun = AuthFun<Omit<UserCredential, "name">, User>;
-type singOutFun = AuthFun<{}, { success: true }>;
-type UpdateProfileFun = AuthFun<{ formData: FormData }, User>;
-type ChangePasswordFun = AuthFun<{ current: string; password: string }, { success: true }>;
+type SingUpFun = AuthFunWrapper<UserCredential, User>;
+type SingInFun = AuthFunWrapper<Omit<UserCredential, "name">, User>;
+type singOutFun = AuthFunWrapper<{}, { success: true }>;
+type ChangePasswordFun = AuthFunWrapper<{ current: string; password: string }, { success: true }>;
+type GoogleAuth = AuthFunWrapper<{}, User>;
 
 interface Value {
   singUp: SingUpFun;
   singIn: SingInFun;
   singOut: singOutFun;
   currentUser: User | null;
-  updateProfile: UpdateProfileFun;
   changePassword: ChangePasswordFun;
+  googleAuth: GoogleAuth;
 }
 
-const AuthContext = createContext<Value | null>(null);
+const AuthContext = createContext<Prettify<Value> | null>(null);
 
 interface AuthProviderProps {
   children: ReactNode;
@@ -129,10 +126,10 @@ const AuthProvider: FunctionComponent<AuthProviderProps> = ({ children }) => {
     });
   };
 
-  const updateProfile: UpdateProfileFun = async ({ onError = cb, onSuccess = cb, formData }) => {
+  const googleAuth: GoogleAuth = async ({ onError = cb, onSuccess = cb }) => {
     return new Promise(async (resolve) => {
       try {
-        const { data } = await POST<User>("auth/update-profile", formData);
+        const { data } = await GET<User>("auth/google");
         setCurrentUser(validateUser(data));
         setLocal(localStorageUserDataKey, validateUser(data)!);
         onSuccess(data);
@@ -150,8 +147,8 @@ const AuthProvider: FunctionComponent<AuthProviderProps> = ({ children }) => {
         singOut,
         singUp,
         singIn,
+        googleAuth,
         currentUser,
-        updateProfile,
         changePassword,
       }}
     >
