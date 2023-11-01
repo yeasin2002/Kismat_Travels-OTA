@@ -97,7 +97,7 @@
     @apply flex flex-col items-center md:justify-between md:gap-x-20;
   }
   .profileHeading {
-    @apply mb-2 mt-7 text-xl font-bold text-gray-700
+    @apply mb-2 mt-7 text-xl font-bold text-gray-700;
   }
   .ticketExtraDetailsTitle {
     @apply text-gray-500 text-base font-medium;
@@ -110,7 +110,6 @@
     display: grid;
     grid-template: "container";
   }
-  
 
   .stack > * {
     grid-area: container;
@@ -156,7 +155,9 @@
 }
 
 .Admin_Layout aside {
-  position: relative;
+  /* position: relative; */
+  background-color: #fff;
+  z-index: 4000;
   top: 0px;
   height: 100vh;
 }
