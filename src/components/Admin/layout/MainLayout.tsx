@@ -7,29 +7,23 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     // Admin_Layout style in global css file
     <div className="Admin_Layout">
-      <aside className={` ${sidebar ? "w-[240px]" : "w-[90px]"}  overflow-hidden  transition-all duration-200`}>
+      <aside
+        className={` ${
+          sidebar ? "min-w-[240px]" : "w-0 xl:w-[90px]"
+        } absolute overflow-hidden   bg-white  transition-all duration-200 md:mr-[6px] xl:relative `}
+      >
         <div
           className={` ${
-            sidebar ? "w-[200px]" : "w-[80px]"
+            sidebar ? "w-[240px]" : "w-0 xl:w-[90px]"
           } fixed h-screen overflow-hidden shadow-2xl transition-all duration-200`}
         >
-          <Aside state={sidebar} />
+          <Aside state={sidebar} setSidebar={SetSidebar} />
         </div>
       </aside>
       {/* main section layout  */}
-      <div className="admin_main">
-        <button
-          onClick={() => {
-            SetSidebar((e) => !e);
-          }}
-        >
-          test
-        </button>
-        {/* <header className="w-full"> */}
-        {/* <nav className="fixed top-0 "> */}
-        <NavBar />
-        {/* </nav> */}
-        {/* </header> */}
+      <div className="admin_main transition-all duration-200">
+        <div>notifications section</div>
+        <NavBar sidebarState={[sidebar, SetSidebar]} />
         <div>{children} </div>
       </div>
     </div>

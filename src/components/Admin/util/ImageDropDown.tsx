@@ -74,7 +74,7 @@ export function ImgDropDown({ config }: { config: IConfiguration }) {
           <AvatarFallback>{config?.imgOpt && config?.imgOpt[0] + config.imgOpt && config.imgOpt[1]}</AvatarFallback>
         </Avatar>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-56">
+      <DropdownMenuContent className="z-[900] w-56">
         <DropdownMenuLabel>{config.label}</DropdownMenuLabel>
 
         {flatArray(
