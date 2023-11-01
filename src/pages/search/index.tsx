@@ -20,9 +20,9 @@ export default function Search() {
           />
         </div>
         <div>
-          <div className="mt-8 flex w-full">
+          <div className="mt-8 flex w-full gap-x-4 ">
             <FilterCard />
-            <div className="flex-1 p-4">
+            <div className="flex-1 ">
               <FlightDetails />
             </div>
           </div>
