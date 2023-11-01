@@ -12,16 +12,16 @@ type AuthFunWrapper<AugmentType, ReturnType = any> = (
   values: AugmentType & Partial<CallBackFun<ReturnType>>
 ) => Promise<[ReturnType, null] | [null, unknown]>;
 
-type SingUpFun = AuthFunWrapper<UserCredential, User>;
-type SingInFun = AuthFunWrapper<Omit<UserCredential, "name">, User>;
-type singOutFun = AuthFunWrapper<{}, { success: true }>;
+type SignUpFun = AuthFunWrapper<UserCredential, User>;
+type SignInFun = AuthFunWrapper<Omit<UserCredential, "name">, User>;
+type signOutFun = AuthFunWrapper<{}, { success: true }>;
 type ChangePasswordFun = AuthFunWrapper<{ current: string; password: string }, { success: true }>;
 type GoogleAuth = AuthFunWrapper<{}, User>;
 
 interface Value {
-  singUp: SingUpFun;
-  singIn: SingInFun;
-  singOut: singOutFun;
+  signUp: SignUpFun;
+  signIn: SignInFun;
+  signOut: signOutFun;
   currentUser: User | null;
   changePassword: ChangePasswordFun;
   googleAuth: GoogleAuth;
@@ -68,7 +68,7 @@ const AuthProvider: FunctionComponent<AuthProviderProps> = ({ children }) => {
     };
   }, []);
 
-  const singOut: singOutFun = ({ onError = cb, onSuccess = cb }) => {
+  const signOut: signOutFun = ({ onError = cb, onSuccess = cb }) => {
     return new Promise(async (resolve) => {
       try {
         const { data } = await POST<{ success: true }>("auth/singout");
@@ -83,7 +83,7 @@ const AuthProvider: FunctionComponent<AuthProviderProps> = ({ children }) => {
     });
   };
 
-  const singUp: SingUpFun = async ({ onError = cb, onSuccess = cb, ...userCredential }) => {
+  const signUp: SignUpFun = async ({ onError = cb, onSuccess = cb, ...userCredential }) => {
     return new Promise(async (resolve) => {
       try {
         const { data } = await POST<User>("auth/singup", userCredential);
@@ -98,7 +98,7 @@ const AuthProvider: FunctionComponent<AuthProviderProps> = ({ children }) => {
     });
   };
 
-  const singIn: SingInFun = async ({ onError = cb, onSuccess = cb, ...userCredential }) => {
+  const signIn: SignInFun = async ({ onError = cb, onSuccess = cb, ...userCredential }) => {
     return new Promise(async (resolve) => {
       try {
         const { data } = await POST<User>("auth/singin", userCredential);
@@ -144,9 +144,9 @@ const AuthProvider: FunctionComponent<AuthProviderProps> = ({ children }) => {
   return (
     <AuthContext.Provider
       value={{
-        singOut,
-        singUp,
-        singIn,
+        signOut,
+        signUp,
+        signIn,
         googleAuth,
         currentUser,
         changePassword,
