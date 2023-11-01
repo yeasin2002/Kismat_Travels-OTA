@@ -33,16 +33,14 @@ export const Footer: FunctionComponent<FooterProps> = ({}) => {
           <div className="-mx-2 flex">
             {contactLInk.map((val) => {
               return (
-                <>
-                  <a
-                    key={val.title + val.link}
-                    href={val.link}
-                    className="mx-2 text-gray-600 transition-colors duration-300 hover:text-blue-500  "
-                    aria-label="Reddit"
-                  >
-                    {val.Icon}
-                  </a>
-                </>
+                <a
+                  key={val.title + val.link}
+                  href={val.link}
+                  className="mx-2 text-gray-600 transition-colors duration-300 hover:text-blue-500  "
+                  aria-label="Reddit"
+                >
+                  {val.Icon}
+                </a>
               );
             })}
           </div>

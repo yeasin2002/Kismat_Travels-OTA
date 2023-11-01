@@ -1,11 +1,12 @@
 "use client";
 import { Logo } from "$components/Global";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 interface LoginAndSingInWrapperProps {
   children: React.ReactNode;
+  coverImg?: StaticImageData;
 }
 
-export const LoginAndSingInWrapper = ({ children }: LoginAndSingInWrapperProps) => {
+export const LoginAndSingInWrapper = ({ children, coverImg }: LoginAndSingInWrapperProps) => {
   const randomImageFromUnsplash = "https://source.unsplash.com/random?aeroplane";
 
   return (
@@ -14,7 +15,7 @@ export const LoginAndSingInWrapper = ({ children }: LoginAndSingInWrapperProps) 
         <Image
           width={"1000"}
           height={"1000"}
-          src={randomImageFromUnsplash}
+          src={coverImg || randomImageFromUnsplash}
           alt="Cover"
           className="h-full w-full object-cover"
         />
