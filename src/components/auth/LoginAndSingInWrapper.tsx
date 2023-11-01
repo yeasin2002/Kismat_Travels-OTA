@@ -7,7 +7,7 @@ interface LoginAndSingInWrapperProps {
 }
 
 export const LoginAndSingInWrapper = ({ children, coverImg }: LoginAndSingInWrapperProps) => {
-  const randomImageFromUnsplash = "https://source.unsplash.com/random?aeroplane";
+  const randomImageFromUnsplash = "https://source.unsplash.com/random?airbus";
 
   return (
     <section className="grid h-screen grid-cols-1 px-10  md:grid-cols-2 md:px-0 ">

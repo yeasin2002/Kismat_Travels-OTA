@@ -8,13 +8,30 @@ export const searchState = create(
       {
         appliedFilter: [] as string[],
         price: 0 as number,
-        totalStops: 0 as number,
-        airlines: [] as string[],
+        typeOfStops: [] as number[],
       },
       (set, get) => ({
         setAppliedFilter(value: string) {
           set((store) => {
-            store.appliedFilter.push(value);
+            if (store.appliedFilter.includes(value)) {
+              store.appliedFilter = store.appliedFilter.filter((item) => item !== value);
+            } else {
+              store.appliedFilter.push(value);
+            }
+          });
+        },
+        setPrice(value: number) {
+          set((store) => {
+            store.price = value;
+          });
+        },
+        setTypeOfStops(value: number) {
+          set((store) => {
+            if (!store.typeOfStops.includes(value)) {
+              store.typeOfStops.push(value);
+            } else {
+              store.typeOfStops = store.typeOfStops.filter((item) => item !== value);
+            }
           });
         },
       })
