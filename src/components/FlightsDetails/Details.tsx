@@ -7,7 +7,7 @@ const Details = () => {
       <div className="w-full rounded-md border border-gray-300 p-2 ">
         <p className="px-2 py-4">New Delhi to Mumbai , 26 Oct</p>
         <hr />
-        <div className="p-2">
+        <div className="p-4">
           <div className="flex items-center space-x-2 ">
             <Image src={airways} alt="Picture of the airways" className="h-10 w-10 rounded-sm" />
             <span>
@@ -16,12 +16,12 @@ const Details = () => {
             </span>
           </div>
 
-          <div className="grid grid-cols-1  gap-x-10 lg:grid-cols-2 ">
+          <div className="space-y-4 ">
             <div>
-              <div className=" my-4 flex w-full flex-col  items-center  justify-between gap-x-2 space-y-6 lg:flex-row">
+              <div className=" my-4 flex w-full flex-col  items-center   justify-between gap-x-2 space-y-6 lg:flex-row">
                 <div>
-                  <div className="flat-center items-center  ">
-                    <p className="text-2xl font-bold text-gray-800">19:05</p>
+                  <div className="flat-center items-center   ">
+                    <p className="text-xl font-semibold text-gray-800">19:05</p>
                     <p className="text-sm font-bold text-gray-700">Thu, 26 Oct 23</p>
                   </div>
                   <div className="flat-center mt-3">
@@ -36,7 +36,7 @@ const Details = () => {
                 </div>
                 <div>
                   <div className="flat-center">
-                    <p className="text-2xl font-bold text-gray-800">19:05</p>
+                    <p className="text-xl font-semibold text-gray-800">19:05</p>
                     <p className="text-sm font-bold text-gray-700">Thu, 26 Oct 23</p>
                   </div>
                   <div className="flat-center mt-3">
@@ -46,18 +46,19 @@ const Details = () => {
                 </div>
               </div>
             </div>
-            <div className="mt-5 flex justify-around">
+
+            <div className="mt-5 flex justify-between">
               <div className="">
-                <p>BAGGAGE :</p>
-                <p>ADULT</p>
+                <p className="ticketExtraDetailsTitle">BAGGAGE :</p>
+                <p className="ticketExtraDetailsItem">ADULT</p>
               </div>
               <div className="">
-                <p>CHECK IN :</p>
-                <p>15 Kgs (1 piece only)</p>
+                <p className="ticketExtraDetailsTitle">CHECK IN :</p>
+                <p className="ticketExtraDetailsItem">15 Kgs (1 piece only)</p>
               </div>
               <div className="">
-                <p>CABIN :</p>
-                <p>7 Kgs (1 piece only)</p>
+                <p className="ticketExtraDetailsTitle">CABIN :</p>
+                <p className="ticketExtraDetailsItem">7 Kgs (1 piece only)</p>
               </div>
             </div>
           </div>
@@ -68,3 +69,4 @@ const Details = () => {
 };
 
 export default Details;
+

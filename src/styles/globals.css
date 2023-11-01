@@ -99,6 +99,13 @@
   .profileHeading {
     @apply mb-2 mt-7 text-xl font-bold text-gray-700;
   }
+  .ticketExtraDetailsTitle {
+    @apply text-gray-500 text-base font-medium;
+  }
+  
+  .ticketExtraDetailsItem {
+    @apply text-gray-400 text-sm font-normal;
+  }
   .stack {
     display: grid;
     grid-template: "container";

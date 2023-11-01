@@ -47,15 +47,18 @@ export const FlightSteps = [
     title: "Non Stop",
     availableSteps: 70,
     label: "Non Stop",
+    value: 0,
   },
   {
     title: "1 Stop",
     availableSteps: 80,
     label: "OneStop",
+    value: 1,
   },
   {
     title: "1+ Stop",
     availableSteps: 89,
     label: "OnePlusStop",
+    value: 2,
   },
 ];
