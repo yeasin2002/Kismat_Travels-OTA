@@ -2,7 +2,7 @@
 
 import { DetailedHTMLProps, InputHTMLAttributes, useId } from "react";
 import { FieldError, UseFormRegisterReturn } from "react-hook-form";
-import { twMerge } from "tailwind-merge";
+import { cn } from "shadcn/lib/utils";
 
 interface InputProps extends DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
   register: UseFormRegisterReturn;
@@ -28,16 +28,16 @@ export function Input({
       <label
         title={label.replace(/ \*$/, "")}
         htmlFor={id}
-        className={twMerge("line-clamp-1 text-base font-medium text-gray-800", classNameLabel)}
+        className={cn("line-clamp-1 text-base font-medium text-gray-800", classNameLabel)}
       >
         {label}
       </label>
       <input
         {...register}
         id={id}
-        className={twMerge(
-          "ring-brand-100 disabled:ring-brand-50 block h-10 w-full rounded border-none bg-gray-50 p-2.5 text-sm text-gray-900 outline-none  ring-1 focus:ring-2 focus:ring-blue-500/50 disabled:opacity-50",
-          error && "ring-red-500/50 focus:ring-red-500/50",
+        className={cn(
+          "ring-brand-100 disabled:ring-brand-50 block h-10 w-full rounded border-none bg-gray-50 p-2.5 text-sm text-gray-900 outline-none  ring-1 focus:ring-[3px] focus:ring-blue-500/50 disabled:opacity-50",
+          { "ring-red-500/50 focus:ring-red-500/50": Boolean(error) },
           className
         )}
         placeholder={placeholder}
