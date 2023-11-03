@@ -88,7 +88,10 @@
     @apply block  w-full rounded-lg border bg-white px-4 py-2  text-gray-700 focus:border-blue-400  focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40;
   }
   .bookLabel {
-    @apply mb-1 text-base font-medium text-gray-500;
+    @apply mb-2 text-base font-medium text-gray-500;
+  }
+  .bookInputContainer {
+    @apply grid md:grid-cols-3 gap-x-3  grid-cols-1 gap-y-4 ; 
   }
   .searchCardItem {
     @apply flex  flex-col md:justify-between md:gap-x-20;
