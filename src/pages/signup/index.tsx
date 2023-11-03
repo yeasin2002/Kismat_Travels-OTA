@@ -1,8 +1,10 @@
 import takeOff from "$assets/cover/takeOff.jpg";
 import { Input, LoginAndSingInWrapper } from "$components";
 import { useAuth } from "$hooks";
+import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 import { Button } from "shadcn/components/ui/button";
+import { useToast } from "shadcn/components/ui/use-toast";
 
 interface FormInputs {
   name: string;
@@ -11,8 +13,29 @@ interface FormInputs {
 }
 
 export default function Register() {
+  const router = useRouter();
   const { register, formState, handleSubmit } = useForm<FormInputs>();
+  const { toast } = useToast();
   const { signUp } = useAuth();
+
+  async function signin(formData: FormInputs) {
+    const [_, error] = await signUp(formData);
+
+    if (error) {
+      return toast({
+        variant: "destructive",
+        title: "Uh oh! Something went wrong.",
+        duration: 1000 * 5,
+      });
+    }
+
+    toast({
+      title: "Signup was successful. You're in!",
+      duration: 1000 * 5,
+    });
+
+    router.push(`/${router.query.callback || ""}`);
+  }
 
   return (
     <LoginAndSingInWrapper coverImg={takeOff}>
