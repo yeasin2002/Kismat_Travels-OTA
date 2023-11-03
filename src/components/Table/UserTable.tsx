@@ -49,6 +49,16 @@ const status_list: Filter_list[] = [
     value: "suspended",
   },
 ];
+const data: Payment[] = [
+  {
+    email: "nahid hasan",
+    id: "1",
+    name: "Nahid",
+    phone: "98234905803",
+    status: "approved",
+    total_booking: 12,
+  },
+];
 
 export type Payment = {
   id: string;
@@ -86,14 +96,7 @@ export const columns: ColumnDef<Payment>[] = [
   },
   {
     accessorKey: "email",
-    header: ({ column }) => {
-      return (
-        <Button variant="ghost" onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}>
-          Email
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
-      );
-    },
+    header: "Email",
     cell: ({ row }) => <div className="lowercase">{row.getValue("email")}</div>,
   },
   {
@@ -105,7 +108,7 @@ export const columns: ColumnDef<Payment>[] = [
     header: "Status",
     cell: ({ row }) => {
       return (
-        <p>
+        <p className="relative flex justify-start">
           {" "}
           {row.original.status === "approved" && "🟢"}
           {row.original.status === "blocked" && "🔴"}
@@ -117,14 +120,7 @@ export const columns: ColumnDef<Payment>[] = [
   },
   {
     accessorKey: "total_booking",
-    header: ({ column }) => {
-      return (
-        <Button variant="ghost" onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}>
-          Booking
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
-      );
-    },
+    header: "Booking",
     cell: ({ row }) => {
       return <p className="pl-10">{row.original.total_booking}</p>;
     },
@@ -158,24 +154,27 @@ export const columns: ColumnDef<Payment>[] = [
   },
 ];
 
-export default function TableManual<T>() {
+export default function UserTable<T>() {
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
   const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({});
   const [rowSelection, setRowSelection] = React.useState({});
+  console.log("🚀 ~ file: UserTable.tsx:166 ~ rowSelection:", rowSelection);
 
   const [pagination, setPagination] = React.useState({
     pageIndex: 0, // page index matlab = page number
     pageSize: 20, // page size matlab = limit
   });
+  console.log("🚀 ~ file: UserTable.tsx:171 ~ pagination:", pagination);
 
-  React.useEffect(() => {
-    console.log(pagination);
-  }, [pagination]);
+  // React.useEffect(() => {
+  //   console.log(pagination);
+  // }, [pagination]);
+
   const input_filter = "email";
   const table = useReactTable({
-    data: [],
-    columns: columns,
+    data,
+    columns,
     onSortingChange: setSorting,
     onColumnFiltersChange: setColumnFilters,
     getCoreRowModel: getCoreRowModel(),
@@ -190,7 +189,7 @@ export default function TableManual<T>() {
     pageCount: 20,
 
     autoResetPageIndex: true,
-    onPaginationChange: setPagination,
+    // onPaginationChange: setPagination,
     // state
     // initialState.pagination: true ,
 
@@ -202,54 +201,6 @@ export default function TableManual<T>() {
       pagination,
     },
   });
-
-  if (
-    table
-      .getAllColumns()
-      .map((column) => column.id)
-      .indexOf(input_filter || "") === -1 &&
-    input_filter
-  ) {
-    return (
-      <div className="text-red relative w-full">
-        <div className="mx-auto max-w-4xl">
-          <div className="border-l-8 border-red-900 bg-red-50">
-            <div className="flex items-center">
-              <div className="p-2">
-                <div className="flex items-center">
-                  <div className="ml-2">
-                    <svg
-                      className="mr-2 h-8 w-8 cursor-pointer text-red-900"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                  </div>
-                  <p className="px-6 py-4 text-lg font-semibold text-red-900">
-                    Please fix the following errors on Table
-                  </p>
-                </div>
-                <div className="mb-4 px-16">
-                  <li className="text-md text-sm font-bold text-red-500">{`⛔ Error : insert a input_filter index that don not exist on column`}</li>
-                  <li className="text-md text-sm font-bold text-red-500">
-                    Please Change <mark>input_filter</mark> value to any existing column name
-                  </li>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="w-full">
@@ -274,21 +225,6 @@ export default function TableManual<T>() {
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
-              {/* {table
-                .getAllColumns()
-                .filter((column) => column.getCanHide())
-                .map((column) => {
-                  return (
-                    <DropdownMenuCheckboxItem
-                      key={column.id}
-                      className="capitalize"
-                      checked={column.getIsVisible()}
-                      onCheckedChange={(value) => column.toggleVisibility(!!value)}
-                    >
-                      {column.id}
-                    </DropdownMenuCheckboxItem>
-                  );
-                })} */}
               {status_list.map((status, index) => {
                 return (
                   <DropdownMenuCheckboxItem

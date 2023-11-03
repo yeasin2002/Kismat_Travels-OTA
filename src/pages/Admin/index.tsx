@@ -1,296 +1,45 @@
 import React, { SVGProps } from "react";
-import Status from "$components/Admin/util/Status";
 import AdminLayout from "$components/Admin/layout/MainLayout";
-import Table from "$components/Table/TableManual";
-import BarChart from "$components/Admin/util/Charts/BarChart";
-import AriaChart from "$components/Admin/util/Charts/AriaChart";
-
-import { ArrowUpDown, ChevronDown, MoreHorizontal } from "lucide-react";
-
-import { Button } from "shadcn/components/ui/button";
-import { Checkbox } from "shadcn/components/ui/checkbox";
-import {
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "shadcn/components/ui/dropdown-menu";
-import { ColumnDef } from "@tanstack/react-table";
-
-const data: Payment[] = [
-  {
-    id: "1",
-    email: "nahidhasan1414@gmail.com",
-    phone: "01741013363",
-    name: "Sabbir islam",
-    total_booking: 10,
-    status: "approved",
-  },
-  {
-    id: "1",
-    email: "nahidhasan1414@gmail.com",
-    phone: "01741013363",
-    name: "Nahid Hasan",
-    total_booking: 1,
-    status: "blocked",
-  },
-  {
-    id: "1",
-    email: "nahidhasan1414@gmail.com",
-    phone: "01741013363",
-    name: "Imam",
-    total_booking: 5,
-    status: "suspended",
-  },
-  {
-    id: "1",
-    email: "nahidhasan1414@gmail.com",
-    phone: "01741013363",
-    name: "kawser",
-    total_booking: 5,
-    status: "suspended",
-  },
-  {
-    id: "1",
-    email: "nahidhasan1414@gmail.com",
-    phone: "01741013363",
-    name: "kawser",
-    total_booking: 5,
-    status: "suspended",
-  },
-  {
-    id: "1",
-    email: "nahidhasan1414@gmail.com",
-    phone: "01741013363",
-    name: "kawser",
-    total_booking: 5,
-    status: "suspended",
-  },
-  {
-    id: "1",
-    email: "nahidhasan1414@gmail.com",
-    phone: "01741013363",
-    name: "kawser",
-    total_booking: 5,
-    status: "suspended",
-  },
-  {
-    id: "1",
-    email: "nahidhasan1414@gmail.com",
-    phone: "01741013363",
-    name: "kawser",
-    total_booking: 5,
-    status: "suspended",
-  },
-  {
-    id: "1",
-    email: "nahidhasan1414@gmail.com",
-    phone: "01741013363",
-    name: "kawser",
-    total_booking: 5,
-    status: "suspended",
-  },
-  {
-    id: "1",
-    email: "nahidhasan1414@gmail.com",
-    phone: "01741013363",
-    name: "kawser",
-    total_booking: 5,
-    status: "suspended",
-  },
-  {
-    id: "1",
-    email: "nahidhasan1414@gmail.com",
-    phone: "01741013363",
-    name: "kawser",
-    total_booking: 5,
-    status: "suspended",
-  },
-  {
-    id: "1",
-    email: "nahidhasan1414@gmail.com",
-    phone: "01741013363",
-    name: "kawser",
-    total_booking: 5,
-    status: "suspended",
-  },
-  {
-    id: "1",
-    email: "nahidhasan1414@gmail.com",
-    phone: "01741013363",
-    name: "kawser",
-    total_booking: 5,
-    status: "suspended",
-  },
-  {
-    id: "1",
-    email: "nahidhasan1414@gmail.com",
-    phone: "01741013363",
-    name: "kawser",
-    total_booking: 5,
-    status: "suspended",
-  },
-  {
-    id: "1",
-    email: "nahidhasan1414@gmail.com",
-    phone: "01741013363",
-    name: "kawser",
-    total_booking: 5,
-    status: "suspended",
-  },
-  {
-    id: "1",
-    email: "nahidhasan1414@gmail.com",
-    phone: "01741013363",
-    name: "kawser",
-    total_booking: 5,
-    status: "suspended",
-  },
-  {
-    id: "1",
-    email: "nahidhasan1414@gmail.com",
-    phone: "01741013363",
-    name: "kawser",
-    total_booking: 5,
-    status: "suspended",
-  },
-  {
-    id: "1",
-    email: "nahidhasan1414@gmail.com",
-    phone: "01741013363",
-    name: "kawser",
-    total_booking: 5,
-    status: "suspended",
-  },
-];
-
-export type Payment = {
-  id: string;
-  name: string;
-  email: string;
-  phone: string;
-  total_booking: number;
-  status: "approved" | "blocked" | "suspended";
-};
-
-export const columns: ColumnDef<Payment>[] = [
-  {
-    id: "select",
-    header: ({ table }) => (
-      <Checkbox
-        checked={table.getIsAllPageRowsSelected()}
-        onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-        aria-label="Select all"
-      />
-    ),
-    cell: ({ row }) => (
-      <Checkbox
-        checked={row.getIsSelected()}
-        onCheckedChange={(value) => row.toggleSelected(!!value)}
-        aria-label="Select row"
-      />
-    ),
-    enableSorting: false,
-    enableHiding: false,
-  },
-  {
-    accessorKey: "name",
-    header: "Name",
-    cell: ({ row }) => <div className="capitalize">{row.getValue("name")}</div>,
-  },
-  {
-    accessorKey: "email",
-    // header: ({ column }) => {
-    //   return (
-    //     <Button variant="ghost" onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}>
-    //       Email
-    //       <ArrowUpDown className="ml-2 h-4 w-4" />
-    //     </Button>
-    //   );
-    // },
-    header: "Email",
-    cell: ({ row }) => <div className="lowercase">{row.getValue("email")}</div>,
-  },
-  {
-    accessorKey: "phone",
-    header: "Phone",
-  },
-  {
-    accessorKey: "status",
-    header: "Status",
-    cell: ({ row }) => {
-      return (
-        <p>
-          {" "}
-          {row.original.status === "approved" && "🟢"}
-          {row.original.status === "blocked" && "🔴"}
-          {row.original.status === "suspended" && "🟡"}
-          {row.original.status}
-        </p>
-      );
-    },
-  },
-  {
-    accessorKey: "total_booking",
-    header: ({ column }) => {
-      return (
-        <Button variant="ghost" onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}>
-          Booking
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
-      );
-    },
-    cell: ({ row }) => {
-      return <p className="pl-10">{row.original.total_booking}</p>;
-    },
-  },
-  {
-    id: "actions",
-    enableHiding: false,
-    cell: ({ row }) => {
-      const payment = row.original;
-
-      return (
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="h-8 w-8 p-0">
-              <span className="sr-only">Open menu</span>
-              <MoreHorizontal className="h-4 w-4" />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <DropdownMenuLabel>Actions</DropdownMenuLabel>
-            <DropdownMenuItem onClick={() => navigator.clipboard.writeText(payment.id)}>
-              Copy payment ID
-            </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>View customer</DropdownMenuItem>
-            <DropdownMenuItem>View payment details</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
-      );
-    },
-  },
-];
-
+import Status from "$components/Admin/util/Status";
+import BookingVsUserWeekBarChart from "$components/Admin/util/Charts/BookingVsUserWeekBarChart";
 const index = () => {
   return (
     <AdminLayout>
-      <div className="mx-auto max-w-[1200px] px-3 md:px-5">
-        {/* {Table<Payment>({ columns: columns, data: data, input_filter: "phone" })} */}
-        {/* <Table columns={columns} data={data} /> */}
+      <div className="flex flex-col justify-start p-2 md:flex-row md:justify-between">
+        <h1 className="flex items-center gap-3 text-xl md:text-2xl">
+          <span className="rounded-full bg-gray-100 p-2 shadow-inner md:p-3 ">
+            <Grid />
+          </span>{" "}
+          Dashboard
+        </h1>
       </div>
-      <div className="relative grid w-full grid-cols-4 gap-3">
-        <Status Title="HEllo" Data="$ 3000" Icon={IcBaselineAir} />
-        <Status Title="nahid" Data="$ 3000" Icon={IcBaselineAir} />
-        <Status Title="Hasan" Data="$ 3000" Icon={IcBaselineAir} />
+      {/* status  */}
+      <div className="relative p-3">
+        <div className="grid w-full grid-cols-2 gap-2 md:grid-cols-2 xl:grid-cols-4">
+          <Status Title="Book Today" Data="100" Icon={PajamasTaskDone} />
+          <Status Title="Income Today" Data="100" Icon={Money} />
+          <Status Title="New User" Data="100" Icon={Users} />
+          <Status Title="Search Today" Data="100" Icon={PhMagnifyingGlassDuotone} />
+        </div>
       </div>
-      <div className="grid grid-cols-2 gap-3 p-5">
-        <BarChart />
-        <AriaChart />
+      {/* data  */}
+      <div className="grid grid-cols-1 gap-2 px-3 md:grid-cols-2">
+        {/* booking vs user week barChart  */}
+        <div className="w-full rounded-md bg-slate-200 p-2 shadow-inner">
+          <h1 className="pb-3 text-center text-lg font-bold text-slate-700 md:text-2xl">
+            Booking & New User This Week
+          </h1>
+          <div>
+            <BookingVsUserWeekBarChart />
+          </div>
+        </div>
+        {/* booking vs user week barChart  */}
+        <div className="w-full rounded-md bg-slate-200 p-2 shadow-inner">
+          <h1 className="pb-3 text-center text-lg font-bold text-slate-700 md:text-2xl">Monthly Search</h1>
+          <div>
+            <BookingVsUserWeekBarChart />
+          </div>
+        </div>
       </div>
     </AdminLayout>
   );
@@ -298,13 +47,77 @@ const index = () => {
 
 export default index;
 
-export function IcBaselineAir(props: SVGProps<SVGSVGElement>) {
+export function Grid(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 14 14" {...props}>
+      <g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
+        <rect width="5" height="7" x="8.5" y="6.5" rx=".5"></rect>
+        <rect width="5" height="3.01" x="8.5" y=".5" rx=".5"></rect>
+        <rect width="5" height="7" x=".5" y=".5" rx=".5"></rect>
+        <rect width="5" height="3.01" x=".5" y="10.49" rx=".5"></rect>
+      </g>
+    </svg>
+  );
+}
+
+export function User(props: SVGProps<SVGSVGElement>) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" {...props}>
+      <g fill="none" stroke="currentColor" strokeWidth="1.5">
+        <circle cx="12" cy="6" r="4"></circle>
+        <path
+          strokeLinecap="round"
+          d="M19.997 18c.003-.164.003-.331.003-.5c0-2.485-3.582-4.5-8-4.5s-8 2.015-8 4.5S4 22 12 22c2.231 0 3.84-.157 5-.437"
+        ></path>
+      </g>
+    </svg>
+  );
+}
+export function Users(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" {...props}>
+      <g fill="none" stroke="currentColor" strokeWidth="1.5">
+        <circle cx="9" cy="6" r="4"></circle>
+        <path d="M12.5 4.341a3 3 0 1 1 0 3.318" opacity=".5"></path>
+        <ellipse cx="9" cy="17" rx="7" ry="4"></ellipse>
+        <path strokeLinecap="round" d="M18 14c1.754.385 3 1.359 3 2.5c0 1.03-1.014 1.923-2.5 2.37" opacity=".5"></path>
+      </g>
+    </svg>
+  );
+}
+
+export function PajamasTaskDone(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" {...props}>
       <path
         fill="currentColor"
-        d="M14.5 17c0 1.65-1.35 3-3 3s-3-1.35-3-3h2c0 .55.45 1 1 1s1-.45 1-1s-.45-1-1-1H2v-2h9.5c1.65 0 3 1.35 3 3zM19 6.5C19 4.57 17.43 3 15.5 3S12 4.57 12 6.5h2c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5S16.33 8 15.5 8H2v2h13.5c1.93 0 3.5-1.57 3.5-3.5zm-.5 4.5H2v2h16.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5v2c1.93 0 3.5-1.57 3.5-3.5S20.43 11 18.5 11z"
+        fillRule="evenodd"
+        d="M3 13.5a.5.5 0 0 1-.5-.5V3a.5.5 0 0 1 .5-.5h9.25a.75.75 0 0 0 0-1.5H3a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V9.75a.75.75 0 0 0-1.5 0V13a.5.5 0 0 1-.5.5H3Zm12.78-8.82a.75.75 0 0 0-1.06-1.06L9.162 9.177L7.289 7.241a.75.75 0 1 0-1.078 1.043l2.403 2.484a.75.75 0 0 0 1.07.01L15.78 4.68Z"
+        clipRule="evenodd"
       ></path>
+    </svg>
+  );
+}
+
+export function Money(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 14 14" {...props}>
+      <g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
+        <rect width="13" height="9" x=".5" y="2.5" rx="1"></rect>
+        <circle cx="7" cy="7" r="1.5"></circle>
+        <path d="M3 5h.5m7 4h.5"></path>
+      </g>
+    </svg>
+  );
+}
+
+export function PhMagnifyingGlassDuotone(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 256 256" {...props}>
+      <g fill="currentColor">
+        <path d="M192 112a80 80 0 1 1-80-80a80 80 0 0 1 80 80Z" opacity=".2"></path>
+        <path d="m229.66 218.34l-50.06-50.06a88.21 88.21 0 1 0-11.32 11.31l50.06 50.07a8 8 0 0 0 11.32-11.32ZM40 112a72 72 0 1 1 72 72a72.08 72.08 0 0 1-72-72Z"></path>
+      </g>
     </svg>
   );
 }
