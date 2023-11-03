@@ -1,6 +1,6 @@
 "use client";
 
-import { tripType as tripTypeValue, useOneWay } from "$store";
+import { useTripType as tripTypeValue } from "$store";
 import { useId } from "react";
 import { Label } from "shadcn/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "shadcn/components/ui/radio-group";

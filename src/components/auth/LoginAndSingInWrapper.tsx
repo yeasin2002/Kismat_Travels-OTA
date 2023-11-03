@@ -8,7 +8,7 @@ interface LoginAndSingInWrapperProps {
 }
 
 export const LoginAndSingInWrapper = ({ children, coverImg }: LoginAndSingInWrapperProps) => {
-  const randomImageFromUnsplash = "https://source.unsplash.com/random?aeroplane";
+  const randomImageFromUnsplash = "https://source.unsplash.com/random?airbus";
 
   useEffect(() => {
     document.documentElement.classList.remove("[scrollbar-gutter:_stable]");
