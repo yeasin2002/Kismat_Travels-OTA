@@ -1,3 +1,4 @@
+export * from "./auth";
 export * from "./event";
 export * from "./local-storage";
 export * from "./request";

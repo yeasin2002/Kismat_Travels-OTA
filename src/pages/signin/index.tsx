@@ -1,7 +1,9 @@
 import { Input, LoginAndSingInWrapper } from "$components";
 import { useAuth } from "$hooks";
+import { GET } from "$lib";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
 import { Button, buttonVariants } from "shadcn/components/ui/button";
@@ -13,14 +15,33 @@ interface FormInputs {
 }
 
 export default function Signin() {
-  const { query } = useRouter();
+  const router = useRouter();
   const { register, formState, handleSubmit } = useForm<FormInputs>();
   const { toast } = useToast();
-  const { signIn } = useAuth();
+  const { signIn, googleAuth } = useAuth();
 
   async function signin(formData: FormInputs) {
-    console.log(query);
-    const [data, error] = await signIn(formData);
+    const [_, error] = await signIn(formData);
+
+    if (error) {
+      return toast({
+        variant: "destructive",
+        title: "Incorrect email or password",
+        duration: 1000 * 5,
+      });
+    }
+
+    toast({
+      title: "Signin was successful. You're in!",
+      duration: 1000 * 5,
+    });
+
+    router.push(`/${router.query.callback || ""}`);
+  }
+
+  async function googleSignin(token: string) {
+    const [_, error] = await googleAuth({ token });
+
     if (error) {
       return toast({
         variant: "destructive",
@@ -33,7 +54,16 @@ export default function Signin() {
       title: "Signin was successful. You're in!",
       duration: 1000 * 5,
     });
+
+    router.push(`/`);
   }
+
+  useEffect(() => {
+    const token = router.query["redirect-id"];
+    if (typeof token === "string") {
+      googleSignin(token);
+    }
+  }, [router]);
 
   return (
     <LoginAndSingInWrapper>
@@ -60,22 +90,23 @@ export default function Signin() {
           <Button className="rounded py-4">Signin</Button>
         </form>
 
-        <div>
-          <Button className="w-full space-x-2 rounded py-4" variant="outline">
-            <span>Signin with google</span>
-            <FcGoogle className="text-base" />
-          </Button>
+        <a
+          href={process.env.NEXT_PUBLIC_BACKEND_BASE_URL?.replace(/\/$/, "") + "/auth/google"}
+          className={buttonVariants({ variant: "outline", className: "w-full space-x-2 rounded py-4" })}
+        >
+          <span>Signin with google</span>
+          <FcGoogle className="text-base" />
+        </a>
 
-          <p className="flex items-center justify-center text-sm">
-            Don't have account?
-            <Link
-              className={buttonVariants({ variant: "link", className: "py h-auto px-1 text-brandBlue-100" })}
-              href="/signup"
-            >
-              Signup
-            </Link>
-          </p>
-        </div>
+        <p className="flex items-center justify-center text-sm">
+          Don't have account?
+          <Link
+            className={buttonVariants({ variant: "link", className: "py h-auto px-1 text-brandBlue-100" })}
+            href="/signup"
+          >
+            Signup
+          </Link>
+        </p>
       </div>
     </LoginAndSingInWrapper>
   );

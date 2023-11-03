@@ -1,7 +1,7 @@
 import takeOff from "$assets/cover/takeOff.jpg";
 import { Input, LoginAndSingInWrapper } from "$components";
+import { useAuth } from "$hooks";
 import { useForm } from "react-hook-form";
-import { FcGoogle } from "react-icons/fc";
 import { Button } from "shadcn/components/ui/button";
 
 interface FormInputs {
@@ -12,6 +12,7 @@ interface FormInputs {
 
 export default function Register() {
   const { register, formState, handleSubmit } = useForm<FormInputs>();
+  const { signUp } = useAuth();
 
   return (
     <LoginAndSingInWrapper coverImg={takeOff}>
@@ -26,34 +27,32 @@ export default function Register() {
           <span className="w-1/5 border-b  lg:w-1/4"></span>
         </div>
 
-        <form className="flex flex-col gap-4" onSubmit={handleSubmit(console.log)}>
+        <form className="flex flex-col gap-4" onSubmit={handleSubmit(async (data) => await signUp(data))}>
           <Input
-            register={register("name", {
-              required: { value: true, message: "name is required!" },
-              minLength: { value: 20, message: "name must've 20 character long!" },
-            })}
             label="name"
             placeholder="Write your name... "
             error={formState.errors.name}
-          />
-          <Input
-            register={register("email", {
-              required: { value: true, message: "Email is required!" },
-              pattern: { value: /$a/g, message: "Email is not valid!" },
+            register={register("name", {
+              required: { value: true, message: "name is required!" },
             })}
-            label="Email"
-            placeholder="Write your email..."
-            error={formState.errors.email}
           />
 
           <Input
-            register={register("password", {
-              required: { value: true, message: "Password is required!" },
-              minLength: { value: 6, message: "Password must've 6 character long!" },
+            label="Email"
+            placeholder="Write your email..."
+            error={formState.errors.email}
+            register={register("email", {
+              required: { value: true, message: "Email is required!" },
             })}
+          />
+
+          <Input
             label="Password"
             placeholder="********"
             error={formState.errors.password}
+            register={register("password", {
+              required: { value: true, message: "Password is required!" },
+            })}
           />
 
           <Button>Register</Button>
