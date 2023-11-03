@@ -1,6 +1,7 @@
-import { Input } from "$components";
+import { Button, Input } from "$components";
 import { DetailedHTMLProps, FC, FormHTMLAttributes } from "react";
 import { useForm } from "react-hook-form";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "shadcn/components/ui/select";
 
 interface ContactDetailsProps extends DetailedHTMLProps<FormHTMLAttributes<HTMLFormElement>, HTMLFormElement> {}
 export interface FormInputs {
@@ -30,14 +31,38 @@ export interface FormInputs {
 export const PassengerDetails: FC<ContactDetailsProps> = ({ ...rest }) => {
   const { register, formState, handleSubmit } = useForm<FormInputs>();
   return (
-    <form {...rest} className="space-y-8 md:space-y-4">
+    <form {...rest} className="space-y-8 px-4 md:space-y-4">
+      <div className="!flex  w-full items-center  !justify-between">
+        <Select>
+          <SelectTrigger>
+            <SelectValue placeholder="Title" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="Mr">Mr</SelectItem>
+            <SelectItem value="Ms">Ms</SelectItem>
+            <SelectItem value="Mrs">Mrs</SelectItem>
+          </SelectContent>
+        </Select>
+
+        <Select>
+          <SelectTrigger>
+            <SelectValue placeholder="PaxType" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="Adult">Adult</SelectItem>
+            <SelectItem value="Child">Child</SelectItem>
+            <SelectItem value="Infant">Infant</SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
+
       <div className="bookInputContainer">
         <Input
           register={register("FirstName", {
             required: { value: true, message: "First Name is required!" },
             minLength: { value: 6, message: "First Name must've 6 character long!" },
           })}
-          label="FirstName"
+          label="First Name"
           placeholder="write your first name"
           error={formState.errors.FirstName}
         />
@@ -45,7 +70,7 @@ export const PassengerDetails: FC<ContactDetailsProps> = ({ ...rest }) => {
           register={register("MiddleName", {
             required: { value: true, message: "Middle Name is required!" },
           })}
-          label="MiddleName"
+          label="Middle Name"
           placeholder="example@gmail.com"
           error={formState.errors.MiddleName}
         />
@@ -54,7 +79,7 @@ export const PassengerDetails: FC<ContactDetailsProps> = ({ ...rest }) => {
           register={register("LastName", {
             required: { value: true, message: "Last Name is required!" },
           })}
-          label="LastName"
+          label="Last Name"
           placeholder="write your last name"
           error={formState.errors.LastName}
         />
@@ -65,7 +90,7 @@ export const PassengerDetails: FC<ContactDetailsProps> = ({ ...rest }) => {
           register={register("PassportNumber", {
             required: { value: true, message: "Passport Number is required!" },
           })}
-          label="PassportNumber"
+          label="Passport Number"
           placeholder="write your last Passport Number"
           error={formState.errors.PassportNumber}
         />
@@ -74,7 +99,7 @@ export const PassengerDetails: FC<ContactDetailsProps> = ({ ...rest }) => {
           register={register("PassportExpiryDate", {
             required: { value: true, message: "Passport Expiry Date is required!" },
           })}
-          label="PassportExpiryDate"
+          label="Passport ExpiryDate"
           placeholder="write your Passport Expiry Date"
           error={formState.errors.PassportExpiryDate}
         />
@@ -84,7 +109,7 @@ export const PassengerDetails: FC<ContactDetailsProps> = ({ ...rest }) => {
             required: { value: true, message: "Passport Nationality is required!" },
             minLength: { value: 6, message: "Passport Nationality must've 6 character long!" },
           })}
-          label="PassportNationality"
+          label="Passport Nationality"
           placeholder="write your last name"
           error={formState.errors.PassportNationality}
         />
@@ -113,7 +138,7 @@ export const PassengerDetails: FC<ContactDetailsProps> = ({ ...rest }) => {
             required: { value: true, message: "Country Code is required!" },
             maxLength: { value: 2, message: "Country Code should be maximum 2 Character" },
           })}
-          label="CountryCode"
+          label="Country Code"
           placeholder="write your Country Code"
           error={formState.errors.CountryCode}
         />
@@ -133,20 +158,20 @@ export const PassengerDetails: FC<ContactDetailsProps> = ({ ...rest }) => {
 
         <Input
           register={register("FFAirline", {})}
-          label="FFAirline"
+          label="FF Airline"
           placeholder="write your FFAirline"
           error={formState.errors.FFAirline}
         />
 
         <Input
           register={register("FFNumber")}
-          label="FFNumber"
+          label="FF Number"
           placeholder="write your FFNumber"
           error={formState.errors.FFNumber}
         />
       </div>
 
-      <div className="bookInputContainer">
+      <div className="bookInputContainer ">
         <Input
           register={register("Baggage")}
           label="Baggage"
@@ -159,6 +184,17 @@ export const PassengerDetails: FC<ContactDetailsProps> = ({ ...rest }) => {
           label="BaggageID"
           placeholder="write your Baggage ID"
           error={formState.errors.BaggageID}
+        />
+
+        <Input
+          register={register("DateOfBirth", {
+            required: { value: true, message: "Birth Date is required!" },
+            minLength: { value: 6, message: "Birth Date must've 6 character long!" },
+          })}
+          label="Birth Date"
+          placeholder="write your Birth Date"
+          error={formState.errors.DateOfBirth}
+          type="date"
         />
       </div>
     </form>

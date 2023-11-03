@@ -1,14 +1,12 @@
 import Image from "next/image";
-import { DetailedHTMLProps, FC, HTMLAttributes, useState } from "react";
+import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
-import { selectBoxItem } from "$/data";
 import AirbusLogo from "$assets/temp/qatar-airways.jpg";
-import { Nav } from "$components";
+import { Button, Nav } from "$components";
 import { PassengerDetails } from "$components/Book/PassengerDetails";
 import { CalendarCheck2, PlaneLanding, PlaneTakeoff } from "lucide-react";
-import { SelectBox } from "shadcn/components/ui/SelectBox";
-import { Checkbox } from "shadcn/components/ui/checkbox";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "shadcn/components/ui/accordion";
 
 type Inputs = {
   example: string;
@@ -25,6 +23,7 @@ const Book: FC<BookProps> = ({ ...rest }) => {
     formState: { errors },
   } = useForm<Inputs>();
   const formSubmitHandler: SubmitHandler<Inputs> = (data) => console.log(data);
+  const totalPassengers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] as const;
 
   return (
     <section {...rest}>
@@ -91,9 +90,23 @@ const Book: FC<BookProps> = ({ ...rest }) => {
 
         <div {...rest}>
           <div id="travelerDetails" className="space-y-8 rounded-lg bg-gray-100 p-4 shadow-lg lg:p-8">
-            <h3 className="text-xl font-bold text-gray-600">Passenger Details </h3>
+            <div className="flex justify-between">
+              <h3 className="text-xl font-bold text-gray-600">Passenger Details </h3>
+              <Button>Add Passenger</Button>
+            </div>
 
-            <PassengerDetails />
+            <Accordion type="single" collapsible>
+              {totalPassengers.map((item, ) => {
+                return (
+                  <AccordionItem value={`value-${item}`} key={item}>
+                    <AccordionTrigger> Passenger {item}</AccordionTrigger>
+                    <AccordionContent>
+                      <PassengerDetails />
+                    </AccordionContent>
+                  </AccordionItem>
+                );
+              })}
+            </Accordion>
           </div>
         </div>
         <button className="mt-4 rounded-full bg-white px-10 py-2 text-xl font-semibold text-slate-800">Continue</button>
