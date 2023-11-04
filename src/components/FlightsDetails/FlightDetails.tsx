@@ -17,7 +17,7 @@ interface FlightDetailsProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivEle
 export function FlightDetails({ ...rest }: FlightDetailsProps) {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div {...rest} className="rounded-md bg-white p-2 text-slate-700">
+    <div {...rest} className="mb-12 rounded-md bg-white p-2 text-slate-700">
       <div className="flex  items-center  justify-between py-4">
         <div className="flex flex-1  items-center  justify-around ">
           <div className="flex items-center space-x-2 ">
