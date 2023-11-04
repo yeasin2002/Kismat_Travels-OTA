@@ -35,7 +35,7 @@ const Aside = ({
               className={`w-full ${state ? "justify-start" : "justify-center"}`}
               asChild
             >
-              <Link href={`/Admin/${route.path}`}>
+              <Link href={`/Admin/dashboard/${route.path}`}>
                 {" "}
                 {route.Icon} {state && route.label}
               </Link>
