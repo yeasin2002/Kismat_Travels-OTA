@@ -1,40 +1,75 @@
 import { AirportData } from "$interface/airport.interface";
+import { uuid } from "$lib";
 import { create } from "zustand";
 import { combine } from "zustand/middleware";
 import { immer } from "zustand/middleware/immer";
+
+interface City {
+  id: string;
+  from: AirportData | null;
+  to: AirportData | null;
+  departure: Date | undefined;
+  back: Date | undefined;
+  searchFrom: string;
+  searchTo: string;
+}
 
 export const useMultiCity = create(
   immer(
     combine(
       {
-        tripType: "MultiCity",
-        from: null as AirportData | null,
-        to: null as AirportData | null,
-        departure: undefined as Date | undefined,
-        back: undefined as Date | undefined,
-        travelerAndClasses: { adults: "", children: "", infants: "", travelClass: "" },
-        searchFrom: "",
-        searchTo: "",
+        cities: [] as City[],
+        tripType: "multi-city",
+        travelerAndClasses: {
+          adults: "",
+          children: "",
+          infants: "",
+          travelClass: "",
+        },
       },
       (set, get) => ({
-        setFrom(value: AirportData | null) {
+        add() {
           set((store) => {
-            store.from = value;
+            store.cities.push({
+              id: uuid(),
+              from: null,
+              to: null,
+              departure: undefined,
+              back: undefined,
+              searchFrom: "",
+              searchTo: "",
+            });
           });
         },
-        setTo(value: AirportData | null) {
+
+        remove(id: string) {
           set((store) => {
-            store.to = value;
+            store.cities = store.cities.filter((city) => city.id !== id);
           });
         },
-        setDeparture(value: undefined | Date) {
+
+        setFrom(id: string, value: AirportData | null) {
           set((store) => {
-            store.departure = value;
+            const index = store.cities.findIndex((city) => city.id === id);
+            if (index !== -1) store.cities[index].from = value;
           });
         },
-        setBack(value: undefined | Date) {
+        setTo(id: string, value: AirportData | null) {
           set((store) => {
-            store.back = value;
+            const index = store.cities.findIndex((city) => city.id === id);
+            if (index !== -1) store.cities[index].to = value;
+          });
+        },
+        setDeparture(id: string, value: undefined | Date) {
+          set((store) => {
+            const index = store.cities.findIndex((city) => city.id === id);
+            if (index !== -1) store.cities[index].departure = value;
+          });
+        },
+        setBack(id: string, value: undefined | Date) {
+          set((store) => {
+            const index = store.cities.findIndex((city) => city.id === id);
+            if (index !== -1) store.cities[index].back = value;
           });
         },
         setAdults(value: string) {
@@ -57,14 +92,16 @@ export const useMultiCity = create(
             store.travelerAndClasses.travelClass = value;
           });
         },
-        setSearchFrom(value: string) {
+        setSearchFrom(id: string, value: string) {
           set((store) => {
-            store.searchFrom = value;
+            const index = store.cities.findIndex((city) => city.id === id);
+            if (index !== -1) store.cities[index].searchFrom = value;
           });
         },
-        setSearchTo(value: string) {
+        setSearchTo(id: string, value: string) {
           set((store) => {
-            store.searchTo = value;
+            const index = store.cities.findIndex((city) => city.id === id);
+            if (index !== -1) store.cities[index].searchTo = value;
           });
         },
         setTravelerAndClasses(value: Partial<ReturnType<typeof get>["travelerAndClasses"]>) {

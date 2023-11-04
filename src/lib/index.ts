@@ -3,6 +3,7 @@ export * from "./event";
 export * from "./local-storage";
 export * from "./regex";
 export * from "./request";
+export * from "./uuid";
 
 export function parseNumber(value: any, fallback = 0) {
   if (value === "") return 0;
