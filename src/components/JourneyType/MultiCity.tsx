@@ -8,7 +8,7 @@ export function MultiCity() {
   const store = useMultiCity();
 
   return (
-    <div className="space-y-5">
+    <div className="flex flex-col gap-y-4">
       {store.cities.map((city, index) => (
         <div className="grid grid-cols-4 items-center gap-4" key={city.id}>
           <SelectAirport
@@ -43,9 +43,11 @@ export function MultiCity() {
 
           {store.cities.length === index + 1 && (
             <div className="flex h-full w-full items-center justify-evenly rounded-md bg-white">
-              <Button className="bg-blue-500 text-white  hover:bg-blue-400" onClick={() => store.add()}>
-                add <Plus className="text-white" size={15} strokeWidth={2.5} />
-              </Button>
+              {index < 4 && (
+                <Button className="bg-blue-500 text-white  hover:bg-blue-400" onClick={() => store.add()}>
+                  add <Plus className="text-white" size={15} strokeWidth={2.5} />
+                </Button>
+              )}
 
               {index > 1 && (
                 <Button variant="destructive" onClick={() => store.remove(city.id)}>
