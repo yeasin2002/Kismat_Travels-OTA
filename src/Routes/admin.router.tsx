@@ -23,8 +23,8 @@ const Router: IRoute[] = [
     Icon: <EosIconsAdminOutlined className="mx-3 my-2 text-lg" />,
   },
   {
-    path: "paymentsetup",
-    label: "Payment Setup",
+    path: "payment",
+    label: "Payment",
     Icon: <FluentPayment32Regular className="mx-3 my-2 text-lg" />,
   },
 ];

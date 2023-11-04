@@ -46,7 +46,7 @@ export const data = {
     },
   ],
 };
-
+// TODO: error in console => Cannot convert object to primitive value
 function BookingVsUserWeekBarChart() {
   return <Bar options={options} data={data} />;
 }

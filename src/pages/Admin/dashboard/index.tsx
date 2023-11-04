@@ -47,6 +47,14 @@ const index = () => {
 
 export default index;
 
+// // This gets called on every request
+// export async function getServerSideProps() {
+//   // Pass data to the page via props
+//   return { props: { User: "data" } };
+// }
+
+// icons
+
 export function Grid(props: SVGProps<SVGSVGElement>) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 14 14" {...props}>
