@@ -1,0 +1,13 @@
+{
+  "BookingID": "FHB23101659191",
+  "Results": null,
+  "Passengers": null,
+  "BookingStatus": "InProcess",
+  "Error": {
+    "ErrorCode": 4,
+    "ErrorMessage": "You can't ticket this booking in this status InProcess"
+  },
+  "IsPriceChanged": false,
+  "AppliedPromotion": null,
+  "Message": null
+}

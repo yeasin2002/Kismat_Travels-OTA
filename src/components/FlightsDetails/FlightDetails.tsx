@@ -13,13 +13,18 @@ import DateChange from "./DateChange";
 import Details from "./Details";
 import FareSummary from "./FareSummary";
 
-interface FlightDetailsProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
+interface FlightDetailsProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+
+  
+}
+
+
 export function FlightDetails({ ...rest }: FlightDetailsProps) {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div {...rest} className="mb-12 rounded-md bg-white p-2 text-slate-700">
-      <div className="flex  items-center  justify-between py-4">
-        <div className="flex flex-1  items-center  justify-around ">
+      <div className="flex  flex-col  items-center justify-between gap-y-10 py-4  md:flex-row md:gap-y-0">
+        <div className="flex flex-1  flex-col  items-center  justify-around gap-y-6 md:flex-row md:gap-y-0">
           <div className="flex items-center space-x-2 ">
             <Image src={airways} alt="Picture of the airways" className="h-10 w-10 rounded-sm" />
             <span>
