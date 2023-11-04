@@ -1,0 +1,48 @@
+{
+  "FlightDetails": {
+    "segments": [
+      {
+        "TripIndicator": "OutBound",
+        "Origin": {
+          "Airport": {
+            "AirportCode": "DAC",
+            "AirportName": "Hazrat Shahjalal International Airport",
+            "Terminal": null,
+            "CityCode": "DAC",
+            "CityName": "Dhaka",
+            "CountryCode": "BD",
+            "CountryName": "Bangladesh"
+          },
+          "DepTime": "2023-10-17T07:45:00"
+        },
+        "Destination": {
+          "Airport": {
+            "AirportCode": "CGP",
+            "AirportName": "Shah Amanat International Airport",
+            "Terminal": null,
+            "CityCode": "CGP",
+            "CityName": "Chittagong",
+            "CountryCode": "BD",
+            "CountryName": "Bangladesh"
+          },
+          "ArrTime": "2023-10-17T08:45:00"
+        },
+        "Airline": {
+          "AirlineCode": "BG",
+          "AirlineName": "Biman Bangladesh Airlines",
+          "FlightNumber": "611",
+          "BookingClass": "G",
+          "CabinClass": "Y",
+          "OperatingCarrier": "BG"
+        },
+        "Baggage": "ADT-20kg",
+        "JourneyDuration": "60",
+        "StopQuantity": "0",
+        "Equipment": "DH8",
+        "baggageDetails": null,
+        "SegmentGroup": 0
+      }
+    ]
+  },
+  "Error": null
+}
