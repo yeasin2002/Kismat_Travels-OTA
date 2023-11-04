@@ -1,0 +1,299 @@
+[
+  {
+    "ResultID": "e80ee235-3a31-4435-a308-4bc8cdd50ec7",
+    "IsRefundable": true,
+    "Fares": [
+      {
+        "BaseFare": 14697.67,
+        "Tax": 2068.2,
+        "Currency": "BDT",
+        "OtherCharges": 716.85,
+        "Discount": 0.0,
+        "PaxType": 1,
+        "PassengerCount": 1,
+        "ServiceFee": 0.0
+      },
+      {
+        "BaseFare": 14697.67,
+        "Tax": 2068.2,
+        "Currency": "BDT",
+        "OtherCharges": 716.85,
+        "Discount": 0.0,
+        "PaxType": 1,
+        "PassengerCount": 1,
+        "ServiceFee": 0.0
+      }
+    ],
+    "Discount": 0.0,
+    "Validatingcarrier": "G8",
+    "LastTicketDate": null,
+    "segments": [
+      {
+        "TripIndicator": 1,
+        "Origin": {
+          "Airport": {
+            "AirportCode": "DEL",
+            "AirportName": "Indira Gandhi Intl",
+            "Terminal": "2",
+            "CityCode": "DEL",
+            "CityName": "New Delhi",
+            "CountryCode": "IN",
+            "CountryName": "India"
+          },
+          "DepTime": "2018-12-04T20:55:00"
+        },
+        "Destination": {
+          "Airport": {
+            "AirportCode": "CCU",
+            "AirportName": "Netaji Subhas Chandra",
+            "Terminal": "",
+            "CityCode": "CCU",
+            "CityName": "Kolkata",
+            "CountryCode": "IN",
+            "CountryName": "India"
+          },
+          "ArrTime": "2018-12-04T23:00:00"
+        },
+        "Airline": {
+          "AirlineCode": "G8",
+          "AirlineName": "GoAir",
+          "FlightNumber": "105",
+          "BookingClass": "A",
+          "CabinClass": "Y",
+          "OperatingCarrier": "G8"
+        },
+        "Baggage": "15 Kg",
+        "JourneyDuration": "125",
+        "StopQuantity": "0"
+      }
+    ],
+    "TotalFare": 12950.0,
+    "Currency": "INR",
+    "Availabilty": 0
+  },
+
+  {
+    "ResultID": "3fc1e82b-652d-4e22-a687-754c0178973d",
+    "IsRefundable": true,
+    "Fares": [
+      {
+        "BaseFare": 14697.67,
+        "Tax": 2068.2,
+        "Currency": "BDT",
+        "OtherCharges": 716.85,
+        "Discount": 0.0,
+        "PaxType": 1,
+        "PassengerCount": 1,
+        "ServiceFee": 0.0
+      }
+    ],
+    "Discount": 0.0,
+    "Validatingcarrier": "G8",
+    "LastTicketDate": null,
+    "segments": [
+      {
+        "TripIndicator": 1,
+        "Origin": {
+          "Airport": {
+            "AirportCode": "DEL",
+            "AirportName": "Indira Gandhi Intl",
+            "Terminal": "2",
+            "CityCode": "DEL",
+            "CityName": "New Delhi",
+            "CountryCode": "IN",
+            "CountryName": "India"
+          },
+          "DepTime": "2018-12-04T10:25:00"
+        },
+        "Destination": {
+          "Airport": {
+            "AirportCode": "PAT",
+            "AirportName": "Patna",
+            "Terminal": "",
+            "CityCode": "PAT",
+            "CityName": "Patna",
+            "CountryCode": "IN",
+            "CountryName": "India"
+          },
+          "ArrTime": "2018-12-04T12:10:00"
+        },
+        "Airline": {
+          "AirlineCode": "G8",
+          "AirlineName": "GoAir",
+          "FlightNumber": "140",
+          "BookingClass": "A",
+          "CabinClass": "Y",
+          "OperatingCarrier": "G8"
+        },
+        "Baggage": "15 Kg",
+        "JourneyDuration": "105",
+        "StopQuantity": "0"
+      },
+      {
+        "TripIndicator": 1,
+        "Origin": {
+          "Airport": {
+            "AirportCode": "PAT",
+            "AirportName": "Patna",
+            "Terminal": "",
+            "CityCode": "PAT",
+            "CityName": "Patna",
+            "CountryCode": "IN",
+            "CountryName": "India"
+          },
+          "DepTime": "2018-12-04T15:25:00"
+        },
+        "Destination": {
+          "Airport": {
+            "AirportCode": "CCU",
+            "AirportName": "Netaji Subhas Chandra",
+            "Terminal": "",
+            "CityCode": "CCU",
+            "CityName": "Kolkata",
+            "CountryCode": "IN",
+            "CountryName": "India"
+          },
+          "ArrTime": "2018-12-04T16:50:00"
+        },
+        "Airline": {
+          "AirlineCode": "G8",
+          "AirlineName": "GoAir",
+          "FlightNumber": "506",
+          "BookingClass": "A",
+          "CabinClass": "Y",
+          "OperatingCarrier": "G8"
+        },
+        "Baggage": "15 Kg",
+        "JourneyDuration": "85",
+        "StopQuantity": "0"
+      }
+    ],
+    "TotalFare": 12950.0,
+    "Currency": "INR",
+    "Availabilty": 0
+  },
+  {
+    "ResultID": "dee90117-6a81-4c6a-9b50-9e0ca34e69fb",
+    "IsRefundable": true,
+    "Fares": [
+      {
+        "BaseFare": 14697.67,
+        "Tax": 2068.2,
+        "Currency": "BDT",
+        "OtherCharges": 716.85,
+        "Discount": 0.0,
+        "PaxType": 1,
+        "PassengerCount": 1,
+        "ServiceFee": 0.0
+      }
+    ],
+    "Discount": 0.0,
+    "Validatingcarrier": "G8",
+    "LastTicketDate": null,
+    "segments": [
+      {
+        "TripIndicator": 1,
+        "Origin": {
+          "Airport": {
+            "AirportCode": "DEL",
+            "AirportName": "Indira Gandhi Intl",
+            "Terminal": "2",
+            "CityCode": "DEL",
+            "CityName": "New Delhi",
+            "CountryCode": "IN",
+            "CountryName": "India"
+          },
+          "DepTime": "2018-12-04T05:55:00"
+        },
+        "Destination": {
+          "Airport": {
+            "AirportCode": "CCU",
+            "AirportName": "Netaji Subhas Chandra",
+            "Terminal": "",
+            "CityCode": "CCU",
+            "CityName": "Kolkata",
+            "CountryCode": "IN",
+            "CountryName": "India"
+          },
+          "ArrTime": "2018-12-04T08:00:00"
+        },
+        "Airline": {
+          "AirlineCode": "G8",
+          "AirlineName": "GoAir",
+          "FlightNumber": "101",
+          "BookingClass": "A",
+          "CabinClass": "Y",
+          "OperatingCarrier": "G8"
+        },
+        "Baggage": "15 Kg",
+        "JourneyDuration": "125",
+        "StopQuantity": "0"
+      }
+    ],
+    "TotalFare": 12950.0,
+    "Currency": "INR",
+    "Availabilty": 0
+  },
+  {
+    "ResultID": "fc161a07-360e-46c5-9499-e5b40bfe00fb",
+    "IsRefundable": true,
+    "Fares": [
+      {
+        "BaseFare": 14697.67,
+        "Tax": 2068.2,
+        "Currency": "BDT",
+        "OtherCharges": 716.85,
+        "Discount": 0.0,
+        "PaxType": 1,
+        "PassengerCount": 1,
+        "ServiceFee": 0.0
+      }
+    ],
+    "Discount": 0.0,
+    "Validatingcarrier": "G8",
+    "LastTicketDate": null,
+    "segments": [
+      {
+        "TripIndicator": 1,
+        "Origin": {
+          "Airport": {
+            "AirportCode": "DEL",
+            "AirportName": "Indira Gandhi Intl",
+            "Terminal": "2",
+            "CityCode": "DEL",
+            "CityName": "New Delhi",
+            "CountryCode": "IN",
+            "CountryName": "India"
+          },
+          "DepTime": "2018-12-04T19:25:00"
+        },
+        "Destination": {
+          "Airport": {
+            "AirportCode": "CCU",
+            "AirportName": "Netaji Subhas Chandra",
+            "Terminal": "",
+            "CityCode": "CCU",
+            "CityName": "Kolkata",
+            "CountryCode": "IN",
+            "CountryName": "India"
+          },
+          "ArrTime": "2018-12-04T21:45:00"
+        },
+        "Airline": {
+          "AirlineCode": "G8",
+          "AirlineName": "GoAir",
+          "FlightNumber": "127",
+          "BookingClass": "A",
+          "CabinClass": "Y",
+          "OperatingCarrier": "G8"
+        },
+        "Baggage": "15 Kg",
+        "JourneyDuration": "140",
+        "StopQuantity": "0"
+      }
+    ],
+    "TotalFare": 12950.0,
+    "Currency": "INR",
+    "Availabilty": 0
+  }
+]

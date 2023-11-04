@@ -1,11 +1,13 @@
 import { FlightSteps, mockFlight } from "$/data";
 import { searchState } from "$store";
-import React, { useState } from "react";
+import React, { FC, HTMLAttributes, useState } from "react";
 import { RxCross2 } from "react-icons/rx";
 import { Checkbox } from "shadcn/components/ui/checkbox";
 import { Slider } from "shadcn/components/ui/slider";
 
-const FilterCard = () => {
+
+interface airSearchResponse extends React.DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
+const FilterCard: FC<airSearchResponse> = () => {
   const { appliedFilter, price, typeOfStops, setAppliedFilter, setPrice, setTypeOfStops } = searchState();
   const [isShowingMore, setIsShowingMore] = useState(false);
   const popularFilter = mockFlight.slice(0, !isShowingMore ? 5 : mockFlight.length - 1);
