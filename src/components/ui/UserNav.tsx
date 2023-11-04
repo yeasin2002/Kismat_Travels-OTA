@@ -23,11 +23,11 @@ export function UserNav() {
         <Button variant="ghost" className="relative h-8 w-8 rounded-full">
           <Avatar className="h-8 w-8">
             <AvatarImage src={currentUser.photoUrl || ""} alt={`@${currentUser.name}`} />
-            <AvatarFallback className="bg-blue-300">{currentUser.name.substring(0, 2)}</AvatarFallback>
+            <AvatarFallback className="select-none bg-blue-300">{currentUser.name.substring(0, 2)}</AvatarFallback>
           </Avatar>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-56" align="end" forceMount>
+      <DropdownMenuContent className="w-56 " align="end" forceMount>
         <DropdownMenuLabel className="font-normal">
           <div className="flex flex-col space-y-1">
             <p className="text-sm font-medium leading-none">{currentUser.name}</p>

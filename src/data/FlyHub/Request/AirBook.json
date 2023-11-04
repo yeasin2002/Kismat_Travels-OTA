@@ -1,0 +1,20 @@
+{
+  "SearchId": "02a0a43a-ff40-4322-8cbc-16348137e89b",
+  "ResultID": "69f27cb3-ba08-47df-8047-48540bff077f",
+  "Passengers": [
+    {
+      "Title": "Mr",
+      "FirstName": "Nahid",
+      "LastName": "ahmed",
+      "PaxType": "Adult",
+      "DateOfBirth": "2000-10-06",
+      "Gender": "Male",
+      "Address1": "test",
+      "CountryCode": "BD",
+      "Nationality": "BD",
+      "ContactNumber": "01741013363",
+      "Email": "nahidhasan.opt@gmail.com",
+      "IsLeadPassenger": true
+    }
+  ]
+}

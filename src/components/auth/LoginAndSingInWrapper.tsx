@@ -1,7 +1,8 @@
 "use client";
+
 import { Logo } from "$components/Global";
-import Image, { StaticImageData } from "next/image";
-import { useEffect } from "react";
+import { StaticImageData } from "next/image";
+
 interface LoginAndSingInWrapperProps {
   children: React.ReactNode;
   coverImg?: StaticImageData;
@@ -9,13 +10,8 @@ interface LoginAndSingInWrapperProps {
 const randomImageFromUnsplash = "https://source.unsplash.com/random?airbus";
 
 export const LoginAndSingInWrapper = ({ children, coverImg }: LoginAndSingInWrapperProps) => {
-  useEffect(() => {
-    document.documentElement.classList.remove("[scrollbar-gutter:_stable]");
-    return () => document.documentElement.classList.add("[scrollbar-gutter:_stable]");
-  }, []);
-
   return (
-    <section className="grid min-h-screen [scrollbar-gutter:_unset] md:grid-cols-2">
+    <section className="grid min-h-screen md:grid-cols-2">
       <div
         className="hidden h-full w-full md:block"
         style={{
