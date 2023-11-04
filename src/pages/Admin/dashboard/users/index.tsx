@@ -38,7 +38,7 @@ const index = () => {
       {/* chart for user data  */}
 
       <div className="h-64 w-full">
-        <UserYearReportChart />
+        <UserYearReportChart key={"userChart"} />
       </div>
 
       {/* table  */}
