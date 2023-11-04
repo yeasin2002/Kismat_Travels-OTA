@@ -1,1138 +1,45 @@
 {
-  "SearchId": "b062893e-d302-4582-a2d0-9279e56ea9fe",
+  "SearchId": "24c10a01-1914-4654-a38b-0f9897fe1b32",
   "Results": [
     {
-      "ResultID": "9808495d-38c2-4fed-a9be-04d4aa903a32",
+      "ResultID": "387c3786-57d2-4851-ba7c-4f87e5727c53",
       "IsRefundable": true,
       "Fares": [
         {
-          "BaseFare": 9000,
-          "Tax": 3950,
+          "BaseFare": 9900.0,
+          "Tax": 5750.0,
           "Currency": "BDT",
-          "OtherCharges": 0,
-          "Discount": 0,
-          "AgentMarkUp": 0,
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
           "PaxType": "Adult",
           "PassengerCount": 1,
-          "ServiceFee": 0
-        }
-      ],
-      "Discount": 0,
-      "Validatingcarrier": "AI",
-      "LastTicketDate": "2023-11-27T20:00:00",
-      "segments": [
-        {
-          "TripIndicator": "OutBound",
-          "Origin": {
-            "Airport": {
-              "AirportCode": "DXB",
-              "AirportName": "Dubai International Airport",
-              "Terminal": "1",
-              "CityCode": "DXB",
-              "CityName": "Dubai",
-              "CountryCode": "AE",
-              "CountryName": "United Arab Emirates"
-            },
-            "DepTime": "2023-11-28T22:50:00"
-          },
-          "Destination": {
-            "Airport": {
-              "AirportCode": "DEL",
-              "AirportName": "Indira Gandhi International Airport",
-              "Terminal": "3",
-              "CityCode": "DEL",
-              "CityName": "New Delhi",
-              "CountryCode": "IN",
-              "CountryName": "India"
-            },
-            "ArrTime": "2023-11-29T03:35:00"
-          },
-          "Airline": {
-            "AirlineCode": "AI",
-            "AirlineName": "Air India",
-            "FlightNumber": "948",
-            "BookingClass": "U",
-            "CabinClass": "Economy",
-            "OperatingCarrier": "AI"
-          },
-          "Baggage": "30 K",
-          "JourneyDuration": "195",
-          "StopQuantity": "0",
-          "Equipment": "32N",
-          "baggageDetails": [
-            {
-              "IsAllPax": true,
-              "PaxType": 1,
-              "Cabin": null,
-              "Checkin": "30 K"
-            }
-          ],
-          "SegmentGroup": 0
+          "ServiceFee": 0.0
         },
         {
-          "TripIndicator": "OutBound",
-          "Origin": {
-            "Airport": {
-              "AirportCode": "DEL",
-              "AirportName": "Indira Gandhi International Airport",
-              "Terminal": "3",
-              "CityCode": "DEL",
-              "CityName": "New Delhi",
-              "CountryCode": "IN",
-              "CountryName": "India"
-            },
-            "DepTime": "2023-11-29T06:45:00"
-          },
-          "Destination": {
-            "Airport": {
-              "AirportCode": "CCU",
-              "AirportName": "Netaji Subhas Chandra Bose Airport",
-              "Terminal": null,
-              "CityCode": "CCU",
-              "CityName": "Kolkata",
-              "CountryCode": "IN",
-              "CountryName": "India"
-            },
-            "ArrTime": "2023-11-29T09:05:00"
-          },
-          "Airline": {
-            "AirlineCode": "AI",
-            "AirlineName": "Air India",
-            "FlightNumber": "401",
-            "BookingClass": "U",
-            "CabinClass": "Economy",
-            "OperatingCarrier": "AI"
-          },
-          "Baggage": "30 K",
-          "JourneyDuration": "140",
-          "StopQuantity": "0",
-          "Equipment": "321",
-          "baggageDetails": [
-            {
-              "IsAllPax": true,
-              "PaxType": 1,
-              "Cabin": null,
-              "Checkin": "30 K"
-            }
-          ],
-          "SegmentGroup": 0
-        },
-        {
-          "TripIndicator": "OutBound",
-          "Origin": {
-            "Airport": {
-              "AirportCode": "CCU",
-              "AirportName": "Netaji Subhas Chandra Bose Airport",
-              "Terminal": null,
-              "CityCode": "CCU",
-              "CityName": "Kolkata",
-              "CountryCode": "IN",
-              "CountryName": "India"
-            },
-            "DepTime": "2023-11-29T12:05:00"
-          },
-          "Destination": {
-            "Airport": {
-              "AirportCode": "DAC",
-              "AirportName": "Hazrat Shahjalal International Airport",
-              "Terminal": "2",
-              "CityCode": "DAC",
-              "CityName": "Dhaka",
-              "CountryCode": "BD",
-              "CountryName": "Bangladesh"
-            },
-            "ArrTime": "2023-11-29T13:40:00"
-          },
-          "Airline": {
-            "AirlineCode": "AI",
-            "AirlineName": "Air India",
-            "FlightNumber": "230",
-            "BookingClass": "U",
-            "CabinClass": "Economy",
-            "OperatingCarrier": "AI"
-          },
-          "Baggage": "30 K",
-          "JourneyDuration": "65",
-          "StopQuantity": "0",
-          "Equipment": "32N",
-          "baggageDetails": [
-            {
-              "IsAllPax": true,
-              "PaxType": 1,
-              "Cabin": null,
-              "Checkin": "30 K"
-            }
-          ],
-          "SegmentGroup": 0
-        }
-      ],
-      "TotalFare": 12950,
-      "TotalFareWithAgentMarkup": 12950,
-      "Currency": "BDT",
-      "Availabilty": 1,
-      "FareType": "NET",
-      "isMiniRulesAvailable": false,
-      "HoldAllowed": true
-    },
-    {
-      "ResultID": "55689601-35b0-4dee-b2ea-9b8a2e173364",
-      "IsRefundable": true,
-      "Fares": [
-        {
-          "BaseFare": 9000,
-          "Tax": 3950,
+          "BaseFare": 7500.0,
+          "Tax": 5750.0,
           "Currency": "BDT",
-          "OtherCharges": 0,
-          "Discount": 0,
-          "AgentMarkUp": 0,
-          "PaxType": "Adult",
-          "PassengerCount": 1,
-          "ServiceFee": 0
-        }
-      ],
-      "Discount": 0,
-      "Validatingcarrier": "AI",
-      "LastTicketDate": "2023-11-27T20:00:00",
-      "segments": [
-        {
-          "TripIndicator": "OutBound",
-          "Origin": {
-            "Airport": {
-              "AirportCode": "DXB",
-              "AirportName": "Dubai International Airport",
-              "Terminal": "1",
-              "CityCode": "DXB",
-              "CityName": "Dubai",
-              "CountryCode": "AE",
-              "CountryName": "United Arab Emirates"
-            },
-            "DepTime": "2023-11-28T00:05:00"
-          },
-          "Destination": {
-            "Airport": {
-              "AirportCode": "DEL",
-              "AirportName": "Indira Gandhi International Airport",
-              "Terminal": "3",
-              "CityCode": "DEL",
-              "CityName": "New Delhi",
-              "CountryCode": "IN",
-              "CountryName": "India"
-            },
-            "ArrTime": "2023-11-28T04:45:00"
-          },
-          "Airline": {
-            "AirlineCode": "AI",
-            "AirlineName": "Air India",
-            "FlightNumber": "996",
-            "BookingClass": "U",
-            "CabinClass": "Economy",
-            "OperatingCarrier": "AI"
-          },
-          "Baggage": "30 K",
-          "JourneyDuration": "190",
-          "StopQuantity": "0",
-          "Equipment": "788",
-          "baggageDetails": [
-            {
-              "IsAllPax": true,
-              "PaxType": 1,
-              "Cabin": null,
-              "Checkin": "30 K"
-            }
-          ],
-          "SegmentGroup": 0
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Child",
+          "PassengerCount": 2,
+          "ServiceFee": 0.0
         },
         {
-          "TripIndicator": "OutBound",
-          "Origin": {
-            "Airport": {
-              "AirportCode": "DEL",
-              "AirportName": "Indira Gandhi International Airport",
-              "Terminal": "3",
-              "CityCode": "DEL",
-              "CityName": "New Delhi",
-              "CountryCode": "IN",
-              "CountryName": "India"
-            },
-            "DepTime": "2023-11-28T16:50:00"
-          },
-          "Destination": {
-            "Airport": {
-              "AirportCode": "CCU",
-              "AirportName": "Netaji Subhas Chandra Bose Airport",
-              "Terminal": null,
-              "CityCode": "CCU",
-              "CityName": "Kolkata",
-              "CountryCode": "IN",
-              "CountryName": "India"
-            },
-            "ArrTime": "2023-11-28T19:10:00"
-          },
-          "Airline": {
-            "AirlineCode": "AI",
-            "AirlineName": "Air India",
-            "FlightNumber": "764",
-            "BookingClass": "U",
-            "CabinClass": "Economy",
-            "OperatingCarrier": "AI"
-          },
-          "Baggage": "30 K",
-          "JourneyDuration": "140",
-          "StopQuantity": "0",
-          "Equipment": "321",
-          "baggageDetails": [
-            {
-              "IsAllPax": true,
-              "PaxType": 1,
-              "Cabin": null,
-              "Checkin": "30 K"
-            }
-          ],
-          "SegmentGroup": 0
-        },
-        {
-          "TripIndicator": "OutBound",
-          "Origin": {
-            "Airport": {
-              "AirportCode": "CCU",
-              "AirportName": "Netaji Subhas Chandra Bose Airport",
-              "Terminal": null,
-              "CityCode": "CCU",
-              "CityName": "Kolkata",
-              "CountryCode": "IN",
-              "CountryName": "India"
-            },
-            "DepTime": "2023-11-29T12:05:00"
-          },
-          "Destination": {
-            "Airport": {
-              "AirportCode": "DAC",
-              "AirportName": "Hazrat Shahjalal International Airport",
-              "Terminal": "2",
-              "CityCode": "DAC",
-              "CityName": "Dhaka",
-              "CountryCode": "BD",
-              "CountryName": "Bangladesh"
-            },
-            "ArrTime": "2023-11-29T13:40:00"
-          },
-          "Airline": {
-            "AirlineCode": "AI",
-            "AirlineName": "Air India",
-            "FlightNumber": "230",
-            "BookingClass": "U",
-            "CabinClass": "Economy",
-            "OperatingCarrier": "AI"
-          },
-          "Baggage": "30 K",
-          "JourneyDuration": "65",
-          "StopQuantity": "0",
-          "Equipment": "32N",
-          "baggageDetails": [
-            {
-              "IsAllPax": true,
-              "PaxType": 1,
-              "Cabin": null,
-              "Checkin": "30 K"
-            }
-          ],
-          "SegmentGroup": 0
-        }
-      ],
-      "TotalFare": 12950,
-      "TotalFareWithAgentMarkup": 12950,
-      "Currency": "BDT",
-      "Availabilty": 1,
-      "FareType": "NET",
-      "isMiniRulesAvailable": false,
-      "HoldAllowed": true
-    },
-    {
-      "ResultID": "ac45b6c0-c4f1-4ac3-b90c-09b9e86a6783",
-      "IsRefundable": true,
-      "Fares": [
-        {
-          "BaseFare": 9000,
-          "Tax": 3950,
+          "BaseFare": 1150.0,
+          "Tax": 0.0,
           "Currency": "BDT",
-          "OtherCharges": 0,
-          "Discount": 0,
-          "AgentMarkUp": 0,
-          "PaxType": "Adult",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Infant",
           "PassengerCount": 1,
-          "ServiceFee": 0
+          "ServiceFee": 0.0
         }
       ],
-      "Discount": 0,
-      "Validatingcarrier": "AI",
-      "LastTicketDate": "2023-11-27T20:00:00",
-      "segments": [
-        {
-          "TripIndicator": "OutBound",
-          "Origin": {
-            "Airport": {
-              "AirportCode": "DXB",
-              "AirportName": "Dubai International Airport",
-              "Terminal": "1",
-              "CityCode": "DXB",
-              "CityName": "Dubai",
-              "CountryCode": "AE",
-              "CountryName": "United Arab Emirates"
-            },
-            "DepTime": "2023-11-28T00:05:00"
-          },
-          "Destination": {
-            "Airport": {
-              "AirportCode": "DEL",
-              "AirportName": "Indira Gandhi International Airport",
-              "Terminal": "3",
-              "CityCode": "DEL",
-              "CityName": "New Delhi",
-              "CountryCode": "IN",
-              "CountryName": "India"
-            },
-            "ArrTime": "2023-11-28T04:45:00"
-          },
-          "Airline": {
-            "AirlineCode": "AI",
-            "AirlineName": "Air India",
-            "FlightNumber": "996",
-            "BookingClass": "U",
-            "CabinClass": "Economy",
-            "OperatingCarrier": "AI"
-          },
-          "Baggage": "30 K",
-          "JourneyDuration": "190",
-          "StopQuantity": "0",
-          "Equipment": "788",
-          "baggageDetails": [
-            {
-              "IsAllPax": true,
-              "PaxType": 1,
-              "Cabin": null,
-              "Checkin": "30 K"
-            }
-          ],
-          "SegmentGroup": 0
-        },
-        {
-          "TripIndicator": "OutBound",
-          "Origin": {
-            "Airport": {
-              "AirportCode": "DEL",
-              "AirportName": "Indira Gandhi International Airport",
-              "Terminal": "3",
-              "CityCode": "DEL",
-              "CityName": "New Delhi",
-              "CountryCode": "IN",
-              "CountryName": "India"
-            },
-            "DepTime": "2023-11-28T21:10:00"
-          },
-          "Destination": {
-            "Airport": {
-              "AirportCode": "CCU",
-              "AirportName": "Netaji Subhas Chandra Bose Airport",
-              "Terminal": null,
-              "CityCode": "CCU",
-              "CityName": "Kolkata",
-              "CountryCode": "IN",
-              "CountryName": "India"
-            },
-            "ArrTime": "2023-11-28T23:30:00"
-          },
-          "Airline": {
-            "AirlineCode": "AI",
-            "AirlineName": "Air India",
-            "FlightNumber": "762",
-            "BookingClass": "U",
-            "CabinClass": "Economy",
-            "OperatingCarrier": "AI"
-          },
-          "Baggage": "30 K",
-          "JourneyDuration": "140",
-          "StopQuantity": "0",
-          "Equipment": "321",
-          "baggageDetails": [
-            {
-              "IsAllPax": true,
-              "PaxType": 1,
-              "Cabin": null,
-              "Checkin": "30 K"
-            }
-          ],
-          "SegmentGroup": 0
-        },
-        {
-          "TripIndicator": "OutBound",
-          "Origin": {
-            "Airport": {
-              "AirportCode": "CCU",
-              "AirportName": "Netaji Subhas Chandra Bose Airport",
-              "Terminal": null,
-              "CityCode": "CCU",
-              "CityName": "Kolkata",
-              "CountryCode": "IN",
-              "CountryName": "India"
-            },
-            "DepTime": "2023-11-29T12:05:00"
-          },
-          "Destination": {
-            "Airport": {
-              "AirportCode": "DAC",
-              "AirportName": "Hazrat Shahjalal International Airport",
-              "Terminal": "2",
-              "CityCode": "DAC",
-              "CityName": "Dhaka",
-              "CountryCode": "BD",
-              "CountryName": "Bangladesh"
-            },
-            "ArrTime": "2023-11-29T13:40:00"
-          },
-          "Airline": {
-            "AirlineCode": "AI",
-            "AirlineName": "Air India",
-            "FlightNumber": "230",
-            "BookingClass": "U",
-            "CabinClass": "Economy",
-            "OperatingCarrier": "AI"
-          },
-          "Baggage": "30 K",
-          "JourneyDuration": "65",
-          "StopQuantity": "0",
-          "Equipment": "32N",
-          "baggageDetails": [
-            {
-              "IsAllPax": true,
-              "PaxType": 1,
-              "Cabin": null,
-              "Checkin": "30 K"
-            }
-          ],
-          "SegmentGroup": 0
-        }
-      ],
-      "TotalFare": 12950,
-      "TotalFareWithAgentMarkup": 12950,
-      "Currency": "BDT",
-      "Availabilty": 1,
-      "FareType": "NET",
-      "isMiniRulesAvailable": false,
-      "HoldAllowed": true
-    },
-    {
-      "ResultID": "6b533c29-0782-4deb-8fdb-dbc47f49bff1",
-      "IsRefundable": true,
-      "Fares": [
-        {
-          "BaseFare": 9000,
-          "Tax": 3950,
-          "Currency": "BDT",
-          "OtherCharges": 0,
-          "Discount": 0,
-          "AgentMarkUp": 0,
-          "PaxType": "Adult",
-          "PassengerCount": 1,
-          "ServiceFee": 0
-        }
-      ],
-      "Discount": 0,
-      "Validatingcarrier": "AI",
-      "LastTicketDate": "2023-11-27T20:00:00",
-      "segments": [
-        {
-          "TripIndicator": "OutBound",
-          "Origin": {
-            "Airport": {
-              "AirportCode": "DXB",
-              "AirportName": "Dubai International Airport",
-              "Terminal": "1",
-              "CityCode": "DXB",
-              "CityName": "Dubai",
-              "CountryCode": "AE",
-              "CountryName": "United Arab Emirates"
-            },
-            "DepTime": "2023-11-28T13:10:00"
-          },
-          "Destination": {
-            "Airport": {
-              "AirportCode": "DEL",
-              "AirportName": "Indira Gandhi International Airport",
-              "Terminal": "3",
-              "CityCode": "DEL",
-              "CityName": "New Delhi",
-              "CountryCode": "IN",
-              "CountryName": "India"
-            },
-            "ArrTime": "2023-11-28T17:55:00"
-          },
-          "Airline": {
-            "AirlineCode": "AI",
-            "AirlineName": "Air India",
-            "FlightNumber": "918",
-            "BookingClass": "U",
-            "CabinClass": "Economy",
-            "OperatingCarrier": "AI"
-          },
-          "Baggage": "30 K",
-          "JourneyDuration": "195",
-          "StopQuantity": "0",
-          "Equipment": "321",
-          "baggageDetails": [
-            {
-              "IsAllPax": true,
-              "PaxType": 1,
-              "Cabin": null,
-              "Checkin": "30 K"
-            }
-          ],
-          "SegmentGroup": 0
-        },
-        {
-          "TripIndicator": "OutBound",
-          "Origin": {
-            "Airport": {
-              "AirportCode": "DEL",
-              "AirportName": "Indira Gandhi International Airport",
-              "Terminal": "3",
-              "CityCode": "DEL",
-              "CityName": "New Delhi",
-              "CountryCode": "IN",
-              "CountryName": "India"
-            },
-            "DepTime": "2023-11-28T21:10:00"
-          },
-          "Destination": {
-            "Airport": {
-              "AirportCode": "CCU",
-              "AirportName": "Netaji Subhas Chandra Bose Airport",
-              "Terminal": null,
-              "CityCode": "CCU",
-              "CityName": "Kolkata",
-              "CountryCode": "IN",
-              "CountryName": "India"
-            },
-            "ArrTime": "2023-11-28T23:30:00"
-          },
-          "Airline": {
-            "AirlineCode": "AI",
-            "AirlineName": "Air India",
-            "FlightNumber": "762",
-            "BookingClass": "U",
-            "CabinClass": "Economy",
-            "OperatingCarrier": "AI"
-          },
-          "Baggage": "30 K",
-          "JourneyDuration": "140",
-          "StopQuantity": "0",
-          "Equipment": "321",
-          "baggageDetails": [
-            {
-              "IsAllPax": true,
-              "PaxType": 1,
-              "Cabin": null,
-              "Checkin": "30 K"
-            }
-          ],
-          "SegmentGroup": 0
-        },
-        {
-          "TripIndicator": "OutBound",
-          "Origin": {
-            "Airport": {
-              "AirportCode": "CCU",
-              "AirportName": "Netaji Subhas Chandra Bose Airport",
-              "Terminal": null,
-              "CityCode": "CCU",
-              "CityName": "Kolkata",
-              "CountryCode": "IN",
-              "CountryName": "India"
-            },
-            "DepTime": "2023-11-29T12:05:00"
-          },
-          "Destination": {
-            "Airport": {
-              "AirportCode": "DAC",
-              "AirportName": "Hazrat Shahjalal International Airport",
-              "Terminal": "2",
-              "CityCode": "DAC",
-              "CityName": "Dhaka",
-              "CountryCode": "BD",
-              "CountryName": "Bangladesh"
-            },
-            "ArrTime": "2023-11-29T13:40:00"
-          },
-          "Airline": {
-            "AirlineCode": "AI",
-            "AirlineName": "Air India",
-            "FlightNumber": "230",
-            "BookingClass": "U",
-            "CabinClass": "Economy",
-            "OperatingCarrier": "AI"
-          },
-          "Baggage": "30 K",
-          "JourneyDuration": "65",
-          "StopQuantity": "0",
-          "Equipment": "32N",
-          "baggageDetails": [
-            {
-              "IsAllPax": true,
-              "PaxType": 1,
-              "Cabin": null,
-              "Checkin": "30 K"
-            }
-          ],
-          "SegmentGroup": 0
-        }
-      ],
-      "TotalFare": 12950,
-      "TotalFareWithAgentMarkup": 12950,
-      "Currency": "BDT",
-      "Availabilty": 1,
-      "FareType": "NET",
-      "isMiniRulesAvailable": false,
-      "HoldAllowed": true
-    },
-    {
-      "ResultID": "30edda8d-247c-479d-ada1-6a49ed947ea9",
-      "IsRefundable": true,
-      "Fares": [
-        {
-          "BaseFare": 9000,
-          "Tax": 3950,
-          "Currency": "BDT",
-          "OtherCharges": 0,
-          "Discount": 0,
-          "AgentMarkUp": 0,
-          "PaxType": "Adult",
-          "PassengerCount": 1,
-          "ServiceFee": 0
-        }
-      ],
-      "Discount": 0,
-      "Validatingcarrier": "AI",
-      "LastTicketDate": "2023-11-27T20:00:00",
-      "segments": [
-        {
-          "TripIndicator": "OutBound",
-          "Origin": {
-            "Airport": {
-              "AirportCode": "DXB",
-              "AirportName": "Dubai International Airport",
-              "Terminal": "1",
-              "CityCode": "DXB",
-              "CityName": "Dubai",
-              "CountryCode": "AE",
-              "CountryName": "United Arab Emirates"
-            },
-            "DepTime": "2023-11-28T13:10:00"
-          },
-          "Destination": {
-            "Airport": {
-              "AirportCode": "DEL",
-              "AirportName": "Indira Gandhi International Airport",
-              "Terminal": "3",
-              "CityCode": "DEL",
-              "CityName": "New Delhi",
-              "CountryCode": "IN",
-              "CountryName": "India"
-            },
-            "ArrTime": "2023-11-28T17:55:00"
-          },
-          "Airline": {
-            "AirlineCode": "AI",
-            "AirlineName": "Air India",
-            "FlightNumber": "918",
-            "BookingClass": "U",
-            "CabinClass": "Economy",
-            "OperatingCarrier": "AI"
-          },
-          "Baggage": "30 K",
-          "JourneyDuration": "195",
-          "StopQuantity": "0",
-          "Equipment": "321",
-          "baggageDetails": [
-            {
-              "IsAllPax": true,
-              "PaxType": 1,
-              "Cabin": null,
-              "Checkin": "30 K"
-            }
-          ],
-          "SegmentGroup": 0
-        },
-        {
-          "TripIndicator": "OutBound",
-          "Origin": {
-            "Airport": {
-              "AirportCode": "DEL",
-              "AirportName": "Indira Gandhi International Airport",
-              "Terminal": "3",
-              "CityCode": "DEL",
-              "CityName": "New Delhi",
-              "CountryCode": "IN",
-              "CountryName": "India"
-            },
-            "DepTime": "2023-11-29T06:45:00"
-          },
-          "Destination": {
-            "Airport": {
-              "AirportCode": "CCU",
-              "AirportName": "Netaji Subhas Chandra Bose Airport",
-              "Terminal": null,
-              "CityCode": "CCU",
-              "CityName": "Kolkata",
-              "CountryCode": "IN",
-              "CountryName": "India"
-            },
-            "ArrTime": "2023-11-29T09:05:00"
-          },
-          "Airline": {
-            "AirlineCode": "AI",
-            "AirlineName": "Air India",
-            "FlightNumber": "401",
-            "BookingClass": "U",
-            "CabinClass": "Economy",
-            "OperatingCarrier": "AI"
-          },
-          "Baggage": "30 K",
-          "JourneyDuration": "140",
-          "StopQuantity": "0",
-          "Equipment": "321",
-          "baggageDetails": [
-            {
-              "IsAllPax": true,
-              "PaxType": 1,
-              "Cabin": null,
-              "Checkin": "30 K"
-            }
-          ],
-          "SegmentGroup": 0
-        },
-        {
-          "TripIndicator": "OutBound",
-          "Origin": {
-            "Airport": {
-              "AirportCode": "CCU",
-              "AirportName": "Netaji Subhas Chandra Bose Airport",
-              "Terminal": null,
-              "CityCode": "CCU",
-              "CityName": "Kolkata",
-              "CountryCode": "IN",
-              "CountryName": "India"
-            },
-            "DepTime": "2023-11-29T12:05:00"
-          },
-          "Destination": {
-            "Airport": {
-              "AirportCode": "DAC",
-              "AirportName": "Hazrat Shahjalal International Airport",
-              "Terminal": "2",
-              "CityCode": "DAC",
-              "CityName": "Dhaka",
-              "CountryCode": "BD",
-              "CountryName": "Bangladesh"
-            },
-            "ArrTime": "2023-11-29T13:40:00"
-          },
-          "Airline": {
-            "AirlineCode": "AI",
-            "AirlineName": "Air India",
-            "FlightNumber": "230",
-            "BookingClass": "U",
-            "CabinClass": "Economy",
-            "OperatingCarrier": "AI"
-          },
-          "Baggage": "30 K",
-          "JourneyDuration": "65",
-          "StopQuantity": "0",
-          "Equipment": "32N",
-          "baggageDetails": [
-            {
-              "IsAllPax": true,
-              "PaxType": 1,
-              "Cabin": null,
-              "Checkin": "30 K"
-            }
-          ],
-          "SegmentGroup": 0
-        }
-      ],
-      "TotalFare": 12950,
-      "TotalFareWithAgentMarkup": 12950,
-      "Currency": "BDT",
-      "Availabilty": 1,
-      "FareType": "NET",
-      "isMiniRulesAvailable": false,
-      "HoldAllowed": true
-    },
-    {
-      "ResultID": "f9827ee7-c279-45f7-97da-3db2175ce392",
-      "IsRefundable": true,
-      "Fares": [
-        {
-          "BaseFare": 9000,
-          "Tax": 3950,
-          "Currency": "BDT",
-          "OtherCharges": 0,
-          "Discount": 0,
-          "AgentMarkUp": 0,
-          "PaxType": "Adult",
-          "PassengerCount": 1,
-          "ServiceFee": 0
-        }
-      ],
-      "Discount": 0,
-      "Validatingcarrier": "AI",
-      "LastTicketDate": "2023-11-27T20:00:00",
-      "segments": [
-        {
-          "TripIndicator": "OutBound",
-          "Origin": {
-            "Airport": {
-              "AirportCode": "DXB",
-              "AirportName": "Dubai International Airport",
-              "Terminal": "1",
-              "CityCode": "DXB",
-              "CityName": "Dubai",
-              "CountryCode": "AE",
-              "CountryName": "United Arab Emirates"
-            },
-            "DepTime": "2023-11-28T20:40:00"
-          },
-          "Destination": {
-            "Airport": {
-              "AirportCode": "DEL",
-              "AirportName": "Indira Gandhi International Airport",
-              "Terminal": "3",
-              "CityCode": "DEL",
-              "CityName": "New Delhi",
-              "CountryCode": "IN",
-              "CountryName": "India"
-            },
-            "ArrTime": "2023-11-29T01:20:00"
-          },
-          "Airline": {
-            "AirlineCode": "AI",
-            "AirlineName": "Air India",
-            "FlightNumber": "916",
-            "BookingClass": "U",
-            "CabinClass": "Economy",
-            "OperatingCarrier": "AI"
-          },
-          "Baggage": "30 K",
-          "JourneyDuration": "190",
-          "StopQuantity": "0",
-          "Equipment": "788",
-          "baggageDetails": [
-            {
-              "IsAllPax": true,
-              "PaxType": 1,
-              "Cabin": null,
-              "Checkin": "30 K"
-            }
-          ],
-          "SegmentGroup": 0
-        },
-        {
-          "TripIndicator": "OutBound",
-          "Origin": {
-            "Airport": {
-              "AirportCode": "DEL",
-              "AirportName": "Indira Gandhi International Airport",
-              "Terminal": "3",
-              "CityCode": "DEL",
-              "CityName": "New Delhi",
-              "CountryCode": "IN",
-              "CountryName": "India"
-            },
-            "DepTime": "2023-11-29T06:45:00"
-          },
-          "Destination": {
-            "Airport": {
-              "AirportCode": "CCU",
-              "AirportName": "Netaji Subhas Chandra Bose Airport",
-              "Terminal": null,
-              "CityCode": "CCU",
-              "CityName": "Kolkata",
-              "CountryCode": "IN",
-              "CountryName": "India"
-            },
-            "ArrTime": "2023-11-29T09:05:00"
-          },
-          "Airline": {
-            "AirlineCode": "AI",
-            "AirlineName": "Air India",
-            "FlightNumber": "401",
-            "BookingClass": "U",
-            "CabinClass": "Economy",
-            "OperatingCarrier": "AI"
-          },
-          "Baggage": "30 K",
-          "JourneyDuration": "140",
-          "StopQuantity": "0",
-          "Equipment": "321",
-          "baggageDetails": [
-            {
-              "IsAllPax": true,
-              "PaxType": 1,
-              "Cabin": null,
-              "Checkin": "30 K"
-            }
-          ],
-          "SegmentGroup": 0
-        },
-        {
-          "TripIndicator": "OutBound",
-          "Origin": {
-            "Airport": {
-              "AirportCode": "CCU",
-              "AirportName": "Netaji Subhas Chandra Bose Airport",
-              "Terminal": null,
-              "CityCode": "CCU",
-              "CityName": "Kolkata",
-              "CountryCode": "IN",
-              "CountryName": "India"
-            },
-            "DepTime": "2023-11-29T12:05:00"
-          },
-          "Destination": {
-            "Airport": {
-              "AirportCode": "DAC",
-              "AirportName": "Hazrat Shahjalal International Airport",
-              "Terminal": "2",
-              "CityCode": "DAC",
-              "CityName": "Dhaka",
-              "CountryCode": "BD",
-              "CountryName": "Bangladesh"
-            },
-            "ArrTime": "2023-11-29T13:40:00"
-          },
-          "Airline": {
-            "AirlineCode": "AI",
-            "AirlineName": "Air India",
-            "FlightNumber": "230",
-            "BookingClass": "U",
-            "CabinClass": "Economy",
-            "OperatingCarrier": "AI"
-          },
-          "Baggage": "30 K",
-          "JourneyDuration": "65",
-          "StopQuantity": "0",
-          "Equipment": "32N",
-          "baggageDetails": [
-            {
-              "IsAllPax": true,
-              "PaxType": 1,
-              "Cabin": null,
-              "Checkin": "30 K"
-            }
-          ],
-          "SegmentGroup": 0
-        }
-      ],
-      "TotalFare": 12950,
-      "TotalFareWithAgentMarkup": 12950,
-      "Currency": "BDT",
-      "Availabilty": 1,
-      "FareType": "NET",
-      "isMiniRulesAvailable": false,
-      "HoldAllowed": true
-    },
-    {
-      "ResultID": "155d5dc0-1fbc-4cdc-8048-79d33e991626",
-      "IsRefundable": true,
-      "Fares": [
-        {
-          "BaseFare": 9900,
-          "Tax": 5750,
-          "Currency": "BDT",
-          "OtherCharges": 0,
-          "Discount": 0,
-          "AgentMarkUp": 0,
-          "PaxType": "Adult",
-          "PassengerCount": 1,
-          "ServiceFee": 0
-        }
-      ],
-      "Discount": 0,
-      "Validatingcarrier": "EK",
-      "LastTicketDate": "2023-11-07T20:00:00",
-      "segments": [
-        {
-          "TripIndicator": "OutBound",
-          "Origin": {
-            "Airport": {
-              "AirportCode": "DXB",
-              "AirportName": "Dubai International Airport",
-              "Terminal": "3",
-              "CityCode": "DXB",
-              "CityName": "Dubai",
-              "CountryCode": "AE",
-              "CountryName": "United Arab Emirates"
-            },
-            "DepTime": "2023-11-28T10:30:00"
-          },
-          "Destination": {
-            "Airport": {
-              "AirportCode": "DAC",
-              "AirportName": "Hazrat Shahjalal International Airport",
-              "Terminal": "1",
-              "CityCode": "DAC",
-              "CityName": "Dhaka",
-              "CountryCode": "BD",
-              "CountryName": "Bangladesh"
-            },
-            "ArrTime": "2023-11-28T16:55:00"
-          },
-          "Airline": {
-            "AirlineCode": "EK",
-            "AirlineName": "Emirates",
-            "FlightNumber": "586",
-            "BookingClass": "L",
-            "CabinClass": "Economy",
-            "OperatingCarrier": "EK"
-          },
-          "Baggage": "40 K",
-          "JourneyDuration": "265",
-          "StopQuantity": "0",
-          "Equipment": "77W",
-          "baggageDetails": [
-            {
-              "IsAllPax": true,
-              "PaxType": 1,
-              "Cabin": null,
-              "Checkin": "40 K"
-            }
-          ],
-          "SegmentGroup": 0
-        }
-      ],
-      "TotalFare": 15650,
-      "TotalFareWithAgentMarkup": 15650,
-      "Currency": "BDT",
-      "Availabilty": 9,
-      "FareType": "NET",
-      "isMiniRulesAvailable": false,
-      "HoldAllowed": true
-    },
-    {
-      "ResultID": "7bfee7f8-05b1-45f1-a999-91d34faf887b",
-      "IsRefundable": true,
-      "Fares": [
-        {
-          "BaseFare": 9900,
-          "Tax": 5750,
-          "Currency": "BDT",
-          "OtherCharges": 0,
-          "Discount": 0,
-          "AgentMarkUp": 0,
-          "PaxType": "Adult",
-          "PassengerCount": 1,
-          "ServiceFee": 0
-        }
-      ],
-      "Discount": 0,
+      "Discount": 0.0,
       "Validatingcarrier": "EK",
       "LastTicketDate": "2023-11-07T20:00:00",
       "segments": [
@@ -1185,8 +92,8 @@
           "SegmentGroup": 0
         }
       ],
-      "TotalFare": 15650,
-      "TotalFareWithAgentMarkup": 15650,
+      "TotalFare": 43300.0,
+      "TotalFareWithAgentMarkup": 43300.0,
       "Currency": "BDT",
       "Availabilty": 9,
       "FareType": "NET",
@@ -1194,524 +101,46 @@
       "HoldAllowed": true
     },
     {
-      "ResultID": "110498f3-ae4d-463c-b337-b8b39543c425",
-      "IsRefundable": false,
-      "Fares": [
-        {
-          "BaseFare": 7650,
-          "Tax": 8025,
-          "Currency": "BDT",
-          "OtherCharges": 0,
-          "Discount": 0,
-          "AgentMarkUp": 0,
-          "PaxType": "Adult",
-          "PassengerCount": 1,
-          "ServiceFee": 0
-        }
-      ],
-      "Discount": 0,
-      "Validatingcarrier": "WY",
-      "LastTicketDate": "2023-11-27T20:00:00",
-      "segments": [
-        {
-          "TripIndicator": "OutBound",
-          "Origin": {
-            "Airport": {
-              "AirportCode": "DXB",
-              "AirportName": "Dubai International Airport",
-              "Terminal": "1",
-              "CityCode": "DXB",
-              "CityName": "Dubai",
-              "CountryCode": "AE",
-              "CountryName": "United Arab Emirates"
-            },
-            "DepTime": "2023-11-28T11:25:00"
-          },
-          "Destination": {
-            "Airport": {
-              "AirportCode": "MCT",
-              "AirportName": "Muscat International Airport",
-              "Terminal": null,
-              "CityCode": "MCT",
-              "CityName": "Muscat",
-              "CountryCode": "OM",
-              "CountryName": "Oman"
-            },
-            "ArrTime": "2023-11-28T12:40:00"
-          },
-          "Airline": {
-            "AirlineCode": "WY",
-            "AirlineName": "Oman Air",
-            "FlightNumber": "604",
-            "BookingClass": "L",
-            "CabinClass": "Economy",
-            "OperatingCarrier": "WY"
-          },
-          "Baggage": "30 K",
-          "JourneyDuration": "75",
-          "StopQuantity": "0",
-          "Equipment": "7M8",
-          "baggageDetails": [
-            {
-              "IsAllPax": true,
-              "PaxType": 1,
-              "Cabin": null,
-              "Checkin": "30 K"
-            }
-          ],
-          "SegmentGroup": 0
-        },
-        {
-          "TripIndicator": "OutBound",
-          "Origin": {
-            "Airport": {
-              "AirportCode": "MCT",
-              "AirportName": "Muscat International Airport",
-              "Terminal": null,
-              "CityCode": "MCT",
-              "CityName": "Muscat",
-              "CountryCode": "OM",
-              "CountryName": "Oman"
-            },
-            "DepTime": "2023-11-29T08:50:00"
-          },
-          "Destination": {
-            "Airport": {
-              "AirportCode": "DAC",
-              "AirportName": "Hazrat Shahjalal International Airport",
-              "Terminal": null,
-              "CityCode": "DAC",
-              "CityName": "Dhaka",
-              "CountryCode": "BD",
-              "CountryName": "Bangladesh"
-            },
-            "ArrTime": "2023-11-29T15:05:00"
-          },
-          "Airline": {
-            "AirlineCode": "WY",
-            "AirlineName": "Oman Air",
-            "FlightNumber": "317",
-            "BookingClass": "L",
-            "CabinClass": "Economy",
-            "OperatingCarrier": "WY"
-          },
-          "Baggage": "30 K",
-          "JourneyDuration": "255",
-          "StopQuantity": "0",
-          "Equipment": "332",
-          "baggageDetails": [
-            {
-              "IsAllPax": true,
-              "PaxType": 1,
-              "Cabin": null,
-              "Checkin": "30 K"
-            }
-          ],
-          "SegmentGroup": 0
-        }
-      ],
-      "TotalFare": 15675,
-      "TotalFareWithAgentMarkup": 15675,
-      "Currency": "BDT",
-      "Availabilty": 6,
-      "FareType": "NET",
-      "isMiniRulesAvailable": false,
-      "HoldAllowed": true
-    },
-    {
-      "ResultID": "9f853554-b0bb-4b6d-bf7f-de16d2654518",
-      "IsRefundable": false,
-      "Fares": [
-        {
-          "BaseFare": 7650,
-          "Tax": 8025,
-          "Currency": "BDT",
-          "OtherCharges": 0,
-          "Discount": 0,
-          "AgentMarkUp": 0,
-          "PaxType": "Adult",
-          "PassengerCount": 1,
-          "ServiceFee": 0
-        }
-      ],
-      "Discount": 0,
-      "Validatingcarrier": "WY",
-      "LastTicketDate": "2023-11-27T20:00:00",
-      "segments": [
-        {
-          "TripIndicator": "OutBound",
-          "Origin": {
-            "Airport": {
-              "AirportCode": "DXB",
-              "AirportName": "Dubai International Airport",
-              "Terminal": "1",
-              "CityCode": "DXB",
-              "CityName": "Dubai",
-              "CountryCode": "AE",
-              "CountryName": "United Arab Emirates"
-            },
-            "DepTime": "2023-11-28T17:15:00"
-          },
-          "Destination": {
-            "Airport": {
-              "AirportCode": "MCT",
-              "AirportName": "Muscat International Airport",
-              "Terminal": null,
-              "CityCode": "MCT",
-              "CityName": "Muscat",
-              "CountryCode": "OM",
-              "CountryName": "Oman"
-            },
-            "ArrTime": "2023-11-28T18:30:00"
-          },
-          "Airline": {
-            "AirlineCode": "WY",
-            "AirlineName": "Oman Air",
-            "FlightNumber": "610",
-            "BookingClass": "L",
-            "CabinClass": "Economy",
-            "OperatingCarrier": "WY"
-          },
-          "Baggage": "30 K",
-          "JourneyDuration": "75",
-          "StopQuantity": "0",
-          "Equipment": "7M8",
-          "baggageDetails": [
-            {
-              "IsAllPax": true,
-              "PaxType": 1,
-              "Cabin": null,
-              "Checkin": "30 K"
-            }
-          ],
-          "SegmentGroup": 0
-        },
-        {
-          "TripIndicator": "OutBound",
-          "Origin": {
-            "Airport": {
-              "AirportCode": "MCT",
-              "AirportName": "Muscat International Airport",
-              "Terminal": null,
-              "CityCode": "MCT",
-              "CityName": "Muscat",
-              "CountryCode": "OM",
-              "CountryName": "Oman"
-            },
-            "DepTime": "2023-11-29T08:50:00"
-          },
-          "Destination": {
-            "Airport": {
-              "AirportCode": "DAC",
-              "AirportName": "Hazrat Shahjalal International Airport",
-              "Terminal": null,
-              "CityCode": "DAC",
-              "CityName": "Dhaka",
-              "CountryCode": "BD",
-              "CountryName": "Bangladesh"
-            },
-            "ArrTime": "2023-11-29T15:05:00"
-          },
-          "Airline": {
-            "AirlineCode": "WY",
-            "AirlineName": "Oman Air",
-            "FlightNumber": "317",
-            "BookingClass": "L",
-            "CabinClass": "Economy",
-            "OperatingCarrier": "WY"
-          },
-          "Baggage": "30 K",
-          "JourneyDuration": "255",
-          "StopQuantity": "0",
-          "Equipment": "332",
-          "baggageDetails": [
-            {
-              "IsAllPax": true,
-              "PaxType": 1,
-              "Cabin": null,
-              "Checkin": "30 K"
-            }
-          ],
-          "SegmentGroup": 0
-        }
-      ],
-      "TotalFare": 15675,
-      "TotalFareWithAgentMarkup": 15675,
-      "Currency": "BDT",
-      "Availabilty": 6,
-      "FareType": "NET",
-      "isMiniRulesAvailable": false,
-      "HoldAllowed": true
-    },
-    {
-      "ResultID": "010bec5d-7b09-40b9-9759-d6bd24858cf7",
-      "IsRefundable": false,
-      "Fares": [
-        {
-          "BaseFare": 7650,
-          "Tax": 8025,
-          "Currency": "BDT",
-          "OtherCharges": 0,
-          "Discount": 0,
-          "AgentMarkUp": 0,
-          "PaxType": "Adult",
-          "PassengerCount": 1,
-          "ServiceFee": 0
-        }
-      ],
-      "Discount": 0,
-      "Validatingcarrier": "WY",
-      "LastTicketDate": "2023-11-27T20:00:00",
-      "segments": [
-        {
-          "TripIndicator": "OutBound",
-          "Origin": {
-            "Airport": {
-              "AirportCode": "DXB",
-              "AirportName": "Dubai International Airport",
-              "Terminal": "1",
-              "CityCode": "DXB",
-              "CityName": "Dubai",
-              "CountryCode": "AE",
-              "CountryName": "United Arab Emirates"
-            },
-            "DepTime": "2023-11-28T06:05:00"
-          },
-          "Destination": {
-            "Airport": {
-              "AirportCode": "MCT",
-              "AirportName": "Muscat International Airport",
-              "Terminal": null,
-              "CityCode": "MCT",
-              "CityName": "Muscat",
-              "CountryCode": "OM",
-              "CountryName": "Oman"
-            },
-            "ArrTime": "2023-11-28T07:20:00"
-          },
-          "Airline": {
-            "AirlineCode": "WY",
-            "AirlineName": "Oman Air",
-            "FlightNumber": "602",
-            "BookingClass": "L",
-            "CabinClass": "Economy",
-            "OperatingCarrier": "WY"
-          },
-          "Baggage": "30 K",
-          "JourneyDuration": "75",
-          "StopQuantity": "0",
-          "Equipment": "7M8",
-          "baggageDetails": [
-            {
-              "IsAllPax": true,
-              "PaxType": 1,
-              "Cabin": null,
-              "Checkin": "30 K"
-            }
-          ],
-          "SegmentGroup": 0
-        },
-        {
-          "TripIndicator": "OutBound",
-          "Origin": {
-            "Airport": {
-              "AirportCode": "MCT",
-              "AirportName": "Muscat International Airport",
-              "Terminal": null,
-              "CityCode": "MCT",
-              "CityName": "Muscat",
-              "CountryCode": "OM",
-              "CountryName": "Oman"
-            },
-            "DepTime": "2023-11-28T08:50:00"
-          },
-          "Destination": {
-            "Airport": {
-              "AirportCode": "DAC",
-              "AirportName": "Hazrat Shahjalal International Airport",
-              "Terminal": null,
-              "CityCode": "DAC",
-              "CityName": "Dhaka",
-              "CountryCode": "BD",
-              "CountryName": "Bangladesh"
-            },
-            "ArrTime": "2023-11-28T15:05:00"
-          },
-          "Airline": {
-            "AirlineCode": "WY",
-            "AirlineName": "Oman Air",
-            "FlightNumber": "317",
-            "BookingClass": "L",
-            "CabinClass": "Economy",
-            "OperatingCarrier": "WY"
-          },
-          "Baggage": "30 K",
-          "JourneyDuration": "255",
-          "StopQuantity": "0",
-          "Equipment": "332",
-          "baggageDetails": [
-            {
-              "IsAllPax": true,
-              "PaxType": 1,
-              "Cabin": null,
-              "Checkin": "30 K"
-            }
-          ],
-          "SegmentGroup": 0
-        }
-      ],
-      "TotalFare": 15675,
-      "TotalFareWithAgentMarkup": 15675,
-      "Currency": "BDT",
-      "Availabilty": 4,
-      "FareType": "NET",
-      "isMiniRulesAvailable": false,
-      "HoldAllowed": true
-    },
-    {
-      "ResultID": "603e5566-589a-4346-8199-ad56c57fd89c",
-      "IsRefundable": false,
-      "Fares": [
-        {
-          "BaseFare": 7650,
-          "Tax": 8025,
-          "Currency": "BDT",
-          "OtherCharges": 0,
-          "Discount": 0,
-          "AgentMarkUp": 0,
-          "PaxType": "Adult",
-          "PassengerCount": 1,
-          "ServiceFee": 0
-        }
-      ],
-      "Discount": 0,
-      "Validatingcarrier": "WY",
-      "LastTicketDate": "2023-11-27T20:00:00",
-      "segments": [
-        {
-          "TripIndicator": "OutBound",
-          "Origin": {
-            "Airport": {
-              "AirportCode": "DXB",
-              "AirportName": "Dubai International Airport",
-              "Terminal": "1",
-              "CityCode": "DXB",
-              "CityName": "Dubai",
-              "CountryCode": "AE",
-              "CountryName": "United Arab Emirates"
-            },
-            "DepTime": "2023-11-28T22:45:00"
-          },
-          "Destination": {
-            "Airport": {
-              "AirportCode": "MCT",
-              "AirportName": "Muscat International Airport",
-              "Terminal": null,
-              "CityCode": "MCT",
-              "CityName": "Muscat",
-              "CountryCode": "OM",
-              "CountryName": "Oman"
-            },
-            "ArrTime": "2023-11-28T23:55:00"
-          },
-          "Airline": {
-            "AirlineCode": "WY",
-            "AirlineName": "Oman Air",
-            "FlightNumber": "612",
-            "BookingClass": "L",
-            "CabinClass": "Economy",
-            "OperatingCarrier": "WY"
-          },
-          "Baggage": "30 K",
-          "JourneyDuration": "70",
-          "StopQuantity": "0",
-          "Equipment": "7M8",
-          "baggageDetails": [
-            {
-              "IsAllPax": true,
-              "PaxType": 1,
-              "Cabin": null,
-              "Checkin": "30 K"
-            }
-          ],
-          "SegmentGroup": 0
-        },
-        {
-          "TripIndicator": "OutBound",
-          "Origin": {
-            "Airport": {
-              "AirportCode": "MCT",
-              "AirportName": "Muscat International Airport",
-              "Terminal": null,
-              "CityCode": "MCT",
-              "CityName": "Muscat",
-              "CountryCode": "OM",
-              "CountryName": "Oman"
-            },
-            "DepTime": "2023-11-29T08:50:00"
-          },
-          "Destination": {
-            "Airport": {
-              "AirportCode": "DAC",
-              "AirportName": "Hazrat Shahjalal International Airport",
-              "Terminal": null,
-              "CityCode": "DAC",
-              "CityName": "Dhaka",
-              "CountryCode": "BD",
-              "CountryName": "Bangladesh"
-            },
-            "ArrTime": "2023-11-29T15:05:00"
-          },
-          "Airline": {
-            "AirlineCode": "WY",
-            "AirlineName": "Oman Air",
-            "FlightNumber": "317",
-            "BookingClass": "L",
-            "CabinClass": "Economy",
-            "OperatingCarrier": "WY"
-          },
-          "Baggage": "30 K",
-          "JourneyDuration": "255",
-          "StopQuantity": "0",
-          "Equipment": "332",
-          "baggageDetails": [
-            {
-              "IsAllPax": true,
-              "PaxType": 1,
-              "Cabin": null,
-              "Checkin": "30 K"
-            }
-          ],
-          "SegmentGroup": 0
-        }
-      ],
-      "TotalFare": 15675,
-      "TotalFareWithAgentMarkup": 15675,
-      "Currency": "BDT",
-      "Availabilty": 4,
-      "FareType": "NET",
-      "isMiniRulesAvailable": false,
-      "HoldAllowed": true
-    },
-    {
-      "ResultID": "82af81b9-327d-4bcf-83b6-2d74c01574a4",
+      "ResultID": "836cb6ef-4a2f-463a-b293-3016c292d9b5",
       "IsRefundable": true,
       "Fares": [
         {
-          "BaseFare": 11950,
-          "Tax": 4125,
+          "BaseFare": 9900.0,
+          "Tax": 5750.0,
           "Currency": "BDT",
-          "OtherCharges": 0,
-          "Discount": 0,
-          "AgentMarkUp": 0,
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
           "PaxType": "Adult",
           "PassengerCount": 1,
-          "ServiceFee": 0
+          "ServiceFee": 0.0
+        },
+        {
+          "BaseFare": 7500.0,
+          "Tax": 5750.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Child",
+          "PassengerCount": 2,
+          "ServiceFee": 0.0
+        },
+        {
+          "BaseFare": 1150.0,
+          "Tax": 0.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Infant",
+          "PassengerCount": 1,
+          "ServiceFee": 0.0
         }
       ],
-      "Discount": 0,
-      "Validatingcarrier": "SV",
-      "LastTicketDate": "2023-11-27T20:00:00",
+      "Discount": 0.0,
+      "Validatingcarrier": "EK",
+      "LastTicketDate": "2023-11-07T20:00:00",
       "segments": [
         {
           "TripIndicator": "OutBound",
@@ -1719,61 +148,13 @@
             "Airport": {
               "AirportCode": "DXB",
               "AirportName": "Dubai International Airport",
-              "Terminal": "1",
+              "Terminal": "3",
               "CityCode": "DXB",
               "CityName": "Dubai",
               "CountryCode": "AE",
               "CountryName": "United Arab Emirates"
             },
-            "DepTime": "2023-11-28T17:30:00"
-          },
-          "Destination": {
-            "Airport": {
-              "AirportCode": "JED",
-              "AirportName": "King Abdulaziz International Airport",
-              "Terminal": "1",
-              "CityCode": "JED",
-              "CityName": "Jeddah",
-              "CountryCode": "SA",
-              "CountryName": "Saudi Arabia"
-            },
-            "ArrTime": "2023-11-28T19:45:00"
-          },
-          "Airline": {
-            "AirlineCode": "SV",
-            "AirlineName": "Saudia",
-            "FlightNumber": "589",
-            "BookingClass": "T",
-            "CabinClass": "Economy",
-            "OperatingCarrier": "SV"
-          },
-          "Baggage": "1 N",
-          "JourneyDuration": "195",
-          "StopQuantity": "0",
-          "Equipment": "773",
-          "baggageDetails": [
-            {
-              "IsAllPax": true,
-              "PaxType": 1,
-              "Cabin": null,
-              "Checkin": "1 N"
-            }
-          ],
-          "SegmentGroup": 0
-        },
-        {
-          "TripIndicator": "OutBound",
-          "Origin": {
-            "Airport": {
-              "AirportCode": "JED",
-              "AirportName": "King Abdulaziz International Airport",
-              "Terminal": "1",
-              "CityCode": "JED",
-              "CityName": "Jeddah",
-              "CountryCode": "SA",
-              "CountryName": "Saudi Arabia"
-            },
-            "DepTime": "2023-11-29T01:00:00"
+            "DepTime": "2023-11-28T10:30:00"
           },
           "Destination": {
             "Airport": {
@@ -1785,33 +166,33 @@
               "CountryCode": "BD",
               "CountryName": "Bangladesh"
             },
-            "ArrTime": "2023-11-29T10:05:00"
+            "ArrTime": "2023-11-28T16:55:00"
           },
           "Airline": {
-            "AirlineCode": "SV",
-            "AirlineName": "Saudia",
-            "FlightNumber": "808",
-            "BookingClass": "T",
+            "AirlineCode": "EK",
+            "AirlineName": "Emirates",
+            "FlightNumber": "586",
+            "BookingClass": "L",
             "CabinClass": "Economy",
-            "OperatingCarrier": "SV"
+            "OperatingCarrier": "EK"
           },
-          "Baggage": "1 N",
-          "JourneyDuration": "365",
+          "Baggage": "40 K",
+          "JourneyDuration": "265",
           "StopQuantity": "0",
-          "Equipment": "773",
+          "Equipment": "77W",
           "baggageDetails": [
             {
               "IsAllPax": true,
               "PaxType": 1,
               "Cabin": null,
-              "Checkin": "1 N"
+              "Checkin": "40 K"
             }
           ],
           "SegmentGroup": 0
         }
       ],
-      "TotalFare": 16075,
-      "TotalFareWithAgentMarkup": 16075,
+      "TotalFare": 43300.0,
+      "TotalFareWithAgentMarkup": 43300.0,
       "Currency": "BDT",
       "Availabilty": 9,
       "FareType": "NET",
@@ -1819,522 +200,44 @@
       "HoldAllowed": true
     },
     {
-      "ResultID": "fdbb23ee-de37-4cec-9df7-424711ab65b5",
+      "ResultID": "73c7d4bb-7757-4c8a-85c5-6b6aac1ce9bd",
       "IsRefundable": true,
       "Fares": [
         {
-          "BaseFare": 11950,
-          "Tax": 4125,
+          "BaseFare": 11950.0,
+          "Tax": 4125.0,
           "Currency": "BDT",
-          "OtherCharges": 0,
-          "Discount": 0,
-          "AgentMarkUp": 0,
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
           "PaxType": "Adult",
           "PassengerCount": 1,
-          "ServiceFee": 0
-        }
-      ],
-      "Discount": 0,
-      "Validatingcarrier": "SV",
-      "LastTicketDate": "2023-11-27T20:00:00",
-      "segments": [
-        {
-          "TripIndicator": "OutBound",
-          "Origin": {
-            "Airport": {
-              "AirportCode": "DXB",
-              "AirportName": "Dubai International Airport",
-              "Terminal": "1",
-              "CityCode": "DXB",
-              "CityName": "Dubai",
-              "CountryCode": "AE",
-              "CountryName": "United Arab Emirates"
-            },
-            "DepTime": "2023-11-28T21:00:00"
-          },
-          "Destination": {
-            "Airport": {
-              "AirportCode": "JED",
-              "AirportName": "King Abdulaziz International Airport",
-              "Terminal": "1",
-              "CityCode": "JED",
-              "CityName": "Jeddah",
-              "CountryCode": "SA",
-              "CountryName": "Saudi Arabia"
-            },
-            "ArrTime": "2023-11-28T23:15:00"
-          },
-          "Airline": {
-            "AirlineCode": "SV",
-            "AirlineName": "Saudia",
-            "FlightNumber": "551",
-            "BookingClass": "T",
-            "CabinClass": "Economy",
-            "OperatingCarrier": "SV"
-          },
-          "Baggage": "1 N",
-          "JourneyDuration": "195",
-          "StopQuantity": "0",
-          "Equipment": "320",
-          "baggageDetails": [
-            {
-              "IsAllPax": true,
-              "PaxType": 1,
-              "Cabin": null,
-              "Checkin": "1 N"
-            }
-          ],
-          "SegmentGroup": 0
+          "ServiceFee": 0.0
         },
         {
-          "TripIndicator": "OutBound",
-          "Origin": {
-            "Airport": {
-              "AirportCode": "JED",
-              "AirportName": "King Abdulaziz International Airport",
-              "Terminal": "1",
-              "CityCode": "JED",
-              "CityName": "Jeddah",
-              "CountryCode": "SA",
-              "CountryName": "Saudi Arabia"
-            },
-            "DepTime": "2023-11-29T01:00:00"
-          },
-          "Destination": {
-            "Airport": {
-              "AirportCode": "DAC",
-              "AirportName": "Hazrat Shahjalal International Airport",
-              "Terminal": "1",
-              "CityCode": "DAC",
-              "CityName": "Dhaka",
-              "CountryCode": "BD",
-              "CountryName": "Bangladesh"
-            },
-            "ArrTime": "2023-11-29T10:05:00"
-          },
-          "Airline": {
-            "AirlineCode": "SV",
-            "AirlineName": "Saudia",
-            "FlightNumber": "808",
-            "BookingClass": "T",
-            "CabinClass": "Economy",
-            "OperatingCarrier": "SV"
-          },
-          "Baggage": "1 N",
-          "JourneyDuration": "365",
-          "StopQuantity": "0",
-          "Equipment": "773",
-          "baggageDetails": [
-            {
-              "IsAllPax": true,
-              "PaxType": 1,
-              "Cabin": null,
-              "Checkin": "1 N"
-            }
-          ],
-          "SegmentGroup": 0
-        }
-      ],
-      "TotalFare": 16075,
-      "TotalFareWithAgentMarkup": 16075,
-      "Currency": "BDT",
-      "Availabilty": 9,
-      "FareType": "NET",
-      "isMiniRulesAvailable": false,
-      "HoldAllowed": true
-    },
-    {
-      "ResultID": "70a531d3-961c-44aa-b8cd-8659f065cea7",
-      "IsRefundable": true,
-      "Fares": [
-        {
-          "BaseFare": 11950,
-          "Tax": 4125,
+          "BaseFare": 9000.0,
+          "Tax": 4125.0,
           "Currency": "BDT",
-          "OtherCharges": 0,
-          "Discount": 0,
-          "AgentMarkUp": 0,
-          "PaxType": "Adult",
-          "PassengerCount": 1,
-          "ServiceFee": 0
-        }
-      ],
-      "Discount": 0,
-      "Validatingcarrier": "SV",
-      "LastTicketDate": "2023-11-27T20:00:00",
-      "segments": [
-        {
-          "TripIndicator": "OutBound",
-          "Origin": {
-            "Airport": {
-              "AirportCode": "DXB",
-              "AirportName": "Dubai International Airport",
-              "Terminal": "1",
-              "CityCode": "DXB",
-              "CityName": "Dubai",
-              "CountryCode": "AE",
-              "CountryName": "United Arab Emirates"
-            },
-            "DepTime": "2023-11-28T11:10:00"
-          },
-          "Destination": {
-            "Airport": {
-              "AirportCode": "JED",
-              "AirportName": "King Abdulaziz International Airport",
-              "Terminal": "1",
-              "CityCode": "JED",
-              "CityName": "Jeddah",
-              "CountryCode": "SA",
-              "CountryName": "Saudi Arabia"
-            },
-            "ArrTime": "2023-11-28T13:25:00"
-          },
-          "Airline": {
-            "AirlineCode": "SV",
-            "AirlineName": "Saudia",
-            "FlightNumber": "567",
-            "BookingClass": "T",
-            "CabinClass": "Economy",
-            "OperatingCarrier": "SV"
-          },
-          "Baggage": "1 N",
-          "JourneyDuration": "195",
-          "StopQuantity": "0",
-          "Equipment": "320",
-          "baggageDetails": [
-            {
-              "IsAllPax": true,
-              "PaxType": 1,
-              "Cabin": null,
-              "Checkin": "1 N"
-            }
-          ],
-          "SegmentGroup": 0
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Child",
+          "PassengerCount": 2,
+          "ServiceFee": 0.0
         },
         {
-          "TripIndicator": "OutBound",
-          "Origin": {
-            "Airport": {
-              "AirportCode": "JED",
-              "AirportName": "King Abdulaziz International Airport",
-              "Terminal": "1",
-              "CityCode": "JED",
-              "CityName": "Jeddah",
-              "CountryCode": "SA",
-              "CountryName": "Saudi Arabia"
-            },
-            "DepTime": "2023-11-29T01:00:00"
-          },
-          "Destination": {
-            "Airport": {
-              "AirportCode": "DAC",
-              "AirportName": "Hazrat Shahjalal International Airport",
-              "Terminal": "1",
-              "CityCode": "DAC",
-              "CityName": "Dhaka",
-              "CountryCode": "BD",
-              "CountryName": "Bangladesh"
-            },
-            "ArrTime": "2023-11-29T10:05:00"
-          },
-          "Airline": {
-            "AirlineCode": "SV",
-            "AirlineName": "Saudia",
-            "FlightNumber": "808",
-            "BookingClass": "T",
-            "CabinClass": "Economy",
-            "OperatingCarrier": "SV"
-          },
-          "Baggage": "1 N",
-          "JourneyDuration": "365",
-          "StopQuantity": "0",
-          "Equipment": "773",
-          "baggageDetails": [
-            {
-              "IsAllPax": true,
-              "PaxType": 1,
-              "Cabin": null,
-              "Checkin": "1 N"
-            }
-          ],
-          "SegmentGroup": 0
-        }
-      ],
-      "TotalFare": 16075,
-      "TotalFareWithAgentMarkup": 16075,
-      "Currency": "BDT",
-      "Availabilty": 9,
-      "FareType": "NET",
-      "isMiniRulesAvailable": false,
-      "HoldAllowed": true
-    },
-    {
-      "ResultID": "b637d10d-47a7-45b6-a314-3945be6caf6d",
-      "IsRefundable": true,
-      "Fares": [
-        {
-          "BaseFare": 11950,
-          "Tax": 4125,
+          "BaseFare": 1350.0,
+          "Tax": 300.0,
           "Currency": "BDT",
-          "OtherCharges": 0,
-          "Discount": 0,
-          "AgentMarkUp": 0,
-          "PaxType": "Adult",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Infant",
           "PassengerCount": 1,
-          "ServiceFee": 0
+          "ServiceFee": 0.0
         }
       ],
-      "Discount": 0,
-      "Validatingcarrier": "SV",
-      "LastTicketDate": "2023-11-27T20:00:00",
-      "segments": [
-        {
-          "TripIndicator": "OutBound",
-          "Origin": {
-            "Airport": {
-              "AirportCode": "DXB",
-              "AirportName": "Dubai International Airport",
-              "Terminal": "1",
-              "CityCode": "DXB",
-              "CityName": "Dubai",
-              "CountryCode": "AE",
-              "CountryName": "United Arab Emirates"
-            },
-            "DepTime": "2023-11-28T04:20:00"
-          },
-          "Destination": {
-            "Airport": {
-              "AirportCode": "JED",
-              "AirportName": "King Abdulaziz International Airport",
-              "Terminal": "1",
-              "CityCode": "JED",
-              "CityName": "Jeddah",
-              "CountryCode": "SA",
-              "CountryName": "Saudi Arabia"
-            },
-            "ArrTime": "2023-11-28T06:35:00"
-          },
-          "Airline": {
-            "AirlineCode": "SV",
-            "AirlineName": "Saudia",
-            "FlightNumber": "599",
-            "BookingClass": "T",
-            "CabinClass": "Economy",
-            "OperatingCarrier": "SV"
-          },
-          "Baggage": "1 N",
-          "JourneyDuration": "195",
-          "StopQuantity": "0",
-          "Equipment": "320",
-          "baggageDetails": [
-            {
-              "IsAllPax": true,
-              "PaxType": 1,
-              "Cabin": null,
-              "Checkin": "1 N"
-            }
-          ],
-          "SegmentGroup": 0
-        },
-        {
-          "TripIndicator": "OutBound",
-          "Origin": {
-            "Airport": {
-              "AirportCode": "JED",
-              "AirportName": "King Abdulaziz International Airport",
-              "Terminal": "1",
-              "CityCode": "JED",
-              "CityName": "Jeddah",
-              "CountryCode": "SA",
-              "CountryName": "Saudi Arabia"
-            },
-            "DepTime": "2023-11-28T15:35:00"
-          },
-          "Destination": {
-            "Airport": {
-              "AirportCode": "DAC",
-              "AirportName": "Hazrat Shahjalal International Airport",
-              "Terminal": "1",
-              "CityCode": "DAC",
-              "CityName": "Dhaka",
-              "CountryCode": "BD",
-              "CountryName": "Bangladesh"
-            },
-            "ArrTime": "2023-11-29T00:40:00"
-          },
-          "Airline": {
-            "AirlineCode": "SV",
-            "AirlineName": "Saudia",
-            "FlightNumber": "802",
-            "BookingClass": "T",
-            "CabinClass": "Economy",
-            "OperatingCarrier": "SV"
-          },
-          "Baggage": "1 N",
-          "JourneyDuration": "365",
-          "StopQuantity": "0",
-          "Equipment": "773",
-          "baggageDetails": [
-            {
-              "IsAllPax": true,
-              "PaxType": 1,
-              "Cabin": null,
-              "Checkin": "1 N"
-            }
-          ],
-          "SegmentGroup": 0
-        }
-      ],
-      "TotalFare": 16075,
-      "TotalFareWithAgentMarkup": 16075,
-      "Currency": "BDT",
-      "Availabilty": 9,
-      "FareType": "NET",
-      "isMiniRulesAvailable": false,
-      "HoldAllowed": true
-    },
-    {
-      "ResultID": "134fd310-29ed-494b-a9a4-8cc9b97316a4",
-      "IsRefundable": true,
-      "Fares": [
-        {
-          "BaseFare": 11950,
-          "Tax": 4125,
-          "Currency": "BDT",
-          "OtherCharges": 0,
-          "Discount": 0,
-          "AgentMarkUp": 0,
-          "PaxType": "Adult",
-          "PassengerCount": 1,
-          "ServiceFee": 0
-        }
-      ],
-      "Discount": 0,
-      "Validatingcarrier": "SV",
-      "LastTicketDate": "2023-11-27T20:00:00",
-      "segments": [
-        {
-          "TripIndicator": "OutBound",
-          "Origin": {
-            "Airport": {
-              "AirportCode": "DXB",
-              "AirportName": "Dubai International Airport",
-              "Terminal": "1",
-              "CityCode": "DXB",
-              "CityName": "Dubai",
-              "CountryCode": "AE",
-              "CountryName": "United Arab Emirates"
-            },
-            "DepTime": "2023-11-28T06:00:00"
-          },
-          "Destination": {
-            "Airport": {
-              "AirportCode": "RUH",
-              "AirportName": "King Khaled International Airport",
-              "Terminal": "4",
-              "CityCode": "RUH",
-              "CityName": "Riyadh",
-              "CountryCode": "SA",
-              "CountryName": "Saudi Arabia"
-            },
-            "ArrTime": "2023-11-28T07:10:00"
-          },
-          "Airline": {
-            "AirlineCode": "SV",
-            "AirlineName": "Saudia",
-            "FlightNumber": "591",
-            "BookingClass": "T",
-            "CabinClass": "Economy",
-            "OperatingCarrier": "SV"
-          },
-          "Baggage": "1 N",
-          "JourneyDuration": "130",
-          "StopQuantity": "0",
-          "Equipment": "320",
-          "baggageDetails": [
-            {
-              "IsAllPax": true,
-              "PaxType": 1,
-              "Cabin": null,
-              "Checkin": "1 N"
-            }
-          ],
-          "SegmentGroup": 0
-        },
-        {
-          "TripIndicator": "OutBound",
-          "Origin": {
-            "Airport": {
-              "AirportCode": "RUH",
-              "AirportName": "King Khaled International Airport",
-              "Terminal": "4",
-              "CityCode": "RUH",
-              "CityName": "Riyadh",
-              "CountryCode": "SA",
-              "CountryName": "Saudi Arabia"
-            },
-            "DepTime": "2023-11-28T14:50:00"
-          },
-          "Destination": {
-            "Airport": {
-              "AirportCode": "DAC",
-              "AirportName": "Hazrat Shahjalal International Airport",
-              "Terminal": "1",
-              "CityCode": "DAC",
-              "CityName": "Dhaka",
-              "CountryCode": "BD",
-              "CountryName": "Bangladesh"
-            },
-            "ArrTime": "2023-11-28T23:20:00"
-          },
-          "Airline": {
-            "AirlineCode": "SV",
-            "AirlineName": "Saudia",
-            "FlightNumber": "804",
-            "BookingClass": "T",
-            "CabinClass": "Economy",
-            "OperatingCarrier": "SV"
-          },
-          "Baggage": "1 N",
-          "JourneyDuration": "330",
-          "StopQuantity": "0",
-          "Equipment": "777",
-          "baggageDetails": [
-            {
-              "IsAllPax": true,
-              "PaxType": 1,
-              "Cabin": null,
-              "Checkin": "1 N"
-            }
-          ],
-          "SegmentGroup": 0
-        }
-      ],
-      "TotalFare": 16075,
-      "TotalFareWithAgentMarkup": 16075,
-      "Currency": "BDT",
-      "Availabilty": 9,
-      "FareType": "NET",
-      "isMiniRulesAvailable": false,
-      "HoldAllowed": true
-    },
-    {
-      "ResultID": "b3982cde-323f-4323-ad57-9854b2ed5bf7",
-      "IsRefundable": true,
-      "Fares": [
-        {
-          "BaseFare": 11950,
-          "Tax": 4125,
-          "Currency": "BDT",
-          "OtherCharges": 0,
-          "Discount": 0,
-          "AgentMarkUp": 0,
-          "PaxType": "Adult",
-          "PassengerCount": 1,
-          "ServiceFee": 0
-        }
-      ],
-      "Discount": 0,
+      "Discount": 0.0,
       "Validatingcarrier": "SV",
       "LastTicketDate": "2023-11-27T20:00:00",
       "segments": [
@@ -2435,8 +338,8 @@
           "SegmentGroup": 0
         }
       ],
-      "TotalFare": 16075,
-      "TotalFareWithAgentMarkup": 16075,
+      "TotalFare": 43975.0,
+      "TotalFareWithAgentMarkup": 43975.0,
       "Currency": "BDT",
       "Availabilty": 9,
       "FareType": "NET",
@@ -2444,22 +347,44 @@
       "HoldAllowed": true
     },
     {
-      "ResultID": "765ac432-bffe-4bee-bbfc-7b902dbca147",
+      "ResultID": "d8a894d1-e585-41a5-bd85-e804e45bd896",
       "IsRefundable": true,
       "Fares": [
         {
-          "BaseFare": 11950,
-          "Tax": 4125,
+          "BaseFare": 11950.0,
+          "Tax": 4125.0,
           "Currency": "BDT",
-          "OtherCharges": 0,
-          "Discount": 0,
-          "AgentMarkUp": 0,
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
           "PaxType": "Adult",
           "PassengerCount": 1,
-          "ServiceFee": 0
+          "ServiceFee": 0.0
+        },
+        {
+          "BaseFare": 9000.0,
+          "Tax": 4125.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Child",
+          "PassengerCount": 2,
+          "ServiceFee": 0.0
+        },
+        {
+          "BaseFare": 1350.0,
+          "Tax": 300.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Infant",
+          "PassengerCount": 1,
+          "ServiceFee": 0.0
         }
       ],
-      "Discount": 0,
+      "Discount": 0.0,
       "Validatingcarrier": "SV",
       "LastTicketDate": "2023-11-27T20:00:00",
       "segments": [
@@ -2560,8 +485,8 @@
           "SegmentGroup": 0
         }
       ],
-      "TotalFare": 16075,
-      "TotalFareWithAgentMarkup": 16075,
+      "TotalFare": 43975.0,
+      "TotalFareWithAgentMarkup": 43975.0,
       "Currency": "BDT",
       "Availabilty": 9,
       "FareType": "NET",
@@ -2569,22 +494,1478 @@
       "HoldAllowed": true
     },
     {
-      "ResultID": "f3d2cebd-bdf2-4b3b-aa2d-cbb3f6bec3f3",
+      "ResultID": "b2f00acd-3775-44a0-bc61-40f95bd78759",
       "IsRefundable": true,
       "Fares": [
         {
-          "BaseFare": 12350,
-          "Tax": 7500,
+          "BaseFare": 11950.0,
+          "Tax": 4125.0,
           "Currency": "BDT",
-          "OtherCharges": 0,
-          "Discount": 0,
-          "AgentMarkUp": 0,
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
           "PaxType": "Adult",
           "PassengerCount": 1,
-          "ServiceFee": 0
+          "ServiceFee": 0.0
+        },
+        {
+          "BaseFare": 9000.0,
+          "Tax": 4125.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Child",
+          "PassengerCount": 2,
+          "ServiceFee": 0.0
+        },
+        {
+          "BaseFare": 1350.0,
+          "Tax": 300.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Infant",
+          "PassengerCount": 1,
+          "ServiceFee": 0.0
         }
       ],
-      "Discount": 0,
+      "Discount": 0.0,
+      "Validatingcarrier": "SV",
+      "LastTicketDate": "2023-11-27T20:00:00",
+      "segments": [
+        {
+          "TripIndicator": "OutBound",
+          "Origin": {
+            "Airport": {
+              "AirportCode": "DXB",
+              "AirportName": "Dubai International Airport",
+              "Terminal": "1",
+              "CityCode": "DXB",
+              "CityName": "Dubai",
+              "CountryCode": "AE",
+              "CountryName": "United Arab Emirates"
+            },
+            "DepTime": "2023-11-28T17:30:00"
+          },
+          "Destination": {
+            "Airport": {
+              "AirportCode": "JED",
+              "AirportName": "King Abdulaziz International Airport",
+              "Terminal": "1",
+              "CityCode": "JED",
+              "CityName": "Jeddah",
+              "CountryCode": "SA",
+              "CountryName": "Saudi Arabia"
+            },
+            "ArrTime": "2023-11-28T19:45:00"
+          },
+          "Airline": {
+            "AirlineCode": "SV",
+            "AirlineName": "Saudia",
+            "FlightNumber": "589",
+            "BookingClass": "T",
+            "CabinClass": "Economy",
+            "OperatingCarrier": "SV"
+          },
+          "Baggage": "1 N",
+          "JourneyDuration": "195",
+          "StopQuantity": "0",
+          "Equipment": "773",
+          "baggageDetails": [
+            {
+              "IsAllPax": true,
+              "PaxType": 1,
+              "Cabin": null,
+              "Checkin": "1 N"
+            }
+          ],
+          "SegmentGroup": 0
+        },
+        {
+          "TripIndicator": "OutBound",
+          "Origin": {
+            "Airport": {
+              "AirportCode": "JED",
+              "AirportName": "King Abdulaziz International Airport",
+              "Terminal": "1",
+              "CityCode": "JED",
+              "CityName": "Jeddah",
+              "CountryCode": "SA",
+              "CountryName": "Saudi Arabia"
+            },
+            "DepTime": "2023-11-29T01:00:00"
+          },
+          "Destination": {
+            "Airport": {
+              "AirportCode": "DAC",
+              "AirportName": "Hazrat Shahjalal International Airport",
+              "Terminal": "1",
+              "CityCode": "DAC",
+              "CityName": "Dhaka",
+              "CountryCode": "BD",
+              "CountryName": "Bangladesh"
+            },
+            "ArrTime": "2023-11-29T10:05:00"
+          },
+          "Airline": {
+            "AirlineCode": "SV",
+            "AirlineName": "Saudia",
+            "FlightNumber": "808",
+            "BookingClass": "T",
+            "CabinClass": "Economy",
+            "OperatingCarrier": "SV"
+          },
+          "Baggage": "1 N",
+          "JourneyDuration": "365",
+          "StopQuantity": "0",
+          "Equipment": "773",
+          "baggageDetails": [
+            {
+              "IsAllPax": true,
+              "PaxType": 1,
+              "Cabin": null,
+              "Checkin": "1 N"
+            }
+          ],
+          "SegmentGroup": 0
+        }
+      ],
+      "TotalFare": 43975.0,
+      "TotalFareWithAgentMarkup": 43975.0,
+      "Currency": "BDT",
+      "Availabilty": 9,
+      "FareType": "NET",
+      "isMiniRulesAvailable": false,
+      "HoldAllowed": true
+    },
+    {
+      "ResultID": "6231630d-f44d-4e5b-abb3-5cee71f9ea1e",
+      "IsRefundable": true,
+      "Fares": [
+        {
+          "BaseFare": 11950.0,
+          "Tax": 4125.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Adult",
+          "PassengerCount": 1,
+          "ServiceFee": 0.0
+        },
+        {
+          "BaseFare": 9000.0,
+          "Tax": 4125.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Child",
+          "PassengerCount": 2,
+          "ServiceFee": 0.0
+        },
+        {
+          "BaseFare": 1350.0,
+          "Tax": 300.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Infant",
+          "PassengerCount": 1,
+          "ServiceFee": 0.0
+        }
+      ],
+      "Discount": 0.0,
+      "Validatingcarrier": "SV",
+      "LastTicketDate": "2023-11-27T20:00:00",
+      "segments": [
+        {
+          "TripIndicator": "OutBound",
+          "Origin": {
+            "Airport": {
+              "AirportCode": "DXB",
+              "AirportName": "Dubai International Airport",
+              "Terminal": "1",
+              "CityCode": "DXB",
+              "CityName": "Dubai",
+              "CountryCode": "AE",
+              "CountryName": "United Arab Emirates"
+            },
+            "DepTime": "2023-11-28T06:00:00"
+          },
+          "Destination": {
+            "Airport": {
+              "AirportCode": "RUH",
+              "AirportName": "King Khaled International Airport",
+              "Terminal": "4",
+              "CityCode": "RUH",
+              "CityName": "Riyadh",
+              "CountryCode": "SA",
+              "CountryName": "Saudi Arabia"
+            },
+            "ArrTime": "2023-11-28T07:10:00"
+          },
+          "Airline": {
+            "AirlineCode": "SV",
+            "AirlineName": "Saudia",
+            "FlightNumber": "591",
+            "BookingClass": "T",
+            "CabinClass": "Economy",
+            "OperatingCarrier": "SV"
+          },
+          "Baggage": "1 N",
+          "JourneyDuration": "130",
+          "StopQuantity": "0",
+          "Equipment": "320",
+          "baggageDetails": [
+            {
+              "IsAllPax": true,
+              "PaxType": 1,
+              "Cabin": null,
+              "Checkin": "1 N"
+            }
+          ],
+          "SegmentGroup": 0
+        },
+        {
+          "TripIndicator": "OutBound",
+          "Origin": {
+            "Airport": {
+              "AirportCode": "RUH",
+              "AirportName": "King Khaled International Airport",
+              "Terminal": "4",
+              "CityCode": "RUH",
+              "CityName": "Riyadh",
+              "CountryCode": "SA",
+              "CountryName": "Saudi Arabia"
+            },
+            "DepTime": "2023-11-28T14:50:00"
+          },
+          "Destination": {
+            "Airport": {
+              "AirportCode": "DAC",
+              "AirportName": "Hazrat Shahjalal International Airport",
+              "Terminal": "1",
+              "CityCode": "DAC",
+              "CityName": "Dhaka",
+              "CountryCode": "BD",
+              "CountryName": "Bangladesh"
+            },
+            "ArrTime": "2023-11-28T23:20:00"
+          },
+          "Airline": {
+            "AirlineCode": "SV",
+            "AirlineName": "Saudia",
+            "FlightNumber": "804",
+            "BookingClass": "T",
+            "CabinClass": "Economy",
+            "OperatingCarrier": "SV"
+          },
+          "Baggage": "1 N",
+          "JourneyDuration": "330",
+          "StopQuantity": "0",
+          "Equipment": "777",
+          "baggageDetails": [
+            {
+              "IsAllPax": true,
+              "PaxType": 1,
+              "Cabin": null,
+              "Checkin": "1 N"
+            }
+          ],
+          "SegmentGroup": 0
+        }
+      ],
+      "TotalFare": 43975.0,
+      "TotalFareWithAgentMarkup": 43975.0,
+      "Currency": "BDT",
+      "Availabilty": 9,
+      "FareType": "NET",
+      "isMiniRulesAvailable": false,
+      "HoldAllowed": true
+    },
+    {
+      "ResultID": "ff33c14f-c8cc-4512-ab59-d5abdd8b2756",
+      "IsRefundable": true,
+      "Fares": [
+        {
+          "BaseFare": 11950.0,
+          "Tax": 4125.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Adult",
+          "PassengerCount": 1,
+          "ServiceFee": 0.0
+        },
+        {
+          "BaseFare": 9000.0,
+          "Tax": 4125.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Child",
+          "PassengerCount": 2,
+          "ServiceFee": 0.0
+        },
+        {
+          "BaseFare": 1350.0,
+          "Tax": 300.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Infant",
+          "PassengerCount": 1,
+          "ServiceFee": 0.0
+        }
+      ],
+      "Discount": 0.0,
+      "Validatingcarrier": "SV",
+      "LastTicketDate": "2023-11-27T20:00:00",
+      "segments": [
+        {
+          "TripIndicator": "OutBound",
+          "Origin": {
+            "Airport": {
+              "AirportCode": "DXB",
+              "AirportName": "Dubai International Airport",
+              "Terminal": "1",
+              "CityCode": "DXB",
+              "CityName": "Dubai",
+              "CountryCode": "AE",
+              "CountryName": "United Arab Emirates"
+            },
+            "DepTime": "2023-11-28T04:20:00"
+          },
+          "Destination": {
+            "Airport": {
+              "AirportCode": "JED",
+              "AirportName": "King Abdulaziz International Airport",
+              "Terminal": "1",
+              "CityCode": "JED",
+              "CityName": "Jeddah",
+              "CountryCode": "SA",
+              "CountryName": "Saudi Arabia"
+            },
+            "ArrTime": "2023-11-28T06:35:00"
+          },
+          "Airline": {
+            "AirlineCode": "SV",
+            "AirlineName": "Saudia",
+            "FlightNumber": "599",
+            "BookingClass": "T",
+            "CabinClass": "Economy",
+            "OperatingCarrier": "SV"
+          },
+          "Baggage": "1 N",
+          "JourneyDuration": "195",
+          "StopQuantity": "0",
+          "Equipment": "320",
+          "baggageDetails": [
+            {
+              "IsAllPax": true,
+              "PaxType": 1,
+              "Cabin": null,
+              "Checkin": "1 N"
+            }
+          ],
+          "SegmentGroup": 0
+        },
+        {
+          "TripIndicator": "OutBound",
+          "Origin": {
+            "Airport": {
+              "AirportCode": "JED",
+              "AirportName": "King Abdulaziz International Airport",
+              "Terminal": "1",
+              "CityCode": "JED",
+              "CityName": "Jeddah",
+              "CountryCode": "SA",
+              "CountryName": "Saudi Arabia"
+            },
+            "DepTime": "2023-11-28T15:35:00"
+          },
+          "Destination": {
+            "Airport": {
+              "AirportCode": "DAC",
+              "AirportName": "Hazrat Shahjalal International Airport",
+              "Terminal": "1",
+              "CityCode": "DAC",
+              "CityName": "Dhaka",
+              "CountryCode": "BD",
+              "CountryName": "Bangladesh"
+            },
+            "ArrTime": "2023-11-29T00:40:00"
+          },
+          "Airline": {
+            "AirlineCode": "SV",
+            "AirlineName": "Saudia",
+            "FlightNumber": "802",
+            "BookingClass": "T",
+            "CabinClass": "Economy",
+            "OperatingCarrier": "SV"
+          },
+          "Baggage": "1 N",
+          "JourneyDuration": "365",
+          "StopQuantity": "0",
+          "Equipment": "773",
+          "baggageDetails": [
+            {
+              "IsAllPax": true,
+              "PaxType": 1,
+              "Cabin": null,
+              "Checkin": "1 N"
+            }
+          ],
+          "SegmentGroup": 0
+        }
+      ],
+      "TotalFare": 43975.0,
+      "TotalFareWithAgentMarkup": 43975.0,
+      "Currency": "BDT",
+      "Availabilty": 9,
+      "FareType": "NET",
+      "isMiniRulesAvailable": false,
+      "HoldAllowed": true
+    },
+    {
+      "ResultID": "9a97cd55-60b0-467a-a807-12ab2355f27a",
+      "IsRefundable": true,
+      "Fares": [
+        {
+          "BaseFare": 11950.0,
+          "Tax": 4125.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Adult",
+          "PassengerCount": 1,
+          "ServiceFee": 0.0
+        },
+        {
+          "BaseFare": 9000.0,
+          "Tax": 4125.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Child",
+          "PassengerCount": 2,
+          "ServiceFee": 0.0
+        },
+        {
+          "BaseFare": 1350.0,
+          "Tax": 300.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Infant",
+          "PassengerCount": 1,
+          "ServiceFee": 0.0
+        }
+      ],
+      "Discount": 0.0,
+      "Validatingcarrier": "SV",
+      "LastTicketDate": "2023-11-27T20:00:00",
+      "segments": [
+        {
+          "TripIndicator": "OutBound",
+          "Origin": {
+            "Airport": {
+              "AirportCode": "DXB",
+              "AirportName": "Dubai International Airport",
+              "Terminal": "1",
+              "CityCode": "DXB",
+              "CityName": "Dubai",
+              "CountryCode": "AE",
+              "CountryName": "United Arab Emirates"
+            },
+            "DepTime": "2023-11-28T11:10:00"
+          },
+          "Destination": {
+            "Airport": {
+              "AirportCode": "JED",
+              "AirportName": "King Abdulaziz International Airport",
+              "Terminal": "1",
+              "CityCode": "JED",
+              "CityName": "Jeddah",
+              "CountryCode": "SA",
+              "CountryName": "Saudi Arabia"
+            },
+            "ArrTime": "2023-11-28T13:25:00"
+          },
+          "Airline": {
+            "AirlineCode": "SV",
+            "AirlineName": "Saudia",
+            "FlightNumber": "567",
+            "BookingClass": "T",
+            "CabinClass": "Economy",
+            "OperatingCarrier": "SV"
+          },
+          "Baggage": "1 N",
+          "JourneyDuration": "195",
+          "StopQuantity": "0",
+          "Equipment": "320",
+          "baggageDetails": [
+            {
+              "IsAllPax": true,
+              "PaxType": 1,
+              "Cabin": null,
+              "Checkin": "1 N"
+            }
+          ],
+          "SegmentGroup": 0
+        },
+        {
+          "TripIndicator": "OutBound",
+          "Origin": {
+            "Airport": {
+              "AirportCode": "JED",
+              "AirportName": "King Abdulaziz International Airport",
+              "Terminal": "1",
+              "CityCode": "JED",
+              "CityName": "Jeddah",
+              "CountryCode": "SA",
+              "CountryName": "Saudi Arabia"
+            },
+            "DepTime": "2023-11-29T01:00:00"
+          },
+          "Destination": {
+            "Airport": {
+              "AirportCode": "DAC",
+              "AirportName": "Hazrat Shahjalal International Airport",
+              "Terminal": "1",
+              "CityCode": "DAC",
+              "CityName": "Dhaka",
+              "CountryCode": "BD",
+              "CountryName": "Bangladesh"
+            },
+            "ArrTime": "2023-11-29T10:05:00"
+          },
+          "Airline": {
+            "AirlineCode": "SV",
+            "AirlineName": "Saudia",
+            "FlightNumber": "808",
+            "BookingClass": "T",
+            "CabinClass": "Economy",
+            "OperatingCarrier": "SV"
+          },
+          "Baggage": "1 N",
+          "JourneyDuration": "365",
+          "StopQuantity": "0",
+          "Equipment": "773",
+          "baggageDetails": [
+            {
+              "IsAllPax": true,
+              "PaxType": 1,
+              "Cabin": null,
+              "Checkin": "1 N"
+            }
+          ],
+          "SegmentGroup": 0
+        }
+      ],
+      "TotalFare": 43975.0,
+      "TotalFareWithAgentMarkup": 43975.0,
+      "Currency": "BDT",
+      "Availabilty": 9,
+      "FareType": "NET",
+      "isMiniRulesAvailable": false,
+      "HoldAllowed": true
+    },
+    {
+      "ResultID": "18f67f9b-053e-42ff-a6b1-4b52f55ae262",
+      "IsRefundable": true,
+      "Fares": [
+        {
+          "BaseFare": 11950.0,
+          "Tax": 4125.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Adult",
+          "PassengerCount": 1,
+          "ServiceFee": 0.0
+        },
+        {
+          "BaseFare": 9000.0,
+          "Tax": 4125.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Child",
+          "PassengerCount": 2,
+          "ServiceFee": 0.0
+        },
+        {
+          "BaseFare": 1350.0,
+          "Tax": 300.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Infant",
+          "PassengerCount": 1,
+          "ServiceFee": 0.0
+        }
+      ],
+      "Discount": 0.0,
+      "Validatingcarrier": "SV",
+      "LastTicketDate": "2023-11-27T20:00:00",
+      "segments": [
+        {
+          "TripIndicator": "OutBound",
+          "Origin": {
+            "Airport": {
+              "AirportCode": "DXB",
+              "AirportName": "Dubai International Airport",
+              "Terminal": "1",
+              "CityCode": "DXB",
+              "CityName": "Dubai",
+              "CountryCode": "AE",
+              "CountryName": "United Arab Emirates"
+            },
+            "DepTime": "2023-11-28T21:00:00"
+          },
+          "Destination": {
+            "Airport": {
+              "AirportCode": "JED",
+              "AirportName": "King Abdulaziz International Airport",
+              "Terminal": "1",
+              "CityCode": "JED",
+              "CityName": "Jeddah",
+              "CountryCode": "SA",
+              "CountryName": "Saudi Arabia"
+            },
+            "ArrTime": "2023-11-28T23:15:00"
+          },
+          "Airline": {
+            "AirlineCode": "SV",
+            "AirlineName": "Saudia",
+            "FlightNumber": "551",
+            "BookingClass": "T",
+            "CabinClass": "Economy",
+            "OperatingCarrier": "SV"
+          },
+          "Baggage": "1 N",
+          "JourneyDuration": "195",
+          "StopQuantity": "0",
+          "Equipment": "320",
+          "baggageDetails": [
+            {
+              "IsAllPax": true,
+              "PaxType": 1,
+              "Cabin": null,
+              "Checkin": "1 N"
+            }
+          ],
+          "SegmentGroup": 0
+        },
+        {
+          "TripIndicator": "OutBound",
+          "Origin": {
+            "Airport": {
+              "AirportCode": "JED",
+              "AirportName": "King Abdulaziz International Airport",
+              "Terminal": "1",
+              "CityCode": "JED",
+              "CityName": "Jeddah",
+              "CountryCode": "SA",
+              "CountryName": "Saudi Arabia"
+            },
+            "DepTime": "2023-11-29T01:00:00"
+          },
+          "Destination": {
+            "Airport": {
+              "AirportCode": "DAC",
+              "AirportName": "Hazrat Shahjalal International Airport",
+              "Terminal": "1",
+              "CityCode": "DAC",
+              "CityName": "Dhaka",
+              "CountryCode": "BD",
+              "CountryName": "Bangladesh"
+            },
+            "ArrTime": "2023-11-29T10:05:00"
+          },
+          "Airline": {
+            "AirlineCode": "SV",
+            "AirlineName": "Saudia",
+            "FlightNumber": "808",
+            "BookingClass": "T",
+            "CabinClass": "Economy",
+            "OperatingCarrier": "SV"
+          },
+          "Baggage": "1 N",
+          "JourneyDuration": "365",
+          "StopQuantity": "0",
+          "Equipment": "773",
+          "baggageDetails": [
+            {
+              "IsAllPax": true,
+              "PaxType": 1,
+              "Cabin": null,
+              "Checkin": "1 N"
+            }
+          ],
+          "SegmentGroup": 0
+        }
+      ],
+      "TotalFare": 43975.0,
+      "TotalFareWithAgentMarkup": 43975.0,
+      "Currency": "BDT",
+      "Availabilty": 9,
+      "FareType": "NET",
+      "isMiniRulesAvailable": false,
+      "HoldAllowed": true
+    },
+    {
+      "ResultID": "635b130d-0b5c-49b3-b9b6-6a0027a48229",
+      "IsRefundable": false,
+      "Fares": [
+        {
+          "BaseFare": 7650.0,
+          "Tax": 8025.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Adult",
+          "PassengerCount": 1,
+          "ServiceFee": 0.0
+        },
+        {
+          "BaseFare": 6200.0,
+          "Tax": 8025.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Child",
+          "PassengerCount": 2,
+          "ServiceFee": 0.0
+        },
+        {
+          "BaseFare": 2650.0,
+          "Tax": 775.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Infant",
+          "PassengerCount": 1,
+          "ServiceFee": 0.0
+        }
+      ],
+      "Discount": 0.0,
+      "Validatingcarrier": "WY",
+      "LastTicketDate": "2023-11-27T20:00:00",
+      "segments": [
+        {
+          "TripIndicator": "OutBound",
+          "Origin": {
+            "Airport": {
+              "AirportCode": "DXB",
+              "AirportName": "Dubai International Airport",
+              "Terminal": "1",
+              "CityCode": "DXB",
+              "CityName": "Dubai",
+              "CountryCode": "AE",
+              "CountryName": "United Arab Emirates"
+            },
+            "DepTime": "2023-11-28T06:05:00"
+          },
+          "Destination": {
+            "Airport": {
+              "AirportCode": "MCT",
+              "AirportName": "Muscat International Airport",
+              "Terminal": null,
+              "CityCode": "MCT",
+              "CityName": "Muscat",
+              "CountryCode": "OM",
+              "CountryName": "Oman"
+            },
+            "ArrTime": "2023-11-28T07:20:00"
+          },
+          "Airline": {
+            "AirlineCode": "WY",
+            "AirlineName": "Oman Air",
+            "FlightNumber": "602",
+            "BookingClass": "L",
+            "CabinClass": "Economy",
+            "OperatingCarrier": "WY"
+          },
+          "Baggage": "30 K",
+          "JourneyDuration": "75",
+          "StopQuantity": "0",
+          "Equipment": "7M8",
+          "baggageDetails": [
+            {
+              "IsAllPax": true,
+              "PaxType": 1,
+              "Cabin": null,
+              "Checkin": "30 K"
+            }
+          ],
+          "SegmentGroup": 0
+        },
+        {
+          "TripIndicator": "OutBound",
+          "Origin": {
+            "Airport": {
+              "AirportCode": "MCT",
+              "AirportName": "Muscat International Airport",
+              "Terminal": null,
+              "CityCode": "MCT",
+              "CityName": "Muscat",
+              "CountryCode": "OM",
+              "CountryName": "Oman"
+            },
+            "DepTime": "2023-11-28T08:50:00"
+          },
+          "Destination": {
+            "Airport": {
+              "AirportCode": "DAC",
+              "AirportName": "Hazrat Shahjalal International Airport",
+              "Terminal": null,
+              "CityCode": "DAC",
+              "CityName": "Dhaka",
+              "CountryCode": "BD",
+              "CountryName": "Bangladesh"
+            },
+            "ArrTime": "2023-11-28T15:05:00"
+          },
+          "Airline": {
+            "AirlineCode": "WY",
+            "AirlineName": "Oman Air",
+            "FlightNumber": "317",
+            "BookingClass": "L",
+            "CabinClass": "Economy",
+            "OperatingCarrier": "WY"
+          },
+          "Baggage": "30 K",
+          "JourneyDuration": "255",
+          "StopQuantity": "0",
+          "Equipment": "332",
+          "baggageDetails": [
+            {
+              "IsAllPax": true,
+              "PaxType": 1,
+              "Cabin": null,
+              "Checkin": "30 K"
+            }
+          ],
+          "SegmentGroup": 0
+        }
+      ],
+      "TotalFare": 47550.0,
+      "TotalFareWithAgentMarkup": 47550.0,
+      "Currency": "BDT",
+      "Availabilty": 4,
+      "FareType": "NET",
+      "isMiniRulesAvailable": false,
+      "HoldAllowed": true
+    },
+    {
+      "ResultID": "7e430393-9056-4ea4-8125-dfd21a378308",
+      "IsRefundable": false,
+      "Fares": [
+        {
+          "BaseFare": 7650.0,
+          "Tax": 8025.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Adult",
+          "PassengerCount": 1,
+          "ServiceFee": 0.0
+        },
+        {
+          "BaseFare": 6200.0,
+          "Tax": 8025.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Child",
+          "PassengerCount": 2,
+          "ServiceFee": 0.0
+        },
+        {
+          "BaseFare": 2650.0,
+          "Tax": 775.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Infant",
+          "PassengerCount": 1,
+          "ServiceFee": 0.0
+        }
+      ],
+      "Discount": 0.0,
+      "Validatingcarrier": "WY",
+      "LastTicketDate": "2023-11-27T20:00:00",
+      "segments": [
+        {
+          "TripIndicator": "OutBound",
+          "Origin": {
+            "Airport": {
+              "AirportCode": "DXB",
+              "AirportName": "Dubai International Airport",
+              "Terminal": "1",
+              "CityCode": "DXB",
+              "CityName": "Dubai",
+              "CountryCode": "AE",
+              "CountryName": "United Arab Emirates"
+            },
+            "DepTime": "2023-11-28T11:25:00"
+          },
+          "Destination": {
+            "Airport": {
+              "AirportCode": "MCT",
+              "AirportName": "Muscat International Airport",
+              "Terminal": null,
+              "CityCode": "MCT",
+              "CityName": "Muscat",
+              "CountryCode": "OM",
+              "CountryName": "Oman"
+            },
+            "ArrTime": "2023-11-28T12:40:00"
+          },
+          "Airline": {
+            "AirlineCode": "WY",
+            "AirlineName": "Oman Air",
+            "FlightNumber": "604",
+            "BookingClass": "L",
+            "CabinClass": "Economy",
+            "OperatingCarrier": "WY"
+          },
+          "Baggage": "30 K",
+          "JourneyDuration": "75",
+          "StopQuantity": "0",
+          "Equipment": "7M8",
+          "baggageDetails": [
+            {
+              "IsAllPax": true,
+              "PaxType": 1,
+              "Cabin": null,
+              "Checkin": "30 K"
+            }
+          ],
+          "SegmentGroup": 0
+        },
+        {
+          "TripIndicator": "OutBound",
+          "Origin": {
+            "Airport": {
+              "AirportCode": "MCT",
+              "AirportName": "Muscat International Airport",
+              "Terminal": null,
+              "CityCode": "MCT",
+              "CityName": "Muscat",
+              "CountryCode": "OM",
+              "CountryName": "Oman"
+            },
+            "DepTime": "2023-11-29T08:50:00"
+          },
+          "Destination": {
+            "Airport": {
+              "AirportCode": "DAC",
+              "AirportName": "Hazrat Shahjalal International Airport",
+              "Terminal": null,
+              "CityCode": "DAC",
+              "CityName": "Dhaka",
+              "CountryCode": "BD",
+              "CountryName": "Bangladesh"
+            },
+            "ArrTime": "2023-11-29T15:05:00"
+          },
+          "Airline": {
+            "AirlineCode": "WY",
+            "AirlineName": "Oman Air",
+            "FlightNumber": "317",
+            "BookingClass": "L",
+            "CabinClass": "Economy",
+            "OperatingCarrier": "WY"
+          },
+          "Baggage": "30 K",
+          "JourneyDuration": "255",
+          "StopQuantity": "0",
+          "Equipment": "332",
+          "baggageDetails": [
+            {
+              "IsAllPax": true,
+              "PaxType": 1,
+              "Cabin": null,
+              "Checkin": "30 K"
+            }
+          ],
+          "SegmentGroup": 0
+        }
+      ],
+      "TotalFare": 47550.0,
+      "TotalFareWithAgentMarkup": 47550.0,
+      "Currency": "BDT",
+      "Availabilty": 6,
+      "FareType": "NET",
+      "isMiniRulesAvailable": false,
+      "HoldAllowed": true
+    },
+    {
+      "ResultID": "93afc6c6-d4d5-4b95-a2bc-dc876442037f",
+      "IsRefundable": false,
+      "Fares": [
+        {
+          "BaseFare": 7650.0,
+          "Tax": 8025.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Adult",
+          "PassengerCount": 1,
+          "ServiceFee": 0.0
+        },
+        {
+          "BaseFare": 6200.0,
+          "Tax": 8025.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Child",
+          "PassengerCount": 2,
+          "ServiceFee": 0.0
+        },
+        {
+          "BaseFare": 2650.0,
+          "Tax": 775.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Infant",
+          "PassengerCount": 1,
+          "ServiceFee": 0.0
+        }
+      ],
+      "Discount": 0.0,
+      "Validatingcarrier": "WY",
+      "LastTicketDate": "2023-11-27T20:00:00",
+      "segments": [
+        {
+          "TripIndicator": "OutBound",
+          "Origin": {
+            "Airport": {
+              "AirportCode": "DXB",
+              "AirportName": "Dubai International Airport",
+              "Terminal": "1",
+              "CityCode": "DXB",
+              "CityName": "Dubai",
+              "CountryCode": "AE",
+              "CountryName": "United Arab Emirates"
+            },
+            "DepTime": "2023-11-28T17:15:00"
+          },
+          "Destination": {
+            "Airport": {
+              "AirportCode": "MCT",
+              "AirportName": "Muscat International Airport",
+              "Terminal": null,
+              "CityCode": "MCT",
+              "CityName": "Muscat",
+              "CountryCode": "OM",
+              "CountryName": "Oman"
+            },
+            "ArrTime": "2023-11-28T18:30:00"
+          },
+          "Airline": {
+            "AirlineCode": "WY",
+            "AirlineName": "Oman Air",
+            "FlightNumber": "610",
+            "BookingClass": "L",
+            "CabinClass": "Economy",
+            "OperatingCarrier": "WY"
+          },
+          "Baggage": "30 K",
+          "JourneyDuration": "75",
+          "StopQuantity": "0",
+          "Equipment": "7M8",
+          "baggageDetails": [
+            {
+              "IsAllPax": true,
+              "PaxType": 1,
+              "Cabin": null,
+              "Checkin": "30 K"
+            }
+          ],
+          "SegmentGroup": 0
+        },
+        {
+          "TripIndicator": "OutBound",
+          "Origin": {
+            "Airport": {
+              "AirportCode": "MCT",
+              "AirportName": "Muscat International Airport",
+              "Terminal": null,
+              "CityCode": "MCT",
+              "CityName": "Muscat",
+              "CountryCode": "OM",
+              "CountryName": "Oman"
+            },
+            "DepTime": "2023-11-29T08:50:00"
+          },
+          "Destination": {
+            "Airport": {
+              "AirportCode": "DAC",
+              "AirportName": "Hazrat Shahjalal International Airport",
+              "Terminal": null,
+              "CityCode": "DAC",
+              "CityName": "Dhaka",
+              "CountryCode": "BD",
+              "CountryName": "Bangladesh"
+            },
+            "ArrTime": "2023-11-29T15:05:00"
+          },
+          "Airline": {
+            "AirlineCode": "WY",
+            "AirlineName": "Oman Air",
+            "FlightNumber": "317",
+            "BookingClass": "L",
+            "CabinClass": "Economy",
+            "OperatingCarrier": "WY"
+          },
+          "Baggage": "30 K",
+          "JourneyDuration": "255",
+          "StopQuantity": "0",
+          "Equipment": "332",
+          "baggageDetails": [
+            {
+              "IsAllPax": true,
+              "PaxType": 1,
+              "Cabin": null,
+              "Checkin": "30 K"
+            }
+          ],
+          "SegmentGroup": 0
+        }
+      ],
+      "TotalFare": 47550.0,
+      "TotalFareWithAgentMarkup": 47550.0,
+      "Currency": "BDT",
+      "Availabilty": 6,
+      "FareType": "NET",
+      "isMiniRulesAvailable": false,
+      "HoldAllowed": true
+    },
+    {
+      "ResultID": "53f93a54-4e0e-4685-bbf7-68f303984025",
+      "IsRefundable": false,
+      "Fares": [
+        {
+          "BaseFare": 7650.0,
+          "Tax": 8025.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Adult",
+          "PassengerCount": 1,
+          "ServiceFee": 0.0
+        },
+        {
+          "BaseFare": 6200.0,
+          "Tax": 8025.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Child",
+          "PassengerCount": 2,
+          "ServiceFee": 0.0
+        },
+        {
+          "BaseFare": 2650.0,
+          "Tax": 775.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Infant",
+          "PassengerCount": 1,
+          "ServiceFee": 0.0
+        }
+      ],
+      "Discount": 0.0,
+      "Validatingcarrier": "WY",
+      "LastTicketDate": "2023-11-27T20:00:00",
+      "segments": [
+        {
+          "TripIndicator": "OutBound",
+          "Origin": {
+            "Airport": {
+              "AirportCode": "DXB",
+              "AirportName": "Dubai International Airport",
+              "Terminal": "1",
+              "CityCode": "DXB",
+              "CityName": "Dubai",
+              "CountryCode": "AE",
+              "CountryName": "United Arab Emirates"
+            },
+            "DepTime": "2023-11-28T22:45:00"
+          },
+          "Destination": {
+            "Airport": {
+              "AirportCode": "MCT",
+              "AirportName": "Muscat International Airport",
+              "Terminal": null,
+              "CityCode": "MCT",
+              "CityName": "Muscat",
+              "CountryCode": "OM",
+              "CountryName": "Oman"
+            },
+            "ArrTime": "2023-11-28T23:55:00"
+          },
+          "Airline": {
+            "AirlineCode": "WY",
+            "AirlineName": "Oman Air",
+            "FlightNumber": "612",
+            "BookingClass": "L",
+            "CabinClass": "Economy",
+            "OperatingCarrier": "WY"
+          },
+          "Baggage": "30 K",
+          "JourneyDuration": "70",
+          "StopQuantity": "0",
+          "Equipment": "7M8",
+          "baggageDetails": [
+            {
+              "IsAllPax": true,
+              "PaxType": 1,
+              "Cabin": null,
+              "Checkin": "30 K"
+            }
+          ],
+          "SegmentGroup": 0
+        },
+        {
+          "TripIndicator": "OutBound",
+          "Origin": {
+            "Airport": {
+              "AirportCode": "MCT",
+              "AirportName": "Muscat International Airport",
+              "Terminal": null,
+              "CityCode": "MCT",
+              "CityName": "Muscat",
+              "CountryCode": "OM",
+              "CountryName": "Oman"
+            },
+            "DepTime": "2023-11-29T08:50:00"
+          },
+          "Destination": {
+            "Airport": {
+              "AirportCode": "DAC",
+              "AirportName": "Hazrat Shahjalal International Airport",
+              "Terminal": null,
+              "CityCode": "DAC",
+              "CityName": "Dhaka",
+              "CountryCode": "BD",
+              "CountryName": "Bangladesh"
+            },
+            "ArrTime": "2023-11-29T15:05:00"
+          },
+          "Airline": {
+            "AirlineCode": "WY",
+            "AirlineName": "Oman Air",
+            "FlightNumber": "317",
+            "BookingClass": "L",
+            "CabinClass": "Economy",
+            "OperatingCarrier": "WY"
+          },
+          "Baggage": "30 K",
+          "JourneyDuration": "255",
+          "StopQuantity": "0",
+          "Equipment": "332",
+          "baggageDetails": [
+            {
+              "IsAllPax": true,
+              "PaxType": 1,
+              "Cabin": null,
+              "Checkin": "30 K"
+            }
+          ],
+          "SegmentGroup": 0
+        }
+      ],
+      "TotalFare": 47550.0,
+      "TotalFareWithAgentMarkup": 47550.0,
+      "Currency": "BDT",
+      "Availabilty": 4,
+      "FareType": "NET",
+      "isMiniRulesAvailable": false,
+      "HoldAllowed": true
+    },
+    {
+      "ResultID": "98a30c7d-6e64-4714-ae34-5f49848057af",
+      "IsRefundable": true,
+      "Fares": [
+        {
+          "BaseFare": 19371.0,
+          "Tax": 3576.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Adult",
+          "PassengerCount": 1,
+          "ServiceFee": 0.0
+        },
+        {
+          "BaseFare": 14528.0,
+          "Tax": 3576.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Child",
+          "PassengerCount": 2,
+          "ServiceFee": 0.0
+        },
+        {
+          "BaseFare": 1937.0,
+          "Tax": 0.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Infant",
+          "PassengerCount": 1,
+          "ServiceFee": 0.0
+        }
+      ],
+      "Discount": 0.0,
+      "Validatingcarrier": "BS",
+      "LastTicketDate": null,
+      "segments": [
+        {
+          "TripIndicator": "OutBound",
+          "Origin": {
+            "Airport": {
+              "AirportCode": "DXB",
+              "AirportName": "Dubai International Airport",
+              "Terminal": null,
+              "CityCode": "DXB",
+              "CityName": "Dubai",
+              "CountryCode": "AE",
+              "CountryName": "United Arab Emirates"
+            },
+            "DepTime": "2023-11-28T21:25:00"
+          },
+          "Destination": {
+            "Airport": {
+              "AirportCode": "DAC",
+              "AirportName": "Hazrat Shahjalal International Airport",
+              "Terminal": null,
+              "CityCode": "DAC",
+              "CityName": "Dhaka",
+              "CountryCode": "BD",
+              "CountryName": "Bangladesh"
+            },
+            "ArrTime": "2023-11-29T04:05:00"
+          },
+          "Airline": {
+            "AirlineCode": "BS",
+            "AirlineName": "US-Bangla Airlines",
+            "FlightNumber": "342",
+            "BookingClass": "E",
+            "CabinClass": "Y",
+            "OperatingCarrier": "BS"
+          },
+          "Baggage": "ADT-20Kg | CHD-20Kg | INF-10Kg",
+          "JourneyDuration": "280",
+          "StopQuantity": null,
+          "Equipment": "738",
+          "baggageDetails": [
+            {
+              "IsAllPax": false,
+              "PaxType": 1,
+              "Cabin": "7Kg",
+              "Checkin": "20Kg"
+            },
+            {
+              "IsAllPax": false,
+              "PaxType": 2,
+              "Cabin": "7Kg",
+              "Checkin": "20Kg"
+            },
+            {
+              "IsAllPax": false,
+              "PaxType": 3,
+              "Cabin": "7Kg",
+              "Checkin": "10Kg"
+            }
+          ],
+          "SegmentGroup": 0
+        }
+      ],
+      "TotalFare": 61092.0,
+      "TotalFareWithAgentMarkup": 61092.0,
+      "Currency": "BDT",
+      "Availabilty": 9,
+      "FareType": "NET",
+      "isMiniRulesAvailable": false,
+      "HoldAllowed": true
+    },
+    {
+      "ResultID": "cb1b85f6-40b5-46a6-90be-163c3442905b",
+      "IsRefundable": true,
+      "Fares": [
+        {
+          "BaseFare": 14200.0,
+          "Tax": 7500.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Adult",
+          "PassengerCount": 1,
+          "ServiceFee": 0.0
+        },
+        {
+          "BaseFare": 11400.0,
+          "Tax": 7500.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Child",
+          "PassengerCount": 2,
+          "ServiceFee": 0.0
+        },
+        {
+          "BaseFare": 1500.0,
+          "Tax": 800.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Infant",
+          "PassengerCount": 1,
+          "ServiceFee": 0.0
+        }
+      ],
+      "Discount": 0.0,
       "Validatingcarrier": "GF",
       "LastTicketDate": "2023-11-27T20:00:00",
       "segments": [
@@ -2618,7 +1999,7 @@
             "AirlineCode": "GF",
             "AirlineName": "Gulf Air",
             "FlightNumber": "501",
-            "BookingClass": "N",
+            "BookingClass": "O",
             "CabinClass": "Economy",
             "OperatingCarrier": "GF"
           },
@@ -2666,7 +2047,7 @@
             "AirlineCode": "GF",
             "AirlineName": "Gulf Air",
             "FlightNumber": "248",
-            "BookingClass": "N",
+            "BookingClass": "O",
             "CabinClass": "Economy",
             "OperatingCarrier": "GF"
           },
@@ -2685,108 +2066,53 @@
           "SegmentGroup": 0
         }
       ],
-      "TotalFare": 19850,
-      "TotalFareWithAgentMarkup": 19850,
+      "TotalFare": 61800.0,
+      "TotalFareWithAgentMarkup": 61800.0,
       "Currency": "BDT",
-      "Availabilty": 1,
+      "Availabilty": 7,
       "FareType": "NET",
       "isMiniRulesAvailable": false,
       "HoldAllowed": true
     },
     {
-      "ResultID": "4de2f854-308a-40ce-bb55-716fddaaee5a",
+      "ResultID": "755793b6-383d-4004-acd0-fc6668279614",
       "IsRefundable": true,
       "Fares": [
         {
-          "BaseFare": 19371,
-          "Tax": 3576,
+          "BaseFare": 17400.0,
+          "Tax": 5750.0,
           "Currency": "BDT",
-          "OtherCharges": 0,
-          "Discount": 0,
-          "AgentMarkUp": 0,
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
           "PaxType": "Adult",
           "PassengerCount": 1,
-          "ServiceFee": 0
-        }
-      ],
-      "Discount": 0,
-      "Validatingcarrier": "BS",
-      "LastTicketDate": null,
-      "segments": [
+          "ServiceFee": 0.0
+        },
         {
-          "TripIndicator": "OutBound",
-          "Origin": {
-            "Airport": {
-              "AirportCode": "DXB",
-              "AirportName": "Dubai International Airport",
-              "Terminal": null,
-              "CityCode": "DXB",
-              "CityName": "Dubai",
-              "CountryCode": "AE",
-              "CountryName": "United Arab Emirates"
-            },
-            "DepTime": "2023-11-28T21:25:00"
-          },
-          "Destination": {
-            "Airport": {
-              "AirportCode": "DAC",
-              "AirportName": "Hazrat Shahjalal International Airport",
-              "Terminal": null,
-              "CityCode": "DAC",
-              "CityName": "Dhaka",
-              "CountryCode": "BD",
-              "CountryName": "Bangladesh"
-            },
-            "ArrTime": "2023-11-29T04:05:00"
-          },
-          "Airline": {
-            "AirlineCode": "BS",
-            "AirlineName": "US-Bangla Airlines",
-            "FlightNumber": "342",
-            "BookingClass": "E",
-            "CabinClass": "Y",
-            "OperatingCarrier": "BS"
-          },
-          "Baggage": "ADT-20Kg",
-          "JourneyDuration": "280",
-          "StopQuantity": null,
-          "Equipment": "738",
-          "baggageDetails": [
-            {
-              "IsAllPax": false,
-              "PaxType": 1,
-              "Cabin": "7Kg",
-              "Checkin": "20Kg"
-            }
-          ],
-          "SegmentGroup": 0
-        }
-      ],
-      "TotalFare": 22947,
-      "TotalFareWithAgentMarkup": 22947,
-      "Currency": "BDT",
-      "Availabilty": 9,
-      "FareType": "NET",
-      "isMiniRulesAvailable": false,
-      "HoldAllowed": true
-    },
-    {
-      "ResultID": "4ecef21b-9cb9-4dcd-87e9-552f27bafcdc",
-      "IsRefundable": true,
-      "Fares": [
-        {
-          "BaseFare": 17400,
-          "Tax": 5750,
+          "BaseFare": 13100.0,
+          "Tax": 5750.0,
           "Currency": "BDT",
-          "OtherCharges": 0,
-          "Discount": 0,
-          "AgentMarkUp": 0,
-          "PaxType": "Adult",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Child",
+          "PassengerCount": 2,
+          "ServiceFee": 0.0
+        },
+        {
+          "BaseFare": 1900.0,
+          "Tax": 0.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Infant",
           "PassengerCount": 1,
-          "ServiceFee": 0
+          "ServiceFee": 0.0
         }
       ],
-      "Discount": 0,
+      "Discount": 0.0,
       "Validatingcarrier": "EK",
       "LastTicketDate": "2023-11-27T20:00:00",
       "segments": [
@@ -2839,8 +2165,8 @@
           "SegmentGroup": 0
         }
       ],
-      "TotalFare": 23150,
-      "TotalFareWithAgentMarkup": 23150,
+      "TotalFare": 62750.0,
+      "TotalFareWithAgentMarkup": 62750.0,
       "Currency": "BDT",
       "Availabilty": 9,
       "FareType": "NET",
@@ -2848,22 +2174,44 @@
       "HoldAllowed": true
     },
     {
-      "ResultID": "a22b76f6-5481-4a85-869b-d456787f6040",
+      "ResultID": "18cddab1-4b00-4547-812d-1162bad46ede",
       "IsRefundable": true,
       "Fares": [
         {
-          "BaseFare": 15700,
-          "Tax": 7800,
+          "BaseFare": 15700.0,
+          "Tax": 7800.0,
           "Currency": "BDT",
-          "OtherCharges": 0,
-          "Discount": 0,
-          "AgentMarkUp": 0,
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
           "PaxType": "Adult",
           "PassengerCount": 1,
-          "ServiceFee": 0
+          "ServiceFee": 0.0
+        },
+        {
+          "BaseFare": 11950.0,
+          "Tax": 7800.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Child",
+          "PassengerCount": 2,
+          "ServiceFee": 0.0
+        },
+        {
+          "BaseFare": 2650.0,
+          "Tax": 0.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Infant",
+          "PassengerCount": 1,
+          "ServiceFee": 0.0
         }
       ],
-      "Discount": 0,
+      "Discount": 0.0,
       "Validatingcarrier": "UL",
       "LastTicketDate": "2023-11-27T20:00:00",
       "segments": [
@@ -2964,8 +2312,8 @@
           "SegmentGroup": 0
         }
       ],
-      "TotalFare": 23500,
-      "TotalFareWithAgentMarkup": 23500,
+      "TotalFare": 65650.0,
+      "TotalFareWithAgentMarkup": 65650.0,
       "Currency": "BDT",
       "Availabilty": 9,
       "FareType": "NET",
@@ -2973,22 +2321,44 @@
       "HoldAllowed": true
     },
     {
-      "ResultID": "92d1faf8-2b3d-440b-920c-441cdc35563f",
+      "ResultID": "4ad05d9f-b5be-4324-b452-a870cf13f7ee",
       "IsRefundable": true,
       "Fares": [
         {
-          "BaseFare": 15700,
-          "Tax": 7800,
+          "BaseFare": 15700.0,
+          "Tax": 7800.0,
           "Currency": "BDT",
-          "OtherCharges": 0,
-          "Discount": 0,
-          "AgentMarkUp": 0,
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
           "PaxType": "Adult",
           "PassengerCount": 1,
-          "ServiceFee": 0
+          "ServiceFee": 0.0
+        },
+        {
+          "BaseFare": 11950.0,
+          "Tax": 7800.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Child",
+          "PassengerCount": 2,
+          "ServiceFee": 0.0
+        },
+        {
+          "BaseFare": 2650.0,
+          "Tax": 0.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Infant",
+          "PassengerCount": 1,
+          "ServiceFee": 0.0
         }
       ],
-      "Discount": 0,
+      "Discount": 0.0,
       "Validatingcarrier": "UL",
       "LastTicketDate": "2023-11-27T20:00:00",
       "segments": [
@@ -3089,8 +2459,8 @@
           "SegmentGroup": 0
         }
       ],
-      "TotalFare": 23500,
-      "TotalFareWithAgentMarkup": 23500,
+      "TotalFare": 65650.0,
+      "TotalFareWithAgentMarkup": 65650.0,
       "Currency": "BDT",
       "Availabilty": 9,
       "FareType": "NET",
@@ -3098,22 +2468,191 @@
       "HoldAllowed": true
     },
     {
-      "ResultID": "d2cb9749-f3c5-4bf0-a7f1-875dc90ca912",
+      "ResultID": "54d8d4b3-ea0c-4c14-8c1d-3acdd1dcdf23",
       "IsRefundable": true,
       "Fares": [
         {
-          "BaseFare": 17200,
-          "Tax": 7275,
+          "BaseFare": 17200.0,
+          "Tax": 7275.0,
           "Currency": "BDT",
-          "OtherCharges": 0,
-          "Discount": 0,
-          "AgentMarkUp": 0,
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
           "PaxType": "Adult",
           "PassengerCount": 1,
-          "ServiceFee": 0
+          "ServiceFee": 0.0
+        },
+        {
+          "BaseFare": 13100.0,
+          "Tax": 7275.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Child",
+          "PassengerCount": 2,
+          "ServiceFee": 0.0
+        },
+        {
+          "BaseFare": 3000.0,
+          "Tax": 2900.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Infant",
+          "PassengerCount": 1,
+          "ServiceFee": 0.0
         }
       ],
-      "Discount": 0,
+      "Discount": 0.0,
+      "Validatingcarrier": "QR",
+      "LastTicketDate": "2023-11-27T20:00:00",
+      "segments": [
+        {
+          "TripIndicator": "OutBound",
+          "Origin": {
+            "Airport": {
+              "AirportCode": "DXB",
+              "AirportName": "Dubai International Airport",
+              "Terminal": "1",
+              "CityCode": "DXB",
+              "CityName": "Dubai",
+              "CountryCode": "AE",
+              "CountryName": "United Arab Emirates"
+            },
+            "DepTime": "2023-11-28T23:25:00"
+          },
+          "Destination": {
+            "Airport": {
+              "AirportCode": "DOH",
+              "AirportName": "Hamad International Airport",
+              "Terminal": null,
+              "CityCode": "DOH",
+              "CityName": "Doha",
+              "CountryCode": "QA",
+              "CountryName": "Qatar"
+            },
+            "ArrTime": "2023-11-28T23:40:00"
+          },
+          "Airline": {
+            "AirlineCode": "QR",
+            "AirlineName": "Qatar Airways",
+            "FlightNumber": "1015",
+            "BookingClass": "N",
+            "CabinClass": "Economy",
+            "OperatingCarrier": "QR"
+          },
+          "Baggage": "25 K",
+          "JourneyDuration": "15",
+          "StopQuantity": "0",
+          "Equipment": "351",
+          "baggageDetails": [
+            {
+              "IsAllPax": true,
+              "PaxType": 1,
+              "Cabin": null,
+              "Checkin": "25 K"
+            }
+          ],
+          "SegmentGroup": 0
+        },
+        {
+          "TripIndicator": "OutBound",
+          "Origin": {
+            "Airport": {
+              "AirportCode": "DOH",
+              "AirportName": "Hamad International Airport",
+              "Terminal": null,
+              "CityCode": "DOH",
+              "CityName": "Doha",
+              "CountryCode": "QA",
+              "CountryName": "Qatar"
+            },
+            "DepTime": "2023-11-29T01:20:00"
+          },
+          "Destination": {
+            "Airport": {
+              "AirportCode": "DAC",
+              "AirportName": "Hazrat Shahjalal International Airport",
+              "Terminal": "1",
+              "CityCode": "DAC",
+              "CityName": "Dhaka",
+              "CountryCode": "BD",
+              "CountryName": "Bangladesh"
+            },
+            "ArrTime": "2023-11-29T09:15:00"
+          },
+          "Airline": {
+            "AirlineCode": "QR",
+            "AirlineName": "Qatar Airways",
+            "FlightNumber": "640",
+            "BookingClass": "N",
+            "CabinClass": "Economy",
+            "OperatingCarrier": "QR"
+          },
+          "Baggage": "25 K",
+          "JourneyDuration": "355",
+          "StopQuantity": "0",
+          "Equipment": "333",
+          "baggageDetails": [
+            {
+              "IsAllPax": true,
+              "PaxType": 1,
+              "Cabin": null,
+              "Checkin": "25 K"
+            }
+          ],
+          "SegmentGroup": 0
+        }
+      ],
+      "TotalFare": 71125.0,
+      "TotalFareWithAgentMarkup": 71125.0,
+      "Currency": "BDT",
+      "Availabilty": 9,
+      "FareType": "NET",
+      "isMiniRulesAvailable": false,
+      "HoldAllowed": true
+    },
+    {
+      "ResultID": "5702eb53-7cb6-4ba4-ad22-be8dbe0eab90",
+      "IsRefundable": true,
+      "Fares": [
+        {
+          "BaseFare": 17200.0,
+          "Tax": 7275.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Adult",
+          "PassengerCount": 1,
+          "ServiceFee": 0.0
+        },
+        {
+          "BaseFare": 13100.0,
+          "Tax": 7275.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Child",
+          "PassengerCount": 2,
+          "ServiceFee": 0.0
+        },
+        {
+          "BaseFare": 3000.0,
+          "Tax": 2900.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Infant",
+          "PassengerCount": 1,
+          "ServiceFee": 0.0
+        }
+      ],
+      "Discount": 0.0,
       "Validatingcarrier": "QR",
       "LastTicketDate": "2023-11-27T20:00:00",
       "segments": [
@@ -3214,8 +2753,8 @@
           "SegmentGroup": 0
         }
       ],
-      "TotalFare": 24475,
-      "TotalFareWithAgentMarkup": 24475,
+      "TotalFare": 71125.0,
+      "TotalFareWithAgentMarkup": 71125.0,
       "Currency": "BDT",
       "Availabilty": 9,
       "FareType": "NET",
@@ -3223,147 +2762,44 @@
       "HoldAllowed": true
     },
     {
-      "ResultID": "06a6bb3d-aaa0-4d52-b4a0-b67c27fe2a71",
+      "ResultID": "a55aeb03-a76e-4c23-9009-7605ea815f4e",
       "IsRefundable": true,
       "Fares": [
         {
-          "BaseFare": 17200,
-          "Tax": 7275,
+          "BaseFare": 17200.0,
+          "Tax": 7275.0,
           "Currency": "BDT",
-          "OtherCharges": 0,
-          "Discount": 0,
-          "AgentMarkUp": 0,
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
           "PaxType": "Adult",
           "PassengerCount": 1,
-          "ServiceFee": 0
-        }
-      ],
-      "Discount": 0,
-      "Validatingcarrier": "QR",
-      "LastTicketDate": "2023-11-27T20:00:00",
-      "segments": [
-        {
-          "TripIndicator": "OutBound",
-          "Origin": {
-            "Airport": {
-              "AirportCode": "DXB",
-              "AirportName": "Dubai International Airport",
-              "Terminal": "1",
-              "CityCode": "DXB",
-              "CityName": "Dubai",
-              "CountryCode": "AE",
-              "CountryName": "United Arab Emirates"
-            },
-            "DepTime": "2023-11-28T23:25:00"
-          },
-          "Destination": {
-            "Airport": {
-              "AirportCode": "DOH",
-              "AirportName": "Hamad International Airport",
-              "Terminal": null,
-              "CityCode": "DOH",
-              "CityName": "Doha",
-              "CountryCode": "QA",
-              "CountryName": "Qatar"
-            },
-            "ArrTime": "2023-11-28T23:40:00"
-          },
-          "Airline": {
-            "AirlineCode": "QR",
-            "AirlineName": "Qatar Airways",
-            "FlightNumber": "1015",
-            "BookingClass": "N",
-            "CabinClass": "Economy",
-            "OperatingCarrier": "QR"
-          },
-          "Baggage": "25 K",
-          "JourneyDuration": "15",
-          "StopQuantity": "0",
-          "Equipment": "351",
-          "baggageDetails": [
-            {
-              "IsAllPax": true,
-              "PaxType": 1,
-              "Cabin": null,
-              "Checkin": "25 K"
-            }
-          ],
-          "SegmentGroup": 0
+          "ServiceFee": 0.0
         },
         {
-          "TripIndicator": "OutBound",
-          "Origin": {
-            "Airport": {
-              "AirportCode": "DOH",
-              "AirportName": "Hamad International Airport",
-              "Terminal": null,
-              "CityCode": "DOH",
-              "CityName": "Doha",
-              "CountryCode": "QA",
-              "CountryName": "Qatar"
-            },
-            "DepTime": "2023-11-29T01:20:00"
-          },
-          "Destination": {
-            "Airport": {
-              "AirportCode": "DAC",
-              "AirportName": "Hazrat Shahjalal International Airport",
-              "Terminal": "1",
-              "CityCode": "DAC",
-              "CityName": "Dhaka",
-              "CountryCode": "BD",
-              "CountryName": "Bangladesh"
-            },
-            "ArrTime": "2023-11-29T09:15:00"
-          },
-          "Airline": {
-            "AirlineCode": "QR",
-            "AirlineName": "Qatar Airways",
-            "FlightNumber": "640",
-            "BookingClass": "N",
-            "CabinClass": "Economy",
-            "OperatingCarrier": "QR"
-          },
-          "Baggage": "25 K",
-          "JourneyDuration": "355",
-          "StopQuantity": "0",
-          "Equipment": "333",
-          "baggageDetails": [
-            {
-              "IsAllPax": true,
-              "PaxType": 1,
-              "Cabin": null,
-              "Checkin": "25 K"
-            }
-          ],
-          "SegmentGroup": 0
-        }
-      ],
-      "TotalFare": 24475,
-      "TotalFareWithAgentMarkup": 24475,
-      "Currency": "BDT",
-      "Availabilty": 9,
-      "FareType": "NET",
-      "isMiniRulesAvailable": false,
-      "HoldAllowed": true
-    },
-    {
-      "ResultID": "ee2887d7-cd5d-43e8-9a39-a087ddf3d223",
-      "IsRefundable": true,
-      "Fares": [
-        {
-          "BaseFare": 17200,
-          "Tax": 7275,
+          "BaseFare": 13100.0,
+          "Tax": 7275.0,
           "Currency": "BDT",
-          "OtherCharges": 0,
-          "Discount": 0,
-          "AgentMarkUp": 0,
-          "PaxType": "Adult",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Child",
+          "PassengerCount": 2,
+          "ServiceFee": 0.0
+        },
+        {
+          "BaseFare": 3000.0,
+          "Tax": 2900.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Infant",
           "PassengerCount": 1,
-          "ServiceFee": 0
+          "ServiceFee": 0.0
         }
       ],
-      "Discount": 0,
+      "Discount": 0.0,
       "Validatingcarrier": "QR",
       "LastTicketDate": "2023-11-27T20:00:00",
       "segments": [
@@ -3464,8 +2900,8 @@
           "SegmentGroup": 0
         }
       ],
-      "TotalFare": 24475,
-      "TotalFareWithAgentMarkup": 24475,
+      "TotalFare": 71125.0,
+      "TotalFareWithAgentMarkup": 71125.0,
       "Currency": "BDT",
       "Availabilty": 9,
       "FareType": "NET",
@@ -3473,22 +2909,44 @@
       "HoldAllowed": true
     },
     {
-      "ResultID": "3c5d0ef1-113c-480c-b18c-35c943d79fa0",
+      "ResultID": "e24129f1-be88-441a-ad3a-57e29d75e90f",
       "IsRefundable": true,
       "Fares": [
         {
-          "BaseFare": 17200,
-          "Tax": 7275,
+          "BaseFare": 17200.0,
+          "Tax": 7275.0,
           "Currency": "BDT",
-          "OtherCharges": 0,
-          "Discount": 0,
-          "AgentMarkUp": 0,
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
           "PaxType": "Adult",
           "PassengerCount": 1,
-          "ServiceFee": 0
+          "ServiceFee": 0.0
+        },
+        {
+          "BaseFare": 13100.0,
+          "Tax": 7275.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Child",
+          "PassengerCount": 2,
+          "ServiceFee": 0.0
+        },
+        {
+          "BaseFare": 3000.0,
+          "Tax": 2900.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Infant",
+          "PassengerCount": 1,
+          "ServiceFee": 0.0
         }
       ],
-      "Discount": 0,
+      "Discount": 0.0,
       "Validatingcarrier": "QR",
       "LastTicketDate": "2023-11-27T20:00:00",
       "segments": [
@@ -3589,8 +3047,8 @@
           "SegmentGroup": 0
         }
       ],
-      "TotalFare": 24475,
-      "TotalFareWithAgentMarkup": 24475,
+      "TotalFare": 71125.0,
+      "TotalFareWithAgentMarkup": 71125.0,
       "Currency": "BDT",
       "Availabilty": 9,
       "FareType": "NET",
@@ -3598,22 +3056,44 @@
       "HoldAllowed": true
     },
     {
-      "ResultID": "5363bc88-dc5c-40df-8ff6-50b1b2c7ae17",
+      "ResultID": "9de4a85b-5196-4cf5-a181-48a5adfdbf34",
       "IsRefundable": true,
       "Fares": [
         {
-          "BaseFare": 17200,
-          "Tax": 7525,
+          "BaseFare": 17200.0,
+          "Tax": 7525.0,
           "Currency": "BDT",
-          "OtherCharges": 0,
-          "Discount": 0,
-          "AgentMarkUp": 0,
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
           "PaxType": "Adult",
           "PassengerCount": 1,
-          "ServiceFee": 0
+          "ServiceFee": 0.0
+        },
+        {
+          "BaseFare": 13100.0,
+          "Tax": 7525.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Child",
+          "PassengerCount": 2,
+          "ServiceFee": 0.0
+        },
+        {
+          "BaseFare": 3000.0,
+          "Tax": 2900.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Infant",
+          "PassengerCount": 1,
+          "ServiceFee": 0.0
         }
       ],
-      "Discount": 0,
+      "Discount": 0.0,
       "Validatingcarrier": "QR",
       "LastTicketDate": "2023-11-27T20:00:00",
       "segments": [
@@ -3714,8 +3194,8 @@
           "SegmentGroup": 0
         }
       ],
-      "TotalFare": 24725,
-      "TotalFareWithAgentMarkup": 24725,
+      "TotalFare": 71875.0,
+      "TotalFareWithAgentMarkup": 71875.0,
       "Currency": "BDT",
       "Availabilty": 9,
       "FareType": "NET",
@@ -3723,22 +3203,44 @@
       "HoldAllowed": true
     },
     {
-      "ResultID": "e39142fb-5911-4425-b94f-c4f2361435b3",
+      "ResultID": "7289a79d-e663-4566-9f68-e11f85a4aa72",
       "IsRefundable": true,
       "Fares": [
         {
-          "BaseFare": 17200,
-          "Tax": 7525,
+          "BaseFare": 17200.0,
+          "Tax": 7525.0,
           "Currency": "BDT",
-          "OtherCharges": 0,
-          "Discount": 0,
-          "AgentMarkUp": 0,
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
           "PaxType": "Adult",
           "PassengerCount": 1,
-          "ServiceFee": 0
+          "ServiceFee": 0.0
+        },
+        {
+          "BaseFare": 13100.0,
+          "Tax": 7525.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Child",
+          "PassengerCount": 2,
+          "ServiceFee": 0.0
+        },
+        {
+          "BaseFare": 3000.0,
+          "Tax": 2900.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Infant",
+          "PassengerCount": 1,
+          "ServiceFee": 0.0
         }
       ],
-      "Discount": 0,
+      "Discount": 0.0,
       "Validatingcarrier": "QR",
       "LastTicketDate": "2023-11-27T20:00:00",
       "segments": [
@@ -3839,8 +3341,8 @@
           "SegmentGroup": 0
         }
       ],
-      "TotalFare": 24725,
-      "TotalFareWithAgentMarkup": 24725,
+      "TotalFare": 71875.0,
+      "TotalFareWithAgentMarkup": 71875.0,
       "Currency": "BDT",
       "Availabilty": 9,
       "FareType": "NET",
@@ -3848,22 +3350,44 @@
       "HoldAllowed": true
     },
     {
-      "ResultID": "32249239-b645-4f79-a581-87b3f9ddf263",
+      "ResultID": "b7a6aaf3-ea86-48a3-9c74-c37b596a04b6",
       "IsRefundable": true,
       "Fares": [
         {
-          "BaseFare": 17200,
-          "Tax": 7525,
+          "BaseFare": 17200.0,
+          "Tax": 7525.0,
           "Currency": "BDT",
-          "OtherCharges": 0,
-          "Discount": 0,
-          "AgentMarkUp": 0,
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
           "PaxType": "Adult",
           "PassengerCount": 1,
-          "ServiceFee": 0
+          "ServiceFee": 0.0
+        },
+        {
+          "BaseFare": 13100.0,
+          "Tax": 7525.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Child",
+          "PassengerCount": 2,
+          "ServiceFee": 0.0
+        },
+        {
+          "BaseFare": 3000.0,
+          "Tax": 2900.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Infant",
+          "PassengerCount": 1,
+          "ServiceFee": 0.0
         }
       ],
-      "Discount": 0,
+      "Discount": 0.0,
       "Validatingcarrier": "QR",
       "LastTicketDate": "2023-11-27T20:00:00",
       "segments": [
@@ -3964,8 +3488,8 @@
           "SegmentGroup": 0
         }
       ],
-      "TotalFare": 24725,
-      "TotalFareWithAgentMarkup": 24725,
+      "TotalFare": 71875.0,
+      "TotalFareWithAgentMarkup": 71875.0,
       "Currency": "BDT",
       "Availabilty": 9,
       "FareType": "NET",
@@ -3973,147 +3497,44 @@
       "HoldAllowed": true
     },
     {
-      "ResultID": "1e1340bc-89d8-4925-9eec-fc56d9fc39fc",
+      "ResultID": "2dc7945f-a80b-48be-bc0c-4b0dabc3b72f",
       "IsRefundable": true,
       "Fares": [
         {
-          "BaseFare": 19450,
-          "Tax": 15975,
+          "BaseFare": 19450.0,
+          "Tax": 15975.0,
           "Currency": "BDT",
-          "OtherCharges": 0,
-          "Discount": 0,
-          "AgentMarkUp": 0,
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
           "PaxType": "Adult",
           "PassengerCount": 1,
-          "ServiceFee": 0
-        }
-      ],
-      "Discount": 0,
-      "Validatingcarrier": "TK",
-      "LastTicketDate": "2023-11-06T20:00:00",
-      "segments": [
-        {
-          "TripIndicator": "OutBound",
-          "Origin": {
-            "Airport": {
-              "AirportCode": "DXB",
-              "AirportName": "Dubai International Airport",
-              "Terminal": "1",
-              "CityCode": "DXB",
-              "CityName": "Dubai",
-              "CountryCode": "AE",
-              "CountryName": "United Arab Emirates"
-            },
-            "DepTime": "2023-11-28T08:35:00"
-          },
-          "Destination": {
-            "Airport": {
-              "AirportCode": "IST",
-              "AirportName": "Istanbul Airport",
-              "Terminal": null,
-              "CityCode": "IST",
-              "CityName": "Istanbul",
-              "CountryCode": "TR",
-              "CountryName": "Turkey"
-            },
-            "ArrTime": "2023-11-28T12:40:00"
-          },
-          "Airline": {
-            "AirlineCode": "TK",
-            "AirlineName": "Turkish Airlines",
-            "FlightNumber": "763",
-            "BookingClass": "Q",
-            "CabinClass": "Economy",
-            "OperatingCarrier": "TK"
-          },
-          "Baggage": "30 K",
-          "JourneyDuration": "365",
-          "StopQuantity": "0",
-          "Equipment": "333",
-          "baggageDetails": [
-            {
-              "IsAllPax": true,
-              "PaxType": 1,
-              "Cabin": null,
-              "Checkin": "30 K"
-            }
-          ],
-          "SegmentGroup": 0
+          "ServiceFee": 0.0
         },
         {
-          "TripIndicator": "OutBound",
-          "Origin": {
-            "Airport": {
-              "AirportCode": "IST",
-              "AirportName": "Istanbul Airport",
-              "Terminal": null,
-              "CityCode": "IST",
-              "CityName": "Istanbul",
-              "CountryCode": "TR",
-              "CountryName": "Turkey"
-            },
-            "DepTime": "2023-11-28T19:25:00"
-          },
-          "Destination": {
-            "Airport": {
-              "AirportCode": "DAC",
-              "AirportName": "Hazrat Shahjalal International Airport",
-              "Terminal": null,
-              "CityCode": "DAC",
-              "CityName": "Dhaka",
-              "CountryCode": "BD",
-              "CountryName": "Bangladesh"
-            },
-            "ArrTime": "2023-11-29T05:45:00"
-          },
-          "Airline": {
-            "AirlineCode": "TK",
-            "AirlineName": "Turkish Airlines",
-            "FlightNumber": "712",
-            "BookingClass": "Q",
-            "CabinClass": "Economy",
-            "OperatingCarrier": "TK"
-          },
-          "Baggage": "30 K",
-          "JourneyDuration": "380",
-          "StopQuantity": "0",
-          "Equipment": "333",
-          "baggageDetails": [
-            {
-              "IsAllPax": true,
-              "PaxType": 1,
-              "Cabin": null,
-              "Checkin": "30 K"
-            }
-          ],
-          "SegmentGroup": 0
-        }
-      ],
-      "TotalFare": 35425,
-      "TotalFareWithAgentMarkup": 35425,
-      "Currency": "BDT",
-      "Availabilty": 9,
-      "FareType": "NET",
-      "isMiniRulesAvailable": false,
-      "HoldAllowed": true
-    },
-    {
-      "ResultID": "d4fac4cd-128f-437c-b4df-e29923e7a0ab",
-      "IsRefundable": true,
-      "Fares": [
-        {
-          "BaseFare": 19450,
-          "Tax": 15975,
+          "BaseFare": 14600.0,
+          "Tax": 15975.0,
           "Currency": "BDT",
-          "OtherCharges": 0,
-          "Discount": 0,
-          "AgentMarkUp": 0,
-          "PaxType": "Adult",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Child",
+          "PassengerCount": 2,
+          "ServiceFee": 0.0
+        },
+        {
+          "BaseFare": 2050.0,
+          "Tax": 0.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Infant",
           "PassengerCount": 1,
-          "ServiceFee": 0
+          "ServiceFee": 0.0
         }
       ],
-      "Discount": 0,
+      "Discount": 0.0,
       "Validatingcarrier": "TK",
       "LastTicketDate": "2023-11-06T20:00:00",
       "segments": [
@@ -4214,8 +3635,8 @@
           "SegmentGroup": 0
         }
       ],
-      "TotalFare": 35425,
-      "TotalFareWithAgentMarkup": 35425,
+      "TotalFare": 98625.0,
+      "TotalFareWithAgentMarkup": 98625.0,
       "Currency": "BDT",
       "Availabilty": 9,
       "FareType": "NET",
@@ -4223,22 +3644,44 @@
       "HoldAllowed": true
     },
     {
-      "ResultID": "bd213346-ee1b-4fc4-8bdc-6ec893f8b600",
+      "ResultID": "0961e9f9-791b-4fad-855d-1926555c9da1",
       "IsRefundable": true,
       "Fares": [
         {
-          "BaseFare": 19450,
-          "Tax": 15975,
+          "BaseFare": 19450.0,
+          "Tax": 15975.0,
           "Currency": "BDT",
-          "OtherCharges": 0,
-          "Discount": 0,
-          "AgentMarkUp": 0,
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
           "PaxType": "Adult",
           "PassengerCount": 1,
-          "ServiceFee": 0
+          "ServiceFee": 0.0
+        },
+        {
+          "BaseFare": 14600.0,
+          "Tax": 15975.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Child",
+          "PassengerCount": 2,
+          "ServiceFee": 0.0
+        },
+        {
+          "BaseFare": 2050.0,
+          "Tax": 0.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Infant",
+          "PassengerCount": 1,
+          "ServiceFee": 0.0
         }
       ],
-      "Discount": 0,
+      "Discount": 0.0,
       "Validatingcarrier": "TK",
       "LastTicketDate": "2023-11-06T20:00:00",
       "segments": [
@@ -4339,8 +3782,8 @@
           "SegmentGroup": 0
         }
       ],
-      "TotalFare": 35425,
-      "TotalFareWithAgentMarkup": 35425,
+      "TotalFare": 98625.0,
+      "TotalFareWithAgentMarkup": 98625.0,
       "Currency": "BDT",
       "Availabilty": 9,
       "FareType": "NET",
@@ -4348,22 +3791,191 @@
       "HoldAllowed": true
     },
     {
-      "ResultID": "9ee4ced1-f260-4572-9c0b-58a2d5a8d4bd",
+      "ResultID": "545f2021-9236-40fc-b97c-9644b3e545d9",
       "IsRefundable": true,
       "Fares": [
         {
-          "BaseFare": 191400,
-          "Tax": 4075,
+          "BaseFare": 19450.0,
+          "Tax": 15975.0,
           "Currency": "BDT",
-          "OtherCharges": 0,
-          "Discount": 0,
-          "AgentMarkUp": 0,
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
           "PaxType": "Adult",
           "PassengerCount": 1,
-          "ServiceFee": 0
+          "ServiceFee": 0.0
+        },
+        {
+          "BaseFare": 14600.0,
+          "Tax": 15975.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Child",
+          "PassengerCount": 2,
+          "ServiceFee": 0.0
+        },
+        {
+          "BaseFare": 2050.0,
+          "Tax": 0.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Infant",
+          "PassengerCount": 1,
+          "ServiceFee": 0.0
         }
       ],
-      "Discount": 0,
+      "Discount": 0.0,
+      "Validatingcarrier": "TK",
+      "LastTicketDate": "2023-11-06T20:00:00",
+      "segments": [
+        {
+          "TripIndicator": "OutBound",
+          "Origin": {
+            "Airport": {
+              "AirportCode": "DXB",
+              "AirportName": "Dubai International Airport",
+              "Terminal": "1",
+              "CityCode": "DXB",
+              "CityName": "Dubai",
+              "CountryCode": "AE",
+              "CountryName": "United Arab Emirates"
+            },
+            "DepTime": "2023-11-28T08:35:00"
+          },
+          "Destination": {
+            "Airport": {
+              "AirportCode": "IST",
+              "AirportName": "Istanbul Airport",
+              "Terminal": null,
+              "CityCode": "IST",
+              "CityName": "Istanbul",
+              "CountryCode": "TR",
+              "CountryName": "Turkey"
+            },
+            "ArrTime": "2023-11-28T12:40:00"
+          },
+          "Airline": {
+            "AirlineCode": "TK",
+            "AirlineName": "Turkish Airlines",
+            "FlightNumber": "763",
+            "BookingClass": "Q",
+            "CabinClass": "Economy",
+            "OperatingCarrier": "TK"
+          },
+          "Baggage": "30 K",
+          "JourneyDuration": "365",
+          "StopQuantity": "0",
+          "Equipment": "333",
+          "baggageDetails": [
+            {
+              "IsAllPax": true,
+              "PaxType": 1,
+              "Cabin": null,
+              "Checkin": "30 K"
+            }
+          ],
+          "SegmentGroup": 0
+        },
+        {
+          "TripIndicator": "OutBound",
+          "Origin": {
+            "Airport": {
+              "AirportCode": "IST",
+              "AirportName": "Istanbul Airport",
+              "Terminal": null,
+              "CityCode": "IST",
+              "CityName": "Istanbul",
+              "CountryCode": "TR",
+              "CountryName": "Turkey"
+            },
+            "DepTime": "2023-11-28T19:25:00"
+          },
+          "Destination": {
+            "Airport": {
+              "AirportCode": "DAC",
+              "AirportName": "Hazrat Shahjalal International Airport",
+              "Terminal": null,
+              "CityCode": "DAC",
+              "CityName": "Dhaka",
+              "CountryCode": "BD",
+              "CountryName": "Bangladesh"
+            },
+            "ArrTime": "2023-11-29T05:45:00"
+          },
+          "Airline": {
+            "AirlineCode": "TK",
+            "AirlineName": "Turkish Airlines",
+            "FlightNumber": "712",
+            "BookingClass": "Q",
+            "CabinClass": "Economy",
+            "OperatingCarrier": "TK"
+          },
+          "Baggage": "30 K",
+          "JourneyDuration": "380",
+          "StopQuantity": "0",
+          "Equipment": "333",
+          "baggageDetails": [
+            {
+              "IsAllPax": true,
+              "PaxType": 1,
+              "Cabin": null,
+              "Checkin": "30 K"
+            }
+          ],
+          "SegmentGroup": 0
+        }
+      ],
+      "TotalFare": 98625.0,
+      "TotalFareWithAgentMarkup": 98625.0,
+      "Currency": "BDT",
+      "Availabilty": 9,
+      "FareType": "NET",
+      "isMiniRulesAvailable": false,
+      "HoldAllowed": true
+    },
+    {
+      "ResultID": "1dd06b79-cdc0-4c7b-a6ff-530f59411426",
+      "IsRefundable": true,
+      "Fares": [
+        {
+          "BaseFare": 191400.0,
+          "Tax": 4075.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Adult",
+          "PassengerCount": 1,
+          "ServiceFee": 0.0
+        },
+        {
+          "BaseFare": 143600.0,
+          "Tax": 4075.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Child",
+          "PassengerCount": 2,
+          "ServiceFee": 0.0
+        },
+        {
+          "BaseFare": 19250.0,
+          "Tax": 0.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Infant",
+          "PassengerCount": 1,
+          "ServiceFee": 0.0
+        }
+      ],
+      "Discount": 0.0,
       "Validatingcarrier": "SQ",
       "LastTicketDate": "2023-11-27T20:00:00",
       "segments": [
@@ -4464,8 +4076,8 @@
           "SegmentGroup": 0
         }
       ],
-      "TotalFare": 195475,
-      "TotalFareWithAgentMarkup": 195475,
+      "TotalFare": 510075.0,
+      "TotalFareWithAgentMarkup": 510075.0,
       "Currency": "BDT",
       "Availabilty": 9,
       "FareType": "NET",
