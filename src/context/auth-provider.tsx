@@ -1,5 +1,16 @@
 import { Prettify, User, UserCredential } from "$interface";
-import { GET, POST, PUT, dispatchManualChange, onLocalStorageChange, parseLocal, removeLocal, setLocal } from "$lib";
+import {
+  GET,
+  POST,
+  PUT,
+  dispatchManualChange,
+  onLocalStorageChange,
+  parseLocal,
+  removeAuth,
+  removeLocal,
+  setAuth,
+  setLocal,
+} from "$lib";
 import { isString, validate } from "nested-object-validate";
 import { FunctionComponent, ReactNode, createContext, useEffect, useState } from "react";
 
@@ -12,16 +23,16 @@ type AuthFunWrapper<AugmentType, ReturnType = any> = (
   values: AugmentType & Partial<CallBackFun<ReturnType>>
 ) => Promise<[ReturnType, null] | [null, unknown]>;
 
-type SingUpFun = AuthFunWrapper<UserCredential, User>;
-type SingInFun = AuthFunWrapper<Omit<UserCredential, "name">, User>;
-type singOutFun = AuthFunWrapper<{}, { success: true }>;
+type SignUpFun = AuthFunWrapper<UserCredential, User>;
+type SignInFun = AuthFunWrapper<Omit<UserCredential, "name">, User>;
+type signOutFun = AuthFunWrapper<{}, { success: true }>;
 type ChangePasswordFun = AuthFunWrapper<{ current: string; password: string }, { success: true }>;
-type GoogleAuth = AuthFunWrapper<{}, User>;
+type GoogleAuth = AuthFunWrapper<{ token: string }, User>;
 
 interface Value {
-  singUp: SingUpFun;
-  singIn: SingInFun;
-  singOut: singOutFun;
+  signUp: SignUpFun;
+  signIn: SignInFun;
+  signOut: signOutFun;
   currentUser: User | null;
   changePassword: ChangePasswordFun;
   googleAuth: GoogleAuth;
@@ -34,14 +45,18 @@ interface AuthProviderProps {
 }
 
 function validateUser(user: unknown) {
-  return validate(user, [
-    isString("name"),
-    isString("email"),
-    isString("id"),
-    isString("createdAt"),
-    isString("updatedAt"),
-    "photoUrl",
-  ]).checked as User | null;
+  return validate(
+    user,
+    [
+      isString("name"),
+      isString("email"),
+      isString("id"),
+      isString("createdAt"),
+      isString("updatedAt"),
+      ["photoUrl", () => true],
+    ],
+    { strict: false }
+  ).checked as User | null;
 }
 
 function removeLocalUser() {
@@ -68,12 +83,12 @@ const AuthProvider: FunctionComponent<AuthProviderProps> = ({ children }) => {
     };
   }, []);
 
-  const singOut: singOutFun = ({ onError = cb, onSuccess = cb }) => {
+  const signOut: signOutFun = ({ onError = cb, onSuccess = cb }) => {
     return new Promise(async (resolve) => {
       try {
-        const { data } = await POST<{ success: true }>("auth/singout");
-        resolve([data, null]);
-        onSuccess(data);
+        resolve([{ success: true }, null]);
+        onSuccess({ success: true });
+        removeAuth();
         setCurrentUser(null);
         removeLocal(localStorageUserDataKey);
       } catch (error) {
@@ -83,14 +98,15 @@ const AuthProvider: FunctionComponent<AuthProviderProps> = ({ children }) => {
     });
   };
 
-  const singUp: SingUpFun = async ({ onError = cb, onSuccess = cb, ...userCredential }) => {
+  const signUp: SignUpFun = async ({ onError = cb, onSuccess = cb, ...userCredential }) => {
     return new Promise(async (resolve) => {
       try {
-        const { data } = await POST<User>("auth/singup", userCredential);
-        setCurrentUser(validateUser(data));
-        setLocal(localStorageUserDataKey, data);
-        onSuccess(data);
-        resolve([data, null]);
+        const { data } = await POST<{ user: User; auth: string }>("auth/signup", userCredential);
+        setCurrentUser(validateUser(data.user));
+        setAuth(data.auth);
+        setLocal(localStorageUserDataKey, validateUser(data.user)!);
+        onSuccess(data.user);
+        resolve([data.user, null]);
       } catch (error) {
         onError(error);
         resolve([null, error]);
@@ -98,14 +114,15 @@ const AuthProvider: FunctionComponent<AuthProviderProps> = ({ children }) => {
     });
   };
 
-  const singIn: SingInFun = async ({ onError = cb, onSuccess = cb, ...userCredential }) => {
+  const signIn: SignInFun = async ({ onError = cb, onSuccess = cb, ...userCredential }) => {
     return new Promise(async (resolve) => {
       try {
-        const { data } = await POST<User>("auth/singin", userCredential);
-        setCurrentUser(validateUser(data));
-        setLocal(localStorageUserDataKey, validateUser(data)!);
-        onSuccess(data);
-        resolve([data, null]);
+        const { data } = await POST<{ user: User; auth: string }>("auth/signin", userCredential);
+        setAuth(data.auth);
+        setCurrentUser(validateUser(data.user));
+        setLocal(localStorageUserDataKey, validateUser(data.user)!);
+        onSuccess(data.user);
+        resolve([data.user, null]);
       } catch (error) {
         onError(error);
         resolve([null, error]);
@@ -126,10 +143,15 @@ const AuthProvider: FunctionComponent<AuthProviderProps> = ({ children }) => {
     });
   };
 
-  const googleAuth: GoogleAuth = async ({ onError = cb, onSuccess = cb }) => {
+  const googleAuth: GoogleAuth = async ({ token, onError = cb, onSuccess = cb }) => {
     return new Promise(async (resolve) => {
       try {
-        const { data } = await GET<User>("auth/google");
+        const { data } = await GET<User>("auth/current", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        setAuth(token);
         setCurrentUser(validateUser(data));
         setLocal(localStorageUserDataKey, validateUser(data)!);
         onSuccess(data);
@@ -144,9 +166,9 @@ const AuthProvider: FunctionComponent<AuthProviderProps> = ({ children }) => {
   return (
     <AuthContext.Provider
       value={{
-        singOut,
-        singUp,
-        singIn,
+        signOut,
+        signUp,
+        signIn,
         googleAuth,
         currentUser,
         changePassword,

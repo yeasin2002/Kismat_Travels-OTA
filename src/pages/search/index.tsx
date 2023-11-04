@@ -1,6 +1,7 @@
 import { FlightDetails, Nav, TravelersAndClass } from "$components";
 import FilterCard from "$components/Cards/FilterCard";
 import SearchedValues from "$components/InfoDisplay/SearchedValues";
+import airSearchResponse from "$data/flyhub/airSearchRes.json";
 import { useOneWay } from "$store";
 
 export default function Search() {
@@ -22,8 +23,10 @@ export default function Search() {
         <div>
           <div className="mt-8 flex w-full gap-x-4 ">
             <FilterCard />
-            <div className="flex-1 ">
-              <FlightDetails />
+            <div className="flex-1  ">
+              {airSearchResponse.map((item, index) => {
+                return <FlightDetails key={index} />;
+              })}
             </div>
           </div>
         </div>
