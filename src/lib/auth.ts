@@ -1,7 +1,10 @@
+import { remove, set } from "js-cookie";
+
 export const localAuthStoreName = "fly-hub-auth";
 
 export function setAuth(value: string) {
   localStorage.setItem(localAuthStoreName, value);
+  set(localAuthStoreName, value);
 }
 
 export function getAuth() {
@@ -9,5 +12,6 @@ export function getAuth() {
 }
 
 export function removeAuth() {
-  return localStorage.removeItem(localAuthStoreName);
+  localStorage.removeItem(localAuthStoreName);
+  remove(localAuthStoreName);
 }
