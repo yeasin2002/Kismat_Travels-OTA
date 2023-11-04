@@ -18,7 +18,26 @@ export const useMultiCity = create(
   immer(
     combine(
       {
-        cities: [] as City[],
+        cities: [
+          {
+            id: uuid(),
+            from: null,
+            to: null,
+            departure: undefined,
+            back: undefined,
+            searchFrom: "",
+            searchTo: "",
+          },
+          {
+            id: uuid(),
+            from: null,
+            to: null,
+            departure: undefined,
+            back: undefined,
+            searchFrom: "",
+            searchTo: "",
+          },
+        ] as City[],
         tripType: "multi-city",
         travelerAndClasses: {
           adults: "",
