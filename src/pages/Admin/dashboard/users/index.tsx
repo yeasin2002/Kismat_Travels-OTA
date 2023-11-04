@@ -2,9 +2,10 @@ import AdminLayout from "$components/Admin/layout/MainLayout";
 import Status from "$components/Admin/util/Status";
 import UserYearReportChart from "$components/Admin/util/Charts/UserYearReportChart";
 import UserTable from "$components/Table/UserTable";
-import React, { SVGProps } from "react";
+import React, { SVGProps, useState } from "react";
 
 const index = () => {
+  const [data, setData] = useState(true);
   return (
     <AdminLayout>
       <div className="flex flex-col justify-start p-2 md:flex-row md:justify-between">
@@ -13,8 +14,14 @@ const index = () => {
             <User />
           </span>{" "}
           User information
+          {data && "true"}
         </h1>
-        <button className="my-3 w-40 rounded-md bg-slate-200  p-3 font-bold shadow-inner hover:bg-slate-400">
+        <button
+          onClick={() => {
+            setData((e) => !e);
+          }}
+          className="my-3 w-40 rounded-md bg-slate-200  p-3 font-bold shadow-inner hover:bg-slate-400"
+        >
           Add new User
         </button>
       </div>
@@ -31,7 +38,7 @@ const index = () => {
       {/* chart for user data  */}
 
       <div className="h-64 w-full">
-        <UserYearReportChart />
+        <UserYearReportChart key={"userChart"} />
       </div>
 
       {/* table  */}
@@ -43,6 +50,23 @@ const index = () => {
 };
 
 export default index;
+
+// // This function gets called at build time
+// export async function getStaticProps() {
+//   // Call an external API endpoint to get posts
+
+//   const posts = "User ssg";
+
+//   // By returning { props: { posts } }, the Blog component
+//   // will receive `posts` as a prop at build time
+//   return {
+//     props: {
+//       posts,
+//     },
+//   };
+// }
+
+// icons
 
 export function User(props: SVGProps<SVGSVGElement>) {
   return (

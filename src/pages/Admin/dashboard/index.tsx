@@ -30,14 +30,14 @@ const index = () => {
             Booking & New User This Week
           </h1>
           <div>
-            <BookingVsUserWeekBarChart />
+            <BookingVsUserWeekBarChart key={"chartbvu"} />
           </div>
         </div>
         {/* booking vs user week barChart  */}
         <div className="w-full rounded-md bg-slate-200 p-2 shadow-inner">
           <h1 className="pb-3 text-center text-lg font-bold text-slate-700 md:text-2xl">Monthly Search</h1>
           <div>
-            <BookingVsUserWeekBarChart />
+            <BookingVsUserWeekBarChart key={"chartbvu"} />
           </div>
         </div>
       </div>
@@ -46,6 +46,14 @@ const index = () => {
 };
 
 export default index;
+
+// // This gets called on every request
+// export async function getServerSideProps() {
+//   // Pass data to the page via props
+//   return { props: { User: "data" } };
+// }
+
+// icons
 
 export function Grid(props: SVGProps<SVGSVGElement>) {
   return (

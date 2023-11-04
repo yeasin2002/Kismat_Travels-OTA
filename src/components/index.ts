@@ -1,6 +1,7 @@
 export * from "./Book/PassengerDetails";
 export * from "./Cards/CardWrapper";
 export * from "./Cards/DisplayCard";
+export * from "./Cards/FilterCard";
 export * from "./Cards/ItemCard";
 export * from "./ComboBoxItem/ComboBoxItem";
 export * from "./Destination/Destination";
@@ -12,6 +13,7 @@ export * from "./Form/FancySelect";
 export * from "./Hero/Hero";
 export * from "./Icons/Times";
 export * from "./InfoDisplay/InfoDisplay";
+export * from "./InfoDisplay/SearchedValues";
 export * from "./JourneyType/MultiCity";
 export * from "./JourneyType/OneWay";
 export * from "./JourneyType/TwoWay";
@@ -27,3 +29,4 @@ export * from "./profile/ShowTickets";
 export * from "./ui/Title";
 export * from "./ui/TravelDate";
 export * from "./ui/UserNav";
+

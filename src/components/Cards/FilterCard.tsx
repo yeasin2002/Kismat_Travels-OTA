@@ -1,25 +1,32 @@
 import { FlightSteps, mockFlight } from "$/data";
 import { searchState } from "$store";
-import React, { FC, HTMLAttributes, useState } from "react";
+import { X } from "lucide-react";
+import React, { Dispatch, FC, HTMLAttributes, SetStateAction, useState } from "react";
 import { RxCross2 } from "react-icons/rx";
+import { Button } from "shadcn/components/ui/button";
 import { Checkbox } from "shadcn/components/ui/checkbox";
 import { Slider } from "shadcn/components/ui/slider";
 import { twMerge } from "tailwind-merge";
 
 interface airSearchResponse extends React.DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   className: string;
+  setIsSidebarExist: Dispatch<SetStateAction<boolean>>;
 }
-const FilterCard: FC<airSearchResponse> = ({ className, ...rest }) => {
+export const FilterCard: FC<airSearchResponse> = ({ className, setIsSidebarExist, ...rest }) => {
   const { appliedFilter, price, typeOfStops, setAppliedFilter, setPrice, setTypeOfStops } = searchState();
   const [isShowingMore, setIsShowingMore] = useState(false);
   const popularFilter = mockFlight.slice(0, !isShowingMore ? 5 : mockFlight.length - 1);
 
-  console.log(typeOfStops);
   return (
     <div
       {...rest}
-      className={twMerge(" min-h-full  w-1/4 rounded-md bg-white p-4 text-black  shadow-md [&>*]:mb-4", className)}
+      className={twMerge("  h-screen w-1/4 rounded-md bg-white p-4  text-black shadow-md [&>*]:mb-4", className)}
     >
+      <div className="flex items-center justify-end lg:hidden ">
+        <Button onClick={() => setIsSidebarExist(false)}>
+          <X />
+        </Button>
+      </div>
       <div>
         {appliedFilter.length > 0 && (
           <div className="flex items-center justify-between text-blue-600 ">
@@ -109,4 +116,4 @@ const FilterCard: FC<airSearchResponse> = ({ className, ...rest }) => {
   );
 };
 
-export default FilterCard;
+
