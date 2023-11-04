@@ -1,41 +1,61 @@
-import { TravelersAndClass } from "$components";
+import { TravelDate, TravelersAndClass } from "$components";
 import { SelectAirport } from "$components/SelectAirport/SelectAirport";
-import { useOneWay } from "$store";
-import { useId } from "react";
-import { DatePicker } from "shadcn/components/ui/date-picker";
-import { ListOfMultiCity } from "./ListOfMultiCity";
+import { useMultiCity } from "$store/useMultiCity";
+import { Plus } from "lucide-react";
+import { Button } from "shadcn/components/ui/button";
 
 export function MultiCity() {
-  const store = useOneWay();
-  const id = useId();
+  const store = useMultiCity();
 
   return (
     <div className="space-y-5">
-      <div className="grid grid-cols-4 items-center gap-4" key={id}>
-        <SelectAirport
-          placeholder="From"
-          selected={store.from}
-          onSelect={store.setFrom}
-          searchValue={store.searchFrom}
-          setSearchValue={store.setSearchFrom}
-        />
+      {store.cities.map((city, index) => (
+        <div className="grid grid-cols-4 items-center gap-4" key={city.id}>
+          <SelectAirport
+            placeholder="From"
+            selected={city.from}
+            onSelect={(value) => store.setFrom(city.id, value)}
+            searchValue={city.searchFrom}
+            setSearchValue={(value) => store.setSearchFrom(city.id, value)}
+          />
 
-        <SelectAirport
-          placeholder="To"
-          selected={store.to}
-          onSelect={store.setTo}
-          searchValue={store.searchTo}
-          setSearchValue={store.setSearchTo}
-        />
+          <SelectAirport
+            placeholder="To"
+            selected={city.to}
+            onSelect={(value) => store.setTo(city.id, value)}
+            searchValue={city.searchTo}
+            setSearchValue={(value) => store.setSearchTo(city.id, value)}
+          />
 
-        <div className="flex h-full w-full flex-col justify-between gap-y-2">
-          <DatePicker selected={store.departure} onSelect={store.setDeparture} placeholder="Departure" />
-          <DatePicker selected={store.back} onSelect={store.setBack} placeholder="Return" />
+          <TravelDate
+            departure={city.departure}
+            setDeparture={(value) => store.setDeparture(city.id, value)}
+            departurePlaceholder="Departure"
+            expand={false}
+          />
+
+          {index === 0 && (
+            <TravelersAndClass
+              travelerAndClasses={store.travelerAndClasses}
+              onValueChange={store.setTravelerAndClasses}
+            />
+          )}
+
+          {store.cities.length === index + 1 && (
+            <div className="flex h-full w-full items-center justify-evenly rounded-md bg-white">
+              <Button className="bg-blue-500 text-white  hover:bg-blue-400" onClick={() => store.add()}>
+                add <Plus className="text-white" size={15} strokeWidth={2.5} />
+              </Button>
+
+              {index > 1 && (
+                <Button variant="destructive" onClick={() => store.remove(city.id)}>
+                  remove <Plus className="text-white" size={15} strokeWidth={2.5} />
+                </Button>
+              )}
+            </div>
+          )}
         </div>
-
-        <TravelersAndClass travelerAndClasses={store.travelerAndClasses} onValueChange={store.setTravelerAndClasses} />
-      </div>
-      <ListOfMultiCity />
+      ))}
     </div>
   );
 }
