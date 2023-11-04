@@ -1,0 +1,110 @@
+{
+  "BookingID": "FHB23101659191",
+  "Results": [
+    {
+      "ExtraServices": null,
+      "ResultID": "69f27cb3-ba08-47df-8047-48540bff077f",
+      "IsRefundable": true,
+      "Fares": [
+        {
+          "BaseFare": 2274.0,
+          "Tax": 925.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Adult",
+          "PassengerCount": 1,
+          "ServiceFee": 0.0
+        }
+      ],
+      "Discount": 0.0,
+      "Validatingcarrier": "BG",
+      "LastTicketDate": "2023-10-16T21:11:10",
+      "segments": [
+        {
+          "TripIndicator": "OutBound",
+          "Origin": {
+            "Airport": {
+              "AirportCode": "CGP",
+              "AirportName": "Shah Amanat International Airport",
+              "Terminal": "",
+              "CityCode": "CGP",
+              "CityName": "Chittagong",
+              "CountryCode": "BD",
+              "CountryName": "Bangladesh"
+            },
+            "DepTime": "2023-10-20T09:10:00"
+          },
+          "Destination": {
+            "Airport": {
+              "AirportCode": "DAC",
+              "AirportName": "Hazrat Shahjalal International Airport",
+              "Terminal": "",
+              "CityCode": "DAC",
+              "CityName": "Dhaka",
+              "CountryCode": "BD",
+              "CountryName": "Bangladesh"
+            },
+            "ArrTime": "2023-10-20T10:05:00"
+          },
+          "Airline": {
+            "AirlineCode": "BG",
+            "AirlineName": "Biman Bangladesh Airlines",
+            "FlightNumber": "612",
+            "BookingClass": "G",
+            "CabinClass": "Y",
+            "OperatingCarrier": "BG"
+          },
+          "Baggage": "ADT-20kg",
+          "JourneyDuration": "55",
+          "StopQuantity": "0",
+          "Equipment": "DH8",
+          "AirlinePNR": "NVACBC",
+          "baggageDetails": [
+            {
+              "IsAllPax": false,
+              "PaxType": 1,
+              "Cabin": "7K",
+              "Checkin": "20kg"
+            }
+          ],
+          "SegmentGroup": 0
+        }
+      ],
+      "TotalFare": 3199.0,
+      "TotalFareWithAgentMarkup": 3199.0,
+      "Currency": "BDT",
+      "Availabilty": 0,
+      "FareType": "InstantTicketing",
+      "isMiniRulesAvailable": false,
+      "HoldAllowed": false
+    }
+  ],
+  "Passengers": [
+    {
+      "PaxIndex": "P73010",
+      "Title": "MR",
+      "FirstName": "NAHID",
+      "LastName": "AHMED",
+      "PaxType": "Adult",
+      "DateOfBirth": "2000-10-06T00:00:00",
+      "Gender": "Male",
+      "PassportNumber": "",
+      "PassportExpiryDate": null,
+      "PassportNationality": "",
+      "Address1": "test",
+      "Address2": "",
+      "CountryCode": "BD",
+      "Nationality": null,
+      "ContactNumber": "01741013363",
+      "Email": "nahidhasan.opt@gmail.com",
+      "FFAirline": null,
+      "FFNumber": "",
+      "Ticket": null
+    }
+  ],
+  "BookingStatus": "InProcess",
+  "AppliedPromotion": null,
+  "Error": null
+}

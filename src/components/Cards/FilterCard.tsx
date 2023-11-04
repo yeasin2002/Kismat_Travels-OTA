@@ -4,17 +4,22 @@ import React, { FC, HTMLAttributes, useState } from "react";
 import { RxCross2 } from "react-icons/rx";
 import { Checkbox } from "shadcn/components/ui/checkbox";
 import { Slider } from "shadcn/components/ui/slider";
+import { twMerge } from "tailwind-merge";
 
-
-interface airSearchResponse extends React.DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
-const FilterCard: FC<airSearchResponse> = () => {
+interface airSearchResponse extends React.DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+  className: string;
+}
+const FilterCard: FC<airSearchResponse> = ({ className, ...rest }) => {
   const { appliedFilter, price, typeOfStops, setAppliedFilter, setPrice, setTypeOfStops } = searchState();
   const [isShowingMore, setIsShowingMore] = useState(false);
   const popularFilter = mockFlight.slice(0, !isShowingMore ? 5 : mockFlight.length - 1);
 
   console.log(typeOfStops);
   return (
-    <div className="    min-h-full w-1/4  rounded-md bg-white p-4 text-black shadow-md  [&>*]:mb-4 ">
+    <div
+      {...rest}
+      className={twMerge(" min-h-full  w-1/4 rounded-md bg-white p-4 text-black  shadow-md [&>*]:mb-4", className)}
+    >
       <div>
         {appliedFilter.length > 0 && (
           <div className="flex items-center justify-between text-blue-600 ">
