@@ -3,6 +3,8 @@ import { create } from "zustand";
 import { combine } from "zustand/middleware";
 import { immer } from "zustand/middleware/immer";
 
+const maxTraveler = 9;
+
 export function createTripStore(type: "one-way" | "round-tripe") {
   return create(
     immer(
@@ -13,7 +15,7 @@ export function createTripStore(type: "one-way" | "round-tripe") {
           to: null as AirportData | null,
           departure: undefined as Date | undefined,
           back: undefined as Date | undefined,
-          travelerAndClasses: { adults: "", children: "", infants: "", travelClass: "" },
+          travelerAndClasses: { adults: 0, children: 0, infants: 0, travelClass: "" },
           searchFrom: "",
           searchTo: "",
         },
@@ -38,17 +40,17 @@ export function createTripStore(type: "one-way" | "round-tripe") {
               store.back = value;
             });
           },
-          setAdults(value: string) {
+          setAdults(value: number) {
             set((store) => {
               store.travelerAndClasses.adults = value;
             });
           },
-          setChildren(value: string) {
+          setChildren(value: number) {
             set((store) => {
               store.travelerAndClasses.children = value;
             });
           },
-          setInfants(value: string) {
+          setInfants(value: number) {
             set((store) => {
               store.travelerAndClasses.infants = value;
             });
@@ -70,7 +72,11 @@ export function createTripStore(type: "one-way" | "round-tripe") {
           },
           setTravelerAndClasses(value: Partial<ReturnType<typeof get>["travelerAndClasses"]>) {
             set((store) => {
-              store.travelerAndClasses = { ...store.travelerAndClasses, ...value };
+              const combinedValue = { ...store.travelerAndClasses, ...value };
+
+              if (combinedValue.children + combinedValue.infants + combinedValue.adults <= maxTraveler) {
+                store.travelerAndClasses = combinedValue;
+              }
             });
           },
           get,

@@ -1,24 +1,19 @@
-import { FancySelect } from "$components";
-import { parseNumber } from "$lib";
+import { FancySelect, FancySelectString } from "$components";
 import { ChevronDown } from "lucide-react";
-import { Button } from "shadcn/components/ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "shadcn/components/ui/popover";
 
 interface TravelerAndClassesProps {
   travelerAndClasses: {
-    adults: string;
-    children: string;
-    infants: string;
+    adults: number;
+    children: number;
+    infants: number;
     travelClass: string;
   };
   onValueChange: (value: Partial<TravelerAndClassesProps["travelerAndClasses"]>) => void;
 }
 
 export function TravelersAndClass({ onValueChange, travelerAndClasses }: TravelerAndClassesProps) {
-  const totalTravelers =
-    parseNumber(travelerAndClasses.adults, 10) +
-    parseNumber(travelerAndClasses.children, 7) +
-    parseNumber(travelerAndClasses.infants, 7);
+  const totalTravelers = travelerAndClasses.adults + travelerAndClasses.children + travelerAndClasses.infants;
 
   return (
     <Popover>
@@ -44,7 +39,7 @@ export function TravelersAndClass({ onValueChange, travelerAndClasses }: Travele
             <FancySelect
               selected={travelerAndClasses.adults}
               onSelect={(adults) => onValueChange({ adults })}
-              options={["1", "2", "3", "4", "5", "6", "7", "8", "9", ">9"]}
+              options={[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]}
             />
           </div>
           <div>
@@ -53,7 +48,7 @@ export function TravelersAndClass({ onValueChange, travelerAndClasses }: Travele
             <FancySelect
               selected={travelerAndClasses.children}
               onSelect={(children) => onValueChange({ children })}
-              options={["1", "2", "3", "4", "5", "6", ">6"]}
+              options={[0, 1, 2, 3, 4, 5, 6]}
             />
           </div>
           <div>
@@ -62,16 +57,15 @@ export function TravelersAndClass({ onValueChange, travelerAndClasses }: Travele
             <FancySelect
               selected={travelerAndClasses.infants}
               onSelect={(infants) => onValueChange({ infants })}
-              options={["1", "2", "3", "4", "5", "6", ">6"]}
+              options={[0, 1, 2, 3, 4, 5, 6]}
             />
           </div>
           <div className="col-span-2">
             <p className="mb-2 font-medium uppercase text-slate-700">CHOOSE TRAVEL CLASS</p>
-            <FancySelect
+            <FancySelectString
               selected={travelerAndClasses.travelClass}
               onSelect={(travelClass) => onValueChange({ travelClass })}
               options={["Economy/Premium Economy", "Premium Economy", "Economy"]}
-              expand
             />
           </div>
         </div>
