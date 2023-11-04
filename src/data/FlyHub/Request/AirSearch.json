@@ -1,0 +1,15 @@
+{
+  "AdultQuantity": 1,
+  "ChildQuantity": 2,
+  "InfantQuantity": 1,
+  "EndUserIp": "113.11.89.118",
+  "JourneyType": "1",
+  "Segments": [
+    {
+      "Origin": "DXB",
+      "Destination": "DAC",
+      "CabinClass": "1",
+      "DepartureDateTime": "2023-11-28"
+    }
+  ]
+}
