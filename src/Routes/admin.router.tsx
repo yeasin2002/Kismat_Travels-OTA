@@ -13,6 +13,11 @@ const Router: IRoute[] = [
     Icon: <CarbonHome className="mx-3 my-2 text-lg" />,
   },
   {
+    path: "",
+    label: "Bonking",
+    Icon: <SolarBillCheckBroken className="mx-3 my-2 text-lg" />,
+  },
+  {
     path: "users",
     label: "Users",
     Icon: <Users className="mx-3 my-2 text-lg" />,
@@ -77,6 +82,18 @@ export function FluentPayment32Regular(props: SVGProps<SVGSVGElement>) {
         fill="currentColor"
         d="M2 9.5A4.5 4.5 0 0 1 6.5 5h19A4.5 4.5 0 0 1 30 9.5v13a4.5 4.5 0 0 1-4.5 4.5h-19A4.5 4.5 0 0 1 2 22.5v-13ZM6.5 7A2.5 2.5 0 0 0 4 9.5V11h24V9.5A2.5 2.5 0 0 0 25.5 7h-19ZM4 22.5A2.5 2.5 0 0 0 6.5 25h19a2.5 2.5 0 0 0 2.5-2.5V13H4v9.5ZM21 19h3a1 1 0 1 1 0 2h-3a1 1 0 1 1 0-2Z"
       ></path>
+    </svg>
+  );
+}
+
+export function SolarBillCheckBroken(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" {...props}>
+      <g fill="none" stroke="currentColor" strokeLinecap="round" strokeWidth="1.5">
+        <path d="M21 7v-.63c0-1.193 0-1.79-.158-2.27a3.045 3.045 0 0 0-1.881-1.937C18.493 2 17.914 2 16.755 2h-9.51c-1.159 0-1.738 0-2.206.163a3.046 3.046 0 0 0-1.881 1.936C3 4.581 3 5.177 3 6.37V15m18-4v9.374c0 .858-.985 1.314-1.608.744a.946.946 0 0 0-1.284 0l-.483.442a1.657 1.657 0 0 1-2.25 0a1.657 1.657 0 0 0-2.25 0a1.657 1.657 0 0 1-2.25 0a1.657 1.657 0 0 0-2.25 0a1.657 1.657 0 0 1-2.25 0l-.483-.442a.946.946 0 0 0-1.284 0c-.623.57-1.608.114-1.608-.744V19"></path>
+        <path strokeLinejoin="round" d="m9.5 10.4l1.429 1.6L14.5 8"></path>
+        <path d="M7.5 15.5H9m7.5 0H12"></path>
+      </g>
     </svg>
   );
 }
