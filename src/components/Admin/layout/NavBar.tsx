@@ -28,7 +28,7 @@ const NavBar = ({ sidebarState }: { sidebarState: [boolean, React.Dispatch<React
             label: "Nahid Hasan",
             menus: [
               [
-                { title: "My Account", shortcut: "", Icon: SolarUserBroken },
+                { title: "My Account", shortcut: "", Icon: SolarUserBroken, link: "/Admin/dashboard/profile" },
                 { title: "Account Setting", shortcut: "", Icon: SolarSettingsLineDuotone },
               ],
               [{ title: "Logout", shortcut: "", Icon: PhAirplaneLandingThin }],
