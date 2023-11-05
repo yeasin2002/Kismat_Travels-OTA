@@ -1,28 +1,44 @@
 import { Fare } from "$interface";
-import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
+import { X } from "lucide-react";
+import { DetailedHTMLProps, FC, HTMLAttributes, useId } from "react";
 
 interface FareSummaryProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   FareDetails: Fare[];
 }
 
-const FareSummary: FC<FareSummaryProps> = () => {
+const FareSummary: FC<FareSummaryProps> = ({ FareDetails, ...rest }) => {
   return (
-    <div className="space-y-4 rounded-md border border-gray-200 p-4">
-      <h3>Fare breakup</h3>
-      <div>
-        <div className="flex gap-x-20">
-          <div>
-            <p>Total</p>
-            <p>Base Fare</p>
-            <p>Surcharges</p>
-          </div>
-          <div>
-            <p>₹ 5,347</p>
-            <p>₹ 4,548</p>
-            <p>₹ 799</p>
-          </div>
-        </div>
-      </div>
+    <div className="space-y-4 rounded-md border border-gray-200 p-4" {...rest}>
+      <h3 className="text-xl font-bold ">Fares </h3>
+
+      <table className="w-full border-collapse">
+        <thead>
+          <tr>
+            <th className="tablesItems ">Fare Summary</th>
+            <th className="tablesItems ">Base Fare</th>
+            <th className="tablesItems ">Tex + Fees</th>
+            <th className="tablesItems ">Per Passenger</th>
+            <th className="tablesItems ">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          {FareDetails.map((fare) => {
+            const totalOtherCharge = fare.Tax + fare.OtherCharges;
+            const totalCost = fare.BaseFare + fare.Tax + fare.OtherCharges * fare.PassengerCount;
+            return (
+              <tr>
+                <td className="tablesItems"> {fare.PaxType} </td>
+                <td className="tablesItems"> {fare.BaseFare} </td>
+                <td className="tablesItems"> {totalOtherCharge} </td>
+                <td className="tablesItems flex">
+                  {fare.BaseFare + totalOtherCharge} X {fare.PassengerCount}
+                </td>
+                <td className="tablesItems font-bold">{totalCost}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
     </div>
   );
 };

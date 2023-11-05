@@ -1,3 +1,4 @@
+export * from "./DatesConverter";
 export * from "./ISO_DateToConverter";
 export * from "./RemainingTime";
 export * from "./auth";

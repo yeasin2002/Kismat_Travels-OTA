@@ -109,6 +109,10 @@
   .ticketExtraDetailsItem {
     @apply text-gray-400 text-sm font-normal;
   }
+
+  .tablesItems {
+    @apply border border-gray-600/20 p-2
+  }
   .stack {
     display: grid;
     grid-template: "container";
