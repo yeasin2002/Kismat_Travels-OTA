@@ -1,8 +1,7 @@
-import { TravelersAndClass } from "$components";
+import { TravelDate, TravelersAndClass } from "$components";
 import { SelectAirport } from "$components/SelectAirport/SelectAirport";
 import { useTwoWay } from "$store";
 import { useId } from "react";
-import { DatePicker } from "shadcn/components/ui/date-picker";
 
 export function TwoWay() {
   const store = useTwoWay();
@@ -26,10 +25,15 @@ export function TwoWay() {
         setSearchValue={store.setSearchTo}
       />
 
-      <div className="flex h-full w-full flex-col justify-between gap-y-2">
-        <DatePicker selected={store.departure} onSelect={store.setDeparture} placeholder="Departure" />
-        <DatePicker selected={store.back} onSelect={store.setBack} placeholder="Return" />
-      </div>
+      <TravelDate
+        departure={store.departure}
+        setDeparture={store.setDeparture}
+        departurePlaceholder="Departure"
+        expand={true}
+        back={store.back}
+        setBack={store.setBack}
+        backPlaceholder="Return"
+      />
 
       <TravelersAndClass travelerAndClasses={store.travelerAndClasses} onValueChange={store.setTravelerAndClasses} />
     </div>

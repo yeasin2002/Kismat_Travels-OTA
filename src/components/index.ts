@@ -27,5 +27,6 @@ export * from "./profile/Account";
 export * from "./profile/ChangePassword";
 export * from "./profile/ShowTickets";
 export * from "./ui/Title";
+export * from "./ui/TravelDate";
 export * from "./ui/UserNav";
 

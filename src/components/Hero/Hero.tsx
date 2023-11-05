@@ -35,7 +35,7 @@ export const Hero = () => {
         ExcludeAirlines: "",
       };
       const currentStore = tripType.getCurrentStore();
-      
+
       console.log(currentStore);
       await mutateAsync(data);
     } catch (error) {
@@ -45,7 +45,7 @@ export const Hero = () => {
 
   return (
     <section
-      className="h-[calc(100vh-3.5rem)] bg-cover bg-center bg-no-repeat pt-28"
+      className="min-h-[calc(100vh-3.5rem)] bg-cover bg-center bg-no-repeat py-28"
       style={{
         backgroundImage: `url(${heroImg.src})`,
       }}
