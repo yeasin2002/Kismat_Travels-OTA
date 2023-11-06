@@ -17,7 +17,7 @@ export function FancySelectString({ options, onSelect, selected }: FancySelectSt
           return (
             <button
               key={value}
-              onClick={() => onSelect(selected === value ? "" : value)}
+              onClick={() => onSelect(selected === value ? "Economy/Premium Economy" : value)}
               className={cn(
                 "flex h-8 w-auto items-center justify-center whitespace-nowrap rounded-sm px-2 text-sm text-black transition-colors duration-200 hover:bg-slate-500/20",
                 {

@@ -3,13 +3,13 @@ import { uuid } from "$lib";
 import { create } from "zustand";
 import { combine } from "zustand/middleware";
 import { immer } from "zustand/middleware/immer";
+import { maxTraveler } from "./createTripStore";
 
 interface City {
   id: string;
   from: AirportData | null;
   to: AirportData | null;
   departure: Date | undefined;
-  back: Date | undefined;
   searchFrom: string;
   searchTo: string;
 }
@@ -24,7 +24,6 @@ export const useMultiCity = create(
             from: null,
             to: null,
             departure: undefined,
-            back: undefined,
             searchFrom: "",
             searchTo: "",
           },
@@ -33,17 +32,16 @@ export const useMultiCity = create(
             from: null,
             to: null,
             departure: undefined,
-            back: undefined,
             searchFrom: "",
             searchTo: "",
           },
         ] as City[],
         tripType: "multi-city",
         travelerAndClasses: {
-          adults: "",
-          children: "",
-          infants: "",
-          travelClass: "",
+          adults: 0,
+          children: 0,
+          infants: 0,
+          travelClass: "Economy/Premium Economy",
         },
       },
       (set, get) => ({
@@ -54,7 +52,6 @@ export const useMultiCity = create(
               from: null,
               to: null,
               departure: undefined,
-              back: undefined,
               searchFrom: "",
               searchTo: "",
             });
@@ -85,23 +82,17 @@ export const useMultiCity = create(
             if (index !== -1) store.cities[index].departure = value;
           });
         },
-        setBack(id: string, value: undefined | Date) {
-          set((store) => {
-            const index = store.cities.findIndex((city) => city.id === id);
-            if (index !== -1) store.cities[index].back = value;
-          });
-        },
-        setAdults(value: string) {
+        setAdults(value: number) {
           set((store) => {
             store.travelerAndClasses.adults = value;
           });
         },
-        setChildren(value: string) {
+        setChildren(value: number) {
           set((store) => {
             store.travelerAndClasses.children = value;
           });
         },
-        setInfants(value: string) {
+        setInfants(value: number) {
           set((store) => {
             store.travelerAndClasses.infants = value;
           });
@@ -125,8 +116,22 @@ export const useMultiCity = create(
         },
         setTravelerAndClasses(value: Partial<ReturnType<typeof get>["travelerAndClasses"]>) {
           set((store) => {
-            store.travelerAndClasses = { ...store.travelerAndClasses, ...value };
+            const combinedValue = { ...store.travelerAndClasses, ...value };
+
+            if (combinedValue.children + combinedValue.infants + combinedValue.adults <= maxTraveler) {
+              store.travelerAndClasses = combinedValue;
+            }
           });
+        },
+        isValid() {
+          const store = get();
+
+          const travelerCount =
+            store.travelerAndClasses.children + store.travelerAndClasses.infants + store.travelerAndClasses.adults;
+
+          if (!(travelerCount > 0)) return false;
+
+          return store.cities.every((city) => city.from && city.to && city.departure);
         },
         get,
       })

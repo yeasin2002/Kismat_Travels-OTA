@@ -29,10 +29,7 @@ export const OneWay = () => {
         departure={store.departure}
         setDeparture={store.setDeparture}
         departurePlaceholder="Departure"
-        expand={true}
-        back={store.back}
-        setBack={store.setBack}
-        backPlaceholder="Return"
+        expand={false}
       />
 
       <TravelersAndClass travelerAndClasses={store.travelerAndClasses} onValueChange={store.setTravelerAndClasses} />
