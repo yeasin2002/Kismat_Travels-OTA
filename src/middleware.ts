@@ -3,15 +3,15 @@ import type { NextRequest } from "next/server";
 
 export function middleware(request: NextRequest) {
   // Get a cookie
-  let name = request.cookies.get("username")?.value;
+  // let name = request.cookies.get("username")?.value;
   // Get all cookies
-  // let tokens = request.cookies.getAll();
+  let tokens = request.cookies.getAll();
   // console.log(tokens);
-  console.log(name);
+  console.log(tokens);
 
-  if (name !== "nahid") {
-    return NextResponse.rewrite(new URL("/Admin/auth/Login", request.url));
-  }
+  // if (name !== "nahid") {
+  //   return NextResponse.rewrite(new URL("/Admin/auth/Login", request.url));
+  // }
 }
 
 export const config = {
