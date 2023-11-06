@@ -3,7 +3,7 @@ import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 import AirbusLogo from "$assets/temp/qatar-airways.jpg";
-import { Button, Nav } from "$components";
+import { Button, LeadPassenger, Nav } from "$components";
 import { PassengerDetails } from "$components/Book/PassengerDetails";
 import { CalendarCheck2, PlaneLanding, PlaneTakeoff } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "shadcn/components/ui/accordion";
@@ -28,7 +28,7 @@ const Book: FC<BookProps> = ({ ...rest }) => {
   return (
     <section {...rest}>
       <Nav />
-      <form className="  w-full bg-slate-800 p-4 lg:p-8" onSubmit={handleSubmit(formSubmitHandler)}>
+      <div className="w-full  space-y-5 bg-slate-800 p-4 lg:p-8" onSubmit={handleSubmit(formSubmitHandler)}>
         <div>
           <h2 className=" p-5 text-2xl font-bold text-white">Complete Your Booking</h2>
           <div>
@@ -88,17 +88,22 @@ const Book: FC<BookProps> = ({ ...rest }) => {
           </div>
         </div>
 
+        <div className="space-y-8 rounded-lg bg-gray-100 p-4 px-4 shadow-lg lg:p-8">
+          <LeadPassenger />
+        </div>
+
         <div {...rest}>
-          <div id="travelerDetails" className="space-y-8 rounded-lg bg-gray-100 p-4 shadow-lg lg:p-8">
-            <div className="flex justify-between">
-              <h3 className="text-xl font-bold text-gray-600">Passenger Details </h3>
-              <Button>Add Passenger</Button>
-            </div>
+          <div id="travelerDetails" className="space-y-8 rounded-lg bg-gray-100 p-4 px-4 shadow-lg lg:p-8">
+            <h3 className=" text-xl  font-bold text-gray-600">Passenger Details </h3>
 
             <Accordion type="single" collapsible>
-              {totalPassengers.map((item, ) => {
+              {totalPassengers.map((item) => {
                 return (
-                  <AccordionItem value={`value-${item}`} key={item}>
+                  <AccordionItem
+                    value={`value-${item}`}
+                    key={item}
+                    className="my-2 rounded-lg bg-white px-2 py-4 shadow-lg"
+                  >
                     <AccordionTrigger> Passenger {item}</AccordionTrigger>
                     <AccordionContent>
                       <PassengerDetails />
@@ -110,7 +115,7 @@ const Book: FC<BookProps> = ({ ...rest }) => {
           </div>
         </div>
         <button className="mt-4 rounded-full bg-white px-10 py-2 text-xl font-semibold text-slate-800">Continue</button>
-      </form>
+      </div>
     </section>
   );
 };

@@ -7,7 +7,7 @@ import CreatableSelect from "react-select/creatable";
 import { twMerge } from "tailwind-merge";
 
 interface SelectProps extends ComponentProps<CreatableSelect> {
-  control: Control<FieldValues, any>;
+  control: Control<any, any>;
   register: UseFormRegisterReturn;
   error?: FieldError;
   name: string;
@@ -103,7 +103,7 @@ export function Select({
 }
 
 interface SelectNotCreatableProps extends ComponentProps<NormalSelect> {
-  control: Control<FieldValues, any>;
+  control: Control<any, any>;
   register: UseFormRegisterReturn;
   error?: FieldError;
   name: string;

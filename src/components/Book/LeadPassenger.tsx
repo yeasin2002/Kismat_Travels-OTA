@@ -1,40 +1,22 @@
-import { Button, Input, SelectNotCreatable } from "$components";
+import { Button, FormInputs, Input, SelectNotCreatable } from "$components";
 import { DetailedHTMLProps, FC, FormHTMLAttributes } from "react";
 import { useForm } from "react-hook-form";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "shadcn/components/ui/select";
 
-interface ContactDetailsProps extends DetailedHTMLProps<FormHTMLAttributes<HTMLFormElement>, HTMLFormElement> {}
-export interface FormInputs {
-  title: "Mr" | "Ms" | "Mrs";
-  FirstName: string;
-  MiddleName?: string;
-  LastName: string;
-  PaxType: "Adult" | "Child" | "Infant";
-  DateOfBirth: string;
-  Gender: "Male" | "Female";
-  PassportNumber?: string;
-  PassportExpiryDate?: string;
-  PassportNationality?: string;
-  Address1: string;
-  Address2?: string;
-  CountryCode: string;
-  Nationality: string;
-  ContactNumber: string;
-  IsLeadPassenger?: boolean;
-  FFAirline?: string;
-  FFNumber?: number;
-  Baggage?: string;
-  BaggageID?: string;
+interface LeadPassengerProps extends DetailedHTMLProps<FormHTMLAttributes<HTMLFormElement>, HTMLFormElement> {}
+interface LeadPassengerForm extends FormInputs {
+  Email: string;
 }
 
-export const PassengerDetails: FC<ContactDetailsProps> = ({ ...rest }) => {
-  const { register, formState, handleSubmit, control } = useForm<FormInputs>();
-  const onSubmit = (e: FormInputs) => {
-    console.log(e);
+export const LeadPassenger: FC<LeadPassengerProps> = ({ ...rest }) => {
+  const { register, formState, handleSubmit, control } = useForm<LeadPassengerForm>();
+  const FormHandler = (data: LeadPassengerForm) => {
+    console.log(data);
   };
 
   return (
-    <form {...rest} className="space-y-8 px-4 md:space-y-4" onSubmit={handleSubmit(onSubmit)}>
+    <form {...rest} className="space-y-8 px-4 md:space-y-4 " onSubmit={handleSubmit(FormHandler)}>
+      <p className="my-10 text-2xl font-bold text-gray-800">Provide your Details </p>
       <div className="!flex  w-full items-center   gap-x-6">
         <SelectNotCreatable
           register={register("title", {
@@ -177,6 +159,17 @@ export const PassengerDetails: FC<ContactDetailsProps> = ({ ...rest }) => {
 
       <div className="bookInputContainer">
         <Input
+          register={register("Email", {
+            required: { value: true, message: "Email is required!" },
+            pattern: { value: /\S+@\S+\.\S+/, message: "Entered value does not match email format" },
+          })}
+          label="Email"
+          placeholder="write your Country Code"
+          error={formState.errors.Email}
+          type="email"
+        />
+
+        <Input
           register={register("FFAirline", {})}
           label="FF Airline"
           placeholder="write your FFAirline"
@@ -217,7 +210,6 @@ export const PassengerDetails: FC<ContactDetailsProps> = ({ ...rest }) => {
           type="date"
         />
       </div>
-
       <Button type="submit">Submit</Button>
     </form>
   );

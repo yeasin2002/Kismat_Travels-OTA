@@ -1,12 +1,14 @@
 import Image from "next/image";
 import { DetailedHTMLProps, FC, HTMLAttributes, useState } from "react";
 
-import { Times } from "$components";
+import { Button, Times } from "$components";
 import { CalendarCheck2, Minus, PlaneLanding, PlaneTakeoff, Timer } from "lucide-react";
 
 import { SearchResponse } from "$interface";
-import { StopQuantityConverter, isoDateConvert, remainingHour } from "$lib";
+import { StopQuantityConverter, convertMinutes, isoDateConvert, remainingHour } from "$lib";
+import Link from "next/link";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "shadcn/components/ui/accordion";
+import { buttonVariants } from "shadcn/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "shadcn/components/ui/tabs";
 import Cancellation from "./Cancellation";
 import DateChange from "./DateChange";
@@ -25,68 +27,80 @@ export const FlightDetails: FC<FlightDetailsProps> = ({ flightDetails, ...rest }
       {flightDetails.segments.map((airBus) => {
         const { normalDate: normalDepDate, normalTime: normalDepTime } = isoDateConvert(airBus.Origin.DepTime);
         const { normalDate: normalArrDate, normalTime: normalArrTime } = isoDateConvert(airBus.Destination.ArrTime);
-
-        const hourLeft = remainingHour(flightDetails.LastTicketDate);
+        const hourLeft = convertMinutes(airBus.JourneyDuration);
+        // const hourLeft = remainingHour(flightDetails.LastTicketDate);
 
         return (
-          <div className="my-6 flex  flex-1  flex-col  items-center justify-around gap-y-6 md:flex-row md:gap-y-0">
-            <div className="flex items-center space-x-2 ">
-              <Image
-                src={`https://airlineimages.s3.ap-southeast-1.amazonaws.com/128/${flightDetails.Validatingcarrier}.png`}
-                width={40}
-                height={40}
-                alt="Picture of the airways"
-                className="h-10 w-10 rounded-sm"
-              />
-              <span>
-                <p className="text-base font-semibold">{airBus.Airline.AirlineName}</p>
-                <p className="text-xs">
-                  {airBus.Airline?.AirlineCode}-{airBus.Airline?.FlightNumber}
-                </p>
-              </span>
-            </div>
+          <div className="flex items-center">
+            <div className="my-6 flex    flex-1  flex-col items-center justify-around gap-y-6 md:flex-row md:gap-y-0">
+              <div className="flex items-center space-x-2 ">
+                <Image
+                  src={`https://airlineimages.s3.ap-southeast-1.amazonaws.com/128/${flightDetails.Validatingcarrier}.png`}
+                  width={40}
+                  height={40}
+                  alt="Picture of the airways"
+                  className="h-10 w-10 rounded-sm"
+                />
+                <span>
+                  <p className="text-base font-semibold">{airBus.Airline.AirlineName}</p>
+                  <p className="text-xs">
+                    {airBus.Airline?.AirlineCode}-{airBus.Airline?.FlightNumber}
+                  </p>
+                </span>
+              </div>
 
-            <div className="space-y-1">
-              <span className="flex items-center gap-x-2">
-                <Timer size={20} />
-                <p>{normalDepTime}</p>
-              </span>
-              <span className="flex items-center gap-x-2">
-                <CalendarCheck2 size={20} />
-                <p>{normalDepDate}</p>
-              </span>
-              <span className="flex items-center gap-x-2">
-                <PlaneTakeoff size={20} />
-                <p>
-                  {airBus.Origin.Airport.CityName}, {airBus.Origin.Airport.CountryCode}
-                </p>
-              </span>
-            </div>
+              <div className="space-y-1">
+                <span className="flex items-center gap-x-2">
+                  <Timer size={20} />
+                  <p>{normalDepTime}</p>
+                </span>
+                <span className="flex items-center gap-x-2">
+                  <CalendarCheck2 size={20} />
+                  <p>{normalDepDate}</p>
+                </span>
+                <span className="flex items-center gap-x-2">
+                  <PlaneTakeoff size={20} />
+                  <p>
+                    {airBus.Origin.Airport.CityName}, {airBus.Origin.Airport.CountryCode}
+                  </p>
+                </span>
+              </div>
 
+              <div>
+                <span className="flex items-center gap-x-2  ">
+                  <Times />
+                  <p>{hourLeft}</p>
+                </span>
+                <Minus size={15} className=" w-full  text-center" />
+                <p className="text-center">{StopQuantityConverter(airBus.StopQuantity)}</p>
+              </div>
+
+              <div className="space-y-1">
+                <span className="flex items-center gap-x-2">
+                  <Timer size={20} />
+                  <p>{normalArrTime}</p>
+                </span>
+                <span className="flex items-center gap-x-2">
+                  <CalendarCheck2 size={20} />
+                  <p>{normalArrDate}</p>
+                </span>
+                <span className="flex items-center gap-x-2">
+                  <PlaneLanding size={20} />
+                  <p>
+                    {airBus.Destination.Airport.CityName}, {airBus.Destination.Airport.CountryCode}
+                  </p>
+                </span>
+              </div>
+            </div>
             <div>
-              <span className="flex items-center gap-x-2  ">
-                <Times />
-                <p>{hourLeft}</p>
-              </span>
-              <Minus size={15} className=" w-full  text-center" />
-              <p className="text-center">{StopQuantityConverter(airBus.StopQuantity)}</p>
-            </div>
-
-            <div className="space-y-1">
-              <span className="flex items-center gap-x-2">
-                <Timer size={20} />
-                <p>{normalArrTime}</p>
-              </span>
-              <span className="flex items-center gap-x-2">
-                <CalendarCheck2 size={20} />
-                <p>{normalArrDate}</p>
-              </span>
-              <span className="flex items-center gap-x-2">
-                <PlaneLanding size={20} />
-                <p>
-                  {airBus.Destination.Airport.CityName}, {airBus.Destination.Airport.CountryCode}
-                </p>
-              </span>
+              <Link
+                className={buttonVariants({
+                  variant: "default",
+                })}
+                href={"/book"}
+              >
+                Book Now
+              </Link>
             </div>
           </div>
         );
