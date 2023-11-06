@@ -7,7 +7,7 @@ import Admin_secure from "$Secure/admin_secure";
 
 const index = (props: any) => {
   return (
-    <AdminLayout>
+    <AdminLayout User={props.User}>
       <div className="p-2 md:p-3">
         <div>
           {/* navigation  */}

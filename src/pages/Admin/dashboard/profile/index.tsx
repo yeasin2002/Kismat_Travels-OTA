@@ -8,7 +8,7 @@ import Admin_secure from "$Secure/admin_secure";
 
 const index = (props: any) => {
   return (
-    <MainLayout>
+    <MainLayout User={props.User}>
       <div className="relative w-full">
         <Header />
         <div className=" absolute top-0 flex w-full flex-col items-center justify-center pl-0 pt-20 md:mt-24 md:flex-row md:justify-start  md:pl-28 md:pt-32">
@@ -27,13 +27,18 @@ const index = (props: any) => {
               xl:h-[250px] 
               xl:min-w-[250px]"
           >
-            <Image src={randomImageFromUnsplash} alt="nahid" layout="fill" style={{ objectFit: "cover" }} />
+            <Image
+              src={(props.User.photo && `/${props.User.photo}`) || randomImageFromUnsplash}
+              alt="nahid"
+              layout="fill"
+              style={{ objectFit: "cover" }}
+            />
           </div>
           <div className="relative flex min-h-[100px] w-full justify-center md:justify-between md:pl-10 md:pt-6 ">
             {/* name */}
             <div className="relative text-center md:text-left">
-              <h1 className="mt-3 text-2xl font-bold">Nahid Hasan</h1>
-              <p>nahidhasan15@gmail.com</p>
+              <h1 className="mt-3 text-2xl font-bold">{props.User.name}</h1>
+              <p>{props.User.email}</p>
             </div>
             {/* setting button  */}
             <div className="absolute right-0 flex h-full items-center justify-center p-3 md:inline-block">

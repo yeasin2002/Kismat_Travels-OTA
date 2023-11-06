@@ -8,7 +8,7 @@ import Admin_secure from "$Secure/admin_secure";
 const index = (props: any) => {
   const [data, setData] = useState(true);
   return (
-    <AdminLayout>
+    <AdminLayout User={props.User}>
       <div className="flex flex-col justify-start p-2 md:flex-row md:justify-between">
         <h1 className="flex items-center gap-3 text-2xl">
           <span className="rounded-full bg-gray-100 p-3 shadow-inner ">

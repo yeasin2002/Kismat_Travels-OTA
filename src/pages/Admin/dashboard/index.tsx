@@ -6,7 +6,7 @@ import BookingVsUserWeekBarChart from "$components/Admin/util/Charts/BookingVsUs
 import Admin_secure from "$Secure/admin_secure";
 const index = (props: any) => {
   return (
-    <AdminLayout>
+    <AdminLayout User={props.User}>
       <div className="flex flex-col justify-start p-2 md:flex-row md:justify-between">
         <h1 className="flex items-center gap-3 text-xl md:text-2xl">
           <span className="rounded-full bg-gray-100 p-2 shadow-inner md:p-3 ">
