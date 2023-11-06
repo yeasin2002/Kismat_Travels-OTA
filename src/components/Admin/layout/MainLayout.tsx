@@ -2,7 +2,7 @@ import React, { ReactNode } from "react";
 import NavBar from "./NavBar";
 import Aside from "./Aside";
 
-const MainLayout = ({ children }: { children: React.ReactNode }) => {
+const MainLayout = ({ children, User }: { children: React.ReactNode; User: any }) => {
   const [sidebar, SetSidebar] = React.useState(false);
   return (
     // Admin_Layout style in global css file
@@ -23,7 +23,7 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
       {/* main section layout  */}
       <div className="admin_main transition-all duration-200">
         <div>notifications section</div>
-        <NavBar sidebarState={[sidebar, SetSidebar]} />
+        <NavBar sidebarState={[sidebar, SetSidebar]} User={User} />
         <div>{children} </div>
       </div>
     </div>

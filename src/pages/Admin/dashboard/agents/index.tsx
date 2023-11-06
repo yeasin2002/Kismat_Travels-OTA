@@ -1,8 +1,11 @@
 import React, { SVGProps } from "react";
 import AdminLayout from "$components/Admin/layout/MainLayout";
-const index = () => {
+
+import Admin_secure from "$Secure/admin_secure";
+
+const index = (props: any) => {
   return (
-    <AdminLayout>
+    <AdminLayout User={props.User}>
       <div className="flex flex-col justify-start p-2 md:flex-row md:justify-between">
         <h1 className="flex items-center gap-3 text-2xl">
           <span className="rounded-full bg-gray-100 p-3 shadow-inner ">
@@ -19,6 +22,24 @@ const index = () => {
 };
 
 export default index;
+
+// // This gets called on every request
+export async function getServerSideProps(ctx: any) {
+  // Pass data to the page via props
+  try {
+    const User = await Admin_secure(ctx);
+    return { props: { User: User } };
+  } catch (error) {
+    return {
+      redirect: {
+        destination: "/Admin/auth/Login", // Specify the destination route
+        permanent: false, // Set to true for a permanent (301) redirect, or false for a temporary (302) redirect
+      },
+    };
+  }
+}
+
+// icons
 export function User(props: SVGProps<SVGSVGElement>) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" {...props}>

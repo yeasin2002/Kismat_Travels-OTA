@@ -2,7 +2,13 @@ import React, { SVGProps } from "react";
 import { ImgDropDown } from "$components/Admin/util/ImageDropDown";
 import { Button } from "shadcn/components/ui/button";
 
-const NavBar = ({ sidebarState }: { sidebarState: [boolean, React.Dispatch<React.SetStateAction<boolean>>] }) => {
+const NavBar = ({
+  sidebarState,
+  User,
+}: {
+  User: any;
+  sidebarState: [boolean, React.Dispatch<React.SetStateAction<boolean>>];
+}) => {
   return (
     <div className="sticky top-0 z-[700] flex  w-full items-center justify-between gap-5 bg-slate-400/20 px-2 py-4 backdrop-blur-md">
       <div className="text-lg">
@@ -17,7 +23,7 @@ const NavBar = ({ sidebarState }: { sidebarState: [boolean, React.Dispatch<React
             className={`${sidebarState[0] ? "rotate-180" : "rotate-0"} transition-all duration-500`}
           />
         </Button>
-        <span className="ml-2 font-bold">Welcome Admin</span>
+        <span className="ml-2 font-bold">Welcome {User.name}</span>
       </div>
       <div>
         <ImgDropDown
@@ -25,7 +31,7 @@ const NavBar = ({ sidebarState }: { sidebarState: [boolean, React.Dispatch<React
             imgOpt: "nahid",
             url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5rsvpUgnh5f9bK5f1h9IL8Et1k5ptGe-uAA&usqp=CAU",
             alt: "logo",
-            label: "Nahid Hasan",
+            label: User.name,
             menus: [
               [
                 { title: "My Account", shortcut: "", Icon: SolarUserBroken, link: "/Admin/dashboard/profile" },
