@@ -1,72 +1,122 @@
-import airways from "$assets/temp/qatar-airways.jpg";
 import Image from "next/image";
+import { FC, HTMLAttributes } from "react";
 
-const Details = () => {
+import { Segment } from "$interface";
+import { StopQuantityConverter, convertMinutes, isoDateConvert, remainingHour } from "$lib";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "shadcn/components/ui/tabs";
+
+interface DetailsProps extends React.DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+  SegmentDetails: Segment[];
+  airbusImg: string;
+}
+
+const Details: FC<DetailsProps> = ({ SegmentDetails, airbusImg, ...rest }) => {
+  const availableAirline = SegmentDetails.map((item) => {
+    return item.Airline.AirlineCode + "-" + item.Airline.FlightNumber;
+  });
+
   return (
-    <>
-      <div className="w-full rounded-md border border-gray-300 p-2 ">
-        <p className="px-2 py-4">New Delhi to Mumbai , 26 Oct</p>
-        <hr />
-        <div className="p-4">
-          <div className="flex items-center space-x-2 ">
-            <Image src={airways} alt="Picture of the airways" className="h-10 w-10 rounded-sm" />
-            <span>
-              <p className="text-base font-semibold">Qatar Airways</p>
-              <p className="text-xs">QR-123</p>
-            </span>
-          </div>
+    <div className="w-full rounded-md border border-gray-300 p-2 " {...rest}>
+      <p className="px-2 py-4">New Delhi to Mumbai , 26 Oct</p>
+      <hr />
 
-          <div className="space-y-4 ">
-            <div>
-              <div className=" my-4 flex w-full flex-col  items-center   justify-between gap-x-2 space-y-6 lg:flex-row">
-                <div>
-                  <div className="flat-center items-center   ">
-                    <p className="text-xl font-semibold text-gray-800">19:05</p>
-                    <p className="text-sm font-bold text-gray-700">Thu, 26 Oct 23</p>
-                  </div>
-                  <div className="flat-center mt-3">
-                    <p className="font-light"> Terminal 3</p>
-                    <p className="font-light">New Delhi, India</p>
-                  </div>
-                </div>
-                <div className="flat-center justify-center ">
-                  <p>02 h 20 m</p>
-                  <span className="inline-block h-1 w-20 rounded-full bg-teal-400 lg:w-full "></span>
-                  <p>non stop</p>
-                </div>
-                <div>
-                  <div className="flat-center">
-                    <p className="text-xl font-semibold text-gray-800">19:05</p>
-                    <p className="text-sm font-bold text-gray-700">Thu, 26 Oct 23</p>
-                  </div>
-                  <div className="flat-center mt-3">
-                    <p className="font-light"> Terminal 3</p>
-                    <p className="font-light">New Delhi, India</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+      <Tabs defaultValue={availableAirline[0]} className="w-full px-4 py-2">
+        <TabsList>
+          {availableAirline.map((val) => {
+            return <TabsTrigger value={val}>{val}</TabsTrigger>;
+          })}
+        </TabsList>
+        {SegmentDetails.map((airline) => {
+          const uuid = airline.Airline.AirlineCode + "-" + airline.Airline.FlightNumber;
+          const imgUrl = `https://airlineimages.s3.ap-southeast-1.amazonaws.com/128/${airbusImg}.png`;
+          const { normalDate: normalDepDate, normalTime: normalDepTime } = isoDateConvert(airline.Origin.DepTime);
+          const { normalDate: normalArrDate, normalTime: normalArrTime } = isoDateConvert(airline.Destination.ArrTime);
 
-            <div className="mt-5 flex justify-between">
-              <div className="">
-                <p className="ticketExtraDetailsTitle">BAGGAGE :</p>
-                <p className="ticketExtraDetailsItem">ADULT</p>
+          return (
+            <TabsContent value={uuid} className="w-full">
+              <div className="w-full p-4">
+                <div className="flex items-center space-x-2 ">
+                  <Image
+                    src={imgUrl}
+                    alt="Picture of the airways"
+                    className="h-10 w-10 rounded-sm"
+                    width={40}
+                    height={40}
+                  />
+                  <div>
+                    <p className="text-base font-semibold md:text-lg">{airline.Airline.AirlineName}</p>
+                    <p className="text-xs">
+                      {airline.Airline.AirlineCode}-{airline.Airline.FlightNumber}
+                    </p>
+                    <p>Operating By : {airline.Airline.OperatingCarrier}</p>
+                    <p>
+                      CabinClass : {airline.Airline.CabinClass} ({airline.Airline.BookingClass}){" "}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="space-y-10 ">
+                  <div className="my-4 grid grid-cols-3">
+                    <div>
+                      <p>{normalDepTime}</p>
+                      <p>{normalDepDate}</p>
+                      <p> Terminal : {airline.Origin.Airport.Terminal} </p>
+                      <p>
+                        {airline.Origin.Airport.AirportName}, {airline.Origin.Airport.AirportCode}
+                      </p>
+                      <p>
+                        {airline.Origin.Airport.CityName} {airline.Origin.Airport.CountryName}
+                      </p>
+                    </div>
+
+                    <div className="shrink">
+                      <p className="text-center"> {convertMinutes(airline.JourneyDuration)} </p>
+                      <p className="text-center">{StopQuantityConverter(airline.StopQuantity)}</p>
+                    </div>
+
+                    <div className="[&>*]:text-end  ">
+                      <p>{normalArrTime}</p>
+                      <p>{normalArrDate}</p>
+                      <p> Terminal : {airline.Destination.Airport.Terminal} </p>
+                      <p>
+                        {airline.Destination.Airport.AirportName}, {airline.Destination.Airport.AirportCode}
+                      </p>
+                      <p>
+                        {airline.Destination.Airport.CityName} {airline.Destination.Airport.CountryName}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="   flex justify-between">
+                    <div className="">
+                      <p className="ticketExtraDetailsTitle">BAGGAGE :</p>
+                      <p className="ticketExtraDetailsItem">{airline.Baggage}</p>
+                    </div>
+                    <div className="">
+                      <p className="ticketExtraDetailsTitle">CHECK IN :</p>
+                      <span className="ticketExtraDetailsItem">
+                        {airline.baggageDetails.map((value) => {
+                          return <p> {value.Checkin} </p>;
+                        })}
+                      </span>
+                    </div>
+                    <div>
+                      <p className="ticketExtraDetailsTitle">CABIN :</p>
+                      <span className="ticketExtraDetailsItem">
+                        {airline.baggageDetails.map((value) => {
+                          return <p> {value.Cabin ? value.Cabin : "None"} </p>;
+                        })}
+                      </span>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="">
-                <p className="ticketExtraDetailsTitle">CHECK IN :</p>
-                <p className="ticketExtraDetailsItem">15 Kgs (1 piece only)</p>
-              </div>
-              <div className="">
-                <p className="ticketExtraDetailsTitle">CABIN :</p>
-                <p className="ticketExtraDetailsItem">7 Kgs (1 piece only)</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
+            </TabsContent>
+          );
+        })}
+      </Tabs>
+    </div>
   );
 };
 
 export default Details;
-

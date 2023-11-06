@@ -1,8 +1,12 @@
+export * from "./DatesConverter";
+export * from "./ISO_DateToConverter";
+export * from "./RemainingTime";
 export * from "./auth";
 export * from "./event";
 export * from "./local-storage";
 export * from "./regex";
 export * from "./request";
+export * from "./segmentsValueConverter";
 export * from "./uuid";
 
 export function parseNumber(value: any, fallback = 0) {

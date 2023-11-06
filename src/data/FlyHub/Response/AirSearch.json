@@ -79,7 +79,7 @@
           },
           "Baggage": "40 K",
           "JourneyDuration": "255",
-          "StopQuantity": "0",
+          "StopQuantity": "1",
           "Equipment": "77W",
           "baggageDetails": [
             {
@@ -420,7 +420,7 @@
             "FlightNumber": "567",
             "BookingClass": "T",
             "CabinClass": "Economy",
-            "OperatingCarrier": "SV"
+            "OperatingCarrier": "MD"
           },
           "Baggage": "1 N",
           "JourneyDuration": "195",

@@ -4,7 +4,7 @@ import { useState } from "react";
 import { twMerge } from "tailwind-merge";
 
 import { Button, FilterCard, FlightDetails, Nav, SearchedValues, TravelersAndClass } from "$components";
-import airSearchResponse from "$data/FlyHub/Response/AirSearchResponse.json";
+import airSearchResponse from "$data/FlyHub/Response/AirSearch.json";
 
 export default function Search() {
   const store = useOneWay();

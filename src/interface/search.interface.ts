@@ -1,4 +1,4 @@
-interface Airport {
+export interface Airport {
   AirportCode: string;
   AirportName: string;
   Terminal: string | null;
@@ -8,13 +8,13 @@ interface Airport {
   CountryName: string;
 }
 
-interface OriginDestination {
+export interface OriginDestination {
   Airport: Airport;
   DepTime?: string;
   ArrTime?: string;
 }
 
-interface Airline {
+export interface Airline {
   AirlineCode: string;
   AirlineName: string;
   FlightNumber: string;
@@ -23,14 +23,14 @@ interface Airline {
   OperatingCarrier: string;
 }
 
-interface BaggageDetails {
+export interface BaggageDetails {
   IsAllPax: boolean;
   PaxType: number;
   Cabin: string | null;
   Checkin: string;
 }
 
-interface Segment {
+export interface Segment {
   TripIndicator: string;
   Origin: OriginDestination;
   Destination: OriginDestination;
@@ -43,7 +43,7 @@ interface Segment {
   SegmentGroup: number;
 }
 
-interface Fare {
+export interface Fare {
   BaseFare: number;
   Tax: number;
   Currency: string;
