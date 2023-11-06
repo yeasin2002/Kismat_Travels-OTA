@@ -1,9 +1,13 @@
+import Link from "next/link";
+
 import heroImg from "$assets/cover/hero-cover.jpg";
 import { Button, MultiCity, OneWay, TripType, TwoWay } from "$components";
 import { POST } from "$lib";
 import { useTripType } from "$store";
 import { useMutation } from "@tanstack/react-query";
 import { Search } from "lucide-react";
+import { buttonVariants } from "shadcn/components/ui/button";
+import { cn } from "shadcn/lib/utils";
 
 export const Hero = () => {
   const postFetcher = async (data: any) => {
@@ -58,13 +62,19 @@ export const Hero = () => {
             {tripType.tripType === "round-tripe" && <TwoWay />}
             {tripType.tripType === "multi-city" && <MultiCity />}
             <div className="absolute -bottom-6 mt-2 flex w-full items-center justify-center ">
-              <Button
-                className="gap-2 rounded-full bg-[linear-gradient(93deg,rgb(83,178,254),rgb(6,90,243))] px-12 shadow-sm"
+              <Link
+                href="/search"
+                className={cn(
+                  buttonVariants({
+                    className:
+                      "gap-2 rounded-full bg-[linear-gradient(93deg,rgb(83,178,254),rgb(6,90,243))] px-12 shadow-sm",
+                  })
+                )}
                 onClick={SearchHandler}
               >
                 <Search className="text-white/90" size={18} strokeWidth={2.5} />
                 <span className="text-lg font-bold uppercase tracking-wide">Search</span>
-              </Button>
+              </Link>
             </div>
           </div>
         </div>

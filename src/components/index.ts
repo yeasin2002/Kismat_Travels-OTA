@@ -1,3 +1,4 @@
+export * from "./Book/LeadPassenger";
 export * from "./Book/PassengerDetails";
 export * from "./Cards/CardWrapper";
 export * from "./Cards/DisplayCard";
@@ -29,4 +30,3 @@ export * from "./profile/ShowTickets";
 export * from "./ui/Title";
 export * from "./ui/TravelDate";
 export * from "./ui/UserNav";
-

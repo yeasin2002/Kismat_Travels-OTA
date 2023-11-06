@@ -3,7 +3,7 @@ import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 import AirbusLogo from "$assets/temp/qatar-airways.jpg";
-import { Button, Nav } from "$components";
+import { Button, LeadPassenger, Nav } from "$components";
 import { PassengerDetails } from "$components/Book/PassengerDetails";
 import { CalendarCheck2, PlaneLanding, PlaneTakeoff } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "shadcn/components/ui/accordion";
@@ -23,12 +23,15 @@ const Book: FC<BookProps> = ({ ...rest }) => {
     formState: { errors },
   } = useForm<Inputs>();
   const formSubmitHandler: SubmitHandler<Inputs> = (data) => console.log(data);
-  const totalPassengers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] as const;
+
+  const totalAdultPassengers = [1, 2, 3, 4] as const;
+  const totalChildPassengers = [1, 2, 3] as const;
+  const totalInfantPassengers = [1, 2] as const;
 
   return (
     <section {...rest}>
       <Nav />
-      <form className="  w-full bg-slate-800 p-4 lg:p-8" onSubmit={handleSubmit(formSubmitHandler)}>
+      <div className="w-full  space-y-5 bg-slate-800 p-4 lg:p-8">
         <div>
           <h2 className=" p-5 text-2xl font-bold text-white">Complete Your Booking</h2>
           <div>
@@ -88,29 +91,78 @@ const Book: FC<BookProps> = ({ ...rest }) => {
           </div>
         </div>
 
-        <div {...rest}>
-          <div id="travelerDetails" className="space-y-8 rounded-lg bg-gray-100 p-4 shadow-lg lg:p-8">
-            <div className="flex justify-between">
-              <h3 className="text-xl font-bold text-gray-600">Passenger Details </h3>
-              <Button>Add Passenger</Button>
+        <div className="space-y-8 rounded-lg bg-gray-100 p-4 px-4 shadow-lg lg:p-8">
+          <LeadPassenger />
+        </div>
+
+        <div>
+          <div id="travelerDetails" className="space-y-8 rounded-lg bg-gray-100 p-4 px-4 shadow-lg lg:p-8">
+            <h3 className=" text-xl  font-bold text-gray-600">Passenger Details </h3>
+            <div>
+              <p>Adult</p>
+              <Accordion type="single" collapsible>
+                {totalAdultPassengers.map((item, i) => {
+                  let index = i + 1;
+                  return (
+                    <AccordionItem
+                      value={`value-${index}`}
+                      key={index}
+                      className="my-2 rounded-lg bg-white px-2 py-4 shadow-lg"
+                    >
+                      <AccordionTrigger> Passenger {index}</AccordionTrigger>
+                      <AccordionContent>
+                        <PassengerDetails index={index} paxType="Adult" />
+                      </AccordionContent>
+                    </AccordionItem>
+                  );
+                })}
+              </Accordion>
+            </div>
+            <div>
+              <p>Child</p>
+              <Accordion type="single" collapsible>
+                {totalChildPassengers.map((item, i) => {
+                  let index = i + 1;
+                  return (
+                    <AccordionItem
+                      value={`value-${index}`}
+                      key={index}
+                      className="my-2 rounded-lg bg-white px-2 py-4 shadow-lg"
+                    >
+                      <AccordionTrigger> Passenger {index}</AccordionTrigger>
+                      <AccordionContent>
+                        <PassengerDetails index={index} paxType="Child" />
+                      </AccordionContent>
+                    </AccordionItem>
+                  );
+                })}
+              </Accordion>
             </div>
 
-            <Accordion type="single" collapsible>
-              {totalPassengers.map((item, ) => {
-                return (
-                  <AccordionItem value={`value-${item}`} key={item}>
-                    <AccordionTrigger> Passenger {item}</AccordionTrigger>
-                    <AccordionContent>
-                      <PassengerDetails />
-                    </AccordionContent>
-                  </AccordionItem>
-                );
-              })}
-            </Accordion>
+            <div>
+              <p>Infant</p>
+              <Accordion type="single" collapsible>
+                {totalInfantPassengers.map((item, i) => {
+                  let index = i + 1;
+                  return (
+                    <AccordionItem
+                      value={`value-${index}`}
+                      key={index}
+                      className="my-2 rounded-lg bg-white px-2 py-4 shadow-lg"
+                    >
+                      <AccordionTrigger> Passenger {index}</AccordionTrigger>
+                      <AccordionContent>
+                        <PassengerDetails index={index} paxType="Infant" />
+                      </AccordionContent>
+                    </AccordionItem>
+                  );
+                })}
+              </Accordion>
+            </div>
           </div>
         </div>
         <button className="mt-4 rounded-full bg-white px-10 py-2 text-xl font-semibold text-slate-800">Continue</button>
-      </form>
+      </div>
     </section>
   );
 };

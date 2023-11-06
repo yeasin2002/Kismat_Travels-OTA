@@ -1,33 +1,29 @@
 import { Button, Input, SelectNotCreatable } from "$components";
-import { PassengersType } from "$interface";
+import { PassengersType } from "$interface/Passengers.interface";
 import { usePassengers } from "$store";
-
-import { FC, useId } from "react";
+import { DetailedHTMLProps, FC, FormHTMLAttributes } from "react";
 import { useForm } from "react-hook-form";
 
-interface ContactDetailsProps {
-  index: number;
-  paxType: "Adult" | "Child" | "Infant";
-}
-
-export const PassengerDetails: FC<ContactDetailsProps> = ({ index, paxType, ...rest }) => {
-  const id = useId();
+interface LeadPassengerProps extends DetailedHTMLProps<FormHTMLAttributes<HTMLFormElement>, HTMLFormElement> {}
+export const LeadPassenger: FC<LeadPassengerProps> = ({ ...rest }) => {
   const ps = usePassengers();
+
   const { register, formState, handleSubmit, control } = useForm<PassengersType>();
-  const onSubmit = (data: PassengersType) => {
+  const FormHandler = (data: PassengersType) => {
     ps.addPassenger({
       ...data,
-      IsLeadPassenger: false,
-      id: `${paxType}${index}`,
+      IsLeadPassenger: true,
+      id: `lead0`,
     });
   };
 
   return (
-    <form className="space-y-8 px-4 md:space-y-4" onSubmit={handleSubmit(onSubmit)} key={id}>
+    <form {...rest} className="space-y-8 px-4 md:space-y-4 " onSubmit={handleSubmit(FormHandler)}>
+      <p className="my-10 text-2xl font-bold text-gray-800">Provide your Details </p>
       <div className="!flex  w-full items-center   gap-x-6">
         <SelectNotCreatable
           register={register("Title", {
-            required: { value: true, message: "title Name is required!" },
+            required: { value: true, message: "Title Name is required!" },
           })}
           label="Title"
           placeholder="Select Title"
@@ -49,13 +45,34 @@ export const PassengerDetails: FC<ContactDetailsProps> = ({ index, paxType, ...r
             },
           ]}
         />
+
+        <SelectNotCreatable
+          register={register("PaxType", {
+            required: { value: true, message: "PaxType Name is required!" },
+          })}
+          label="PaxType"
+          placeholder="Select PaxType"
+          error={formState.errors.PaxType}
+          name="PaxType"
+          control={control}
+          options={[
+            {
+              label: "Adult",
+              value: "Adult",
+            },
+            {
+              label: "Infant",
+              value: "Infant",
+            },
+          ]}
+        />
       </div>
 
       <div className="bookInputContainer">
         <Input
           register={register("FirstName", {
             required: { value: true, message: "First Name is required!" },
-            minLength: { value: 6, message: "First Name must've 6 character long!" },
+            minLength: { value: 2, message: "First Name must've 2 character long!" },
           })}
           label="First Name"
           placeholder="write your first name"
@@ -92,17 +109,17 @@ export const PassengerDetails: FC<ContactDetailsProps> = ({ index, paxType, ...r
 
         <Input
           register={register("PassportExpiryDate", {
-            required: { value: true, message: "Passport Expiry Date is required!" },
+            required: { value: true, message: "PassportExpiryDate is required!" },
           })}
-          label="Passport ExpiryDate"
-          placeholder="write your Passport Expiry Date"
+          label="Passport Expiry Date"
+          placeholder="write your Birth Date"
           error={formState.errors.PassportExpiryDate}
+          type="date"
         />
 
         <Input
           register={register("PassportNationality", {
             required: { value: true, message: "Passport Nationality is required!" },
-            minLength: { value: 6, message: "Passport Nationality must've 6 character long!" },
           })}
           label="Passport Nationality"
           placeholder="write your last name"
@@ -140,6 +157,17 @@ export const PassengerDetails: FC<ContactDetailsProps> = ({ index, paxType, ...r
       </div>
 
       <div className="bookInputContainer">
+        <Input
+          register={register("Email", {
+            required: { value: true, message: "Email is required!" },
+            pattern: { value: /\S+@\S+\.\S+/, message: "Entered value does not match email format" },
+          })}
+          label="Email"
+          placeholder="write your Country Code"
+          error={formState.errors.Email}
+          type="email"
+        />
+
         <Input
           register={register("FFAirline", {})}
           label="FF Airline"
@@ -181,7 +209,6 @@ export const PassengerDetails: FC<ContactDetailsProps> = ({ index, paxType, ...r
           type="date"
         />
       </div>
-
       <Button type="submit">Submit</Button>
     </form>
   );
