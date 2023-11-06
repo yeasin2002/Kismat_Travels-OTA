@@ -10,7 +10,7 @@ export function MultiCity() {
   return (
     <div className="flex flex-col gap-y-4">
       {store.cities.map((city, index) => (
-        <div className="grid grid-cols-4 items-center gap-4" key={city.id}>
+        <div className="grid items-center gap-4 sm:grid-cols-2 lg:grid-cols-4" key={city.id}>
           <SelectAirport
             placeholder="From"
             selected={city.from}
@@ -42,7 +42,7 @@ export function MultiCity() {
           )}
 
           {store.cities.length === index + 1 && (
-            <div className="flex h-full w-full items-center justify-evenly rounded-md bg-white">
+            <div className="flex h-full w-full items-center justify-evenly rounded-md bg-white max-sm:py-4">
               {index < 4 && (
                 <Button className="bg-blue-500 text-white  hover:bg-blue-400" onClick={() => store.add()}>
                   add <Plus className="text-white" size={15} strokeWidth={2.5} />

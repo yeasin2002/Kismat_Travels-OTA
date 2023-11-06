@@ -8,7 +8,7 @@ export const OneWay = () => {
   const id = useId();
 
   return (
-    <div className="grid grid-cols-4 items-center gap-4" key={id}>
+    <div className="grid items-center gap-4 sm:grid-cols-2 lg:grid-cols-4" key={id}>
       <SelectAirport
         placeholder="From"
         selected={store.from}

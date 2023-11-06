@@ -86,7 +86,7 @@ export function createTripStore(type: "one-way" | "round-tripe") {
             const travelerCount =
               store.travelerAndClasses.children + store.travelerAndClasses.infants + store.travelerAndClasses.adults;
 
-            if (store.from && store.to && store.departure && travelerCount > 0) {
+            if (store.from && store.to && store.departure && store.from.code !== store.to.code && travelerCount > 0) {
               if (type === "one-way") return true;
               if (type === "round-tripe" && store.back) return true;
             }

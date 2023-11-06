@@ -46,16 +46,20 @@ export const useMultiCity = create(
       },
       (set, get) => ({
         add() {
-          set((store) => {
-            store.cities.push({
-              id: uuid(),
-              from: null,
-              to: null,
-              departure: undefined,
-              searchFrom: "",
-              searchTo: "",
+          const { isValid } = get() as ReturnType<typeof get> & { isValid: () => boolean };
+
+          if (isValid()) {
+            set((store) => {
+              store.cities.push({
+                id: uuid(),
+                from: store.cities[store.cities.length - 1].to,
+                to: null,
+                departure: undefined,
+                searchFrom: "",
+                searchTo: "",
+              });
             });
-          });
+          }
         },
 
         remove(id: string) {
@@ -70,50 +74,59 @@ export const useMultiCity = create(
             if (index !== -1) store.cities[index].from = value;
           });
         },
+
         setTo(id: string, value: AirportData | null) {
           set((store) => {
             const index = store.cities.findIndex((city) => city.id === id);
             if (index !== -1) store.cities[index].to = value;
           });
         },
+
         setDeparture(id: string, value: undefined | Date) {
           set((store) => {
             const index = store.cities.findIndex((city) => city.id === id);
             if (index !== -1) store.cities[index].departure = value;
           });
         },
+
         setAdults(value: number) {
           set((store) => {
             store.travelerAndClasses.adults = value;
           });
         },
+
         setChildren(value: number) {
           set((store) => {
             store.travelerAndClasses.children = value;
           });
         },
+
         setInfants(value: number) {
           set((store) => {
             store.travelerAndClasses.infants = value;
           });
         },
+
         setTravelClass(value: string) {
           set((store) => {
             store.travelerAndClasses.travelClass = value;
           });
         },
+
         setSearchFrom(id: string, value: string) {
           set((store) => {
             const index = store.cities.findIndex((city) => city.id === id);
             if (index !== -1) store.cities[index].searchFrom = value;
           });
         },
+
         setSearchTo(id: string, value: string) {
           set((store) => {
             const index = store.cities.findIndex((city) => city.id === id);
             if (index !== -1) store.cities[index].searchTo = value;
           });
         },
+
         setTravelerAndClasses(value: Partial<ReturnType<typeof get>["travelerAndClasses"]>) {
           set((store) => {
             const combinedValue = { ...store.travelerAndClasses, ...value };
@@ -123,6 +136,7 @@ export const useMultiCity = create(
             }
           });
         },
+
         isValid() {
           const store = get();
 
@@ -131,8 +145,11 @@ export const useMultiCity = create(
 
           if (!(travelerCount > 0)) return false;
 
-          return store.cities.every((city) => city.from && city.to && city.departure);
+          return store.cities.every(
+            (city) => city.from && city.to && city.departure && city.from.code !== city.to.code
+          );
         },
+
         get,
       })
     )
