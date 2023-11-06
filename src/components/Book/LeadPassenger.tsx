@@ -1,17 +1,20 @@
-import { Button, FormInputs, Input, SelectNotCreatable } from "$components";
+import { Button, Input, SelectNotCreatable } from "$components";
+import { PassengersType } from "$interface/Passengers.interface";
+import { usePassengers } from "$store";
 import { DetailedHTMLProps, FC, FormHTMLAttributes } from "react";
 import { useForm } from "react-hook-form";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "shadcn/components/ui/select";
 
 interface LeadPassengerProps extends DetailedHTMLProps<FormHTMLAttributes<HTMLFormElement>, HTMLFormElement> {}
-interface LeadPassengerForm extends FormInputs {
-  Email: string;
-}
-
 export const LeadPassenger: FC<LeadPassengerProps> = ({ ...rest }) => {
-  const { register, formState, handleSubmit, control } = useForm<LeadPassengerForm>();
-  const FormHandler = (data: LeadPassengerForm) => {
-    console.log(data);
+  const ps = usePassengers();
+
+  const { register, formState, handleSubmit, control } = useForm<PassengersType>();
+  const FormHandler = (data: PassengersType) => {
+    ps.addPassenger({
+      ...data,
+      IsLeadPassenger: true,
+      id: `lead0`,
+    });
   };
 
   return (
@@ -19,13 +22,13 @@ export const LeadPassenger: FC<LeadPassengerProps> = ({ ...rest }) => {
       <p className="my-10 text-2xl font-bold text-gray-800">Provide your Details </p>
       <div className="!flex  w-full items-center   gap-x-6">
         <SelectNotCreatable
-          register={register("title", {
-            required: { value: true, message: "title Name is required!" },
+          register={register("Title", {
+            required: { value: true, message: "Title Name is required!" },
           })}
           label="Title"
           placeholder="Select Title"
-          error={formState.errors.title}
-          name="title"
+          error={formState.errors.Title}
+          name="Title"
           control={control}
           options={[
             {
@@ -50,16 +53,12 @@ export const LeadPassenger: FC<LeadPassengerProps> = ({ ...rest }) => {
           label="PaxType"
           placeholder="Select PaxType"
           error={formState.errors.PaxType}
-          name="title"
+          name="PaxType"
           control={control}
           options={[
             {
               label: "Adult",
               value: "Adult",
-            },
-            {
-              label: "Child",
-              value: "Child",
             },
             {
               label: "Infant",
@@ -73,7 +72,7 @@ export const LeadPassenger: FC<LeadPassengerProps> = ({ ...rest }) => {
         <Input
           register={register("FirstName", {
             required: { value: true, message: "First Name is required!" },
-            minLength: { value: 6, message: "First Name must've 6 character long!" },
+            minLength: { value: 2, message: "First Name must've 2 character long!" },
           })}
           label="First Name"
           placeholder="write your first name"
@@ -110,17 +109,17 @@ export const LeadPassenger: FC<LeadPassengerProps> = ({ ...rest }) => {
 
         <Input
           register={register("PassportExpiryDate", {
-            required: { value: true, message: "Passport Expiry Date is required!" },
+            required: { value: true, message: "PassportExpiryDate is required!" },
           })}
-          label="Passport ExpiryDate"
-          placeholder="write your Passport Expiry Date"
+          label="Passport Expiry Date"
+          placeholder="write your Birth Date"
           error={formState.errors.PassportExpiryDate}
+          type="date"
         />
 
         <Input
           register={register("PassportNationality", {
             required: { value: true, message: "Passport Nationality is required!" },
-            minLength: { value: 6, message: "Passport Nationality must've 6 character long!" },
           })}
           label="Passport Nationality"
           placeholder="write your last name"

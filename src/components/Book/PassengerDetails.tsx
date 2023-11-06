@@ -1,49 +1,38 @@
 import { Button, Input, SelectNotCreatable } from "$components";
-import { DetailedHTMLProps, FC, FormHTMLAttributes } from "react";
-import { useForm } from "react-hook-form";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "shadcn/components/ui/select";
+import { PassengersType } from "$interface";
+import { usePassengers } from "$store";
 
-interface ContactDetailsProps extends DetailedHTMLProps<FormHTMLAttributes<HTMLFormElement>, HTMLFormElement> {}
-export interface FormInputs {
-  title: "Mr" | "Ms" | "Mrs";
-  FirstName: string;
-  MiddleName?: string;
-  LastName: string;
-  PaxType: "Adult" | "Child" | "Infant";
-  DateOfBirth: string;
-  Gender: "Male" | "Female";
-  PassportNumber?: string;
-  PassportExpiryDate?: string;
-  PassportNationality?: string;
-  Address1: string;
-  Address2?: string;
-  CountryCode: string;
-  Nationality: string;
-  ContactNumber: string;
-  IsLeadPassenger?: boolean;
-  FFAirline?: string;
-  FFNumber?: number;
-  Baggage?: string;
-  BaggageID?: string;
+import { FC, useId } from "react";
+import { useForm } from "react-hook-form";
+
+interface ContactDetailsProps {
+  index: number;
+  paxType: "Adult" | "Child" | "Infant";
 }
 
-export const PassengerDetails: FC<ContactDetailsProps> = ({ ...rest }) => {
-  const { register, formState, handleSubmit, control } = useForm<FormInputs>();
-  const onSubmit = (e: FormInputs) => {
-    console.log(e);
+export const PassengerDetails: FC<ContactDetailsProps> = ({ index, paxType, ...rest }) => {
+  const id = useId();
+  const ps = usePassengers();
+  const { register, formState, handleSubmit, control } = useForm<PassengersType>();
+  const onSubmit = (data: PassengersType) => {
+    ps.addPassenger({
+      ...data,
+      IsLeadPassenger: false,
+      id: `${paxType}${index}`,
+    });
   };
 
   return (
-    <form {...rest} className="space-y-8 px-4 md:space-y-4" onSubmit={handleSubmit(onSubmit)}>
+    <form className="space-y-8 px-4 md:space-y-4" onSubmit={handleSubmit(onSubmit)} key={id}>
       <div className="!flex  w-full items-center   gap-x-6">
         <SelectNotCreatable
-          register={register("title", {
+          register={register("Title", {
             required: { value: true, message: "title Name is required!" },
           })}
           label="Title"
           placeholder="Select Title"
-          error={formState.errors.title}
-          name="title"
+          error={formState.errors.Title}
+          name="Title"
           control={control}
           options={[
             {
@@ -57,31 +46,6 @@ export const PassengerDetails: FC<ContactDetailsProps> = ({ ...rest }) => {
             {
               label: "Mrs",
               value: "Mrs",
-            },
-          ]}
-        />
-
-        <SelectNotCreatable
-          register={register("PaxType", {
-            required: { value: true, message: "PaxType Name is required!" },
-          })}
-          label="PaxType"
-          placeholder="Select PaxType"
-          error={formState.errors.PaxType}
-          name="title"
-          control={control}
-          options={[
-            {
-              label: "Adult",
-              value: "Adult",
-            },
-            {
-              label: "Child",
-              value: "Child",
-            },
-            {
-              label: "Infant",
-              value: "Infant",
             },
           ]}
         />
