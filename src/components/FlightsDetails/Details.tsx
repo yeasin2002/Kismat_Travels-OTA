@@ -17,15 +17,17 @@ const Details: FC<DetailsProps> = ({ SegmentDetails, airbusImg, ...rest }) => {
 
   return (
     <div className="w-full rounded-md border border-gray-300 p-2 " {...rest}>
-      <p className="px-2 py-4">New Delhi to Mumbai , 26 Oct</p>
+      <p className="px-2 py-4">Select Your Flight</p>
       <hr />
 
       <Tabs defaultValue={availableAirline[0]} className="w-full px-4 py-2">
-        <TabsList>
-          {availableAirline.map((val) => {
-            return <TabsTrigger value={val}>{val}</TabsTrigger>;
-          })}
-        </TabsList>
+        {availableAirline.length > 1 && (
+          <TabsList>
+            {availableAirline.map((val) => {
+              return <TabsTrigger value={val}>{val}</TabsTrigger>;
+            })}
+          </TabsList>
+        )}
         {SegmentDetails.map((airline) => {
           const uuid = airline.Airline.AirlineCode + "-" + airline.Airline.FlightNumber;
           const imgUrl = `https://airlineimages.s3.ap-southeast-1.amazonaws.com/128/${airbusImg}.png`;
