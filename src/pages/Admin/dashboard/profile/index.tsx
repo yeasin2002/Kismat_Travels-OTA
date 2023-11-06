@@ -3,7 +3,10 @@ import MainLayout from "$components/Admin/layout/MainLayout";
 import Header from "./Header";
 import Image from "next/image";
 const randomImageFromUnsplash = "https://source.unsplash.com/random/?toy";
-const index = () => {
+
+import Admin_secure from "$Secure/admin_secure";
+
+const index = (props: any) => {
   return (
     <MainLayout>
       <div className="relative w-full">
@@ -48,6 +51,24 @@ const index = () => {
 };
 
 export default index;
+
+// // This gets called on every request
+export async function getServerSideProps(ctx: any) {
+  // Pass data to the page via props
+  try {
+    const User = await Admin_secure(ctx);
+    return { props: { User: User } };
+  } catch (error) {
+    return {
+      redirect: {
+        destination: "/Admin/auth/Login", // Specify the destination route
+        permanent: false, // Set to true for a permanent (301) redirect, or false for a temporary (302) redirect
+      },
+    };
+  }
+}
+
+// icons
 function Settings(props: SVGProps<SVGSVGElement>) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" {...props}>
