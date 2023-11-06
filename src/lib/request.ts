@@ -15,7 +15,6 @@ export const request = axios.create({
   ],
 });
 
-
 export const GET = request.get;
 export const POST = request.post;
 export const PUT = request.put;
