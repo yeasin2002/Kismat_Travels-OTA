@@ -17,7 +17,7 @@ export function FancySelectString({ options, onSelect, selected }: FancySelectSt
           return (
             <button
               key={value}
-              onClick={() => onSelect(selected === value ? "Economy/Premium Economy" : value)}
+              onClick={() => onSelect(selected === value ? options[0] : value)}
               className={cn(
                 "flex h-8 w-auto items-center justify-center whitespace-nowrap rounded-sm px-2 text-sm text-black transition-colors duration-200 hover:bg-slate-500/20",
                 {
@@ -48,7 +48,7 @@ export function FancySelect<T extends number | string>({ options, onSelect, sele
           return (
             <button
               key={value}
-              onClick={() => onSelect(selected === value ? 0 : value)}
+              onClick={() => onSelect(selected === value ? options[0] : value)}
               className={cn(
                 "flex h-8 w-8 items-center justify-center rounded-sm text-black transition-colors duration-200 hover:bg-slate-500/20",
                 {
