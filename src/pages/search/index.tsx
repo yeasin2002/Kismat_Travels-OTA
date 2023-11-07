@@ -1,4 +1,4 @@
-import { useOneWay } from "$store";
+import { useOneWay, useTripType } from "$store";
 import { useMutation } from "@tanstack/react-query";
 import { SlidersHorizontal } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -9,11 +9,12 @@ import { Button, FilterCard, FlightDetails, Nav, SearchedValues, TravelersAndCla
 import airSearchResponse from "$data/FlyHub/Response/AirSearch.json";
 
 export default function Search() {
+  const store = useOneWay();
+  
   const { mutate, isError, data, error } = useMutation({
     mutationKey: ["airSearchResponse"],
     mutationFn: (arg: any) => $post("privet/AirSearch", arg),
   });
-  const store = useOneWay();
   const [isSidebarExist, setIsSidebarExist] = useState(false);
   const FilterCardClass = isSidebarExist
     ? "block fixed  top-0  right-0 h-screen lg:h-full w-full z-50   lg:static"
@@ -62,5 +63,3 @@ export default function Search() {
     </>
   );
 }
-
-
