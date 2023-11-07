@@ -17,11 +17,11 @@ export function TripType() {
   const { setTripType, tripType } = tripTypeValue();
 
   return (
-    <RadioGroup value={tripType} onValueChange={setTripType} className="flex gap-2">
+    <RadioGroup value={tripType} onValueChange={setTripType} className="flex flex-wrap gap-2">
       {options.map(({ value, label }) => (
         <div
           key={value}
-          className={cn("flex  items-center gap-x-2 rounded-full px-2 py-1 transition-all", {
+          className={cn("flex items-center gap-x-2 rounded-full px-2 py-1 transition-all", {
             "bg-white/30": tripType === value,
           })}
         >

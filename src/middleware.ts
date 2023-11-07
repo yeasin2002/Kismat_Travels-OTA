@@ -1,17 +1,20 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import { SerPOST } from "$lib/request";
 
-export function middleware(request: NextRequest) {
+const admin_path = /^\/Admin\/dashboard\/.*$/;
+export async function middleware(request: NextRequest) {
   // Get a cookie
-  let name = request.cookies.get("username")?.value;
+  // let name = request.cookies.get("username")?.value;
   // Get all cookies
-  // let tokens = request.cookies.getAll();
+  let tokens = request.cookies.getAll();
   // console.log(tokens);
-  console.log(name);
-
-  if (name !== "nahid") {
-    return NextResponse.rewrite(new URL("/Admin/auth/Login", request.url));
+  if (admin_path.test(request.nextUrl.pathname)) {
   }
+
+  // if (name !== "nahid") {
+  //   return NextResponse.rewrite(new URL("/Admin/auth/Login", request.url));
+  // }
 }
 
 export const config = {

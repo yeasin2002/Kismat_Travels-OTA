@@ -34,7 +34,8 @@
       "$interface/*": ["src/interface/*"],
       "$data/*": ["src/data/*"],
       "$/*": ["src/*"],
-      "$backend/*": ["backend/*"]
+      "$backend/*": ["backend/*"],
+      "$Secure/*": ["src/secure_route/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
