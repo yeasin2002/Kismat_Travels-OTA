@@ -12,6 +12,7 @@ export * from "./Footer/Footer";
 export * from "./Form";
 export * from "./Form/FancySelect";
 export * from "./Hero/Hero";
+export * from "./Icons/Spinner";
 export * from "./Icons/Times";
 export * from "./InfoDisplay/InfoDisplay";
 export * from "./InfoDisplay/SearchedValues";
@@ -31,3 +32,4 @@ export * from "./ui/PageLoading";
 export * from "./ui/Title";
 export * from "./ui/TravelDate";
 export * from "./ui/UserNav";
+
