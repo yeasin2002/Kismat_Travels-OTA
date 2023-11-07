@@ -20,7 +20,10 @@ export const FilterCard: FC<airSearchResponse> = ({ className, setIsSidebarExist
   return (
     <div
       {...rest}
-      className={twMerge("  h-screen w-1/4 rounded-md bg-white p-4  text-black shadow-md [&>*]:mb-4", className)}
+      className={twMerge(
+        "  sticky  top-0 h-screen  w-1/4 rounded-md bg-white p-4  text-black shadow-md [&>*]:mb-4",
+        className
+      )}
     >
       <div className="flex items-center justify-end lg:hidden ">
         <Button onClick={() => setIsSidebarExist(false)}>

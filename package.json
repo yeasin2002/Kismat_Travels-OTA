@@ -27,6 +27,7 @@
     "@radix-ui/react-tooltip": "^1.0.7",
     "@studio-freight/lenis": "^1.0.27",
     "@tanstack/react-query": "^5.4.3",
+    "@tanstack/react-query-devtools": "^5.7.4",
     "@tanstack/react-table": "^8.10.7",
     "axios": "^1.6.0",
     "chart.js": "^4.4.0",

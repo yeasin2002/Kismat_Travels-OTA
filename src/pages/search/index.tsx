@@ -1,17 +1,31 @@
 import { useOneWay } from "$store";
+import { useMutation } from "@tanstack/react-query";
 import { SlidersHorizontal } from "lucide-react";
-import { useState } from "react";
-import { twMerge } from "tailwind-merge";
+import { useEffect, useState } from "react";
+import { cn } from "shadcn/lib/utils";
 
+import { $post } from "$/utils";
 import { Button, FilterCard, FlightDetails, Nav, SearchedValues, TravelersAndClass } from "$components";
 import airSearchResponse from "$data/FlyHub/Response/AirSearch.json";
 
 export default function Search() {
+  const { mutate, isError, data, error } = useMutation({
+    mutationKey: ["airSearchResponse"],
+    mutationFn: (arg: any) => $post("privet/AirSearch", arg),
+  });
   const store = useOneWay();
   const [isSidebarExist, setIsSidebarExist] = useState(false);
   const FilterCardClass = isSidebarExist
     ? "block fixed  top-0  right-0 h-screen lg:h-full w-full z-50   lg:static"
     : "";
+
+  useEffect(() => {
+    mutate({
+      name: "Yeasin",
+    });
+  }, []);
+
+  console.log(error?.message);
 
   return (
     <>
@@ -32,9 +46,9 @@ export default function Search() {
               <SlidersHorizontal />
             </Button>
           </div>
-          <div className=" flex w-full gap-x-4 ">
+          <div className=" relative flex  w-full gap-x-4 ">
             <FilterCard
-              className={twMerge("hidden transition-all lg:block", FilterCardClass)}
+              className={cn("hidden transition-all lg:block", FilterCardClass)}
               setIsSidebarExist={setIsSidebarExist}
             />
             <div className="flex-1">
@@ -48,3 +62,5 @@ export default function Search() {
     </>
   );
 }
+
+
