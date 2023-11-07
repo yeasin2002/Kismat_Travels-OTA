@@ -31,7 +31,7 @@ export function TravelersAndClass({ onValueChange, travelerAndClasses }: Travele
           </div>
         </div>
       </PopoverTrigger>
-      <PopoverContent className="w-fit" asChild>
+      <PopoverContent className="w-fit max-sm:max-w-[calc(100vw_-_1rem)]" asChild>
         <div className="grid grid-cols-2 gap-x-4 gap-y-6 text-sm">
           <div className="col-span-2">
             <p className="font-medium uppercase text-slate-700">ADULTS (12y +)</p>
@@ -42,7 +42,7 @@ export function TravelersAndClass({ onValueChange, travelerAndClasses }: Travele
               options={[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]}
             />
           </div>
-          <div>
+          <div className="max-md:col-span-2">
             <p className="font-medium uppercase text-slate-700">CHILDREN (2y - 12y )</p>
             <p className="mb-2 text-slate-400">on the day of travel</p>
             <FancySelect
@@ -51,7 +51,7 @@ export function TravelersAndClass({ onValueChange, travelerAndClasses }: Travele
               options={[0, 1, 2, 3, 4, 5, 6]}
             />
           </div>
-          <div>
+          <div className="max-md:col-span-2">
             <p className="font-medium uppercase text-slate-700">INFANTS (below 2y)</p>
             <p className="mb-2 text-slate-400">on the day of travel</p>
             <FancySelect
