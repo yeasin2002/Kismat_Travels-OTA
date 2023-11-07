@@ -1,3 +1,4 @@
+import { PageLoading } from "$components";
 import { useSmoothScroll } from "$hooks";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "shadcn/components/ui/toaster";
@@ -10,6 +11,7 @@ export function GlobalProvider({ children }: { children: React.ReactNode }) {
   return (
     <AuthProvider>
       <QueryClientProvider client={queryClient}>
+        <PageLoading />
         <Toaster />
         {children}
       </QueryClientProvider>
