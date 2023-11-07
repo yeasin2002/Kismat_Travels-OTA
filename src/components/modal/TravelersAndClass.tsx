@@ -1,4 +1,5 @@
 import { FancySelect, FancySelectString } from "$components";
+import { adultsOptions, cabinClassOption, childrensOptions, infantsOptions } from "$data/travelClasses";
 import { ChevronDown } from "lucide-react";
 import { Popover, PopoverContent, PopoverTrigger } from "shadcn/components/ui/popover";
 
@@ -39,7 +40,7 @@ export function TravelersAndClass({ onValueChange, travelerAndClasses }: Travele
             <FancySelect
               selected={travelerAndClasses.adults}
               onSelect={(adults) => onValueChange({ adults })}
-              options={[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]}
+              options={adultsOptions}
             />
           </div>
           <div className="max-md:col-span-2">
@@ -48,7 +49,7 @@ export function TravelersAndClass({ onValueChange, travelerAndClasses }: Travele
             <FancySelect
               selected={travelerAndClasses.children}
               onSelect={(children) => onValueChange({ children })}
-              options={[0, 1, 2, 3, 4, 5, 6]}
+              options={childrensOptions}
             />
           </div>
           <div className="max-md:col-span-2">
@@ -57,7 +58,7 @@ export function TravelersAndClass({ onValueChange, travelerAndClasses }: Travele
             <FancySelect
               selected={travelerAndClasses.infants}
               onSelect={(infants) => onValueChange({ infants })}
-              options={[0, 1, 2, 3, 4, 5, 6]}
+              options={infantsOptions}
             />
           </div>
           <div className="col-span-2">
@@ -65,7 +66,7 @@ export function TravelersAndClass({ onValueChange, travelerAndClasses }: Travele
             <FancySelectString
               selected={travelerAndClasses.travelClass}
               onSelect={(travelClass) => onValueChange({ travelClass })}
-              options={["Economy/Premium Economy", "Premium Economy", "Economy"]}
+              options={cabinClassOption}
             />
           </div>
         </div>

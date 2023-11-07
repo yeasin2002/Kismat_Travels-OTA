@@ -1,3 +1,4 @@
+import { adultsOptions, cabinClassOption } from "$data/travelClasses";
 import { AirportData } from "$interface/airport.interface";
 import { uuid } from "$lib";
 import { create } from "zustand";
@@ -38,10 +39,10 @@ export const useMultiCity = create(
         ] as City[],
         tripType: "multi-city",
         travelerAndClasses: {
-          adults: 0,
+          adults: adultsOptions[1],
           children: 0,
           infants: 0,
-          travelClass: "Economy/Premium Economy",
+          travelClass: cabinClassOption[0],
         },
       },
       (set, get) => ({
