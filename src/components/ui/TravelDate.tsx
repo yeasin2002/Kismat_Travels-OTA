@@ -25,7 +25,7 @@ interface ExpandFalseProps extends departureProps {
 
 export function TravelDate(props: ExpandTrueProps | ExpandFalseProps) {
   return (
-    <div className="flex h-full w-full justify-between overflow-hidden rounded-lg [&>*]:flex-1">
+    <div className="flex min-h-[5.875rem] w-full justify-between overflow-hidden rounded-lg [&>*]:flex-1">
       <DatePicker
         selected={props.departure}
         onSelect={props.setDeparture}
