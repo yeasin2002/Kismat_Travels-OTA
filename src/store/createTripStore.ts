@@ -1,3 +1,4 @@
+import { adultsOptions, cabinClassOption } from "$data/travelClasses";
 import { AirportData } from "$interface/airport.interface";
 import { create } from "zustand";
 import { combine } from "zustand/middleware";
@@ -15,7 +16,7 @@ export function createTripStore(type: "one-way" | "round-tripe") {
           to: null as AirportData | null,
           departure: undefined as Date | undefined,
           back: undefined as Date | undefined,
-          travelerAndClasses: { adults: 0, children: 0, infants: 0, travelClass: "Economy/Premium Economy" },
+          travelerAndClasses: { adults: adultsOptions[1], children: 0, infants: 0, travelClass: cabinClassOption[0] },
           searchFrom: "",
           searchTo: "",
         },
