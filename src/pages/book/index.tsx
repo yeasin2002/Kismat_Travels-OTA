@@ -18,7 +18,7 @@ const Book: FC<BookProps> = ({ ...rest }) => {
   const { passengers } = usePassengers();
   const { mutateAsync, isPending } = useMutation({
     mutationKey: ["booking"],
-    mutationFn: async (data: any) => $post("/book", data),
+    mutationFn: async (data: any) => $post("privet/AirBook", data),
   });
 
   const bookingHandler = async () => {
