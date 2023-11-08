@@ -1,9 +1,10 @@
+import { adultsOptions, cabinClassOption } from "$data/travelClasses";
 import { AirportData } from "$interface/airport.interface";
 import { create } from "zustand";
 import { combine } from "zustand/middleware";
 import { immer } from "zustand/middleware/immer";
 
-const maxTraveler = 9;
+export const maxTraveler = 9;
 
 export function createTripStore(type: "one-way" | "round-tripe") {
   return create(
@@ -15,7 +16,7 @@ export function createTripStore(type: "one-way" | "round-tripe") {
           to: null as AirportData | null,
           departure: undefined as Date | undefined,
           back: undefined as Date | undefined,
-          travelerAndClasses: { adults: 0, children: 0, infants: 0, travelClass: "" },
+          travelerAndClasses: { adults: adultsOptions[1], children: 0, infants: 0, travelClass: cabinClassOption[0] },
           searchFrom: "",
           searchTo: "",
         },
@@ -78,6 +79,20 @@ export function createTripStore(type: "one-way" | "round-tripe") {
                 store.travelerAndClasses = combinedValue;
               }
             });
+          },
+
+          isValid() {
+            const store = get();
+
+            const travelerCount =
+              store.travelerAndClasses.children + store.travelerAndClasses.infants + store.travelerAndClasses.adults;
+
+            if (store.from && store.to && store.departure && store.from.code !== store.to.code && travelerCount > 0) {
+              if (type === "one-way") return true;
+              if (type === "round-tripe" && store.back) return true;
+            }
+
+            return false;
           },
           get,
         })

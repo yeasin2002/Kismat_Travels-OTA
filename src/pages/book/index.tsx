@@ -1,28 +1,33 @@
+import { useMutation } from "@tanstack/react-query";
 import Image from "next/image";
 import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
 
+import { $post } from "$/utils";
 import AirbusLogo from "$assets/temp/qatar-airways.jpg";
-import { Button, LeadPassenger, Nav } from "$components";
+import { LeadPassenger, Nav } from "$components";
 import { PassengerDetails } from "$components/Book/PassengerDetails";
+
+import { SpinnerIcon } from "$icons";
+import { usePassengers } from "$store";
 import { CalendarCheck2, PlaneLanding, PlaneTakeoff } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "shadcn/components/ui/accordion";
-
-type Inputs = {
-  example: string;
-  exampleRequired: string;
-};
 
 interface BookProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
 
 const Book: FC<BookProps> = ({ ...rest }) => {
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm<Inputs>();
-  const formSubmitHandler: SubmitHandler<Inputs> = (data) => console.log(data);
+  const { passengers } = usePassengers();
+  const { mutateAsync, isPending } = useMutation({
+    mutationKey: ["booking"],
+    mutationFn: async (data: any) => $post("privet/AirBook", data),
+  });
+
+  const bookingHandler = async () => {
+    await mutateAsync({
+      SearchID: "",
+      ResultID: "",
+      passengers: passengers,
+    });
+  };
 
   const totalAdultPassengers = [1, 2, 3, 4] as const;
   const totalChildPassengers = [1, 2, 3] as const;
@@ -161,7 +166,12 @@ const Book: FC<BookProps> = ({ ...rest }) => {
             </div>
           </div>
         </div>
-        <button className="mt-4 rounded-full bg-white px-10 py-2 text-xl font-semibold text-slate-800">Continue</button>
+        <button
+          onClick={bookingHandler}
+          className="mt-4 rounded-full bg-white px-10 py-2 text-xl font-semibold text-slate-800"
+        >
+          {!isPending ? "Continue" : <SpinnerIcon />}
+        </button>
       </div>
     </section>
   );

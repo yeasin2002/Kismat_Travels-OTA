@@ -2,6 +2,7 @@ import { TravelDate, TravelersAndClass } from "$components";
 import { SelectAirport } from "$components/SelectAirport/SelectAirport";
 import { useMultiCity } from "$store/useMultiCity";
 import { Plus } from "lucide-react";
+import { Fragment } from "react";
 import { Button } from "shadcn/components/ui/button";
 
 export function MultiCity() {
@@ -10,53 +11,56 @@ export function MultiCity() {
   return (
     <div className="flex flex-col gap-y-4">
       {store.cities.map((city, index) => (
-        <div className="grid grid-cols-4 items-center gap-4" key={city.id}>
-          <SelectAirport
-            placeholder="From"
-            selected={city.from}
-            onSelect={(value) => store.setFrom(city.id, value)}
-            searchValue={city.searchFrom}
-            setSearchValue={(value) => store.setSearchFrom(city.id, value)}
-          />
-
-          <SelectAirport
-            placeholder="To"
-            selected={city.to}
-            onSelect={(value) => store.setTo(city.id, value)}
-            searchValue={city.searchTo}
-            setSearchValue={(value) => store.setSearchTo(city.id, value)}
-          />
-
-          <TravelDate
-            departure={city.departure}
-            setDeparture={(value) => store.setDeparture(city.id, value)}
-            departurePlaceholder="Departure"
-            expand={false}
-          />
-
-          {index === 0 && (
-            <TravelersAndClass
-              travelerAndClasses={store.travelerAndClasses}
-              onValueChange={store.setTravelerAndClasses}
+        <Fragment key={city.id}>
+          <div className="grid items-center gap-4 sm:grid-cols-2 lg:grid-cols-4" key={city.id}>
+            <SelectAirport
+              placeholder="From"
+              selected={city.from}
+              onSelect={(value) => store.setFrom(city.id, value)}
+              searchValue={city.searchFrom}
+              setSearchValue={(value) => store.setSearchFrom(city.id, value)}
             />
-          )}
+            <SelectAirport
+              placeholder="To"
+              selected={city.to}
+              onSelect={(value) => store.setTo(city.id, value)}
+              searchValue={city.searchTo}
+              setSearchValue={(value) => store.setSearchTo(city.id, value)}
+            />
+            <TravelDate
+              departure={city.departure}
+              setDeparture={(value) => store.setDeparture(city.id, value)}
+              departurePlaceholder="Departure"
+              expand={false}
+            />
 
-          {store.cities.length === index + 1 && (
-            <div className="flex h-full w-full items-center justify-evenly rounded-md bg-white">
-              {index < 4 && (
-                <Button className="bg-blue-500 text-white  hover:bg-blue-400" onClick={() => store.add()}>
-                  add <Plus className="text-white" size={15} strokeWidth={2.5} />
-                </Button>
-              )}
+            {index === 0 && (
+              <TravelersAndClass
+                travelerAndClasses={store.travelerAndClasses}
+                onValueChange={store.setTravelerAndClasses}
+              />
+            )}
 
-              {index > 1 && (
-                <Button variant="destructive" onClick={() => store.remove(city.id)}>
-                  remove <Plus className="text-white" size={15} strokeWidth={2.5} />
-                </Button>
-              )}
-            </div>
+            {store.cities.length === index + 1 && (
+              <div className="flex min-h-[5.875rem] w-full items-center justify-evenly rounded-md bg-white max-sm:py-4">
+                {index < 4 && (
+                  <Button className="bg-blue-500 text-white  hover:bg-blue-400" onClick={() => store.add()}>
+                    add <Plus className="text-white" size={15} strokeWidth={2.5} />
+                  </Button>
+                )}
+                {index > 1 && (
+                  <Button variant="destructive" onClick={() => store.remove(city.id)}>
+                    remove <Plus className="text-white" size={15} strokeWidth={2.5} />
+                  </Button>
+                )}
+              </div>
+            )}
+          </div>
+
+          {store.cities.length !== index + 1 && (
+            <hr className="h-[1px] w-full border-none bg-slate-900/20 lg:hidden " />
           )}
-        </div>
+        </Fragment>
       ))}
     </div>
   );
