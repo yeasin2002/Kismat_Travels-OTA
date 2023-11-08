@@ -1,42 +1,26 @@
-import Link from "next/link";
-
-import { $post } from "$/utils";
 import heroImg from "$assets/cover/hero-cover.jpg";
 import { Button, MultiCity, OneWay, TripType, TwoWay } from "$components";
-import { POST } from "$lib";
 import { useTripType } from "$store";
-import { useMutation } from "@tanstack/react-query";
 import { Search } from "lucide-react";
+import { useRouter } from "next/router";
 import { buttonVariants } from "shadcn/components/ui/button";
-import { useToast } from "shadcn/components/ui/use-toast";
 import { cn } from "shadcn/lib/utils";
+import { toast } from "sonner";
 
 export const Hero = () => {
+  const router = useRouter();
   const { getCurrentStore, tripType } = useTripType();
-  const { toast } = useToast();
-
-  const { mutateAsync, data, error } = useMutation({
-    mutationKey: ["airSearchRequest"],
-    mutationFn: (data: any) => $post("private/AirSearch", data),
-    onSuccess: (data) => {
-      console.log(data);
-    },
-    onError: (err) => {
-      console.log(err.message);
-    },
-  });
 
   const SearchHandler = async () => {
     try {
       const storeValue = getCurrentStore();
       if (!storeValue) {
-        return toast({
-          title: "Enter valid data",
-        });
+        return toast.warning("Please fill up all  the fields");
       }
-      await mutateAsync(getCurrentStore());
+
+      return await router.push("/search");
     } catch (error: any) {
-      console.log("error", error.message);
+      console.log("Hero: Error ", error.message);
     }
   };
 
@@ -59,13 +43,13 @@ export const Hero = () => {
                 className={cn(
                   buttonVariants({
                     className:
-                      "gap-2 rounded-full bg-[linear-gradient(93deg,rgb(83,178,254),rgb(6,90,243))] px-12 shadow-sm",
+                      "gap-2 rounded-full bg-[linear-gradient(93deg,rgb(83,178,254),rgb(6,90,243))] px-12 py-6 shadow-sm",
                   })
                 )}
                 onClick={SearchHandler}
               >
                 <Search className="text-white/90" size={18} strokeWidth={2.5} />
-                <span className="text-lg font-bold uppercase tracking-wide">Search</span>
+                <span className="text-lg font-bold uppercase tracking-wide">search</span>
               </Button>
             </div>
           </div>
