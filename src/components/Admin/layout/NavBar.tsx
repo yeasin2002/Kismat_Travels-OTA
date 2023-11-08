@@ -1,7 +1,8 @@
 import React, { SVGProps } from "react";
 import { ImgDropDown } from "$components/Admin/util/ImageDropDown";
 import { Button } from "shadcn/components/ui/button";
-
+import { request_for_Admin } from "$lib/request";
+import { useRouter } from "next/router";
 const NavBar = ({
   sidebarState,
   User,
@@ -9,6 +10,18 @@ const NavBar = ({
   User: any;
   sidebarState: [boolean, React.Dispatch<React.SetStateAction<boolean>>];
 }) => {
+  const Route = useRouter();
+  // logout function
+  let logout = async () => {
+    try {
+      const logout_response = await request_for_Admin.post("/admins/logout");
+
+      Route.push("/Admin/auth/Login");
+    } catch (err) {
+      console.log("🚀 ~ file: NavBar.tsx:18 ~ logout ~ err:", err);
+    }
+  };
+
   return (
     <div className="sticky top-0 z-[700] flex  w-full items-center justify-between gap-5 bg-slate-400/20 px-2 py-4 backdrop-blur-md">
       <div className="text-lg">
@@ -37,7 +50,7 @@ const NavBar = ({
                 { title: "My Account", shortcut: "", Icon: SolarUserBroken, link: "/Admin/dashboard/profile" },
                 { title: "Account Setting", shortcut: "", Icon: SolarSettingsLineDuotone },
               ],
-              [{ title: "Logout", shortcut: "", Icon: PhAirplaneLandingThin }],
+              [{ title: "Logout", shortcut: "", Icon: PhAirplaneLandingThin, onclick: logout }],
             ],
           }}
         />
