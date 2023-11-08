@@ -7,26 +7,39 @@ import { cn } from "shadcn/lib/utils";
 import { $post } from "$/utils";
 import { Button, FilterCard, FlightDetails, Nav, SearchedValues, TravelersAndClass } from "$components";
 import airSearchResponse from "$data/FlyHub/Response/AirSearch.json";
+import { Search, SearchResponse } from "$interface";
+import { useRouter } from "next/router";
+import { toast } from "sonner";
 
 export default function Search() {
+  const router = useRouter();
   const store = useOneWay();
-  
-  const { mutate, isError, data, error } = useMutation({
-    mutationKey: ["airSearchResponse"],
-    mutationFn: (arg: any) => $post("privet/AirSearch", arg),
+  const { getCurrentStore, tripType } = useTripType();
+
+  const { mutate, isError, data, error, isPending } = useMutation<Search, Error, ReturnType<typeof getCurrentStore>>({
+    mutationKey: ["airSearchRequest"],
+    mutationFn: (arg: any) => $post("private/AirSearch", arg),
+    onSuccess: (value) => {
+      console.log("Success Data :", value);
+    },
   });
+
   const [isSidebarExist, setIsSidebarExist] = useState(false);
   const FilterCardClass = isSidebarExist
     ? "block fixed  top-0  right-0 h-screen lg:h-full w-full z-50   lg:static"
     : "";
 
-  useEffect(() => {
-    mutate({
-      name: "Yeasin",
-    });
-  }, []);
+  const searchAction = () => {
+    const storeValue = getCurrentStore();
+    if (!storeValue) {
+      return router.push("/");
+    }
+    return mutate(storeValue);
+  };
 
-  console.log(error?.message);
+  useEffect(() => {
+    searchAction();
+  }, []);
 
   return (
     <>
@@ -47,19 +60,22 @@ export default function Search() {
               <SlidersHorizontal />
             </Button>
           </div>
-          <div className=" relative flex  w-full gap-x-4 ">
-            <FilterCard
-              className={cn("hidden transition-all lg:block", FilterCardClass)}
-              setIsSidebarExist={setIsSidebarExist}
-            />
-            <div className="flex-1">
-              {airSearchResponse?.Results.map((flight) => (
-                <FlightDetails key={flight.ResultID} flightDetails={flight} />
-              ))}
+          {isPending ? (
+            "Loading"
+          ) : (
+            <div className=" relative flex  w-full gap-x-4 ">
+              <FilterCard
+                className={cn("hidden transition-all lg:block", FilterCardClass)}
+                setIsSidebarExist={setIsSidebarExist}
+              />
+              <div className="flex-1">
+                {data?.Results?.map((flight) => <FlightDetails key={flight.ResultID} flightDetails={flight} />)}
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </>
   );
 }
+
