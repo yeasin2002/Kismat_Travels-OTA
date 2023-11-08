@@ -1,20 +1,23 @@
+import noDataFound from "$assets/Illustrations/3D/no-results.png";
+import searchLoading from "$assets/Illustrations/lottie/opener-loading.json";
 import { useOneWay, useTripType } from "$store";
 import { useMutation } from "@tanstack/react-query";
 import { SlidersHorizontal } from "lucide-react";
-import { useEffect, useState } from "react";
-import { cn } from "shadcn/lib/utils";
+import { useEffect, useMemo, useState } from "react";
 
 import { $post } from "$/utils";
-import { Button, FilterCard, FlightDetails, Nav, SearchedValues, TravelersAndClass } from "$components";
-import airSearchResponse from "$data/FlyHub/Response/AirSearch.json";
-import { Search, SearchResponse } from "$interface";
+import { Button, FancySelectString, FlightDetails, Nav, SearchedValues, TravelersAndClass } from "$components";
+
+import { SpinnerIcon } from "$icons";
+import { Search } from "$interface";
+import Image from "next/image";
 import { useRouter } from "next/router";
-import { toast } from "sonner";
 
 export default function Search() {
+  const [selectedAirline, setSelectedAirline] = useState("all");
   const router = useRouter();
   const store = useOneWay();
-  const { getCurrentStore, tripType } = useTripType();
+  const { getCurrentStore } = useTripType();
 
   const { mutate, isError, data, error, isPending } = useMutation<Search, Error, ReturnType<typeof getCurrentStore>>({
     mutationKey: ["airSearchRequest"],
@@ -41,6 +44,27 @@ export default function Search() {
     searchAction();
   }, []);
 
+  const filterAirline =
+    useMemo(() => {
+      return data?.Results?.map((val) => {
+        return val.segments?.map((airline) => {
+          return airline.Airline.AirlineName;
+        });
+      })?.flat()
+    }, []) || [];
+
+  const flights =
+    useMemo(() => {
+      return data?.Results?.filter((flight) => {
+        if (selectedAirline === "all") true;
+        return flight?.segments?.find((val) => {
+          return val.Airline.AirlineName.toLowerCase() === selectedAirline.toLowerCase();
+        })
+          ? true
+          : false;
+      });
+    }, [data?.Results, selectedAirline]) || [];
+
   return (
     <>
       <Nav />
@@ -61,15 +85,20 @@ export default function Search() {
             </Button>
           </div>
           {isPending ? (
-            "Loading"
+            <div className="mx-auto w-96">
+              <SpinnerIcon />
+            </div>
           ) : (
-            <div className=" relative flex  w-full gap-x-4 ">
-              <FilterCard
-                className={cn("hidden transition-all lg:block", FilterCardClass)}
-                setIsSidebarExist={setIsSidebarExist}
-              />
-              <div className="flex-1">
-                {data?.Results?.map((flight) => <FlightDetails key={flight.ResultID} flightDetails={flight} />)}
+            <div>
+              <div className="">
+                <div className="flex gap-x-2">
+                  <FancySelectString options={filterAirline} onSelect={setSelectedAirline} selected={selectedAirline} />
+                </div>
+                {flights?.length === 0 ? (
+                  <Image src={noDataFound} alt="Not Found" className="mx-auto aspect-square"></Image>
+                ) : (
+                  flights?.map((flight) => <FlightDetails key={flight.ResultID} flightDetails={flight} />)
+                )}
               </div>
             </div>
           )}
@@ -78,4 +107,3 @@ export default function Search() {
     </>
   );
 }
-
