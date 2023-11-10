@@ -2,6 +2,7 @@ import { FancySelect, FancySelectString } from "$components";
 import { adultsOptions, cabinClassOption, childrensOptions, infantsOptions } from "$data/travelClasses";
 import { ChevronDown } from "lucide-react";
 import { Popover, PopoverContent, PopoverTrigger } from "shadcn/components/ui/popover";
+import { cn } from "shadcn/lib/utils";
 
 interface TravelerAndClassesProps {
   travelerAndClasses: {
@@ -11,9 +12,10 @@ interface TravelerAndClassesProps {
     travelClass: string;
   };
   onValueChange: (value: Partial<TravelerAndClassesProps["travelerAndClasses"]>) => void;
+  statOnly?: boolean;
 }
 
-export function TravelersAndClass({ onValueChange, travelerAndClasses }: TravelerAndClassesProps) {
+export function TravelersAndClass({ onValueChange, travelerAndClasses, statOnly = false }: TravelerAndClassesProps) {
   const totalTravelers = travelerAndClasses.adults + travelerAndClasses.children + travelerAndClasses.infants;
 
   return (
@@ -21,14 +23,20 @@ export function TravelersAndClass({ onValueChange, travelerAndClasses }: Travele
       <PopoverTrigger asChild>
         <div
           role="button"
-          className="h-full w-full rounded-md border border-gray-300/60 bg-white p-2 px-4 text-gray-700 "
+          className={cn("h-full w-full rounded-md border border-gray-300/60 bg-white p-2 px-4 text-gray-700 ", {
+            "px-2 py-1": statOnly,
+          })}
         >
-          <div className="flex items-center gap-1 text-sm">
-            <p>Travelers & Class</p> <ChevronDown strokeWidth={1} />
+          <div className={cn("flex items-center gap-1 text-sm", { "font-bold": statOnly })}>
+            <p>Travelers & Class</p> <ChevronDown strokeWidth={1} size={18} />
           </div>
-          <div>
-            <p className="text-2xl font-bold text-slate-950/90">{totalTravelers} Travelers</p>
-            <p className="text-sm ">{travelerAndClasses.travelClass}</p>
+          <div className={cn("flex flex-col", { "flex-row gap-x-1": statOnly })}>
+            <span
+              className={cn("text-2xl font-bold text-slate-950/90", { "line-clamp-1 text-sm font-normal": statOnly })}
+            >
+              {totalTravelers} Travelers
+            </span>
+            <span className="line-clamp-1 text-sm">{travelerAndClasses.travelClass}</span>
           </div>
         </div>
       </PopoverTrigger>
