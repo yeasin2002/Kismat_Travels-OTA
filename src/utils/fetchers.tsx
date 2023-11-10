@@ -2,7 +2,7 @@ import { getAuth } from "$lib";
 import axios from "axios";
 
 export const AxiosInstance = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL,
+  baseURL: process.env.NEXT_PUBLIC_BACKEND_BASE_URL,
   transformRequest: [
     ...(Array.isArray(axios.defaults.transformRequest) ? axios.defaults.transformRequest : []),
     (data, headers) => {

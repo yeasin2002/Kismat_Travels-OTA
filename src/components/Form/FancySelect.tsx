@@ -40,7 +40,7 @@ interface FancySelectProps {
   selected: number;
 }
 
-export function FancySelect<T extends number | string>({ options, onSelect, selected }: FancySelectProps) {
+export function FancySelect({ options, onSelect, selected }: FancySelectProps) {
   return (
     <div>
       <div className={`flex w-fit flex-wrap gap-2 rounded-sm bg-slate-50 p-1 shadow-md ring-1 ring-slate-500/10`}>
