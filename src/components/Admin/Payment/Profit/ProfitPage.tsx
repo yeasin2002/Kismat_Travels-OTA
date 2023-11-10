@@ -12,7 +12,7 @@ const ProfitPage = () => {
           </span>
           Website Sell Profit
         </div>
-        <div className="grid w-full grid-cols-4 gap-2">
+        <div className="grid w-full grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
           <Status name="Ticket Sell to User" data="10" Update={<EditProfit FOR="User" Icon={Edit} />} />
           <Status name="Ticket Sell to Agent" data="10" Update={<EditProfit FOR="Agent" Icon={Edit} />} />
         </div>

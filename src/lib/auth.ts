@@ -11,6 +11,15 @@ export function getAuth() {
   return localStorage.get(localAuthStoreName);
 }
 
+export function GetAdminAuth() {
+  let key = cookie.get("key_ad");
+  let session = cookie.get("value_ad");
+  if (key && session) {
+    return { key, session };
+  }
+  return false;
+}
+
 export function removeAuth() {
   localStorage.removeItem(localAuthStoreName);
   cookie.remove(localAuthStoreName);
