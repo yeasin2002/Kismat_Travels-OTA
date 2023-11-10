@@ -41,8 +41,8 @@ const Book: FC<BookProps> = ({ ...rest }) => {
 
   async function bookingHandler() {
     await mutateAsync({
-      SearchID: "",
-      ResultID: "",
+      SearchID: get("searchId"),
+      ResultID: get("resultId"),
       passengers: passengers,
     });
   }
