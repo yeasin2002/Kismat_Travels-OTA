@@ -1,6 +1,6 @@
 import { useMutation } from "@tanstack/react-query";
 import Image from "next/image";
-import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
+import { DetailedHTMLProps, FC, HTMLAttributes, useEffect } from "react";
 
 import { $post } from "$/utils";
 import AirbusLogo from "$assets/temp/qatar-airways.jpg";
@@ -8,8 +8,11 @@ import { LeadPassenger, Nav } from "$components";
 import { PassengerDetails } from "$components/Book/PassengerDetails";
 
 import { SpinnerIcon } from "$icons";
+import { isTValid, parseNumber } from "$lib";
 import { usePassengers, useTripType } from "$store";
 import { CalendarCheck2, PlaneLanding, PlaneTakeoff } from "lucide-react";
+import { useSearchParams } from "next/navigation";
+import { useRouter } from "next/router";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "shadcn/components/ui/accordion";
 
 function createArray(length: number | any) {
@@ -23,11 +26,18 @@ interface BookProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HT
 
 const Book: FC<BookProps> = ({ ...rest }) => {
   const { passengers } = usePassengers();
+  const { get } = useSearchParams();
+  const router = useRouter();
+
   const currentStore = useTripType((store) => store.getCurrentStore());
   const { mutateAsync, isPending } = useMutation({
     mutationKey: ["booking"],
     mutationFn: async (data: any) => $post("privet/AirBook", data),
   });
+
+  useEffect(() => {
+    if (!isTValid(parseNumber(get("T"), 0), 5) && !get("resultId") && !get("searchId")) router.push("/");
+  }, []);
 
   async function bookingHandler() {
     await mutateAsync({

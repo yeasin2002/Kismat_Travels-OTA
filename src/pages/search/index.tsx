@@ -1,7 +1,6 @@
 import { $post } from "$/utils";
 import noDataFound from "$assets/Illustrations/3D/no-results.png";
 import { FancySelectString, FlightDetails, Nav, StatCard, TravelersAndClass } from "$components";
-import response from "$data/FlyHub/Response/AirSearch.json";
 import { SpinnerIcon } from "$icons";
 import { Search } from "$interface";
 import { useTripType } from "$store";
@@ -48,7 +47,7 @@ export default function Search() {
     return data.Results.filter(
       (flight) => flight.segments.findIndex((v) => includes(v.Airline.AirlineName, selectedAirline)) !== -1
     );
-  }, [response, selectedAirline]);
+  }, [data, selectedAirline]);
 
   const stat = getStat();
 
@@ -115,7 +114,9 @@ export default function Search() {
             {flights?.length === 0 ? (
               <img src={noDataFound.src} alt="Not Found" className="mx-auto aspect-square w-96" />
             ) : (
-              flights?.map((flight) => <FlightDetails key={flight.ResultID} flightDetails={flight} />)
+              flights?.map((flight) => (
+                <FlightDetails key={flight.ResultID} searchId={data?.searchId} flightDetails={flight} />
+              ))
             )}
           </Fragment>
         )}

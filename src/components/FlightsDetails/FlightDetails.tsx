@@ -15,11 +15,14 @@ import DateChange from "./DateChange";
 import Details from "./Details";
 import FareSummary from "./FareSummary";
 
+const encode = encodeURIComponent;
+
 interface FlightDetailsProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   flightDetails: SearchResponse;
+  searchId?: string;
 }
 
-export const FlightDetails: FC<FlightDetailsProps> = ({ flightDetails, ...rest }) => {
+export const FlightDetails: FC<FlightDetailsProps> = ({ flightDetails, searchId, ...rest }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -94,10 +97,10 @@ export const FlightDetails: FC<FlightDetailsProps> = ({ flightDetails, ...rest }
             </div>
             <div>
               <Link
-                className={buttonVariants({
-                  variant: "default",
-                })}
-                href={"/book"}
+                className={buttonVariants({ variant: "default" })}
+                href={`/book?resultId=${encode(flightDetails.ResultID)}&searchId=${encode(
+                  searchId + ""
+                )}&T=${Date.now()}`}
               >
                 Book Now
               </Link>
