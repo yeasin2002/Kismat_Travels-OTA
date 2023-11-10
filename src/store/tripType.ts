@@ -83,6 +83,14 @@ export const useTripType = create(
               };
             }
           },
+
+          getStat: () => {
+            const tripType = get().tripType;
+
+            if (tripType === "one-way") return useOneWay.getState();
+            if (tripType === "round-tripe") return useTwoWay.getState();
+            return useMultiCity.getState();
+          },
         })
       )
     )

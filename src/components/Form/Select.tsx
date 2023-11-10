@@ -35,7 +35,7 @@ export function Select({
       <label
         htmlFor={id}
         title={title}
-        className={twMerge("line-clamp-1 text-base font-medium text-gray-800", classNameLabel)}
+        className={twMerge("line-clamp-1 text-sm font-medium text-gray-800", classNameLabel)}
       >
         {label}
       </label>
@@ -54,7 +54,7 @@ export function Select({
               control: (styles, state) => ({
                 ...styles,
                 margin: 0,
-                padding: 2,
+                padding: 1,
                 backgroundColor: "rgb(248 249 250)",
                 borderColor: error
                   ? "rgb(245 57 57 / 0.5)"
@@ -131,7 +131,7 @@ export function SelectNotCreatable({
       <label
         htmlFor={id}
         title={title}
-        className={twMerge("line-clamp-1 text-base font-medium text-gray-800", classNameLabel)}
+        className={twMerge("line-clamp-1 text-sm font-medium text-gray-800", classNameLabel)}
       >
         {label}
       </label>
@@ -150,7 +150,7 @@ export function SelectNotCreatable({
               control: (styles, state) => ({
                 ...styles,
                 margin: 0,
-                padding: 2,
+                padding: 1,
                 backgroundColor: "rgb(248 249 250)",
                 borderColor: error
                   ? "rgb(245 57 57 / 0.5)"
@@ -166,8 +166,8 @@ export function SelectNotCreatable({
                 },
                 boxShadow: state.isFocused
                   ? error
-                    ? "0 0 0 1px rgb(245 57 57 / 0.5)"
-                    : "0 0 0 1px rgb(59 130 246 / 0.5)"
+                    ? "0 0 0 2px rgb(245 57 57 / 0.5)"
+                    : "0 0 0 2px rgb(59 130 246 / 0.5)"
                   : "none",
               }),
               placeholder: (styles) => ({

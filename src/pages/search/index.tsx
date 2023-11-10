@@ -1,108 +1,125 @@
-import noDataFound from "$assets/Illustrations/3D/no-results.png";
-import searchLoading from "$assets/Illustrations/lottie/opener-loading.json";
-import { useOneWay, useTripType } from "$store";
-import { useMutation } from "@tanstack/react-query";
-import { SlidersHorizontal } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
-
 import { $post } from "$/utils";
-import { Button, FancySelectString, FlightDetails, Nav, SearchedValues, TravelersAndClass } from "$components";
-
+import noDataFound from "$assets/Illustrations/3D/no-results.png";
+import { FancySelectString, FlightDetails, Nav, StatCard, TravelersAndClass } from "$components";
 import { SpinnerIcon } from "$icons";
 import { Search } from "$interface";
-import Image from "next/image";
+import { useTripType } from "$store";
+import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/router";
+import { Fragment, useEffect, useMemo, useState } from "react";
+
+function includes(v1: string, v2: string) {
+  return v1.toLowerCase().includes(v1.toLowerCase());
+}
 
 export default function Search() {
-  const [selectedAirline, setSelectedAirline] = useState("all");
   const router = useRouter();
-  const store = useOneWay();
-  const { getCurrentStore } = useTripType();
+  const [selectedAirline, setSelectedAirline] = useState("All");
+  const { getCurrentStore, getStat, tripType } = useTripType();
 
-  const { mutate, isError, data, error, isPending } = useMutation<Search, Error, ReturnType<typeof getCurrentStore>>({
+  const { mutate, data, isPending } = useMutation<Search, Error, ReturnType<typeof getCurrentStore>>({
     mutationKey: ["airSearchRequest"],
     mutationFn: (arg: any) => $post("private/AirSearch", arg),
-    onSuccess: (value) => {
-      console.log("Success Data :", value);
-    },
   });
 
-  const [isSidebarExist, setIsSidebarExist] = useState(false);
-  const FilterCardClass = isSidebarExist
-    ? "block fixed  top-0  right-0 h-screen lg:h-full w-full z-50   lg:static"
-    : "";
-
-  const searchAction = () => {
+  function searchAction() {
     const storeValue = getCurrentStore();
-    if (!storeValue) {
-      return router.push("/");
-    }
-    return mutate(storeValue);
-  };
+    if (!storeValue) return router.push("/");
+    mutate(storeValue);
+  }
 
   useEffect(() => {
     searchAction();
   }, []);
 
-  const filterAirline =
-    useMemo(() => {
-      return data?.Results?.map((val) => {
-        return val.segments?.map((airline) => {
-          return airline.Airline.AirlineName;
-        });
-      })?.flat()
-    }, []) || [];
+  const filterAirline = useMemo(
+    () =>
+      Array.from(
+        new Set(data?.Results?.map((val) => val.segments?.map((airline) => airline.Airline.AirlineName)).flat())
+      ),
+    []
+  );
 
-  const flights =
-    useMemo(() => {
-      return data?.Results?.filter((flight) => {
-        if (selectedAirline === "all") true;
-        return flight?.segments?.find((val) => {
-          return val.Airline.AirlineName.toLowerCase() === selectedAirline.toLowerCase();
-        })
-          ? true
-          : false;
-      });
-    }, [data?.Results, selectedAirline]) || [];
+  const flights = useMemo(() => {
+    if (!data || !Array.isArray(data?.Results)) return [];
+    if (selectedAirline === "All") return data.Results;
+
+    return data.Results.filter(
+      (flight) => flight.segments.findIndex((v) => includes(v.Airline.AirlineName, selectedAirline)) !== -1
+    );
+  }, [data, selectedAirline]);
+
+  const stat = getStat();
 
   return (
     <>
       <Nav />
-      <div className="container  min-h-screen space-y-4 bg-gradient-to-t from-slate-600 to-slate-900 text-white">
-        <div className="grid grid-cols-1 gap-x-2 gap-y-1 pt-2 sm:grid-cols-2 md:grid-cols-4">
-          <SearchedValues title="From" value="Dhaka, Bangladesh " />
-          <SearchedValues title="From" value="Dhaka, Bangladesh " />
-          <SearchedValues title="From" value="Dhaka, Bangladesh " />
-          <TravelersAndClass
-            travelerAndClasses={store.travelerAndClasses}
-            onValueChange={store.setTravelerAndClasses}
-          />
-        </div>
-        <div>
-          <div className="mb-4 mt-8 lg:hidden">
-            <Button onClick={() => setIsSidebarExist((pre) => !pre)}>
-              <SlidersHorizontal />
-            </Button>
-          </div>
-          {isPending ? (
-            <div className="mx-auto w-96">
-              <SpinnerIcon />
-            </div>
-          ) : (
-            <div>
-              <div className="">
-                <div className="flex gap-x-2">
-                  <FancySelectString options={filterAirline} onSelect={setSelectedAirline} selected={selectedAirline} />
+      <div className="container flex min-h-[calc(100dvh-3.75rem)] flex-col gap-y-4 bg-gradient-to-t from-slate-600 to-slate-900 text-white">
+        <div className="grid grid-cols-5 gap-2 pt-2">
+          <StatCard extra="h-fit" title={"Trip type"} value={tripType} />
+
+          <div className="col-span-3 space-y-2">
+            {"cities" in stat ? (
+              stat.cities.map((city) => (
+                <div className="flex gap-2">
+                  <StatCard title="From" value={city.from?.name as string} />
+                  <StatCard title="To" value={city.to?.name as string} />
+                  <StatCard
+                    title="Departure"
+                    value={
+                      city.departure?.toLocaleDateString("en-US", {
+                        day: "numeric",
+                        month: "short",
+                        year: "numeric",
+                      }) as string
+                    }
+                  />
                 </div>
-                {flights?.length === 0 ? (
-                  <Image src={noDataFound} alt="Not Found" className="mx-auto aspect-square"></Image>
-                ) : (
-                  flights?.map((flight) => <FlightDetails key={flight.ResultID} flightDetails={flight} />)
-                )}
+              ))
+            ) : (
+              <div className="flex h-full gap-2">
+                <StatCard title="From" value={stat.from?.name as string} />
+                <StatCard title="To" value={stat.to?.name as string} />
+                <StatCard
+                  title="Departure"
+                  value={
+                    stat.departure?.toLocaleDateString("en-US", {
+                      day: "numeric",
+                      month: "short",
+                      year: "numeric",
+                    }) as string
+                  }
+                />
               </div>
-            </div>
-          )}
+            )}
+          </div>
+
+          <TravelersAndClass travelerAndClasses={stat.travelerAndClasses} onValueChange={() => {}} statOnly />
         </div>
+
+        {isPending ? (
+          <div className="flex h-full flex-grow items-center justify-center text-6xl text-slate-300">
+            <SpinnerIcon />
+          </div>
+        ) : (
+          <Fragment>
+            {flights?.length > 0 && (
+              <FancySelectString
+                options={["All", ...filterAirline]}
+                onSelect={setSelectedAirline}
+                selected={selectedAirline}
+              />
+            )}
+
+            {flights?.length === 0 ? (
+              <img src={noDataFound.src} alt="Not Found" className="mx-auto aspect-square w-96" />
+            ) : (
+              flights?.map((flight) => (
+                <FlightDetails key={flight.ResultID} searchId={data?.searchId} flightDetails={flight} />
+              ))
+            )}
+          </Fragment>
+        )}
       </div>
     </>
   );

@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import { Button } from "shadcn/components/ui/button";
+import { Button, buttonVariants } from "shadcn/components/ui/button";
 import { DatePicker } from "shadcn/components/ui/date-picker";
 import { cn } from "shadcn/lib/utils";
 
@@ -55,9 +55,13 @@ function Trigger({ selected, placeholder }: { selected: Date | undefined; placeh
   }
 
   return (
-    <Button
-      variant={"outline"}
-      className={cn("h-full w-full justify-start rounded-none text-left text-sm font-normal")}
+    <div
+      className={cn(
+        buttonVariants({
+          className: "h-full w-full justify-start rounded-none text-left text-sm font-normal",
+          variant: "outline",
+        })
+      )}
     >
       <label className="flex h-full w-full flex-col text-gray-900">
         <span className="mb-1 truncate text-sm text-gray-700">{placeholder}</span>
@@ -77,6 +81,6 @@ function Trigger({ selected, placeholder }: { selected: Date | undefined; placeh
           </span>
         )}
       </label>
-    </Button>
+    </div>
   );
 }
