@@ -2,6 +2,7 @@ import React from "react";
 import AdminLayout from "$components/Admin/layout/MainLayout";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "shadcn/components/ui/tabs";
 import ProfitPage from "$components/Admin/Payment/Profit/ProfitPage";
+import Gateway from "$components/Admin/Payment/gateway/Index";
 
 import Admin_secure from "$Secure/admin_secure";
 
@@ -19,7 +20,9 @@ const index = (props: any) => {
             <TabsContent value="profit">
               <ProfitPage />
             </TabsContent>
-            <TabsContent value="password">Change your password here.</TabsContent>
+            <TabsContent value="password">
+              <Gateway />
+            </TabsContent>
           </Tabs>
         </div>
       </div>
