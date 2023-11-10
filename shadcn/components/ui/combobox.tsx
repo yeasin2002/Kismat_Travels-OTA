@@ -77,7 +77,7 @@ export function Combobox({
             {options.map(({ id, name, country, code, element }) => (
               <CommandItem
                 key={id}
-                value={name}
+                value={name + " " + code}
                 onSelect={() => {
                   onSelect({ id, name, country, code });
                   setOpen(false);
