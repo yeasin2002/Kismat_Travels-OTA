@@ -19,12 +19,9 @@ export default function Search() {
   const store = useOneWay();
   const { getCurrentStore } = useTripType();
 
-  const { mutate, isError, data, error, isPending } = useMutation<Search, Error, ReturnType<typeof getCurrentStore>>({
+  const { mutate, data, isPending } = useMutation<Search, Error, ReturnType<typeof getCurrentStore>>({
     mutationKey: ["airSearchRequest"],
     mutationFn: (arg: any) => $post("private/AirSearch", arg),
-    onSuccess: (value) => {
-      console.log("Success Data :", value);
-    },
   });
 
   const [isSidebarExist, setIsSidebarExist] = useState(false);
@@ -32,38 +29,32 @@ export default function Search() {
     ? "block fixed  top-0  right-0 h-screen lg:h-full w-full z-50   lg:static"
     : "";
 
-  const searchAction = () => {
+  function searchAction() {
     const storeValue = getCurrentStore();
-    if (!storeValue) {
-      return router.push("/");
-    }
-    return mutate(storeValue);
-  };
+    if (!storeValue) return router.push("/");
+    mutate(storeValue);
+  }
 
   useEffect(() => {
     searchAction();
   }, []);
 
-  const filterAirline =
-    useMemo(() => {
-      return data?.Results?.map((val) => {
-        return val.segments?.map((airline) => {
-          return airline.Airline.AirlineName;
-        });
-      })?.flat()
-    }, []) || [];
+  const filterAirline = useMemo(
+    () => data?.Results?.map((val) => val.segments?.map((airline) => airline.Airline.AirlineName))?.flat() || [],
+    []
+  );
 
-  const flights =
-    useMemo(() => {
-      return data?.Results?.filter((flight) => {
-        if (selectedAirline === "all") true;
-        return flight?.segments?.find((val) => {
-          return val.Airline.AirlineName.toLowerCase() === selectedAirline.toLowerCase();
-        })
-          ? true
-          : false;
-      });
-    }, [data?.Results, selectedAirline]) || [];
+  const flights = useMemo(() => {
+    if (!data?.Results) return [];
+
+    return data.Results.filter((flight) => {
+      if (selectedAirline === "all") true;
+      return (
+        flight.segments.find((val) => val.Airline.AirlineName.toLowerCase().includes(selectedAirline.toLowerCase())) !==
+        null
+      );
+    });
+  }, [data, selectedAirline]);
 
   return (
     <>
