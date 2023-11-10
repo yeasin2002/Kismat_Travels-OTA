@@ -71,3 +71,9 @@ export interface SearchResponse {
   isMiniRulesAvailable: boolean;
   HoldAllowed: boolean;
 }
+
+export interface Search {
+  Error: any;
+  Results: SearchResponse[] | null;
+  searchId: string;
+}
