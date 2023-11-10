@@ -24,7 +24,7 @@ export function TravelersAndClass({ onValueChange, travelerAndClasses, statOnly 
         <div
           role="button"
           className={cn("h-full w-full rounded-md border border-gray-300/60 bg-white p-2 px-4 text-gray-700 ", {
-            "px-2 py-1": statOnly,
+            "h-fit px-2 py-1": statOnly,
           })}
         >
           <div className={cn("flex items-center gap-1 text-sm", { "font-bold": statOnly })}>
