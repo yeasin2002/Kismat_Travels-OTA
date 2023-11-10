@@ -1,4 +1,4 @@
-import { getAuth, setAuth } from "$lib";
+import { getAuth, setAuth, GetAdminAuth } from "$lib";
 import axios from "axios";
 
 export const request = axios.create({
@@ -14,6 +14,33 @@ export const request = axios.create({
     },
   ],
 });
+
+export const request_for_Admin = axios.create({
+  baseURL: process.env.NEXT_PUBLIC_BACKEND_BASE_URL,
+});
+
+// Add a request interceptor to modify the request before it's sent
+request_for_Admin.interceptors.request.use(
+  function (config) {
+    let Headers: {
+      key?: string;
+      sessions?: string;
+    } = {};
+    let auth = GetAdminAuth();
+    if (auth) {
+      Headers["key"] = auth.key;
+      Headers["sessions"] = auth.session;
+    }
+    config.data = {
+      ...config.data,
+      Headers,
+    };
+    return config;
+  },
+  function (error) {
+    return Promise.reject(error);
+  }
+);
 
 export const GET = request.get;
 export const POST = request.post;
