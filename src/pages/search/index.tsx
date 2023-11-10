@@ -9,6 +9,10 @@ import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/router";
 import { Fragment, useEffect, useMemo, useState } from "react";
 
+function includes(v1: string, v2: string) {
+  return v1.toLowerCase().includes(v1.toLowerCase());
+}
+
 export default function Search() {
   const router = useRouter();
   const [selectedAirline, setSelectedAirline] = useState("All");
@@ -25,24 +29,26 @@ export default function Search() {
     mutate(storeValue);
   }
 
-  // useEffect(() => searchAction() as any, []);
+  useEffect(() => {
+    searchAction();
+  }, []);
 
   const filterAirline = useMemo(
-    () => data?.Results?.map((val) => val.segments?.map((airline) => airline.Airline.AirlineName)).flat() || [],
+    () =>
+      Array.from(
+        new Set(data?.Results?.map((val) => val.segments?.map((airline) => airline.Airline.AirlineName)).flat())
+      ),
     []
   );
 
   const flights = useMemo(() => {
-    if (!response?.Results) return [];
+    if (!data || !Array.isArray(data?.Results)) return [];
+    if (selectedAirline === "All") return data.Results;
 
-    return response.Results.filter((flight) => {
-      if (selectedAirline === "All") true;
-      return (
-        flight.segments.find((val) => val.Airline.AirlineName.toLowerCase().includes(selectedAirline.toLowerCase())) !==
-        null
-      );
-    });
-  }, [data, selectedAirline]);
+    return data.Results.filter(
+      (flight) => flight.segments.findIndex((v) => includes(v.Airline.AirlineName, selectedAirline)) !== -1
+    );
+  }, [response, selectedAirline]);
 
   const stat = getStat();
 
