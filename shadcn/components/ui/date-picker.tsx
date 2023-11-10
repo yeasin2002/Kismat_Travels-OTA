@@ -3,7 +3,7 @@
 import { format } from "date-fns";
 import { Calendar as CalendarIcon } from "lucide-react";
 import * as React from "react";
-import { Button } from "shadcn/components/ui/button";
+import { Button, buttonVariants } from "shadcn/components/ui/button";
 import { Calendar } from "shadcn/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "shadcn/components/ui/popover";
 import { cn } from "shadcn/lib/utils";
@@ -31,13 +31,12 @@ export function DatePicker({
         {Trigger ? (
           <Trigger selected={selected} placeholder={placeholder} />
         ) : (
-          <Button
-            variant={"outline"}
-            className={cn("w-full justify-start text-left text-sm font-normal", { "text-slate-700": !selected })}
+          <div
+            className={cn(buttonVariants({ variant: "outline", className: "w-full justify-start text-left text-sm font-normal"}), { "text-slate-700": !selected })}
           >
             <CalendarIcon className="mr-2 h-4 w-4 text-slate-700" />
             {selected ? format(selected, "PPP") : <span>{placeholder}</span>}
-          </Button>
+          </div>
         )}
       </PopoverTrigger>
       <PopoverContent className="w-auto p-0">
