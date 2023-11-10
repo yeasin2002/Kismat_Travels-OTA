@@ -104,11 +104,13 @@ export default function Search() {
           </div>
         ) : (
           <Fragment>
-            <FancySelectString
-              options={["All", ...filterAirline]}
-              onSelect={setSelectedAirline}
-              selected={selectedAirline}
-            />
+            {flights?.length > 0 && (
+              <FancySelectString
+                options={["All", ...filterAirline]}
+                onSelect={setSelectedAirline}
+                selected={selectedAirline}
+              />
+            )}
 
             {flights?.length === 0 ? (
               <img src={noDataFound.src} alt="Not Found" className="mx-auto aspect-square w-96" />

@@ -91,7 +91,7 @@
     @apply mb-2 text-base font-medium text-gray-500;
   }
   .bookInputContainer {
-    @apply grid md:grid-cols-3 gap-x-3  grid-cols-1 gap-y-4 ; 
+    @apply grid grid-cols-1 gap-x-3  gap-y-4 md:grid-cols-3;
   }
   .searchCardItem {
     @apply flex  flex-col md:justify-between md:gap-x-20;
@@ -103,15 +103,15 @@
     @apply mb-2 mt-7 text-xl font-bold text-gray-700;
   }
   .ticketExtraDetailsTitle {
-    @apply text-gray-500 text-base font-medium;
+    @apply text-base font-medium text-gray-500;
   }
-  
+
   .ticketExtraDetailsItem {
-    @apply text-gray-400 text-sm font-normal;
+    @apply text-sm font-normal text-gray-400;
   }
 
   .tablesItems {
-    @apply border border-gray-600/20 p-2
+    @apply border border-gray-600/20 p-2;
   }
   .stack {
     display: grid;
@@ -146,6 +146,16 @@
 
     -webkit-mask: var(--mask);
     mask: var(--mask);
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    opacity: 0.5;
+    transition:
+      background-color 50000s ease-in-out 0s,
+      color 5000s ease-in-out 0s;
   }
 }
 
