@@ -8,15 +8,14 @@ import { LeadPassenger, Nav } from "$components";
 import { PassengerDetails } from "$components/Book/PassengerDetails";
 
 import { SpinnerIcon } from "$icons";
-import { isTValid, parseNumber } from "$lib";
+
 import { usePassengers, useTripType } from "$store";
 import { CalendarCheck2, PlaneLanding, PlaneTakeoff } from "lucide-react";
 import { useSearchParams } from "next/navigation";
-import { useRouter } from "next/router";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "shadcn/components/ui/accordion";
 
 function createArray(length: number | any) {
-  if (typeof length !== "number") return [];
+  if (typeof length !== "number" || isNaN(length)) return [];
   return Array(length)
     .fill(null)
     .map((_, i) => i + 1);
@@ -25,19 +24,14 @@ function createArray(length: number | any) {
 interface BookProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
 
 const Book: FC<BookProps> = ({ ...rest }) => {
-  const { passengers, flightBooking } = usePassengers();
+  const { passengers, flightBooking, FareDetails } = usePassengers();
   const { get } = useSearchParams();
-  const router = useRouter();
 
   const currentStore = useTripType((store) => store.getCurrentStore());
   const { mutateAsync, isPending } = useMutation({
     mutationKey: ["booking"],
     mutationFn: async (data: any) => $post("privet/AirBook", data),
   });
-
-  useEffect(() => {
-    if (!isTValid(parseNumber(get("T"), 0), 5) && !get("resultId") && !get("searchId")) router.push("/");
-  }, []);
 
   async function bookingHandler() {
     await mutateAsync({
@@ -47,7 +41,11 @@ const Book: FC<BookProps> = ({ ...rest }) => {
     });
   }
 
-  const totalAdultPassengers = createArray(currentStore?.AdultQuantity);
+  const sumCost = FareDetails?.reduce((acc, fare) => {
+    const totalCost = fare.BaseFare + fare.Tax + fare.OtherCharges * fare.PassengerCount;
+    return acc + totalCost;
+  }, 0);
+  const totalAdultPassengers = createArray(currentStore?.AdultQuantity! - 1);
   const totalChildPassengers = createArray(currentStore?.ChildQuantity);
   const totalInfantPassengers = createArray(currentStore?.InfantQuantity);
   const total = currentStore?.AdultQuantity! + currentStore?.ChildQuantity! + currentStore?.InfantQuantity!;
@@ -63,14 +61,13 @@ const Book: FC<BookProps> = ({ ...rest }) => {
               <div className="mx-3 my-5 py-5  shadow-lg  lg:py-8">
                 <div className="flex flex-col justify-between space-y-10 p-8 sm:flex-row sm:items-center  sm:space-y-0">
                   <div>
-                    <p className="text-2xl font-bold"> New Delhi → Mumbai</p>
+                    <p className="text-2xl font-bold">
+                      {flightBooking?.Origin?.Airport?.CityName} → {flightBooking?.Destination?.Airport?.CityName}
+                    </p>
                     <div className="my-2  flex justify-between">
-                      <p>
-                        <span className="mb-2 mr-3 flex items-center  justify-center gap-x-1 rounded-sm p-1  font-semibold ">
-                          <CalendarCheck2 size={18} />
-                          Tuesday, 20 July 2021
-                        </span>
-                        Non Stop 2H 55M
+                      <p className="mb-2 mr-3 flex items-center  justify-center gap-x-1 rounded-sm p-1  font-semibold ">
+                        <CalendarCheck2 size={18} />
+                        {flightBooking?.Origin?.DepTime?.split("T")[0] || ""}
                       </p>
                     </div>
                   </div>
@@ -95,20 +92,61 @@ const Book: FC<BookProps> = ({ ...rest }) => {
                 <div className="mt-10   space-y-8 rounded-lg  bg-gray-200 p-2 sm:mx-4  sm:p-6">
                   <div className="  flex items-center  gap-x-1  sm:gap-x-2  ">
                     <Image src={AirbusLogo} alt="Airbus Logo" className="h-10 w-10" />
-                    <p className="font-semibold text-gray-600"> Qatar Airways</p>
-                    <span className="rounded-full border border-gray-400 px-2 text-gray-400">Airbus A320</span>
+                    <p className="font-semibold text-gray-600"> {flightBooking?.Airline?.AirlineName}</p>
+                    <span className="rounded-full border border-gray-400 px-2 text-gray-400">
+                      {flightBooking?.Airline?.AirlineCode}-{flightBooking?.Airline?.FlightNumber}
+                    </span>
                   </div>
 
                   <div className="space-y-4 ">
                     <p className="flex items-center  gap-x-2 sm:gap-x-4">
-                      <PlaneTakeoff /> <span className="font-bold">New Delhi</span> Indira Gandhi International Airport,
-                      Terminal T2
+                      <PlaneTakeoff />
+                      <span className="font-bold">{flightBooking?.Origin?.Airport?.CityName}</span>
+                      {flightBooking?.Origin?.Airport?.AirportName}
                     </p>
                     <p className="flex items-center   gap-x-2 sm:gap-x-4">
                       <PlaneLanding />
-                      <span className="font-bold">Mumbai </span> Chhatrapati Shivaji International Airport, Terminal T1
+                      <span className="font-bold">{flightBooking?.Destination?.Airport?.CityName} </span>
+                      {flightBooking?.Destination?.Airport?.AirportName}
                     </p>
                   </div>
+                </div>
+                <div className="mt-10   space-y-8 rounded-lg  bg-gray-200 p-2 sm:mx-4  sm:p-6"  >
+                  <table className="w-full border-collapse">
+                    <thead>
+                      <tr>
+                        <th className="tablesItems ">Fare Summary</th>
+                        <th className="tablesItems ">Base Fare</th>
+                        <th className="tablesItems ">Tex + Fees</th>
+                        <th className="tablesItems ">Per Passenger</th>
+                        <th className="tablesItems ">Total</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {FareDetails.map((fare) => {
+                        const totalOtherCharge = fare.Tax + fare.OtherCharges;
+                        const totalCost = fare.BaseFare + fare.Tax + fare.OtherCharges * fare.PassengerCount;
+                        return (
+                          <tr>
+                            <td className="tablesItems"> {fare.PaxType} </td>
+                            <td className="tablesItems"> {fare.BaseFare} </td>
+                            <td className="tablesItems"> {totalOtherCharge} </td>
+                            <td className="tablesItems flex">
+                              {fare.BaseFare + totalOtherCharge} X {fare.PassengerCount}
+                            </td>
+                            <td className="tablesItems font-bold">{totalCost}</td>
+                          </tr>
+                        );
+                      })}
+                      <tr>
+                        <td className="tablesItems font-bold">Total</td>
+                        <td className="tablesItems font-bold"></td>
+                        <td className="tablesItems font-bold"></td>
+                        <td className="tablesItems font-bold"></td>
+                        <td className="tablesItems font-bold">{sumCost}</td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </div>
             </div>

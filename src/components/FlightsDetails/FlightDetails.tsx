@@ -16,8 +16,6 @@ import DateChange from "./DateChange";
 import Details from "./Details";
 import FareSummary from "./FareSummary";
 
-const encode = encodeURIComponent;
-
 interface FlightDetailsProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   flightDetails: SearchResponse;
   searchId?: string;
@@ -33,7 +31,6 @@ export const FlightDetails: FC<FlightDetailsProps> = ({ flightDetails, searchId,
         const { normalDate: normalDepDate, normalTime: normalDepTime } = isoDateConvert(airBus.Origin.DepTime);
         const { normalDate: normalArrDate, normalTime: normalArrTime } = isoDateConvert(airBus.Destination.ArrTime);
         const hourLeft = convertMinutes(airBus.JourneyDuration);
-        // const hourLeft = remainingHour(flightDetails.LastTicketDate);
 
         return (
           <div className="flex items-center gap-8">
@@ -100,12 +97,13 @@ export const FlightDetails: FC<FlightDetailsProps> = ({ flightDetails, searchId,
             <div>
               <Link
                 onClick={() => {
-                  store.setFlightBooking(flightDetails);
+                  store.setFlightBooking(airBus);
+                  store.setSearchId(searchId);
+                  store.setResultId(flightDetails.ResultID);
+                  store.addFare(flightDetails?.Fares);
                 }}
                 className={buttonVariants({ variant: "default" })}
-                href={`/book?resultId=${encode(flightDetails.ResultID)}&searchId=${encode(
-                  searchId + ""
-                )}&T=${Date.now()}`}
+                href={`/book`}
               >
                 Book Now
               </Link>
