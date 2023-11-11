@@ -3,6 +3,7 @@ export * from "./ISO_DateToConverter";
 export * from "./RemainingTime";
 export * from "./auth";
 export * from "./event";
+export * from "./is";
 export * from "./local-storage";
 export * from "./regex";
 export * from "./request";
