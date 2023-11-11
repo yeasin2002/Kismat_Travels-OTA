@@ -57,7 +57,12 @@ export const useTripType = create(
                     Destination: twoWay.to?.code,
                     CabinClass: (cabinClassOption.indexOf(twoWay.travelerAndClasses.travelClass) + 1).toString(),
                     DepartureDateTime: twoWay.departure,
-                    ReturnDateTime: twoWay.back,
+                  },
+                  {
+                    Origin: twoWay.to?.code,
+                    Destination: twoWay.from?.code,
+                    CabinClass: (cabinClassOption.indexOf(twoWay.travelerAndClasses.travelClass) + 1).toString(),
+                    DepartureDateTime: twoWay.back,
                   },
                 ],
               };
