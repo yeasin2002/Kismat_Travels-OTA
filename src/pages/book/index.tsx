@@ -25,7 +25,7 @@ function createArray(length: number | any) {
 interface BookProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
 
 const Book: FC<BookProps> = ({ ...rest }) => {
-  const { passengers } = usePassengers();
+  const { passengers, flightBooking } = usePassengers();
   const { get } = useSearchParams();
   const router = useRouter();
 

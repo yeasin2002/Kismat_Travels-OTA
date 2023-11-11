@@ -1,6 +1,7 @@
 import { $post } from "$/utils";
 import noDataFound from "$assets/Illustrations/3D/no-results.png";
 import { FancySelectString, FlightDetails, Nav, StatCard, TravelersAndClass } from "$components";
+import data from "$data/FlyHub/Response/AirSearch.json";
 import { SpinnerIcon } from "$icons";
 import { Search } from "$interface";
 import { useTripType } from "$store";
@@ -17,7 +18,7 @@ export default function Search() {
   const [selectedAirline, setSelectedAirline] = useState("All");
   const { getCurrentStore, getStat, tripType } = useTripType();
 
-  const { mutate, data, isPending } = useMutation<Search, Error, ReturnType<typeof getCurrentStore>>({
+  const { mutate, isPending } = useMutation<Search, Error, ReturnType<typeof getCurrentStore>>({
     mutationKey: ["airSearchRequest"],
     mutationFn: (arg: any) => $post("private/AirSearch", arg),
   });
@@ -115,7 +116,7 @@ export default function Search() {
               <img src={noDataFound.src} alt="Not Found" className="mx-auto aspect-square w-96" />
             ) : (
               flights?.map((flight) => (
-                <FlightDetails key={flight.ResultID} searchId={data?.searchId} flightDetails={flight} />
+                <FlightDetails key={flight.ResultID} searchId={data?.SearchId} flightDetails={flight} />
               ))
             )}
           </Fragment>

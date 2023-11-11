@@ -6,6 +6,7 @@ import { CalendarCheck2, Minus, PlaneLanding, PlaneTakeoff, Timer } from "lucide
 
 import { SearchResponse } from "$interface";
 import { StopQuantityConverter, convertMinutes, isoDateConvert, remainingHour } from "$lib";
+import { usePassengers } from "$store";
 import Link from "next/link";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "shadcn/components/ui/accordion";
 import { buttonVariants } from "shadcn/components/ui/button";
@@ -24,6 +25,7 @@ interface FlightDetailsProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivEle
 
 export const FlightDetails: FC<FlightDetailsProps> = ({ flightDetails, searchId, ...rest }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const store = usePassengers();
 
   return (
     <div {...rest} className="flex flex-col gap-4 rounded-md bg-white p-4 text-slate-700">
@@ -97,6 +99,9 @@ export const FlightDetails: FC<FlightDetailsProps> = ({ flightDetails, searchId,
             </div>
             <div>
               <Link
+                onClick={() => {
+                  store.setFlightBooking(flightDetails);
+                }}
                 className={buttonVariants({ variant: "default" })}
                 href={`/book?resultId=${encode(flightDetails.ResultID)}&searchId=${encode(
                   searchId + ""
