@@ -1,5 +1,6 @@
 import React, { SVGProps } from "react";
 import EditStatus from "./EditStatus";
+import EditPC from "./EditPC";
 
 const Gateway = () => {
   return (
@@ -42,7 +43,7 @@ const Gateway = () => {
           <div className="relative col-span-1 w-full  rounded-md bg-white p-3 shadow-sm md:col-span-2">
             <div className="flex justify-between">
               <h1 className="font-bold">Gateway Credentials</h1>
-              <EditStatus Icon={Edit} />
+              <EditPC Icon={Edit} />
             </div>
             <div className="relative mt-2 w-full text-sm">
               <p>

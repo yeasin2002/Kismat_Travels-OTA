@@ -3,5 +3,5 @@
 import NextJsToploader from "nextjs-toploader";
 
 export function PageLoading() {
-  return <NextJsToploader showSpinner={false} height={3} color="#39A7FF" />;
+  return <NextJsToploader showSpinner={false} height={3} color="#39A7FF" zIndex={90000} />;
 }
