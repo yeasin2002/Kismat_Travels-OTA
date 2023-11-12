@@ -1,12 +1,24 @@
 import React, { SVGProps } from "react";
 import EditStatus from "./EditStatus";
 import EditPC from "./EditPC";
+import { usePaymentGateway } from "$hooks/admin/usePaymetGateway";
 
 const Gateway = () => {
+  const { data, error, isLoading } = usePaymentGateway();
+
   return (
     <div className="w-full">
       <div className="overflow-hidden rounded-md bg-slate-100 p-3 shadow-inner">
-        <div className="animate-pulse rounded-md bg-white bg-gradient-to-l from-red-400 to-red-500 p-2 shadow-lg shadow-red-500 "></div>
+        {!isLoading && data?.status === "LIVE" && (
+          <div className="animate-pulse rounded-md bg-white bg-gradient-to-l from-green-400 to-green-500 p-2 shadow-lg shadow-green-500 "></div>
+        )}
+        {!isLoading && data?.status === "SANDBOX" && (
+          <div className="animate-pulse rounded-md bg-white bg-gradient-to-l from-yellow-400 to-yellow-500 p-2 shadow-lg shadow-yellow-500 "></div>
+        )}
+        {!isLoading && data?.status === "OFF" && (
+          <div className="animate-pulse rounded-md bg-white bg-gradient-to-l from-red-400 to-red-500 p-2 shadow-lg shadow-red-500 "></div>
+        )}
+
         <div className="mt-3 grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-4">
           {/* Payment Gateway  */}
           <div className="relative w-full rounded-md bg-white p-3 shadow-sm">
@@ -31,13 +43,18 @@ const Gateway = () => {
               <EditStatus Icon={Edit} />
             </div>
 
-            {/* <p className="mt-3 text-5xl font-bold">🟢Live</p> */}
-            {/* <p className="mt-3 text-3xl font-bold sm:text-4xl md:text-5xl">
-              <span className="animate-pulse">🔴</span> Sandbox
-            </p> */}
-            <p className="mt-3 text-3xl font-bold sm:text-4xl md:text-5xl">
-              <span className="animate-pulse">🔴</span> Off
-            </p>
+            {isLoading && <p className="mt-3 text-4xl font-bold">Loading ..</p>}
+            {!isLoading && data?.status === "LIVE" && <p className="mt-3 text-5xl font-bold">🟢Live</p>}
+            {!isLoading && data?.status === "SANDBOX" && (
+              <p className="mt-3 text-3xl font-bold sm:text-4xl md:text-5xl">
+                <span className="animate-pulse">🟡</span> Sandbox
+              </p>
+            )}
+            {!isLoading && data?.status === "OFF" && (
+              <p className="mt-3 text-3xl font-bold sm:text-4xl md:text-5xl">
+                <span className="animate-pulse">🔴</span> Off
+              </p>
+            )}
           </div>
           {/* Payment Store ID  */}
           <div className="relative col-span-1 w-full  rounded-md bg-white p-3 shadow-sm md:col-span-2">
@@ -45,20 +62,22 @@ const Gateway = () => {
               <h1 className="font-bold">Gateway Credentials</h1>
               <EditPC Icon={Edit} />
             </div>
-            <div className="relative mt-2 w-full text-sm">
-              <p>
-                {" "}
-                <span className="font-bold">📃 Merchant ID: </span>onamicaazadtravels
-              </p>
-              <p>
-                {" "}
-                <span className="font-bold">📃 Store ID: </span>onamicaazadtravels
-              </p>
-              <p>
-                {" "}
-                <span className="font-bold">📃 Signature Key: </span>e35deb8e0bf549775b4c2d083a4e53f1
-              </p>
-            </div>
+            {!isLoading && (
+              <div className="relative mt-2 w-full text-sm">
+                <p>
+                  {" "}
+                  <span className="font-bold">📃 Merchant ID: </span> {data?.merchant_id}
+                </p>
+                <p>
+                  {" "}
+                  <span className="font-bold">📃 Store ID: </span> {data?.store_id}
+                </p>
+                <p>
+                  {" "}
+                  <span className="font-bold">📃 Signature Key: </span> {data?.signature_key}
+                </p>
+              </div>
+            )}
           </div>
         </div>
       </div>
