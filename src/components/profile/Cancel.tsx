@@ -1,11 +1,11 @@
 import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
 
-interface showTicketsProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
+interface CancelProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
 
-export const ShowTickets: FC<showTicketsProps> = ({ ...rest }) => {
+export const Cancel: FC<CancelProps> = ({ ...rest }) => {
   return (
-    <div {...rest}>
-      <h2 className="profileHeading">Orders Tickets</h2>
+    <div {...rest} key={"Cancel"}>
+      <h2 className="profileHeading">Canceled Tickets</h2>
       <div className="relative mt-8 overflow-x-auto">
         <table className="w-full text-left text-sm text-gray-500 dark:text-gray-400">
           <thead className="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">

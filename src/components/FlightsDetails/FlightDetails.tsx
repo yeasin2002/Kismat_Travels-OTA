@@ -6,6 +6,7 @@ import { CalendarCheck2, Minus, PlaneLanding, PlaneTakeoff, Timer } from "lucide
 
 import { SearchResponse } from "$interface";
 import { StopQuantityConverter, convertMinutes, isoDateConvert, remainingHour } from "$lib";
+import { usePassengers } from "$store";
 import Link from "next/link";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "shadcn/components/ui/accordion";
 import { buttonVariants } from "shadcn/components/ui/button";
@@ -15,8 +16,6 @@ import DateChange from "./DateChange";
 import Details from "./Details";
 import FareSummary from "./FareSummary";
 
-const encode = encodeURIComponent;
-
 interface FlightDetailsProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   flightDetails: SearchResponse;
   searchId?: string;
@@ -24,6 +23,7 @@ interface FlightDetailsProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivEle
 
 export const FlightDetails: FC<FlightDetailsProps> = ({ flightDetails, searchId, ...rest }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const store = usePassengers();
 
   return (
     <div {...rest} className="flex flex-col gap-4 rounded-md bg-white p-4 text-slate-700">
@@ -31,7 +31,6 @@ export const FlightDetails: FC<FlightDetailsProps> = ({ flightDetails, searchId,
         const { normalDate: normalDepDate, normalTime: normalDepTime } = isoDateConvert(airBus.Origin.DepTime);
         const { normalDate: normalArrDate, normalTime: normalArrTime } = isoDateConvert(airBus.Destination.ArrTime);
         const hourLeft = convertMinutes(airBus.JourneyDuration);
-        // const hourLeft = remainingHour(flightDetails.LastTicketDate);
 
         return (
           <div className="flex items-center gap-8">
@@ -97,10 +96,14 @@ export const FlightDetails: FC<FlightDetailsProps> = ({ flightDetails, searchId,
             </div>
             <div>
               <Link
+                onClick={() => {
+                  store.setFlightBooking(airBus);
+                  store.setSearchId(searchId);
+                  store.setResultId(flightDetails.ResultID);
+                  store.addFare(flightDetails?.Fares);
+                }}
                 className={buttonVariants({ variant: "default" })}
-                href={`/book?resultId=${encode(flightDetails.ResultID)}&searchId=${encode(
-                  searchId + ""
-                )}&T=${Date.now()}`}
+                href={`/book`}
               >
                 Book Now
               </Link>
