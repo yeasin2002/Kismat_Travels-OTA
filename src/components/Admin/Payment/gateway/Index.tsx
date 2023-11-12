@@ -4,7 +4,7 @@ import EditPC from "./EditPC";
 import { usePaymentGateway } from "$hooks/admin/usePaymetGateway";
 
 const Gateway = () => {
-  const { data, error, isLoading } = usePaymentGateway();
+  const { data, error, isLoading, Reload } = usePaymentGateway();
 
   return (
     <div className="w-full">
@@ -40,7 +40,7 @@ const Gateway = () => {
           <div className="relative w-full rounded-md bg-white p-3 shadow-sm">
             <div className="flex justify-between">
               <h1 className="font-bold">Gateway Status</h1>
-              <EditStatus Icon={Edit} />
+              {!isLoading && data?.id && <EditStatus Icon={Edit} id={data?.id} reloadLoad={Reload} />}
             </div>
 
             {isLoading && <p className="mt-3 text-4xl font-bold">Loading ..</p>}
