@@ -1,15 +1,15 @@
+import { Button } from "shadcn/components/ui/button";
 import {
   Dialog,
   DialogContent,
   DialogDescription,
+  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-  DialogFooter,
 } from "shadcn/components/ui/dialog";
 import { Input } from "shadcn/components/ui/input";
 import { Label } from "shadcn/components/ui/label";
-import { Button } from "shadcn/components/ui/button";
 
 import {
   Select,
@@ -21,11 +21,31 @@ import {
   SelectValue,
 } from "shadcn/components/ui/select";
 
-import React, { useState } from "react";
+import { $post } from "$/utils";
+import { useMutation } from "@tanstack/react-query";
+import React, { ChangeEvent, FormEventHandler, useState } from "react";
 
 const EditStatus = ({ Icon }: { Icon: any }) => {
-  const [number, SetNumber] = useState("0");
   const [password, SetPassword] = useState("");
+  const [status, setStatus] = useState("")
+
+
+  const { mutateAsync } = useMutation({
+    mutationFn: (val: any) => $post("/admin/payment/gateway", val),
+    onSuccess: () => {
+      console.log("Success");
+    },
+  });
+
+  const updateGatewayStatus  = async (e : any) => {
+     e.preventDefault();
+     
+    await mutateAsync({
+      password: password,
+      status: status,
+    });
+    
+  };
 
   return (
     <div>
@@ -36,10 +56,13 @@ const EditStatus = ({ Icon }: { Icon: any }) => {
         <DialogContent>
           <DialogHeader>
             <DialogTitle>Change Status</DialogTitle>
-            <div className="grid gap-4 py-4">
+            <form className="grid gap-4 py-4" onSubmit={updateGatewayStatus}>
               <div>
                 <Label htmlFor="p">Change Status</Label>
-                <Select>
+                <Select
+                  value={status}
+           name="status"
+                >
                   <SelectTrigger className="w-[180px] ">
                     <SelectValue placeholder="Change Status" />
                   </SelectTrigger>
@@ -58,13 +81,12 @@ const EditStatus = ({ Icon }: { Icon: any }) => {
                 <Input
                   id="Password"
                   type="password"
+                  name="password"
                   value={password}
-                  onChange={(e) => {
-                    SetPassword(e.target.value);
-                  }}
+                  
                 />
               </div>
-            </div>
+            </form>
           </DialogHeader>
           <DialogFooter>
             <Button type="submit">Save changes</Button>
