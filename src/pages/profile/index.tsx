@@ -2,10 +2,11 @@ import { useMutation } from "@tanstack/react-query";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { DetailedHTMLProps, FC, HTMLAttributes, useState } from "react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "shadcn/components/ui/tabs";
 
 import { $post } from "$/utils";
 import avatar from "$assets/temp/avatar.jpg";
-import { ChangePassword, ShowTickets } from "$components";
+import { Account, Booked, Cancel, ChangePassword, OnHold } from "$components/profile";
 import { Check, ChevronLeft, PencilLine, X } from "lucide-react";
 import { cn } from "shadcn/lib/utils";
 
@@ -86,7 +87,22 @@ const Index: FC<indexProps> = ({ ...rest }) => {
         <ChangePassword />
       </div>
 
-      <ShowTickets />
+      <Tabs defaultValue="hold" className="h-full w-full">
+        <TabsList>
+          <TabsTrigger value="hold">On Hold</TabsTrigger>
+          <TabsTrigger value="booked">Booked</TabsTrigger>
+          <TabsTrigger value="cancel">Cancel</TabsTrigger>
+        </TabsList>
+        <TabsContent value="hold">
+          <OnHold />
+        </TabsContent>
+        <TabsContent value="booked">
+          <Booked />
+        </TabsContent>
+        <TabsContent value="cancel">
+          <Cancel />
+        </TabsContent>
+      </Tabs>
     </div>
   );
 };
