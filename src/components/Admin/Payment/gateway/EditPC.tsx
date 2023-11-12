@@ -23,7 +23,7 @@ import {
 
 import React, { useState } from "react";
 
-const EditStatus = ({ Icon }: { Icon: any }) => {
+const EditPC = ({ Icon }: { Icon: any }) => {
   const [number, SetNumber] = useState("0");
   const [password, SetPassword] = useState("");
 
@@ -35,23 +35,40 @@ const EditStatus = ({ Icon }: { Icon: any }) => {
         </DialogTrigger>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Change Status</DialogTitle>
+            <DialogTitle>Change Gateway Credentials</DialogTitle>
             <div className="grid gap-4 py-4">
               <div>
-                <Label htmlFor="p">Change Status</Label>
-                <Select>
-                  <SelectTrigger className="w-[180px] ">
-                    <SelectValue placeholder="Change Status" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectGroup>
-                      <SelectLabel>Status</SelectLabel>
-                      <SelectItem value="apple">🔴 Turn Off</SelectItem>
-                      <SelectItem value="banana">🟢 Live</SelectItem>
-                      <SelectItem value="blueberry">🟡 Sandbox</SelectItem>
-                    </SelectGroup>
-                  </SelectContent>
-                </Select>
+                <Label htmlFor="p">Merchant ID</Label>
+                <Input
+                  id="Password"
+                  type="text"
+                  value={password}
+                  onChange={(e) => {
+                    SetPassword(e.target.value);
+                  }}
+                />
+              </div>
+              <div>
+                <Label htmlFor="p">Store ID</Label>
+                <Input
+                  id="Password"
+                  type="text"
+                  value={password}
+                  onChange={(e) => {
+                    SetPassword(e.target.value);
+                  }}
+                />
+              </div>
+              <div>
+                <Label htmlFor="p">Signature Key</Label>
+                <Input
+                  id="Password"
+                  type="text"
+                  value={password}
+                  onChange={(e) => {
+                    SetPassword(e.target.value);
+                  }}
+                />
               </div>
               <div>
                 <Label htmlFor="Password">Password</Label>
@@ -75,4 +92,4 @@ const EditStatus = ({ Icon }: { Icon: any }) => {
   );
 };
 
-export default EditStatus;
+export default EditPC;
