@@ -1,4 +1,4 @@
-import { PassengersType } from "$interface";
+import { Fare, PassengersType, Segment } from "$interface";
 import { create } from "zustand";
 import { combine, persist } from "zustand/middleware";
 import { immer } from "zustand/middleware/immer";
@@ -9,6 +9,11 @@ export const usePassengers = create(
       combine(
         {
           passengers: [] as PassengersType[],
+          flightBooking: null as Segment | null,
+
+          searchId: "" as string | undefined,
+          resultId: "" as string | undefined,
+          FareDetails: [] as Fare[],
         },
         (set, get) => ({
           addPassenger: (passenger: PassengersType) =>
@@ -20,6 +25,27 @@ export const usePassengers = create(
                 state.passengers[checkIndex] = passenger;
               }
             }),
+          setFlightBooking: (flightBooking: Segment | null) => {
+            set((store) => {
+              store.flightBooking = flightBooking;
+            });
+          },
+          setSearchId: (id: string | undefined) => {
+            set((store) => {
+              store.searchId = id;
+            });
+          },
+          setResultId: (id: string | undefined) => {
+            set((store) => {
+              store.resultId = id;
+            });
+          },
+
+          addFare: (fare: Fare[]) => {
+            set((store) => {
+              store.FareDetails = fare;
+            });
+          },
         })
       )
     ),
@@ -28,38 +54,3 @@ export const usePassengers = create(
     }
   )
 );
-
-// import { create } from "zustand";
-// import { combine, persist } from "zustand/middleware";
-// import { immer } from "zustand/middleware/immer";
-
-// interface BookingConfirmStore {
-//   Title: string;
-//   FirstName: string;
-//   LastName: string;
-//   PaxType: string;
-//   DateOfBirth: string;
-//   Gender: string;
-//   Address1: string;
-//   CountryCode: string;
-//   Nationality: string;
-//   ContactNumber: string;
-//   Email: string;
-//   IsLeadPassenger: boolean;
-// }
-
-// const usePassengers = create(
-//   persist(
-//     immer(
-//       combine(
-//         {
-//           passengers: [] as BookingConfirmStore[],
-//         },
-//         (set, get) => ({})
-//       )
-//     ),
-//     {
-//       name: "passengers",
-//     }
-//   )
-// );

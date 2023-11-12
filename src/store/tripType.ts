@@ -50,14 +50,19 @@ export const useTripType = create(
                 AdultQuantity: twoWay.travelerAndClasses.adults,
                 ChildQuantity: twoWay.travelerAndClasses.children,
                 InfantQuantity: twoWay.travelerAndClasses.infants,
-                JourneyType: "1",
+                JourneyType: "2",
                 Segments: [
                   {
                     Origin: twoWay.from?.code,
                     Destination: twoWay.to?.code,
                     CabinClass: (cabinClassOption.indexOf(twoWay.travelerAndClasses.travelClass) + 1).toString(),
                     DepartureDateTime: twoWay.departure,
-                    ReturnDateTime: twoWay.back,
+                  },
+                  {
+                    Origin: twoWay.to?.code,
+                    Destination: twoWay.from?.code,
+                    CabinClass: (cabinClassOption.indexOf(twoWay.travelerAndClasses.travelClass) + 1).toString(),
+                    DepartureDateTime: twoWay.back,
                   },
                 ],
               };
@@ -73,7 +78,7 @@ export const useTripType = create(
                 AdultQuantity: multiCity.travelerAndClasses.adults,
                 ChildQuantity: multiCity.travelerAndClasses.children,
                 InfantQuantity: multiCity.travelerAndClasses.infants,
-                JourneyType: "1",
+                JourneyType: "3",
                 Segments: multiCity.cities.map((city) => ({
                   Origin: city.from?.code,
                   Destination: city.to?.code,

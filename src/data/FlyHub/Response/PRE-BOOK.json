@@ -1,109 +1,109 @@
 {
-    "SearchId": "ac7ea646-be2a-4851-bbe0-fbb8904bb648",
-    "Results": [
+  "SearchId": "ac7ea646-be2a-4851-bbe0-fbb8904bb648",
+  "Results": [
+    {
+      "PassportMadatory": true,
+      "ExtraServices": null,
+      "ResultID": "24b11cbe-1365-4000-8020-f1e4b1f4bc83",
+      "IsRefundable": true,
+      "Fares": [
         {
-            "PassportMadatory": true,
-            "ExtraServices": null,
-            "ResultID": "24b11cbe-1365-4000-8020-f1e4b1f4bc83",
-            "IsRefundable": true,
-            "Fares": [
-                {
-                    "BaseFare": 9900.0,
-                    "Tax": 5750.0,
-                    "Currency": "BDT",
-                    "OtherCharges": 0.0,
-                    "Discount": 0.0,
-                    "AgentMarkUp": 0.0,
-                    "PaxType": "Adult",
-                    "PassengerCount": 1,
-                    "ServiceFee": 0.0
-                },
-                {
-                    "BaseFare": 7500.0,
-                    "Tax": 5750.0,
-                    "Currency": "BDT",
-                    "OtherCharges": 0.0,
-                    "Discount": 0.0,
-                    "AgentMarkUp": 0.0,
-                    "PaxType": "Child",
-                    "PassengerCount": 2,
-                    "ServiceFee": 0.0
-                },
-                {
-                    "BaseFare": 1150.0,
-                    "Tax": 0.0,
-                    "Currency": "BDT",
-                    "OtherCharges": 0.0,
-                    "Discount": 0.0,
-                    "AgentMarkUp": 0.0,
-                    "PaxType": "Infant",
-                    "PassengerCount": 1,
-                    "ServiceFee": 0.0
-                }
-            ],
-            "Discount": 0.0,
-            "Validatingcarrier": "EK",
-            "LastTicketDate": "2023-11-07T20:00:00",
-            "segments": [
-                {
-                    "TripIndicator": "OutBound",
-                    "Origin": {
-                        "Airport": {
-                            "AirportCode": "DXB",
-                            "AirportName": "Dubai International Airport",
-                            "Terminal": "3",
-                            "CityCode": "DXB",
-                            "CityName": "Dubai",
-                            "CountryCode": "AE",
-                            "CountryName": "United Arab Emirates"
-                        },
-                        "DepTime": "2023-11-29T10:30:00"
-                    },
-                    "Destination": {
-                        "Airport": {
-                            "AirportCode": "DAC",
-                            "AirportName": "Hazrat Shahjalal International Airport",
-                            "Terminal": "1",
-                            "CityCode": "DAC",
-                            "CityName": "Dhaka",
-                            "CountryCode": "BD",
-                            "CountryName": "Bangladesh"
-                        },
-                        "ArrTime": "2023-11-29T16:55:00"
-                    },
-                    "Airline": {
-                        "AirlineCode": "EK",
-                        "AirlineName": "Emirates",
-                        "FlightNumber": "586",
-                        "BookingClass": "L",
-                        "CabinClass": "Economy",
-                        "OperatingCarrier": "EK"
-                    },
-                    "Baggage": "40 K",
-                    "JourneyDuration": "265",
-                    "StopQuantity": "0",
-                    "Equipment": "77W",
-                    "baggageDetails": [
-                        {
-                            "IsAllPax": true,
-                            "PaxType": 1,
-                            "Cabin": null,
-                            "Checkin": "40 K"
-                        }
-                    ],
-                    "SegmentGroup": 0
-                }
-            ],
-            "TotalFare": 43300.0,
-            "TotalFareWithAgentMarkup": 43300.0,
-            "Currency": "BDT",
-            "Availabilty": 9,
-            "FareType": "NET",
-            "isMiniRulesAvailable": false,
-            "HoldAllowed": true
+          "BaseFare": 9900.0,
+          "Tax": 5750.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Adult",
+          "PassengerCount": 1,
+          "ServiceFee": 0.0
+        },
+        {
+          "BaseFare": 7500.0,
+          "Tax": 5750.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Child",
+          "PassengerCount": 2,
+          "ServiceFee": 0.0
+        },
+        {
+          "BaseFare": 1150.0,
+          "Tax": 0.0,
+          "Currency": "BDT",
+          "OtherCharges": 0.0,
+          "Discount": 0.0,
+          "AgentMarkUp": 0.0,
+          "PaxType": "Infant",
+          "PassengerCount": 1,
+          "ServiceFee": 0.0
         }
-    ],
-    "Error": null,
-    "RePriceStatus": "NoPriceChange",
-    "AppliedPromotion": null
+      ],
+      "Discount": 0.0,
+      "Validatingcarrier": "EK",
+      "LastTicketDate": "2023-11-07T20:00:00",
+      "segments": [
+        {
+          "TripIndicator": "OutBound",
+          "Origin": {
+            "Airport": {
+              "AirportCode": "DXB",
+              "AirportName": "Dubai International Airport",
+              "Terminal": "3",
+              "CityCode": "DXB",
+              "CityName": "Dubai",
+              "CountryCode": "AE",
+              "CountryName": "United Arab Emirates"
+            },
+            "DepTime": "2023-11-29T10:30:00"
+          },
+          "Destination": {
+            "Airport": {
+              "AirportCode": "DAC",
+              "AirportName": "Hazrat Shahjalal International Airport",
+              "Terminal": "1",
+              "CityCode": "DAC",
+              "CityName": "Dhaka",
+              "CountryCode": "BD",
+              "CountryName": "Bangladesh"
+            },
+            "ArrTime": "2023-11-29T16:55:00"
+          },
+          "Airline": {
+            "AirlineCode": "EK",
+            "AirlineName": "Emirates",
+            "FlightNumber": "586",
+            "BookingClass": "L",
+            "CabinClass": "Economy",
+            "OperatingCarrier": "EK"
+          },
+          "Baggage": "40 K",
+          "JourneyDuration": "265",
+          "StopQuantity": "0",
+          "Equipment": "77W",
+          "baggageDetails": [
+            {
+              "IsAllPax": true,
+              "PaxType": 1,
+              "Cabin": null,
+              "Checkin": "40 K"
+            }
+          ],
+          "SegmentGroup": 0
+        }
+      ],
+      "TotalFare": 43300.0,
+      "TotalFareWithAgentMarkup": 43300.0,
+      "Currency": "BDT",
+      "Availabilty": 9,
+      "FareType": "NET",
+      "isMiniRulesAvailable": false,
+      "HoldAllowed": true
+    }
+  ],
+  "Error": null,
+  "RePriceStatus": "NoPriceChange",
+  "AppliedPromotion": null
 }

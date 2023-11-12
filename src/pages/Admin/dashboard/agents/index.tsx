@@ -1,7 +1,8 @@
-import React, { SVGProps } from "react";
 import AdminLayout from "$components/Admin/layout/MainLayout";
+import React, { SVGProps } from "react";
 
 import Admin_secure from "$Secure/admin_secure";
+import { AddNewAgent } from "$components/Admin/User/AddNewAgents";
 
 const index = (props: any) => {
   return (
@@ -13,9 +14,7 @@ const index = (props: any) => {
           </span>{" "}
           Agent information
         </h1>
-        <button className="my-3 w-40 rounded-md bg-slate-200  p-3 font-bold shadow-inner hover:bg-slate-400">
-          Add new Agent
-        </button>
+        <AddNewAgent />
       </div>
     </AdminLayout>
   );

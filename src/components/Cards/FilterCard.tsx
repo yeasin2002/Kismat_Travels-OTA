@@ -118,5 +118,3 @@ export const FilterCard: FC<airSearchResponse> = ({ className, setIsSidebarExist
     </div>
   );
 };
-
-

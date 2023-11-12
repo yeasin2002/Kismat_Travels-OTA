@@ -29,4 +29,3 @@ export function GlobalProvider({ children }: { children: React.ReactNode }) {
 }
 
 export * from "./auth-provider";
-
