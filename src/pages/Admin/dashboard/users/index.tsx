@@ -1,9 +1,11 @@
+import Admin_secure from "$Secure/admin_secure";
+import { AddNewUser } from "$components/Admin/User";
 import AdminLayout from "$components/Admin/layout/MainLayout";
-import Status from "$components/Admin/util/Status";
 import UserYearReportChart from "$components/Admin/util/Charts/UserYearReportChart";
+import Status from "$components/Admin/util/Status";
 import UserTable from "$components/Table/UserTable";
 import React, { SVGProps, useState } from "react";
-import Admin_secure from "$Secure/admin_secure";
+
 
 const index = (props: any) => {
   const [data, setData] = useState(true);
@@ -17,14 +19,7 @@ const index = (props: any) => {
           User information
           {data && "true"}
         </h1>
-        <button
-          onClick={() => {
-            setData((e) => !e);
-          }}
-          className="my-3 w-40 rounded-md bg-slate-200  p-3 font-bold shadow-inner hover:bg-slate-400"
-        >
-          Add new User
-        </button>
+        <AddNewUser />
       </div>
 
       {/* status  */}

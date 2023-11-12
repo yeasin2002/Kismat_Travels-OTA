@@ -1,10 +1,12 @@
-import React, { SVGProps } from "react";
-import MainLayout from "$components/Admin/layout/MainLayout";
-import Header from "./Header";
 import Image from "next/image";
-const randomImageFromUnsplash = "https://source.unsplash.com/random/?toy";
+import React, { SVGProps } from "react";
 
 import Admin_secure from "$Secure/admin_secure";
+import { UpdateUserProfile } from "$components/Admin/User";
+import MainLayout from "$components/Admin/layout/MainLayout";
+import Header from "./Header";
+
+const randomImageFromUnsplash = "https://source.unsplash.com/random/?toy";
 
 const index = (props: any) => {
   return (
@@ -42,9 +44,7 @@ const index = (props: any) => {
             </div>
             {/* setting button  */}
             <div className="absolute right-0 flex h-full items-center justify-center p-3 md:inline-block">
-              <button className="cursor-pointer rounded-full bg-slate-50 p-2 text-3xl transition-all duration-300 hover:bg-slate-200">
-                <Settings />
-              </button>
+              <UpdateUserProfile />
             </div>
           </div>
         </div>

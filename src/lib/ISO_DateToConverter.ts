@@ -18,7 +18,6 @@ export const isoDateToHour = (isoDate: string | undefined) => {
   return regularHour;
 };
 
-
 export function isoToNormalDate(isoDate: string | undefined): string {
   if (!isoDate) {
     return "0:00";
