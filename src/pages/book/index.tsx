@@ -111,7 +111,7 @@ const Book: FC<BookProps> = ({ ...rest }) => {
                     </p>
                   </div>
                 </div>
-                <div className="mt-10   space-y-8 rounded-lg  bg-gray-200 p-2 sm:mx-4  sm:p-6"  >
+                <div className="mt-10   space-y-8 rounded-lg  bg-gray-200 p-2 sm:mx-4  sm:p-6">
                   <table className="w-full border-collapse">
                     <thead>
                       <tr>
