@@ -71,22 +71,6 @@ const Book: FC<BookProps> = ({ ...rest }) => {
                       </p>
                     </div>
                   </div>
-                  <div className="    rounded-sm bg-gray-100 ">
-                    <div className="flex justify-between ">
-                      <p className="text-base font-medium text-slate-700">Base Fare</p>
-                      <p className="text-base font-medium text-slate-700">₹ 100</p>
-                    </div>
-
-                    <div className="mt-2 flex justify-between gap-x-2">
-                      <p className="text-base font-medium text-slate-700">Taxes and Surcharges</p>
-                      <p className="text-base font-medium text-slate-700">₹ 100</p>
-                    </div>
-                    <div className="h-[0.10rem] w-full rounded-lg  bg-gradient-to-l  from-teal-400 to-teal-700" />
-                    <div className=" mt-2 flex justify-between">
-                      <p className="text-base font-medium text-slate-700">Total Amount</p>
-                      <p className="text-base font-medium text-slate-700">₹ 200</p>
-                    </div>
-                  </div>
                 </div>
 
                 <div className="mt-10   space-y-8 rounded-lg  bg-gray-200 p-2 sm:mx-4  sm:p-6">
