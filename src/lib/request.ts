@@ -1,4 +1,4 @@
-import { getAuth, setAuth, GetAdminAuth } from "$lib";
+import { GetAdminAuth, getAuth, setAuth } from "$lib";
 import axios from "axios";
 
 export const request = axios.create({
@@ -6,10 +6,9 @@ export const request = axios.create({
   transformRequest: [
     ...(Array.isArray(axios.defaults.transformRequest) ? axios.defaults.transformRequest : []),
     (data, headers) => {
-      if (typeof document === "undefined") {
-        headers.common["Authorization"] = `Bearer ${getAuth()}`;
+      if (typeof document !== "undefined") {
+        headers["Authorization"] = `Bearer ${getAuth()}`;
       }
-
       return data;
     },
   ],

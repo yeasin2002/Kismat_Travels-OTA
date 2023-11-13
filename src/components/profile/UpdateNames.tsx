@@ -1,4 +1,5 @@
-import { $post } from "$/utils";
+import { $patch } from "$/utils";
+import { useAuth } from "$hooks";
 import { useMutation } from "@tanstack/react-query";
 import { Check, Pencil, X } from "lucide-react";
 import { DetailedHTMLProps, Dispatch, FC, HTMLAttributes, SetStateAction, useState } from "react";
@@ -7,10 +8,12 @@ interface UpdateNamesProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivEleme
 }
 
 export const UpdateNames: FC<UpdateNamesProps> = ({ setIsNameChanging, ...rest }) => {
-  const [userName, setUserName] = useState("");
-  const { mutateAsync } = useMutation({
+  const { currentUser } = useAuth();
+  const [userName, setUserName] = useState(currentUser?.name || "");
+
+  const { mutateAsync, error } = useMutation({
     mutationFn: ({ id, newName }: { id: string; newName: string }) =>
-      $post(`users/${id}`, {
+      $patch(`users/${id}`, {
         name: newName,
       }),
     onSuccess: () => {
@@ -22,14 +25,16 @@ export const UpdateNames: FC<UpdateNamesProps> = ({ setIsNameChanging, ...rest }
     <div className="flex" {...rest} key={"newName"}>
       <input
         type="text"
-        defaultValue={"Md Kawsar Islam Yeasin"}
+        onChange={(e) => setUserName(e.target.value)}
+        value={userName}
         className="profileNameUpdate  border-b  border-blue-600 text-gray-500 outline-none "
       />
       <div className="flex gap-x-1">
         <span
           className="box"
           onClick={async (val) => {
-            await mutateAsync({ id: "1", newName: userName });
+            // @ts-ignore
+            await mutateAsync({ id: currentUser?.id, newName: userName });
           }}
         >
           <Check />

@@ -1,3 +1,4 @@
+import { useAuth } from "$hooks";
 import { Pencil } from "lucide-react";
 import { DetailedHTMLProps, Dispatch, FC, HTMLAttributes, SetStateAction } from "react";
 
@@ -6,12 +7,13 @@ interface DisplayNameProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivEleme
 }
 
 export const DisplayName: FC<DisplayNameProps> = ({ setIsNameChanging, ...rest }) => {
+  const { currentUser } = useAuth();
   return (
     <div className="flex" {...rest} key={"originalName"}>
       <input
         type="text"
         readOnly
-        defaultValue={"Md Kawsar Islam Yeasin"}
+        defaultValue={currentUser?.name}
         className="profileNameUpdate border-none outline-none  "
       />
       <span
