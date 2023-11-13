@@ -8,7 +8,7 @@ export function setAuth(value: string) {
 }
 
 export function getAuth() {
-  return localStorage.get(localAuthStoreName);
+  return localStorage.getItem(localAuthStoreName);
 }
 
 export function GetAdminAuth() {

@@ -113,6 +113,13 @@
   .tablesItems {
     @apply border border-gray-600/20 p-2;
   }
+
+  .profileNameUpdate {
+    @apply text-xl font-bold text-gray-700;
+  }
+  .box {
+    @apply p-2 border border-gray-600/20 rounded-lg;
+  }
   .stack {
     display: grid;
     grid-template: "container";
@@ -148,11 +155,19 @@
     mask: var(--mask);
   }
 
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
   input:-webkit-autofill,
   input:-webkit-autofill:hover,
   input:-webkit-autofill:focus,
   input:-webkit-autofill:active {
-    opacity: 0.5;
     transition:
       background-color 50000s ease-in-out 0s,
       color 5000s ease-in-out 0s;

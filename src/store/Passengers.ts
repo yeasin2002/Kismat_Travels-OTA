@@ -1,4 +1,4 @@
-import { Fare, PassengersType, Segment } from "$interface";
+import { Fare, PassengersType, SearchResponse, Segment } from "$interface";
 import { create } from "zustand";
 import { combine, persist } from "zustand/middleware";
 import { immer } from "zustand/middleware/immer";
@@ -13,7 +13,7 @@ export const usePassengers = create(
 
           searchId: "" as string | undefined,
           resultId: "" as string | undefined,
-          FareDetails: [] as Fare[],
+          flightDetails: [] as SearchResponse[],
         },
         (set, get) => ({
           addPassenger: (passenger: PassengersType) =>
@@ -41,9 +41,9 @@ export const usePassengers = create(
             });
           },
 
-          addFare: (fare: Fare[]) => {
+          addFare: (fare: SearchResponse) => {
             set((store) => {
-              store.FareDetails = fare;
+              store.flightDetails.push(fare);
             });
           },
         })
