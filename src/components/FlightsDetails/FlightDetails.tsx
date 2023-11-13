@@ -27,7 +27,7 @@ export const FlightDetails: FC<FlightDetailsProps> = ({ flightDetails, searchId,
 
   return (
     <div {...rest} className="flex flex-col gap-4 rounded-md bg-white p-4 text-slate-700">
-      {flightDetails.segments.map((airBus) => {
+      {flightDetails.segments.slice(0, 1).map((airBus) => {
         const { normalDate: normalDepDate, normalTime: normalDepTime } = isoDateConvert(airBus.Origin.DepTime);
         const { normalDate: normalArrDate, normalTime: normalArrTime } = isoDateConvert(airBus.Destination.ArrTime);
         const hourLeft = convertMinutes(airBus.JourneyDuration);
@@ -100,7 +100,7 @@ export const FlightDetails: FC<FlightDetailsProps> = ({ flightDetails, searchId,
                   store.setFlightBooking(airBus);
                   store.setSearchId(searchId);
                   store.setResultId(flightDetails.ResultID);
-                  store.addFare(flightDetails?.Fares);
+                  store.addFare(flightDetails);
                 }}
                 className={buttonVariants({ variant: "default" })}
                 href={`/book`}
