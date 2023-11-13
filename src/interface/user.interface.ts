@@ -10,4 +10,6 @@ export interface UserWithPassword extends UserCredential {
   updatedAt: Date;
 }
 
-export interface User extends Omit<UserWithPassword, "password"> {}
+export interface User extends Omit<UserWithPassword, "password"> {
+  id: string;
+}
