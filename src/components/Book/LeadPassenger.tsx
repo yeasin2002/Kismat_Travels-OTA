@@ -31,7 +31,7 @@ export const LeadPassenger: FC<LeadPassengerProps> = ({ ...rest }) => {
         error={formState.errors.Title}
         name="Title"
         control={control}
-        options={["Mr", "Ms", "Mrs", "Mrs"].map((value) => ({ value, label: value }))}
+        options={["Mr", "Ms", "Mrs"].map((value) => ({ value, label: value }))}
       />
 
       <SelectNotCreatable

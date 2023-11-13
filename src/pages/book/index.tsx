@@ -10,7 +10,7 @@ import { PassengerDetails } from "$components/Book/PassengerDetails";
 import { SpinnerIcon } from "$icons";
 
 import { usePassengers, useTripType } from "$store";
-import { CalendarCheck2, PlaneLanding, PlaneTakeoff } from "lucide-react";
+import { PlaneLanding, PlaneTakeoff } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "shadcn/components/ui/accordion";
 
@@ -24,7 +24,7 @@ function createArray(length: number | any) {
 interface BookProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
 
 const Book: FC<BookProps> = ({ ...rest }) => {
-  const { passengers, flightBooking, flightDetails } = usePassengers();
+  const { passengers, flightBooking } = usePassengers();
   const { get } = useSearchParams();
 
   const currentStore = useTripType((store) => store.getCurrentStore());
@@ -46,10 +46,12 @@ const Book: FC<BookProps> = ({ ...rest }) => {
   const totalInfantPassengers = createArray(currentStore?.InfantQuantity);
   const total = currentStore?.AdultQuantity! + currentStore?.ChildQuantity! + currentStore?.InfantQuantity!;
 
+  console.log(passengers);
+
   return (
     <section {...rest} className="[--gap-x:1rem] [--gap-y:1rem]">
       <Nav />
-      
+
       <div>
         <div className="w-full  space-y-5 bg-slate-800 p-4 !pb-20 lg:p-8">
           <div>
@@ -82,7 +84,6 @@ const Book: FC<BookProps> = ({ ...rest }) => {
                 </div>
               </div>
             </div>
-            );
           </div>
           <div className="rounded-lg bg-gray-100 shadow-lg [--gap-x:2rem] [--gap-y:2rem]">
             <LeadPassenger />
@@ -168,49 +169,9 @@ const Book: FC<BookProps> = ({ ...rest }) => {
           </button>
         </div>
       </div>
-      );
     </section>
   );
 };
 
 export default Book;
 
-/*
-  <div className="mt-10   space-y-8 rounded-lg  bg-gray-200 p-2 sm:mx-4  sm:p-6">
-                        <table className="w-full border-collapse">
-                          <thead>
-                            <tr>
-                              <th className="tablesItems ">Fare Summary</th>
-                              <th className="tablesItems ">Base Fare</th>
-                              <th className="tablesItems ">Tex + Fees</th>
-                              <th className="tablesItems ">Per Passenger</th>
-                              <th className="tablesItems ">Total</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            {FareDetails.Fares.map((fare) => {
-                              const totalOtherCharge = fare.Tax + fare.OtherCharges;
-                              const totalCost = fare.BaseFare + fare.Tax + fare.OtherCharges * fare.PassengerCount;
-                              return (
-                                <tr>
-                                  <td className="tablesItems"> {fare.PaxType} </td>
-                                  <td className="tablesItems"> {fare.BaseFare} </td>
-                                  <td className="tablesItems"> {totalOtherCharge} </td>
-                                  <td className="tablesItems flex">
-                                    {fare.BaseFare + totalOtherCharge} X {fare.PassengerCount}
-                                  </td>
-                                  <td className="tablesItems font-bold">{totalCost}</td>
-                                </tr>
-                              );
-                            })}
-                            <tr>
-                              <td className="tablesItems font-bold">Total</td>
-                              <td className="tablesItems font-bold"></td>
-                              <td className="tablesItems font-bold"></td>
-                              <td className="tablesItems font-bold"></td>
-                              <td className="tablesItems font-bold">{"sumCost"}</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-*/
