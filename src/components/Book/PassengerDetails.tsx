@@ -13,6 +13,7 @@ interface ContactDetailsProps {
 export const PassengerDetails: FC<ContactDetailsProps> = ({ index, paxType, ...rest }) => {
   const id = useId();
   const ps = usePassengers();
+
   const { register, formState, handleSubmit, control } = useForm<PassengersType>();
   const onSubmit = (data: PassengersType) => {
     ps.addPassenger({
@@ -22,6 +23,8 @@ export const PassengerDetails: FC<ContactDetailsProps> = ({ index, paxType, ...r
     });
   };
 
+  console.log("ps.passengers");
+  console.log(ps.passengers); 
   return (
     <form
       className="z-10 grid gap-4 px-[var(--gap-x)] py-[var(--gap-y)] sm:grid-cols-2 md:grid-cols-3 md:gap-6 lg:grid-cols-4"
@@ -36,7 +39,7 @@ export const PassengerDetails: FC<ContactDetailsProps> = ({ index, paxType, ...r
           error={formState.errors.Title}
           name="title"
           control={control}
-          options={["Mr", "Ms", "Mrs", "Mrs"].map((value) => ({ value, label: value }))}
+          options={["Mr", "Ms", "Mrs"].map((value) => ({ value, label: value }))}
         />
       </div>
 

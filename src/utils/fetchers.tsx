@@ -25,12 +25,14 @@ export const $post = async (route = "", arg: any) => {
 };
 
 export const $put = async (route = "", arg = {}) => {
-  const { data } = await AxiosInstance.put(route, arg);
-  return data;
+ 
+   const { data } = await AxiosInstance.put(route, arg);
+   return data;
+ 
 };
 
 export const $delete = async (route = "", arg = {}) => {
-  const { data } = await AxiosInstance.put(route, arg);
+  const { data } = await AxiosInstance.delete(route, arg);
   return data;
 };
 
