@@ -1,8 +1,13 @@
 import React, { SVGProps } from "react";
 import Status from "./Status";
 import EditProfit from "./EditProfit";
+import { useGetProfit } from "$hooks/useGetProfit";
 
 const ProfitPage = () => {
+  const { data, Reload, error, isLoading } = useGetProfit();
+  if (error) {
+    console.log(error);
+  }
   return (
     <div className="relative w-full p-1">
       <div className="rounded-md bg-slate-200 p-2 shadow-inner">
@@ -13,8 +18,17 @@ const ProfitPage = () => {
           Website Sell Profit
         </div>
         <div className="grid w-full grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
-          <Status name="Ticket Sell to User" data="10" Update={<EditProfit FOR="User" Icon={Edit} />} />
-          <Status name="Ticket Sell to Agent" data="10" Update={<EditProfit FOR="Agent" Icon={Edit} />} />
+          <Status
+            name="Ticket Sell to User"
+            data={isLoading ? "Loading.." : data ? data.user_profit : "no data"}
+            Update={<EditProfit FOR="User" Icon={Edit} />}
+          />
+
+          <Status
+            name="Ticket Sell to Agent"
+            data={isLoading ? "Loading.." : data ? data.agent_profit : "no data"}
+            Update={<EditProfit FOR="Agent" Icon={Edit} />}
+          />
         </div>
       </div>
     </div>
