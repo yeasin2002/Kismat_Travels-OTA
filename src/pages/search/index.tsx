@@ -29,9 +29,9 @@ export default function Search() {
     mutate(storeValue);
   }
 
-  useEffect(() => {
-    searchAction();
-  }, []);
+  // useEffect(() => {
+  //   searchAction();
+  // }, []);
 
   const filterAirline = useMemo(
     () =>
