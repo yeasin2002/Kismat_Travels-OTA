@@ -28,7 +28,7 @@ import { useMutation } from "@tanstack/react-query";
 
 const EditPC = ({ Icon, id, reloadLoad }: { Icon: any; id: string; reloadLoad: Function }) => {
   const { mutateAsync, isError, error, isPending } = useMutation<any, any, any>({
-    mutationFn: (val: any) => $post("/payment_gateway/changes_status", val),
+    mutationFn: (val: any) => $post("/payment_gateway/change_information", val),
     onSuccess: () => {
       reloadLoad();
     },
@@ -39,7 +39,9 @@ const EditPC = ({ Icon, id, reloadLoad }: { Icon: any; id: string; reloadLoad: F
     try {
       await mutateAsync({
         password: e.target.password.value,
-        status: e.target.status.value,
+        store_id: e.target.store_id.value,
+        merchant_id: e.target.merchant_id.value,
+        signature_key: e.target.signature_key.value,
         id: id,
         Headers: {
           sessions: cookie.get("value_ad"),
@@ -58,7 +60,7 @@ const EditPC = ({ Icon, id, reloadLoad }: { Icon: any; id: string; reloadLoad: F
         <DialogContent>
           <DialogHeader>
             <DialogTitle>Change Gateway Credentials</DialogTitle>
-            <div className="grid gap-4 py-4">
+            <form className="grid gap-4 py-4" onSubmit={updateGatewayStatus}>
               <div>
                 <Label htmlFor="p">Merchant ID</Label>
                 <Input id="Password" type="text" name="merchant_id" />
@@ -76,7 +78,7 @@ const EditPC = ({ Icon, id, reloadLoad }: { Icon: any; id: string; reloadLoad: F
                 <Input id="Password" type="password" name="password" />
               </div>
               <Button type="submit"> {isPending && <EosIconsBubbleLoading />}Save changes</Button>
-            </div>
+            </form>
           </DialogHeader>
           <DialogFooter>
             {isError && (
