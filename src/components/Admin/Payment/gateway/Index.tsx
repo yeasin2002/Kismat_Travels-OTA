@@ -60,7 +60,8 @@ const Gateway = () => {
           <div className="relative col-span-1 w-full  rounded-md bg-white p-3 shadow-sm md:col-span-2">
             <div className="flex justify-between">
               <h1 className="font-bold">Gateway Credentials</h1>
-              <EditPC Icon={Edit} />
+              {!isLoading && data?.id && <EditPC Icon={Edit} id={data?.id} reloadLoad={Reload} />}
+              {/* <EditPC Icon={Edit} /> */}
             </div>
             {!isLoading && (
               <div className="relative mt-2 w-full text-sm">

@@ -6,10 +6,9 @@ export const AxiosInstance = axios.create({
   transformRequest: [
     ...(Array.isArray(axios.defaults.transformRequest) ? axios.defaults.transformRequest : []),
     (data, headers) => {
-      if (typeof document === "undefined") {
-        headers.common["Authorization"] = `Bearer ${getAuth()}`;
+      if (typeof document !== "undefined") {
+        headers["Authorization"] = `Bearer ${getAuth()}`;
       }
-
       return data;
     },
   ],
@@ -36,6 +35,6 @@ export const $delete = async (route = "", arg = {}) => {
 };
 
 export const $patch = async (route = "", arg = {}) => {
-  const { data } = await AxiosInstance.put(route, arg);
+  const { data } = await AxiosInstance.patch(route, arg);
   return data;
 };

@@ -180,3 +180,4 @@ const AuthProvider: FunctionComponent<AuthProviderProps> = ({ children }) => {
 };
 
 export { AuthContext, AuthProvider };
+
