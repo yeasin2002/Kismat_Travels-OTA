@@ -24,13 +24,10 @@ import {
 
 import { $post } from "$/utils";
 import { useMutation } from "@tanstack/react-query";
-import React, { ChangeEvent, FormEventHandler, SVGProps, useState } from "react";
+import React, { SVGProps } from "react";
 
 const EditStatus = ({ Icon, id, reloadLoad }: { Icon: any; id: string; reloadLoad: Function }) => {
-  const [password, SetPassword] = useState("");
-  const [status, setStatus] = useState("");
-
-  const { mutateAsync, isError, error, isPending } = useMutation({
+  const { mutateAsync, isError, error, isPending } = useMutation<any, any, any>({
     mutationFn: (val: any) => $post("/payment_gateway/changes_status", val),
     onSuccess: () => {
       reloadLoad();
