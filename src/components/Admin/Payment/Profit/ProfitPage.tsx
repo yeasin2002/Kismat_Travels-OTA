@@ -19,15 +19,31 @@ const ProfitPage = () => {
         </div>
         <div className="grid w-full grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
           <Status
-            name="Ticket Sell to User"
+            name="Sell Profit"
             data={isLoading ? "Loading.." : data ? data.user_profit : "no data"}
-            Update={<EditProfit FOR="User" Icon={Edit} />}
+            Update={
+              <EditProfit
+                id={data?.id}
+                reload={Reload}
+                FOR="User"
+                Icon={Edit}
+                presentData={data ? data.user_profit : "0"}
+              />
+            }
           />
 
           <Status
-            name="Ticket Sell to Agent"
+            name="Agent Profit"
             data={isLoading ? "Loading.." : data ? data.agent_profit : "no data"}
-            Update={<EditProfit FOR="Agent" Icon={Edit} />}
+            Update={
+              <EditProfit
+                id={data?.id}
+                reload={Reload}
+                FOR="Agent"
+                Icon={Edit}
+                presentData={data ? data.agent_profit : "0"}
+              />
+            }
           />
         </div>
       </div>
