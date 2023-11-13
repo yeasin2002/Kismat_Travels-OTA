@@ -3,9 +3,8 @@ import { AddNewUser } from "$components/Admin/User";
 import AdminLayout from "$components/Admin/layout/MainLayout";
 import UserYearReportChart from "$components/Admin/util/Charts/UserYearReportChart";
 import Status from "$components/Admin/util/Status";
-import UserTable from "$components/Table/UserTable";
+import UserTable from "$components/Admin/User/UserTable";
 import React, { SVGProps, useState } from "react";
-
 
 const index = (props: any) => {
   const [data, setData] = useState(true);
