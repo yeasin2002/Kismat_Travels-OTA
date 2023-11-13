@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { SerPOST } from "$lib/request";
 
 const admin_path = /^\/Admin\/dashboard\/.*$/;
 export async function middleware(request: NextRequest) {
