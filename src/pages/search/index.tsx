@@ -8,6 +8,7 @@ import { useTripType } from "$store";
 import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/router";
 import { Fragment, useEffect, useMemo, useState } from "react";
+import { cn } from "shadcn/lib/utils";
 
 function includes(v1: string, v2: string) {
   return v1.toLowerCase().includes(v1.toLowerCase());
@@ -30,7 +31,7 @@ export default function Search() {
   }
 
   useEffect(() => {
-    searchAction();
+    // searchAction();
   }, []);
 
   const filterAirline = useMemo(
@@ -52,17 +53,26 @@ export default function Search() {
 
   const stat = getStat();
 
+  const isReturnDateExist = "back" in stat && stat.back;
+
   return (
     <>
       <Nav />
       <div className="container flex min-h-[calc(100dvh-3.75rem)] flex-col gap-y-4 bg-gradient-to-t from-slate-600 to-slate-900 text-white">
-        <div className="grid grid-cols-5 gap-2 pt-2">
+        <div
+          className={cn(
+            "no-scrollbar grid grid-cols-[repeat(5,minmax(200px,1fr))] gap-2 overflow-y-scroll pt-2 [scroll-snap-type:x_mandatory] [&_*]:[scroll-snap-align:start]",
+            {
+              "grid-cols-[repeat(6,minmax(200px,1fr))]": isReturnDateExist,
+            }
+          )}
+        >
           <StatCard extra="h-fit" title={"Trip type"} value={tripType} />
 
-          <div className="col-span-3 space-y-2">
+          <div className={cn("col-span-3 space-y-2", { "col-span-4": isReturnDateExist })}>
             {"cities" in stat ? (
               stat.cities.map((city) => (
-                <div className="flex gap-2">
+                <div className="flex min-w-max gap-2">
                   <StatCard title="From" value={city.from?.name as string} />
                   <StatCard title="To" value={city.to?.name as string} />
                   <StatCard
@@ -78,7 +88,7 @@ export default function Search() {
                 </div>
               ))
             ) : (
-              <div className="flex h-full gap-2">
+              <div className="flex h-full min-w-max gap-2">
                 <StatCard title="From" value={stat.from?.name as string} />
                 <StatCard title="To" value={stat.to?.name as string} />
                 <StatCard
@@ -91,6 +101,18 @@ export default function Search() {
                     }) as string
                   }
                 />
+                {isReturnDateExist && (
+                  <StatCard
+                    title="Return"
+                    value={
+                      stat.back?.toLocaleDateString("en-US", {
+                        day: "numeric",
+                        month: "short",
+                        year: "numeric",
+                      }) as string
+                    }
+                  />
+                )}
               </div>
             )}
           </div>
