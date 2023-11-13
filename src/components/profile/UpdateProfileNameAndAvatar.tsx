@@ -18,48 +18,53 @@ export const UpdateProfileNameAndAvatar: FC<UpdateProfileNameAndAvatarProps> = (
   const { currentUser } = useAuth();
   const [isNameChanging, setIsNameChanging] = useState(false);
   const img = getImgSrc("avatar", currentUser?.photoUrl || "");
- 
 
- const { mutateAsync } = useMutation({
-   mutationFn: (id: string) => $post(`users/${id}`, {}),
- });
+  const { mutateAsync } = useMutation({
+    mutationFn: ({ id, form }: { id: string; form: FormData }) => $post(`users/${id}`, form),
+    onError: (e) => console.log(e),
+  });
 
- return (
-   <div {...rest}>
-     <div className="flex items-center gap-x-2">
-       <div className="relative">
-         <img
-           src={img}
-           onError={(e) => {
-             e.currentTarget.src = avatar.src;
-           }}
-           alt="Avatar"
-           className={cn("  rounded-full p-[0.10rem] ring ")}
-           width={80}
-           height={80}
-         />
-         <Label htmlFor="avatar" className="absolute -bottom-2 right-0 cursor-pointer rounded-full bg-blue-600 p-2"
-         title="Change avatar"
-         >
-           <ImagePlus size={20} color="white" />
-         </Label>
-         <input
-           type="file"
-           id="avatar"
-           name="avatar"
-           className="hidden"
-           onChange={async () => {
-             // @ts-ignore
-             mutateAsync(currentUser?.id);
-           }}
-         />
-       </div>
-       {!isNameChanging ? (
-         <DisplayName setIsNameChanging={setIsNameChanging} />
-       ) : (
-         <UpdateNames setIsNameChanging={setIsNameChanging} />
-       )}
-     </div>
-   </div>
- );
+  return (
+    <div {...rest}>
+      <div className="flex items-center gap-x-2">
+        <form className="relative">
+          <img
+            src={img}
+            onError={(e) => {
+              e.currentTarget.src = avatar.src;
+            }}
+            alt="Avatar"
+            className={cn("  rounded-full p-[0.10rem] ring ")}
+            width={80}
+            height={80}
+          />
+          <Label
+            htmlFor="avatar"
+            className="absolute -bottom-2 right-0 cursor-pointer rounded-full bg-blue-600 p-2"
+            title="Change avatar"
+          >
+            <ImagePlus size={20} color="white" />
+          </Label>
+          <input
+            type="file"
+            id="avatar"
+            name="avatar"
+            className="hidden"
+            onChange={async (evt) => {
+              if (!evt.currentTarget.files) return;
+
+              const form = new FormData();
+              form.append("avatar", evt.currentTarget.files[0]);
+              await mutateAsync({ id: currentUser?.id!, form });
+            }}
+          />
+        </form>
+        {!isNameChanging ? (
+          <DisplayName setIsNameChanging={setIsNameChanging} />
+        ) : (
+          <UpdateNames setIsNameChanging={setIsNameChanging} />
+        )}
+      </div>
+    </div>
+  );
 };

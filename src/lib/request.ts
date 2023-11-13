@@ -7,7 +7,7 @@ export const request = axios.create({
     ...(Array.isArray(axios.defaults.transformRequest) ? axios.defaults.transformRequest : []),
     (data, headers) => {
       if (typeof document !== "undefined") {
-        headers["Authorization"] = `Bearer ${getAuth()}`;
+        headers["Authorization"] ??= `Bearer ${getAuth()}`;
       }
       return data;
     },

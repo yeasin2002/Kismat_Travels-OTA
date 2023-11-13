@@ -36,6 +36,7 @@ interface Value {
   currentUser: User | null;
   changePassword: ChangePasswordFun;
   googleAuth: GoogleAuth;
+  setCurrentUser: (user: unknown) => void;
 }
 
 const AuthContext = createContext<Prettify<Value> | null>(null);
@@ -68,11 +69,11 @@ function cb() {}
 const localStorageUserDataKey = "user-information" as const;
 
 const AuthProvider: FunctionComponent<AuthProviderProps> = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState<User | null>(null);
+  const [currentUser, _setCurrentUser] = useState<User | null>(null);
   const [wait, setWait] = useState(true);
 
   useEffect(() => {
-    setCurrentUser(validateUser(parseLocal(localStorageUserDataKey)));
+    _setCurrentUser(validateUser(parseLocal(localStorageUserDataKey)));
     setWait(false);
     const destroyDispatchManualChange = dispatchManualChange();
     const destroyOnLocalStorageChange = onLocalStorageChange(removeLocalUser);
@@ -89,7 +90,7 @@ const AuthProvider: FunctionComponent<AuthProviderProps> = ({ children }) => {
         resolve([{ success: true }, null]);
         onSuccess({ success: true });
         removeAuth();
-        setCurrentUser(null);
+        _setCurrentUser(null);
         removeLocal(localStorageUserDataKey);
       } catch (error) {
         onError(error);
@@ -102,7 +103,7 @@ const AuthProvider: FunctionComponent<AuthProviderProps> = ({ children }) => {
     return new Promise(async (resolve) => {
       try {
         const { data } = await POST<{ user: User; auth: string }>("auth/signup", userCredential);
-        setCurrentUser(validateUser(data.user));
+        _setCurrentUser(validateUser(data.user));
         setAuth(data.auth);
         setLocal(localStorageUserDataKey, validateUser(data.user)!);
         onSuccess(data.user);
@@ -119,7 +120,7 @@ const AuthProvider: FunctionComponent<AuthProviderProps> = ({ children }) => {
       try {
         const { data } = await POST<{ user: User; auth: string }>("auth/signin", userCredential);
         setAuth(data.auth);
-        setCurrentUser(validateUser(data.user));
+        _setCurrentUser(validateUser(data.user));
         setLocal(localStorageUserDataKey, validateUser(data.user)!);
         onSuccess(data.user);
         resolve([data.user, null]);
@@ -146,13 +147,14 @@ const AuthProvider: FunctionComponent<AuthProviderProps> = ({ children }) => {
   const googleAuth: GoogleAuth = async ({ token, onError = cb, onSuccess = cb }) => {
     return new Promise(async (resolve) => {
       try {
+        console.log(`Bearer ${token}`);
         const { data } = await GET<User>("auth/current", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         });
         setAuth(token);
-        setCurrentUser(validateUser(data));
+        _setCurrentUser(validateUser(data));
         setLocal(localStorageUserDataKey, validateUser(data)!);
         onSuccess(data);
         resolve([data, null]);
@@ -163,6 +165,11 @@ const AuthProvider: FunctionComponent<AuthProviderProps> = ({ children }) => {
     });
   };
 
+  function setCurrentUser(user: unknown) {
+    setLocal(localStorageUserDataKey, validateUser(user)!);
+    _setCurrentUser(validateUser(user));
+  }
+
   return (
     <AuthContext.Provider
       value={{
@@ -171,6 +178,7 @@ const AuthProvider: FunctionComponent<AuthProviderProps> = ({ children }) => {
         signIn,
         googleAuth,
         currentUser,
+        setCurrentUser,
         changePassword,
       }}
     >

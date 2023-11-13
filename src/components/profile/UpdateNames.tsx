@@ -8,15 +8,16 @@ interface UpdateNamesProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivEleme
 }
 
 export const UpdateNames: FC<UpdateNamesProps> = ({ setIsNameChanging, ...rest }) => {
-  const { currentUser } = useAuth();
+  const { currentUser, setCurrentUser } = useAuth();
   const [userName, setUserName] = useState(currentUser?.name || "");
 
-  const { mutateAsync, error } = useMutation({
+  const { mutateAsync } = useMutation({
     mutationFn: ({ id, newName }: { id: string; newName: string }) =>
       $patch(`users/${id}`, {
         name: newName,
       }),
-    onSuccess: () => {
+    onSuccess: (data) => {
+      setCurrentUser(data);
       setIsNameChanging(false);
     },
   });
@@ -32,9 +33,8 @@ export const UpdateNames: FC<UpdateNamesProps> = ({ setIsNameChanging, ...rest }
       <div className="flex gap-x-1">
         <span
           className="box"
-          onClick={async (val) => {
-            // @ts-ignore
-            await mutateAsync({ id: currentUser?.id, newName: userName });
+          onClick={async () => {
+            await mutateAsync({ id: currentUser?.id!, newName: userName });
           }}
         >
           <Check />
