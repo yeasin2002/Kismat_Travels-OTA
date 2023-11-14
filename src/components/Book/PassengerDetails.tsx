@@ -37,7 +37,7 @@ export const PassengerDetails: FC<ContactDetailsProps> = ({ index, paxType, ...r
           label="Title"
           placeholder="Select Title"
           error={formState.errors.Title}
-          name="title"
+          name="Title"
           control={control}
           options={["Mr", "Ms", "Mrs"].map((value) => ({ value, label: value }))}
         />
@@ -49,7 +49,7 @@ export const PassengerDetails: FC<ContactDetailsProps> = ({ index, paxType, ...r
         error={formState.errors.FirstName}
         register={register("FirstName", {
           required: "First Name is required!",
-          minLength: { value: 6, message: "First Name must've 6 character long!" },
+          minLength: { value: 2, message: "First Name must've 2 character long!" },
         })}
       />
       <Input
@@ -83,6 +83,7 @@ export const PassengerDetails: FC<ContactDetailsProps> = ({ index, paxType, ...r
         register={register("PassportExpiryDate", {
           required: { value: true, message: "Passport Expiry Date is required!" },
         })}
+        type="date"
         label="Passport ExpiryDate"
         placeholder="write your Passport Expiry Date"
         error={formState.errors.PassportExpiryDate}
@@ -91,7 +92,6 @@ export const PassengerDetails: FC<ContactDetailsProps> = ({ index, paxType, ...r
       <Input
         register={register("PassportNationality", {
           required: { value: true, message: "Passport Nationality is required!" },
-          minLength: { value: 6, message: "Passport Nationality must've 6 character long!" },
         })}
         label="Passport Nationality"
         placeholder="write your last name"
