@@ -1,5 +1,4 @@
 import { useMutation } from "@tanstack/react-query";
-import Image from "next/image";
 import { DetailedHTMLProps, FC, HTMLAttributes, useState } from "react";
 import { cn } from "shadcn/lib/utils";
 
