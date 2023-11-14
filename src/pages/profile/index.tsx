@@ -11,7 +11,7 @@ const Index: FC<indexProps> = ({ ...rest }) => {
 
   return (
     <div {...rest} className="container">
-      <div className="my-5  ">
+      <div className="my-5">
         <span className="cursor-pointer   rounded-full bg-slate-300  p-2" onClick={() => router.back()}>
           <ChevronLeft size={30} className="inline-block" />
         </span>
