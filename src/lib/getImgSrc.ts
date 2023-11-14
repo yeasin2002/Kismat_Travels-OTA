@@ -1,5 +1,5 @@
 const alias = {
-  avatar: joinUrl(process.env.NEXT_PUBLIC_BACKEND_BASE_URL!, "user/avatar"),
+  avatar: joinUrl(process.env.NEXT_PUBLIC_BACKEND_BASE_URL!, "users/avatar"),
 } as const;
 
 export function getImgSrc(root: keyof typeof alias, url: string) {
