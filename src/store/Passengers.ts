@@ -1,10 +1,10 @@
 import { Fare, PassengersType, SearchResponse, Segment } from "$interface";
 import { create } from "zustand";
-import { combine, persist } from "zustand/middleware";
+import { combine, devtools, persist } from "zustand/middleware";
 import { immer } from "zustand/middleware/immer";
 
 export const usePassengers = create(
-  persist(
+  devtools(
     immer(
       combine(
         {
@@ -25,6 +25,11 @@ export const usePassengers = create(
                 state.passengers[checkIndex] = passenger;
               }
             }),
+          emptyPassenger: () =>
+            set((state) => {
+              state.passengers = [];
+            }),
+
           setFlightBooking: (flightBooking: Segment | null) => {
             set((store) => {
               store.flightBooking = flightBooking;
@@ -48,9 +53,6 @@ export const usePassengers = create(
           },
         })
       )
-    ),
-    {
-      name: "passengers",
-    }
+    )
   )
 );
