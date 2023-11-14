@@ -41,7 +41,7 @@ export const usePassengers = create(
             });
           },
 
-          addFare: (fare: SearchResponse) => {
+          setFlightDetails: (fare: SearchResponse) => {
             set((store) => {
               store.flightDetails.push(fare);
             });

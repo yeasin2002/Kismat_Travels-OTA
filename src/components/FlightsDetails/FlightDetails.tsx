@@ -5,7 +5,7 @@ import { Times } from "$components";
 import { CalendarCheck2, Minus, PlaneLanding, PlaneTakeoff, Timer } from "lucide-react";
 
 import { SearchResponse } from "$interface";
-import { StopQuantityConverter, convertMinutes, isoDateConvert, remainingHour } from "$lib";
+import { StopQuantityConverter, convertMinutes, isoDateConvert } from "$lib";
 import { usePassengers } from "$store";
 import Link from "next/link";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "shadcn/components/ui/accordion";
@@ -100,7 +100,8 @@ export const FlightDetails: FC<FlightDetailsProps> = ({ flightDetails, searchId,
                   store.setFlightBooking(airBus);
                   store.setSearchId(searchId);
                   store.setResultId(flightDetails.ResultID);
-                  store.addFare(flightDetails);
+                  store.setFlightDetails(flightDetails);
+                  // store.setFlightBooking(airBus);
                 }}
                 className={buttonVariants({ variant: "default" })}
                 href={`/book`}
