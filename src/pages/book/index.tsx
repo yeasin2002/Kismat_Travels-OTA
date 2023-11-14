@@ -1,17 +1,13 @@
-import { useMutation } from "@tanstack/react-query";
 import Image from "next/image";
 import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
 
-import { $post } from "$/utils";
 import AirbusLogo from "$assets/temp/qatar-airways.jpg";
 import { LeadPassenger, Nav } from "$components";
 import { PassengerDetails } from "$components/Book/PassengerDetails";
 
-import { SpinnerIcon } from "$icons";
-
+import { BookingBtn } from "$components/Book/BookingBtn";
 import { usePassengers, useTripType } from "$store";
 import { PlaneLanding, PlaneTakeoff } from "lucide-react";
-import { useSearchParams } from "next/navigation";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "shadcn/components/ui/accordion";
 
 function createArray(length: number | any) {
@@ -24,36 +20,23 @@ function createArray(length: number | any) {
 interface BookProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
 
 const Book: FC<BookProps> = ({ ...rest }) => {
-  const { passengers, flightBooking } = usePassengers();
-  const { get } = useSearchParams();
-
+  const { passengers, flightBooking, flightDetails, resultId } = usePassengers();
   const currentStore = useTripType((store) => store.getCurrentStore());
-  const { mutateAsync, isPending } = useMutation({
-    mutationKey: ["booking"],
-    mutationFn: async (data: any) => $post("privet/AirBook", data),
-  });
-
-  async function bookingHandler() {
-    await mutateAsync({
-      SearchID: get("searchId"),
-      ResultID: get("resultId"),
-      passengers: passengers,
-    });
-  }
 
   const totalAdultPassengers = createArray(currentStore?.AdultQuantity! - 1);
   const totalChildPassengers = createArray(currentStore?.ChildQuantity);
   const totalInfantPassengers = createArray(currentStore?.InfantQuantity);
   const total = currentStore?.AdultQuantity! + currentStore?.ChildQuantity! + currentStore?.InfantQuantity!;
 
-  console.log(passengers);
+  const currentFlightForBooking = flightDetails.find((val) => val.ResultID === resultId);
+
+  console.log(currentFlightForBooking);
 
   return (
-    <section {...rest} className="[--gap-x:1rem] [--gap-y:1rem]">
+    <section {...rest} className="[--gap-x:1rem]  [--gap-y:1rem]">
       <Nav />
-
       <div>
-        <div className="w-full  space-y-5 bg-slate-800 p-4 !pb-20 lg:p-8">
+        <div className="w-full  space-y-5 bg-slate-800 p-4 !pb-20 lg:p-8 ">
           <div>
             <h2 className=" p-5 text-2xl font-bold text-white">Complete Your Booking</h2>
             <div>
@@ -161,12 +144,8 @@ const Book: FC<BookProps> = ({ ...rest }) => {
               </div>
             </div>
           )}
-          <button
-            onClick={bookingHandler}
-            className="mt-4 rounded-md bg-white px-10 py-2 text-xl font-semibold uppercase text-slate-800"
-          >
-            {!isPending ? "Continue" : <SpinnerIcon />}
-          </button>
+
+          <BookingBtn />
         </div>
       </div>
     </section>
@@ -175,3 +154,6 @@ const Book: FC<BookProps> = ({ ...rest }) => {
 
 export default Book;
 
+/**
+
+ */
