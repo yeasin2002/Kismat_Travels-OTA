@@ -1,13 +1,13 @@
 import { GET } from "$lib";
 import { useQuery } from "@tanstack/react-query";
-import { createContext, useEffect } from "react";
+import { createContext } from "react";
 
 export const ProfitContext = createContext<{ profit: { $user: number; $agent: number } | null } | null>(null);
 
 export function ProfitProvider({ children }: { children: React.ReactNode }) {
-  const { data, isLoading, isError, isSuccess } = useQuery({
+  const { data, isSuccess } = useQuery({
     queryKey: ["profit"],
-    queryFn: () => GET("private/Profit"),
+    queryFn: () => GET("profit/get_information"),
     staleTime: 0,
   });
 
