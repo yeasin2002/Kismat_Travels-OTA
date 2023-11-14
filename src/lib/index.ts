@@ -4,10 +4,11 @@ export * from "./RemainingTime";
 export * from "./auth";
 export * from "./event";
 export * from "./is";
-export * from "./local-storage";
+export * from "./localStorage";
 export * from "./regex";
 export * from "./request";
 export * from "./segmentsValueConverter";
+export * from "./transform";
 export * from "./uuid";
 
 export function parseNumber(value: any, fallback = 0) {

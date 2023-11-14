@@ -1,29 +1,50 @@
 import { $post } from "$/utils";
 import noDataFound from "$assets/Illustrations/3D/no-results.png";
 import { FancySelectString, FlightDetails, Nav, StatCard, TravelersAndClass } from "$components";
-import data from "$data/FlyHub/Response/AirSearch.json";
+import { useProfit } from "$hooks";
 import { SpinnerIcon } from "$icons";
-import { Search } from "$interface";
+import { Modify, Search } from "$interface";
 import { useTripType } from "$store";
 import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/router";
 import { Fragment, useEffect, useMemo, useState } from "react";
 import { cn } from "shadcn/lib/utils";
+import { toast } from "sonner";
 
 function includes(v1: string, v2: string) {
   return v1.toLowerCase().includes(v1.toLowerCase());
+}
+
+type SearchType = Modify<Search, { Results: Exclude<Search["Results"], null> }>;
+
+function addPercentage(baseNumber: number, percentage = 0) {
+  return baseNumber + (percentage / 100) * baseNumber;
 }
 
 export default function Search() {
   const router = useRouter();
   const [selectedAirline, setSelectedAirline] = useState("All");
   const { getCurrentStore, getStat, tripType } = useTripType();
-  const [searchResult, setSearchResult] = useState<Search | null>(null);
+  const [searchResult, setSearchResult] = useState<SearchType | null>(null);
+  const { profit } = useProfit();
 
-  const { mutate, isPending } = useMutation<Search, Error, ReturnType<typeof getCurrentStore>>({
+  const { mutate, isPending } = useMutation<SearchType, Error, ReturnType<typeof getCurrentStore>>({
     mutationKey: ["airSearchRequest"],
     mutationFn: (arg: any) => $post("private/AirSearch", arg),
-    onSuccess: (data) => setSearchResult(data),
+    onSuccess: (data) => {
+      if (data.Results === null) return toast.error("No flight available");
+      if (!profit) throw new Error("Profit is not defined");
+
+      data.Results.forEach((v) => {
+        v.Fares.forEach((flare) => {
+          flare.BaseFare = addPercentage(flare.BaseFare, profit.$user);
+        });
+      });
+
+      console.log(data.Results.at(0)?.Fares.at(0));
+
+      setSearchResult(data as any);
+    },
   });
 
   function searchAction() {
@@ -33,28 +54,27 @@ export default function Search() {
   }
 
   useEffect(() => {
-    // searchAction();
+    searchAction();
   }, []);
 
   const filterAirline = useMemo(
     () =>
       Array.from(
-        new Set(data?.Results?.map((val) => val.segments?.map((airline) => airline.Airline.AirlineName)).flat())
+        new Set(searchResult?.Results.map((val) => val.segments.map((airline) => airline.Airline.AirlineName)).flat())
       ),
-    []
+    [searchResult]
   );
 
   const flights = useMemo(() => {
-    if (!data || !Array.isArray(data?.Results)) return [];
-    if (selectedAirline === "All") return data.Results;
+    if (!searchResult || !Array.isArray(searchResult?.Results)) return [];
+    if (selectedAirline === "All") return searchResult.Results;
 
-    return data.Results.filter(
+    return searchResult.Results.filter(
       (flight) => flight.segments.findIndex((v) => includes(v.Airline.AirlineName, selectedAirline)) !== -1
     );
-  }, [data, selectedAirline]);
+  }, [searchResult, selectedAirline]);
 
   const stat = getStat();
-
   const isReturnDateExist = "back" in stat && stat.back;
 
   return (
@@ -140,7 +160,7 @@ export default function Search() {
               <img src={noDataFound.src} alt="Not Found" className="mx-auto aspect-square w-96" />
             ) : (
               flights?.map((flight) => (
-                <FlightDetails key={flight.ResultID} searchId={data?.SearchId} flightDetails={flight} />
+                <FlightDetails key={flight.ResultID} searchId={searchResult?.searchId} flightDetails={flight} />
               ))
             )}
           </Fragment>
