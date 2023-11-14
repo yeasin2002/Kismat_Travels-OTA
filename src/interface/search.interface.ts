@@ -75,5 +75,5 @@ export interface SearchResponse {
 export interface Search {
   Error: any;
   Results: SearchResponse[] | null;
-  searchId: string;
+  SearchId: string;
 }

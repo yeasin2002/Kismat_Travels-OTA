@@ -17,8 +17,8 @@ function includes(v1: string, v2: string) {
 
 type SearchType = Modify<Search, { Results: Exclude<Search["Results"], null> }>;
 
-function addPercentage(baseNumber: number, percentage = 0) {
-  return parseFloat((baseNumber + (percentage / 100) * baseNumber).toFixed(2));
+function addPercentage(baseNumber: number, percentage = 10) {
+  return parseFloat((baseNumber + baseNumber * (percentage / 100)).toFixed(2));
 }
 
 export default function Search() {
@@ -160,7 +160,7 @@ export default function Search() {
               <img src={noDataFound.src} alt="Not Found" className="mx-auto aspect-square w-96" />
             ) : (
               flights?.map((flight) => (
-                <FlightDetails key={flight.ResultID} searchId={searchResult?.searchId} flightDetails={flight} />
+                <FlightDetails key={flight.ResultID} searchId={searchResult?.SearchId} flightDetails={flight} />
               ))
             )}
           </Fragment>
