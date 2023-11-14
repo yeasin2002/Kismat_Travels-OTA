@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
+import { DetailedHTMLProps, FC, HTMLAttributes, useEffect } from "react";
 
 import AirbusLogo from "$assets/temp/qatar-airways.jpg";
 import { LeadPassenger, Nav } from "$components";
@@ -20,7 +20,7 @@ function createArray(length: number | any) {
 interface BookProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
 
 const Book: FC<BookProps> = ({ ...rest }) => {
-  const { passengers, flightBooking, flightDetails, resultId } = usePassengers();
+  const { passengers, flightBooking, flightDetails, resultId, emptyPassenger } = usePassengers();
   const currentStore = useTripType((store) => store.getCurrentStore());
 
   const totalAdultPassengers = createArray(currentStore?.AdultQuantity! - 1);
@@ -30,7 +30,9 @@ const Book: FC<BookProps> = ({ ...rest }) => {
 
   const currentFlightForBooking = flightDetails.find((val) => val.ResultID === resultId);
 
-  console.log(currentFlightForBooking);
+  useEffect(() => {
+    emptyPassenger();
+  }, []);
 
   return (
     <section {...rest} className="[--gap-x:1rem]  [--gap-y:1rem]">
@@ -145,7 +147,7 @@ const Book: FC<BookProps> = ({ ...rest }) => {
             </div>
           )}
 
-          <BookingBtn />
+          <BookingBtn allowHold={currentFlightForBooking?.HoldAllowed} />
         </div>
       </div>
     </section>
