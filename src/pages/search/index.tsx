@@ -18,10 +18,12 @@ export default function Search() {
   const router = useRouter();
   const [selectedAirline, setSelectedAirline] = useState("All");
   const { getCurrentStore, getStat, tripType } = useTripType();
+  const [searchResult, setSearchResult] = useState<Search | null>(null);
 
   const { mutate, isPending } = useMutation<Search, Error, ReturnType<typeof getCurrentStore>>({
     mutationKey: ["airSearchRequest"],
     mutationFn: (arg: any) => $post("private/AirSearch", arg),
+    onSuccess: (data) => setSearchResult(data),
   });
 
   function searchAction() {

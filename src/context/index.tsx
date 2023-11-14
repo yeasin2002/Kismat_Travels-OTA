@@ -2,9 +2,10 @@ import { PageLoading } from "$components";
 import { useSmoothScroll } from "$hooks";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { Toaster, toast } from "sonner";
+import { Toaster } from "sonner";
 
 import { AuthProvider } from "./auth-provider";
+import { ProfitProvider } from "./profit-provider";
 
 export function GlobalProvider({ children }: { children: React.ReactNode }) {
   const queryClient = new QueryClient({
@@ -14,18 +15,22 @@ export function GlobalProvider({ children }: { children: React.ReactNode }) {
       },
     },
   });
+
   useSmoothScroll();
+
   return (
     <AuthProvider>
       <QueryClientProvider client={queryClient}>
-        {children}
-
-        <Toaster richColors />
-        <ReactQueryDevtools initialIsOpen={false} />
-        <PageLoading />
+        <ProfitProvider>
+          {children}
+          <Toaster richColors />
+          <ReactQueryDevtools initialIsOpen={false} />
+          <PageLoading />
+        </ProfitProvider>
       </QueryClientProvider>
     </AuthProvider>
   );
 }
 
 export * from "./auth-provider";
+export * from "./profit-provider";
