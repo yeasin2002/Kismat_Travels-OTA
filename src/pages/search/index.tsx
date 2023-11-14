@@ -12,13 +12,13 @@ import { cn } from "shadcn/lib/utils";
 import { toast } from "sonner";
 
 function includes(v1: string, v2: string) {
-  return v1.toLowerCase().includes(v1.toLowerCase());
+  return v1.toLowerCase().includes(v2.toLowerCase());
 }
 
 type SearchType = Modify<Search, { Results: Exclude<Search["Results"], null> }>;
 
 function addPercentage(baseNumber: number, percentage = 0) {
-  return baseNumber + (percentage / 100) * baseNumber;
+  return parseFloat((baseNumber + (percentage / 100) * baseNumber).toFixed(2));
 }
 
 export default function Search() {
