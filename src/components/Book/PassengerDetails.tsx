@@ -1,5 +1,6 @@
 import { Button, Input, SelectNotCreatable } from "$components";
 import { PassengersType } from "$interface";
+import { transform } from "$lib";
 import { usePassengers } from "$store";
 
 import { FC, useId } from "react";
@@ -16,15 +17,16 @@ export const PassengerDetails: FC<ContactDetailsProps> = ({ index, paxType, ...r
 
   const { register, formState, handleSubmit, control } = useForm<PassengersType>();
   const onSubmit = (data: PassengersType) => {
+    const tsData = transform<PassengersType>(data);
     ps.addPassenger({
-      ...data,
+      ...tsData,
       IsLeadPassenger: false,
       id: `${paxType}${index}`,
     });
   };
 
   console.log("ps.passengers");
-  console.log(ps.passengers); 
+  console.log(ps.passengers);
   return (
     <form
       className="z-10 grid gap-4 px-[var(--gap-x)] py-[var(--gap-y)] sm:grid-cols-2 md:grid-cols-3 md:gap-6 lg:grid-cols-4"
@@ -101,7 +103,6 @@ export const PassengerDetails: FC<ContactDetailsProps> = ({ index, paxType, ...r
       <Input
         register={register("Address1", {
           required: { value: true, message: "Address1 is required!" },
-          minLength: { value: 6, message: "Address1 must've 6 character long!" },
         })}
         label="Address1"
         placeholder="write your 1st  Address"

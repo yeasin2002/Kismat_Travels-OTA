@@ -1,4 +1,4 @@
-export function transform(data: Record<string, any>) {
+export function transform<T extends object>(data: Record<string, any>): T {
   const obj: Record<string, string> = {};
 
   for (const key in data) {
@@ -13,5 +13,5 @@ export function transform(data: Record<string, any>) {
     obj[key] = data[key];
   }
 
-  return obj;
+  return obj as T;
 }
