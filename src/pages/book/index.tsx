@@ -155,7 +155,3 @@ const Book: FC<BookProps> = ({ ...rest }) => {
 };
 
 export default Book;
-
-/**
-
- */

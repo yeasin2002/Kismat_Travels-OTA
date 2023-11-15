@@ -1,8 +1,10 @@
 import { Button, Input, SelectNotCreatable } from "$components";
 import { PassengersType } from "$interface/Passengers.interface";
+import { transform } from "$lib";
 import { usePassengers } from "$store";
 import { DetailedHTMLProps, FC, FormHTMLAttributes } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 
 interface LeadPassengerProps extends DetailedHTMLProps<FormHTMLAttributes<HTMLFormElement>, HTMLFormElement> {}
 export const LeadPassenger: FC<LeadPassengerProps> = ({ ...rest }) => {
@@ -11,7 +13,9 @@ export const LeadPassenger: FC<LeadPassengerProps> = ({ ...rest }) => {
   const { register, formState, handleSubmit, control } = useForm<PassengersType>();
 
   const FormHandler = (data: PassengersType) => {
-    ps.addPassenger({ ...data, IsLeadPassenger: true, id: `lead-0` });
+    const tsData = transform<PassengersType>(data);
+    ps.addPassenger({ ...tsData, IsLeadPassenger: true, id: `lead-0` });
+    toast.success("Your Information Added");
   };
 
   return (
@@ -176,6 +180,26 @@ export const LeadPassenger: FC<LeadPassengerProps> = ({ ...rest }) => {
         placeholder="write your Birth Date"
         error={formState.errors.DateOfBirth}
         type="date"
+      />
+      <SelectNotCreatable
+        register={register("Gender", {
+          required: { value: true, message: "Gender  is required!" },
+        })}
+        label="Gender"
+        placeholder="Select Gender"
+        error={formState.errors.Gender}
+        name="Gender"
+        control={control}
+        options={[
+          {
+            label: "Male",
+            value: "1",
+          },
+          {
+            label: "Female",
+            value: "2",
+          },
+        ]}
       />
 
       <div className="col-span-full">
