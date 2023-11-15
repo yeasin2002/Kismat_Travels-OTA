@@ -1,4 +1,5 @@
 import { useAuth } from "$hooks";
+import { getImgSrc } from "$lib/getImgSrc";
 import { LogOut } from "lucide-react";
 import Link from "next/link";
 import { Avatar, AvatarFallback, AvatarImage } from "shadcn/components/ui/avatar";
@@ -22,7 +23,7 @@ export function UserNav() {
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" className="relative h-8 w-8 rounded-full">
           <Avatar className="h-8 w-8">
-            <AvatarImage src={currentUser.photoUrl || ""} alt={`@${currentUser.name}`} />
+            <AvatarImage src={getImgSrc("avatar", currentUser.photoUrl || "")} alt={`@${currentUser.name}`} />
             <AvatarFallback className="select-none bg-blue-300">{currentUser.name.substring(0, 2)}</AvatarFallback>
           </Avatar>
         </Button>

@@ -1,5 +1,5 @@
 import { AirportData } from "$interface/airport.interface";
-import { POST } from "$lib/request";
+import { GET } from "$lib/request";
 import { useEffect, useState } from "react";
 import cookie from "js-cookie";
 
@@ -12,12 +12,7 @@ export function useGetProfit() {
   async function queryFn(): Promise<any> {
     try {
       SetLoad(true);
-      const { data } = await POST("/profit/get_information", {
-        Headers: {
-          sessions: cookie.get("value_ad"),
-          key: cookie.get("key_ad"),
-        },
-      });
+      const { data } = await GET("/profit/get_information");
       SetData(data);
       SetLoad(false);
     } catch (error) {
