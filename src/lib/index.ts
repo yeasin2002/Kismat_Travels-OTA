@@ -5,6 +5,7 @@ export * from "./auth";
 export * from "./event";
 export * from "./is";
 export * from "./localStorage";
+export * from "./optionsIndex";
 export * from "./regex";
 export * from "./request";
 export * from "./segmentsValueConverter";

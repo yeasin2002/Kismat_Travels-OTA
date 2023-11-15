@@ -61,8 +61,11 @@ export const BookingBtn: FC<BookingBtnProps> = ({ allowHold, ...rest }) => {
           response: res,
         });
       } else {
-        const res = fluHubBook.mutate(flyHubReq);
-        return privateBook.mutate({
+        const res = await fluHubBook.mutateAsync(flyHubReq);
+        if (res.Error && typeof res.Error.ErrorCode === "number") {
+          return toast.error("Something went wrong, unable to book");
+        }
+        return privateBook.mutateAsync({
           userId: currentUser?.id,
           bookingId: "string",
           response: res,
@@ -70,8 +73,8 @@ export const BookingBtn: FC<BookingBtnProps> = ({ allowHold, ...rest }) => {
         });
       }
     } catch (error: any) {
-      console.log(error.message);
-      toast.error(error.message);
+      console.log(error?.message);
+      toast.error("Something went wrong, please try again later");
     }
   };
 
