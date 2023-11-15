@@ -1,6 +1,10 @@
 import AdminLayout from "$components/Admin/layout/MainLayout";
 import React, { SVGProps } from "react";
 
+import Pending from "$components/Admin/Booking/Pending";
+import Booked from "$components/Admin/Booking/Booked";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "shadcn/components/ui/tabs";
+
 import Admin_secure from "$Secure/admin_secure";
 
 const index = (props: any) => {
@@ -13,6 +17,20 @@ const index = (props: any) => {
           </span>{" "}
           Booking Information
         </h1>
+      </div>
+      <div className="pl-0 sm:pl-2 ">
+        <Tabs defaultValue="Pending" className="relative w-full px-2 sm:px-3">
+          <TabsList className="grid w-full grid-cols-2">
+            <TabsTrigger value="Pending">Pending</TabsTrigger>
+            <TabsTrigger value="Booked">Booked</TabsTrigger>
+          </TabsList>
+          <TabsContent value="Pending">
+            <Pending />
+          </TabsContent>
+          <TabsContent value="Booked">
+            <Booked />
+          </TabsContent>
+        </Tabs>
       </div>
     </AdminLayout>
   );
