@@ -13,7 +13,7 @@ const Router: IRoute[] = [
     Icon: <CarbonHome className="mx-3 my-2 text-lg" />,
   },
   {
-    path: "",
+    path: "booking",
     label: "Bonking",
     Icon: <SolarBillCheckBroken className="mx-3 my-2 text-lg" />,
   },

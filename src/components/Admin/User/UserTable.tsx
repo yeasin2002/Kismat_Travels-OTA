@@ -24,8 +24,10 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "shadcn/components/ui/dropdown-menu";
+import { Avatar, AvatarFallback, AvatarImage } from "shadcn/components/ui/avatar";
 import { Input } from "shadcn/components/ui/input";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "shadcn/components/ui/table";
+import { getImgSrc } from "$lib/getImgSrc";
 
 const datas: Payment[] = [
   {
@@ -81,6 +83,20 @@ export const columns: ColumnDef<Payment>[] = [
     enableSorting: false,
     enableHiding: false,
   },
+  // select check box end
+
+  {
+    header: "Photo",
+    accessorKey: "photoUrl",
+    cell: ({ row }) => (
+      <div>
+        <Avatar>
+          <AvatarImage className="object-cover" src={getImgSrc("avatar", row.getValue("photoUrl"))} alt="hello" />
+          <AvatarFallback>{row.original.name[0]}</AvatarFallback>
+        </Avatar>
+      </div>
+    ),
+  },
 
   {
     accessorKey: "email",
@@ -93,6 +109,12 @@ export const columns: ColumnDef<Payment>[] = [
       );
     },
     cell: ({ row }) => <div className="lowercase">{row.getValue("email")}</div>,
+  },
+
+  {
+    header: "Name",
+    accessorKey: "name",
+    cell: ({ row }) => <div>{row.getValue("name")}</div>,
   },
 
   {
