@@ -48,6 +48,11 @@ export const BookingBtn: FC<BookingBtnProps> = ({ allowHold, ...rest }) => {
 
       if (allowHold) {
         const res = await fluHubPrebook.mutateAsync(flyHubReq);
+        console.log(res);
+        if (res.Error && typeof res.Error.ErrorCode === "number") {
+          return toast.error("Something went wrong, please try again later");
+        }
+
         return await privatePrebook.mutateAsync({
           ResultId: resultId,
           userId: currentUser?.id,
