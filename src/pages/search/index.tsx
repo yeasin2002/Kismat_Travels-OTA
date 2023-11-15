@@ -4,6 +4,7 @@ import { FancySelectString, FlightDetails, Nav, StatCard, TravelersAndClass } fr
 import { useProfit } from "$hooks";
 import { SpinnerIcon } from "$icons";
 import { Modify, Search } from "$interface";
+import { addPercentage } from "$lib";
 import { useTripType } from "$store";
 import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/router";
@@ -16,10 +17,6 @@ function includes(v1: string, v2: string) {
 }
 
 type SearchType = Modify<Search, { Results: Exclude<Search["Results"], null> }>;
-
-function addPercentage(baseNumber: number, percentage = 10) {
-  return parseFloat((baseNumber + baseNumber * (percentage / 100)).toFixed(2));
-}
 
 export default function Search() {
   const router = useRouter();
@@ -35,13 +32,13 @@ export default function Search() {
       if (data.Results === null) return toast.error("No flight available");
       if (!profit) throw new Error("Profit is not defined");
 
-      data.Results.forEach((v) => {
-        v.Fares.forEach((flare) => {
+      data.Results.forEach((result) => {
+        result.Fares.forEach((flare) => {
           flare.BaseFare = addPercentage(flare.BaseFare, profit.$user);
         });
-      });
 
-      console.log(data.Results.at(0)?.Fares.at(0));
+        result.TotalFare = addPercentage(result.TotalFare, profit.$user);
+      });
 
       setSearchResult(data as any);
     },
