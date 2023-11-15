@@ -42,7 +42,6 @@ const Book: FC<BookProps> = ({ ...rest }) => {
         <div className="w-full  space-y-5 bg-slate-800 p-4 !pb-20 lg:p-8 ">
           <DisplayBookingPrice />
 
-          {/*  */}
           <div className="rounded-lg bg-gray-100 shadow-lg [--gap-x:2rem] [--gap-y:2rem]">
             <LeadPassenger />
           </div>
