@@ -12,7 +12,7 @@ const Status = ({ name, data, Update }: { name: string; data: string; Update: Re
       </div>
       <div className="relative z-10 flex items-center justify-between">
         <h1>{name}</h1>
-        <button className="p-1">{Update}</button>
+        <div className="p-1">{Update}</div>
       </div>
       <div className="relative z-10 mt-3 text-7xl font-bold text-slate-700">{data}%</div>
     </div>
