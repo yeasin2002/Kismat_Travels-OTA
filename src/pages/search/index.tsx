@@ -4,7 +4,7 @@ import { FancySelectString, FlightDetails, Nav, StatCard, TravelersAndClass } fr
 import { useProfit } from "$hooks";
 import { SpinnerIcon } from "$icons";
 import { Modify, Search } from "$interface";
-import { addPercentage } from "$lib";
+import { POST, addPercentage } from "$lib";
 import { useTripType } from "$store";
 import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/router";
@@ -47,6 +47,7 @@ export default function Search() {
   function searchAction() {
     const storeValue = getCurrentStore();
     if (!storeValue) return router.push("/");
+    POST("statics/search", { search: storeValue }).catch(console.log);
     mutate(storeValue);
   }
 
