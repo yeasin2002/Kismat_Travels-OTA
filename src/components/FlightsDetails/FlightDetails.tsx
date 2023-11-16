@@ -11,10 +11,11 @@ import Link from "next/link";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "shadcn/components/ui/accordion";
 import { buttonVariants } from "shadcn/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "shadcn/components/ui/tabs";
-import Cancellation from "./Cancellation";
 import DateChange from "./DateChange";
 import Details from "./Details";
 import FareSummary from "./FareSummary";
+
+import FlightRules from "./FlightRules";
 
 interface FlightDetailsProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   flightDetails: SearchResponse;
@@ -126,7 +127,7 @@ export const FlightDetails: FC<FlightDetailsProps> = ({ flightDetails, searchId,
               <TabsList className="[&>*]:uppercase">
                 <TabsTrigger value="details">Flight Details </TabsTrigger>
                 <TabsTrigger value="FareSummary">Fare Summary</TabsTrigger>
-                <TabsTrigger value="Cancellation">Cancellation</TabsTrigger>
+                {flightDetails.isMiniRulesAvailable && <TabsTrigger value="FlightRules">Flight Rules</TabsTrigger>}
                 <TabsTrigger value="DateChange">Date Change</TabsTrigger>
               </TabsList>
 
@@ -136,9 +137,11 @@ export const FlightDetails: FC<FlightDetailsProps> = ({ flightDetails, searchId,
               <TabsContent value="FareSummary">
                 <FareSummary FareDetails={flightDetails.Fares} />
               </TabsContent>
-              <TabsContent value="Cancellation">
-                <Cancellation />
-              </TabsContent>
+              {flightDetails.isMiniRulesAvailable && (
+                <TabsContent value="FlightRules">
+                  <FlightRules />
+                </TabsContent>
+              )}
               <TabsContent value="DateChange">
                 <DateChange />
               </TabsContent>

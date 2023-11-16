@@ -1,0 +1,23 @@
+{
+  "miniRules": [
+    {
+      "FareRuleType": "string",
+      "Paxtype": "Adult",
+      "CityPair": "BLR-DEL",
+      "CurrencyCode": "BDT",
+      "isRefundable": true,
+      "amountRefundableBeforeDeparture": 0,
+      "isRefundablebeforeDeparture": true,
+      "amountrefundableafterDeparture": 0,
+      "isRefundableafterDeparture": true,
+      "isExchangeable": true,
+      "amountExchangeableBeforeDeparture": 0,
+      "isExchangeableBeforeDeparture": true,
+      "amountExchangeableAfterDeparture": 0,
+      "isExchangeableAfterDeparture": true,
+      "isPercentage": true,
+      "isNoShow": true
+    }
+  ],
+  "Error": null
+}
