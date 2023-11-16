@@ -20,14 +20,18 @@ const index = (props: any) => {
       </div>
       <div className="pl-0 sm:pl-2 ">
         <Tabs defaultValue="Pending" className="relative w-full px-2 sm:px-3">
-          <TabsList className="grid w-full grid-cols-2">
-            <TabsTrigger value="Pending">Pending</TabsTrigger>
-            <TabsTrigger value="Booked">Booked</TabsTrigger>
+          <TabsList className="grid w-full grid-cols-3">
+            <TabsTrigger value="Pending">Pending (20)</TabsTrigger>
+            <TabsTrigger value="Booked">Booked (1)</TabsTrigger>
+            <TabsTrigger value="Ticketed">Ticketed (11)</TabsTrigger>
           </TabsList>
           <TabsContent value="Pending">
             <Pending />
           </TabsContent>
           <TabsContent value="Booked">
+            <Booked />
+          </TabsContent>
+          <TabsContent value="Ticketed">
             <Booked />
           </TabsContent>
         </Tabs>
