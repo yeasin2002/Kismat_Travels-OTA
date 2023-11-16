@@ -100,8 +100,8 @@ export const BookingBtn: FC<BookingBtnProps> = ({ allowHold, ...rest }) => {
         });
       }
     } catch (error: any) {
-      console.log(error.message);
-      toast.error(error.message);
+      console.log(error?.message);
+      toast.error("Something went wrong, please try again later");
     }
   };
 

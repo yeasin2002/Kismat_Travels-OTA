@@ -1,6 +1,6 @@
 import { Button, Input, SelectNotCreatable } from "$components";
 import { PassengersType } from "$interface";
-import { transform } from "$lib";
+import { optionsIndex, transform } from "$lib";
 import { usePassengers } from "$store";
 
 import { FC, useId } from "react";
@@ -32,6 +32,7 @@ export const PassengerDetails: FC<ContactDetailsProps> = ({ index, paxType, ...r
       className="z-10 grid gap-4 px-[var(--gap-x)] py-[var(--gap-y)] sm:grid-cols-2 md:grid-cols-3 md:gap-6 lg:grid-cols-4"
       onSubmit={handleSubmit(onSubmit)}
       key={id}
+      {...rest}
     >
       <div className="[&>*]:w-full">
         <SelectNotCreatable
@@ -41,7 +42,7 @@ export const PassengerDetails: FC<ContactDetailsProps> = ({ index, paxType, ...r
           error={formState.errors.Title}
           name="Title"
           control={control}
-          options={["Mr", "Ms", "Mrs"].map((value) => ({ value, label: value }))}
+          options={optionsIndex(["Mr", "Ms", "Mrs"])}
         />
       </div>
 
