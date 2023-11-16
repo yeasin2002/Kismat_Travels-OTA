@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { DetailedHTMLProps, FC, HTMLAttributes, useEffect } from "react";
+import { DetailedHTMLProps, FC, HTMLAttributes, useEffect, useState } from "react";
 
 import AirbusLogo from "$assets/temp/qatar-airways.jpg";
 import { LeadPassenger, Nav } from "$components";
@@ -9,6 +9,7 @@ import { BookingBtn } from "$components/Book/BookingBtn";
 import { DisplayBookingPrice } from "$components/Book/DisplayBookingPrice";
 import { usePassengers, useTripType } from "$store";
 
+import { Skeleton } from "shadcn/components/ui";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "shadcn/components/ui/accordion";
 
 function createArray(length: number | any) {
@@ -21,7 +22,8 @@ function createArray(length: number | any) {
 interface BookProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
 
 const Book: FC<BookProps> = ({ ...rest }) => {
-  const { passengers, flightBooking, flightDetails, resultId, emptyPassenger } = usePassengers();
+  const [isDataLoading, setIsDataLoading] = useState(true);
+  const { flightDetails, resultId, emptyPassenger } = usePassengers();
   const currentStore = useTripType((store) => store.getCurrentStore());
 
   const totalAdultPassengers = createArray(currentStore?.AdultQuantity! - 1);
@@ -38,9 +40,10 @@ const Book: FC<BookProps> = ({ ...rest }) => {
   return (
     <section {...rest} className="[--gap-x:1rem]  [--gap-y:1rem]">
       <Nav />
+
       <div>
         <div className="w-full  space-y-5 bg-slate-800 p-4 !pb-20 lg:p-8 ">
-          <DisplayBookingPrice />
+          <DisplayBookingPrice setIsDataLoading={setIsDataLoading} isDataLoading={isDataLoading} />
 
           <div className="rounded-lg bg-gray-100 shadow-lg [--gap-x:2rem] [--gap-y:2rem]">
             <LeadPassenger />
@@ -118,7 +121,6 @@ const Book: FC<BookProps> = ({ ...rest }) => {
               </div>
             </div>
           )}
-
           <BookingBtn allowHold={currentFlightForBooking?.HoldAllowed} />
         </div>
       </div>
