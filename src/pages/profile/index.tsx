@@ -3,11 +3,16 @@ import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "shadcn/components/ui/tabs";
 
 import { Booked, Cancel, ChangePassword, OnHold, UpdateProfileNameAndAvatar } from "$components/profile";
+import { useAuth } from "$hooks";
 import { ChevronLeft } from "lucide-react";
 
 interface indexProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
 const Index: FC<indexProps> = ({ ...rest }) => {
+  const { currentUser } = useAuth();
   const router = useRouter();
+  if (!currentUser) {
+   router.push("/");
+  }
 
   return (
     <div {...rest} className="container">
