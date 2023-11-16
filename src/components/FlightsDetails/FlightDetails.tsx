@@ -127,8 +127,8 @@ export const FlightDetails: FC<FlightDetailsProps> = ({ flightDetails, searchId,
               <TabsList className="[&>*]:uppercase">
                 <TabsTrigger value="details">Flight Details </TabsTrigger>
                 <TabsTrigger value="FareSummary">Fare Summary</TabsTrigger>
-                {flightDetails.isMiniRulesAvailable && <TabsTrigger value="FlightRules">Flight Rules</TabsTrigger>}
-                <TabsTrigger value="DateChange">Date Change</TabsTrigger>
+                {!flightDetails.isMiniRulesAvailable && <TabsTrigger value="FlightRules">Flight Rules</TabsTrigger>}
+          
               </TabsList>
 
               <TabsContent value="details" className="w-full">
@@ -137,14 +137,12 @@ export const FlightDetails: FC<FlightDetailsProps> = ({ flightDetails, searchId,
               <TabsContent value="FareSummary">
                 <FareSummary FareDetails={flightDetails.Fares} />
               </TabsContent>
-              {flightDetails.isMiniRulesAvailable && (
+              {!flightDetails.isMiniRulesAvailable && (
                 <TabsContent value="FlightRules">
                   <FlightRules />
                 </TabsContent>
               )}
-              <TabsContent value="DateChange">
-                <DateChange />
-              </TabsContent>
+            
             </Tabs>
           </AccordionContent>
         </AccordionItem>
