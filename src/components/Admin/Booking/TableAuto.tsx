@@ -284,55 +284,7 @@ export default function DataTableDemo<T>({
 
         <div className="flex w-full justify-end gap-3">
           {/* status filter */}
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="outline" className="">
-                Status <ChevronDown className="ml-2 h-4 w-4" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              {/* {table
-                .getAllColumns()
-                .filter((column) => column.getCanHide())
-                .map((column) => {
-                  return (
-                    <DropdownMenuCheckboxItem
-                      key={column.id}
-                      className="capitalize"
-                      checked={column.getIsVisible()}
-                      onCheckedChange={(value) => column.toggleVisibility(!!value)}
-                    >
-                      {column.id}
-                    </DropdownMenuCheckboxItem>
-                  );
-                })} */}
-              {status_list.map((status, index) => {
-                return (
-                  <DropdownMenuCheckboxItem
-                    key={index}
-                    className="capitalize"
-                    checked={
-                      table.getColumn("status")?.getFilterValue() === status.value ||
-                      table.getColumn("status")?.getFilterValue() === undefined
-                    }
-                    onCheckedChange={(value) =>
-                      table
-                        .getColumn("status")
-                        ?.setFilterValue(
-                          !value
-                            ? (status.value !== "All" && status.value) || ""
-                            : table.getColumn("status")?.getFilterValue()
-                            ? (status.value !== "All" && status.value) || ""
-                            : ""
-                        )
-                    }
-                  >
-                    {status.label}
-                  </DropdownMenuCheckboxItem>
-                );
-              })}
-            </DropdownMenuContent>
-          </DropdownMenu>
+
           {/* column filter  */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -427,3 +379,53 @@ export function FluentColumnEdit20Regular(props: SVGProps<SVGSVGElement>) {
     </svg>
   );
 }
+
+// <DropdownMenu>
+// <DropdownMenuTrigger asChild>
+//   <Button variant="outline" className="">
+//     Status <ChevronDown className="ml-2 h-4 w-4" />
+//   </Button>
+// </DropdownMenuTrigger>
+// <DropdownMenuContent align="end">
+//   {/* {table
+//     .getAllColumns()
+//     .filter((column) => column.getCanHide())
+//     .map((column) => {
+//       return (
+//         <DropdownMenuCheckboxItem
+//           key={column.id}
+//           className="capitalize"
+//           checked={column.getIsVisible()}
+//           onCheckedChange={(value) => column.toggleVisibility(!!value)}
+//         >
+//           {column.id}
+//         </DropdownMenuCheckboxItem>
+//       );
+//     })} */}
+//   {status_list.map((status, index) => {
+//     return (
+//       <DropdownMenuCheckboxItem
+//         key={index}
+//         className="capitalize"
+//         checked={
+//           table.getColumn("status")?.getFilterValue() === status.value ||
+//           table.getColumn("status")?.getFilterValue() === undefined
+//         }
+//         onCheckedChange={(value) =>
+//           table
+//             .getColumn("status")
+//             ?.setFilterValue(
+//               !value
+//                 ? (status.value !== "All" && status.value) || ""
+//                 : table.getColumn("status")?.getFilterValue()
+//                 ? (status.value !== "All" && status.value) || ""
+//                 : ""
+//             )
+//         }
+//       >
+//         {status.label}
+//       </DropdownMenuCheckboxItem>
+//     );
+//   })}
+// </DropdownMenuContent>
+// </DropdownMenu>
