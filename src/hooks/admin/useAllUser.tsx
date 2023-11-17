@@ -7,13 +7,10 @@ export function useAllUser() {
   const [Data, SetData] = useState<any>(null);
   const [Error, SetError] = useState<any>(false);
   const [Reload, SetReload] = useState(0);
-  console.log("syaty");
 
   // !Auth?.key && !Auth?.sessions
   async function queryFn(): Promise<any> {
     try {
-      console.log("fetch start");
-
       SetLoad(true);
       const { data } = await POST("/users", {
         Headers: {
@@ -23,7 +20,6 @@ export function useAllUser() {
       });
       SetData(data);
       SetLoad(false);
-      console.log("fetch end");
     } catch (error) {
       SetError(error);
       SetLoad(false);
@@ -31,7 +27,6 @@ export function useAllUser() {
   }
 
   useEffect(() => {
-    console.log("start");
     queryFn();
   }, [Reload]);
 
