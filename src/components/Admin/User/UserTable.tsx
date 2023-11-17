@@ -141,7 +141,6 @@ export const columns: ColumnDef<Payment>[] = [
 ];
 
 function UserTable({ data }: { data: any }) {
-  console.log("🚀 ~ file: UserTable.tsx:128 ~ UserTable ~ data:", data);
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
   const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({});

@@ -25,7 +25,9 @@ interface AddNewAgentProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivEleme
 export const AddNewAgent: FC<AddNewAgentProps> = ({ ...rest }) => {
   const { register, formState, handleSubmit } = useForm<AgentFormType>();
 
-  async function signup(formData: AgentFormType) {}
+  async function signup(formData: AgentFormType) {
+    console.log(formData);
+  }
 
   return (
     <div {...rest}>
