@@ -16,7 +16,7 @@ export function createTripStore(type: "one-way" | "round-tripe") {
           to: null as AirportData | null,
           departure: undefined as Date | undefined,
           back: undefined as Date | undefined,
-          travelerAndClasses: { adults: adultsOptions[1], children: 0, infants: 0, travelClass: cabinClassOption[0] },
+          travelerAndClasses: { adults: adultsOptions[0], children: 0, infants: 0, travelClass: cabinClassOption[0] },
           searchFrom: "",
           searchTo: "",
         },

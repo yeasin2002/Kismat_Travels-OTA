@@ -39,7 +39,7 @@ export const useMultiCity = create(
         ] as City[],
         tripType: "multi-city",
         travelerAndClasses: {
-          adults: adultsOptions[1],
+          adults: adultsOptions[0],
           children: 0,
           infants: 0,
           travelClass: cabinClassOption[0],
