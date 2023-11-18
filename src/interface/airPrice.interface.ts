@@ -90,7 +90,7 @@ interface Error {
 
 export interface AirPriceResponse {
   SearchId: string;
-  Results: Result;
+  Results: Result[];
   Error: Error | null;
   RePriceStatus: string;
 }

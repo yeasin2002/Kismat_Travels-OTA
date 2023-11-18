@@ -12,15 +12,14 @@ interface CouponDisplayProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivEle
 
 export const CouponDisplay: FC<CouponDisplayProps> = ({ ...rest }) => {
   const { searchId, resultId } = usePassengers();
-  const { mutate, isPending, error, data } = useMutation({
+  const { mutate, isPending, data } = useMutation({
     mutationFn: ({ SearchID, ResultID }: any) =>
       $post("/private/AirPromotion", { SearchID, ResultID }) as Promise<AirPromotion>,
   });
 
   useEffect(() => {
-    mutate({ ResultID: resultId || "", SearchID: searchId || "" });
+    mutate({ ResultID: resultId, SearchID: searchId });
   }, []);
-  console.log(data);
 
   const Loading = (
     <Fragment>
@@ -32,8 +31,10 @@ export const CouponDisplay: FC<CouponDisplayProps> = ({ ...rest }) => {
 
   const ErrorComponent = (
     <div className="h-full space-y-4">
-      <Image alt="Error" src={alert} className="h-full w-full" />
-      <p>Something went wrong, please try again later</p>
+      <Fragment>
+        <Image alt="Error" src={alert} className="h-full w-full" />
+        <p>Something went wrong, please try again later</p>
+      </Fragment>
     </div>
   );
 
@@ -57,9 +58,20 @@ export const CouponDisplay: FC<CouponDisplayProps> = ({ ...rest }) => {
     </Fragment>
   );
 
+  let render;
+  if (data?.ErrorCode === 4) {
+    render = ErrorComponent;
+  } else {
+    if (!isPending) {
+      render = CouponCard;
+    } else {
+      render = Loading;
+    }
+  }
+
   return (
     <div {...rest} className="w-1/5">
-      {isPending ? Loading : error ? ErrorComponent : CouponCard}
+      {render}
     </div>
   );
 };

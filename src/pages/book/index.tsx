@@ -6,6 +6,7 @@ import { $post } from "$/utils";
 import { AirPriceDiscountCoupon } from "$components/Book/AirPriceDiscountCoupon";
 import { BookPendingSkeleton } from "$components/Book/BookPendingSkeleton";
 import { PassengerForm } from "$components/Book/PassengerForm";
+import { AirPriceResponse } from "$interface/airPrice.interface";
 import { useMutation } from "@tanstack/react-query";
 import { toast } from "sonner";
 interface BookProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
@@ -18,18 +19,20 @@ const Book: FC<BookProps> = ({ ...rest }) => {
     mutate,
     data: airPriceData,
     isPending,
+    error,
+    isError,
   } = useMutation({
     mutationKey: ["private/AirPrice"],
     mutationFn: ({ SearchID, ResultID }: { SearchID: string; ResultID: string }) =>
-      $post("/private/AirPrice", { SearchID, ResultID }),
+      $post("/private/AirPrice", { SearchID, ResultID }) as Promise<AirPriceResponse>,
   });
 
   useEffect(() => {
     emptyPassenger();
-    mutate({ ResultID: "resultId" || "", SearchID: searchId || "" });
+    mutate({ ResultID: resultId || "", SearchID: searchId || "" });
   }, []);
 
-  if (airPriceData?.Error?.RePriceStatus === "FareUnavailable") toast("Fare Unavailable");
+  if (airPriceData?.RePriceStatus === "FareUnavailable") toast("Fare Unavailable");
 
   return (
     <Fragment>
@@ -42,7 +45,7 @@ const Book: FC<BookProps> = ({ ...rest }) => {
         >
           <div className="rounded-lg bg-gray-100 shadow-lg [--gap-x:2rem] [--gap-y:2rem]">
             <Nav />
-            <AirPriceDiscountCoupon airPriceData={airPriceData} />
+            <AirPriceDiscountCoupon airPriceData={airPriceData} Error={error} isPending={isPending} isError={isError} />
             <PassengerForm allowHold={currentFlightForBooking?.HoldAllowed || false} />
           </div>
         </section>

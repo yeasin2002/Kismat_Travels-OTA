@@ -6,7 +6,7 @@ import { FancySelectString, FlightDetails, Nav, StatCard, TravelersAndClass } fr
 import { ErrorDisplay } from "$components/Global";
 import { useProfit } from "$hooks";
 import { SpinnerIcon } from "$icons";
-import { Modify, Search } from "$interface";
+import { Modify, type Search } from "$interface";
 import { POST, addPercentage } from "$lib";
 import { useTripType } from "$store";
 import { useMutation } from "@tanstack/react-query";

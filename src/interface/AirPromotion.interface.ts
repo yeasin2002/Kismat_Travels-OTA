@@ -7,8 +7,9 @@ export interface AirPromotion {
         Description: string;
       }[]
     | null;
-  Error: {
-    Code: number;
-    Message: string;
-  } | null;
+
+  ErrorCode: number | null;
+  ErrorMessage: string | null;
 }
+
+
