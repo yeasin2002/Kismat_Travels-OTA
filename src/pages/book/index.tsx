@@ -30,9 +30,6 @@ const Book: FC<BookProps> = ({ ...rest }) => {
   }, []);
 
   if (airPriceData?.Error?.RePriceStatus === "FareUnavailable") toast("Fare Unavailable");
-  console.log(airPriceData);
-  // console.log(airPriceData?.RePriceStatus);
-  console.log(airPriceData);
 
   return (
     <Fragment>
@@ -45,7 +42,7 @@ const Book: FC<BookProps> = ({ ...rest }) => {
         >
           <div className="rounded-lg bg-gray-100 shadow-lg [--gap-x:2rem] [--gap-y:2rem]">
             <Nav />
-            <AirPriceDiscountCoupon />
+            <AirPriceDiscountCoupon airPriceData={airPriceData} />
             <PassengerForm allowHold={currentFlightForBooking?.HoldAllowed || false} />
           </div>
         </section>

@@ -126,6 +126,9 @@
   .alert-danger {
     @apply rounded-lg bg-red-50 p-4 text-sm text-red-800 mb-4
   }
+  .shadowBox {
+    @apply w-full rounded-lg bg-white px-8 py-4 shadow-md dark:bg-gray-800
+  }
   .stack {
     display: grid;
     grid-template: "container";
