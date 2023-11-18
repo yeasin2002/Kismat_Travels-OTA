@@ -108,7 +108,7 @@ export const BookingBtn: FC<BookingBtnProps> = ({ allowHold, ...rest }) => {
   return (
     <button
       onClick={bookingHandler}
-      className="mt-4 rounded-md bg-white px-10 py-2 text-xl font-semibold uppercase text-slate-800"
+      className="my-4 rounded-md bg-white px-10  py-2 text-xl font-semibold uppercase text-slate-800"
     >
       Continue
     </button>

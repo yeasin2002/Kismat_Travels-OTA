@@ -11,7 +11,6 @@ import Link from "next/link";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "shadcn/components/ui/accordion";
 import { buttonVariants } from "shadcn/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "shadcn/components/ui/tabs";
-import DateChange from "./DateChange";
 import Details from "./Details";
 import FareSummary from "./FareSummary";
 
@@ -25,6 +24,7 @@ interface FlightDetailsProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivEle
 export const FlightDetails: FC<FlightDetailsProps> = ({ flightDetails, searchId, ...rest }) => {
   const [isOpen, setIsOpen] = useState(false);
   const store = usePassengers();
+
 
   return (
     <div {...rest} className="flex flex-col gap-4 rounded-md bg-white p-4 text-slate-700">
