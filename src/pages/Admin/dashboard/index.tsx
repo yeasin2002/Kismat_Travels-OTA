@@ -1,10 +1,9 @@
 import AdminLayout from "$components/Admin/layout/MainLayout";
-import BookingVsUserWeekBarChart from "$components/Admin/util/Charts/BookingVsUserWeekBarChart";
-import Status from "$components/Admin/util/Status";
 import React, { SVGProps } from "react";
 
 import Admin_secure from "$Secure/admin_secure";
 import { StaticsProvider } from "$context";
+import { Stat } from "./stat";
 const index = (props: any) => {
   return (
     <StaticsProvider>
@@ -17,34 +16,7 @@ const index = (props: any) => {
             Dashboard
           </h1>
         </div>
-        {/* status  */}
-        <div className="relative p-3">
-          <div className="grid w-full grid-cols-2 gap-2 md:grid-cols-2 xl:grid-cols-4">
-            <Status Title="Book Today" Data="100" Icon={PajamasTaskDone} />
-            <Status Title="Income Today" Data="100" Icon={Money} />
-            <Status Title="New User" Data="100" Icon={Users} />
-            <Status Title="Search Today" Data="100" Icon={PhMagnifyingGlassDuotone} />
-          </div>
-        </div>
-        {/* data  */}
-        <div className="grid grid-cols-1 gap-2 px-3 md:grid-cols-2">
-          {/* booking vs user week barChart  */}
-          <div className="w-full rounded-md bg-slate-200 p-2 shadow-inner">
-            <h1 className="pb-3 text-center text-lg font-bold text-slate-700 md:text-2xl">
-              Booking & New User This Week
-            </h1>
-            <div>
-              <BookingVsUserWeekBarChart key={"chartbvu"} />
-            </div>
-          </div>
-          {/* booking vs user week barChart  */}
-          <div className="w-full rounded-md bg-slate-200 p-2 shadow-inner">
-            <h1 className="pb-3 text-center text-lg font-bold text-slate-700 md:text-2xl">Monthly Search</h1>
-            <div>
-              <BookingVsUserWeekBarChart key={"chartbvu"} />
-            </div>
-          </div>
-        </div>
+        <Stat />
       </AdminLayout>
     </StaticsProvider>
   );
