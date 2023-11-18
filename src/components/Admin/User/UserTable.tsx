@@ -29,122 +29,102 @@ import { Input } from "shadcn/components/ui/input";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "shadcn/components/ui/table";
 import { getImgSrc } from "$lib/getImgSrc";
 
-const datas: Payment[] = [
-  {
-    id: "m5gr84i9",
-    name: "nahid",
-    email: "ken99@yahoo.com",
-  },
-  {
-    id: "3u1reuv4",
-    name: "nahid",
-    email: "Abe45@gmail.com",
-  },
-  {
-    id: "derv1ws0",
-    name: "nahid",
-    email: "Monserrat44@gmail.com",
-  },
-  {
-    id: "5kma53ae",
-    name: "nahid",
-    email: "Silas22@gmail.com",
-  },
-  {
-    id: "bhqecj4p",
-    name: "nahid",
-    email: "carmella@hotmail.com",
-  },
-];
-
 export type Payment = {
   id: string;
   name: string;
   email: string;
 };
 
-export const columns: ColumnDef<Payment>[] = [
-  {
-    id: "select",
-    header: ({ table }) => (
-      <Checkbox
-        checked={table.getIsAllPageRowsSelected()}
-        onCheckedChange={(value: any) => table.toggleAllPageRowsSelected(!!value)}
-        aria-label="Select all"
-      />
-    ),
-    cell: ({ row }) => (
-      <Checkbox
-        checked={row.getIsSelected()}
-        onCheckedChange={(value: any) => row.toggleSelected(!!value)}
-        aria-label="Select row"
-      />
-    ),
-    enableSorting: false,
-    enableHiding: false,
-  },
-  // select check box end
-
-  {
-    header: "Photo",
-    accessorKey: "photoUrl",
-    cell: ({ row }) => (
-      <div>
-        <Avatar>
-          <AvatarImage className="object-cover" src={getImgSrc("avatar", row.getValue("photoUrl"))} alt="hello" />
-          <AvatarFallback>{row.original.name[0]}</AvatarFallback>
-        </Avatar>
-      </div>
-    ),
-  },
-
-  {
-    accessorKey: "email",
-    header: ({ column }) => {
-      return (
-        <Button variant="ghost" onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}>
-          Email
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
-      );
-    },
-    cell: ({ row }) => <div className="lowercase">{row.getValue("email")}</div>,
-  },
-
-  {
-    header: "Name",
-    accessorKey: "name",
-    cell: ({ row }) => <div>{row.getValue("name")}</div>,
-  },
-
-  {
-    id: "actions",
-    enableHiding: false,
-    cell: ({ row }) => {
-      const payment = row.original;
-
-      return (
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="h-8 w-8 p-0">
-              <span className="sr-only">Open menu</span>
-              <MoreHorizontal className="h-4 w-4" />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <DropdownMenuItem>View customer</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
-      );
-    },
-  },
-];
-
-function UserTable({ data }: { data: any }) {
+function UserTable({ data, SetUserDetails }: { data: any; SetUserDetails: React.Dispatch<any> }) {
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
   const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({});
   const [rowSelection, setRowSelection] = React.useState({});
+
+  const columns: ColumnDef<Payment>[] = React.useMemo(() => {
+    return [
+      {
+        id: "select",
+        header: ({ table }) => (
+          <Checkbox
+            checked={table.getIsAllPageRowsSelected()}
+            onCheckedChange={(value: any) => table.toggleAllPageRowsSelected(!!value)}
+            aria-label="Select all"
+          />
+        ),
+        cell: ({ row }) => (
+          <Checkbox
+            checked={row.getIsSelected()}
+            onCheckedChange={(value: any) => row.toggleSelected(!!value)}
+            aria-label="Select row"
+          />
+        ),
+        enableSorting: false,
+        enableHiding: false,
+      },
+      // select check box end
+
+      {
+        header: "Photo",
+        accessorKey: "photoUrl",
+        cell: ({ row }) => (
+          <div>
+            <Avatar>
+              <AvatarImage className="object-cover" src={getImgSrc("avatar", row.getValue("photoUrl"))} alt="hello" />
+              <AvatarFallback>{row.original.name[0]}</AvatarFallback>
+            </Avatar>
+          </div>
+        ),
+      },
+
+      {
+        accessorKey: "email",
+        header: ({ column }) => {
+          return (
+            <Button variant="ghost" onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}>
+              Email
+              <ArrowUpDown className="ml-2 h-4 w-4" />
+            </Button>
+          );
+        },
+        cell: ({ row }) => <div className="lowercase">{row.getValue("email")}</div>,
+      },
+
+      {
+        header: "Name",
+        accessorKey: "name",
+        cell: ({ row }) => <div>{row.getValue("name")}</div>,
+      },
+
+      {
+        id: "actions",
+        enableHiding: false,
+        cell: ({ row }) => {
+          const payment = row.original;
+
+          return (
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" className="h-8 w-8 p-0">
+                  <span className="sr-only">Open menu</span>
+                  <MoreHorizontal className="h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuItem
+                  onClick={() => {
+                    SetUserDetails(row.original);
+                  }}
+                >
+                  View customer
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          );
+        },
+      },
+    ];
+  }, []);
 
   const table = useReactTable({
     data,
