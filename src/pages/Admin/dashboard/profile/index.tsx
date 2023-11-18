@@ -4,6 +4,10 @@ import React, { SVGProps } from "react";
 import Admin_secure from "$Secure/admin_secure";
 import { UpdateUserProfile } from "$components/Admin/User";
 import MainLayout from "$components/Admin/layout/MainLayout";
+import { getImgSrc } from "$lib/getImgSrc";
+import { ImagePlus } from "lucide-react";
+import { Avatar, AvatarFallback, AvatarImage, Label } from "shadcn/components/ui";
+import { FileUpload } from "shadcn/components/ui/file-upload";
 import Header from "./Header";
 
 const randomImageFromUnsplash = "https://source.unsplash.com/random/?toy";
@@ -29,12 +33,22 @@ const index = (props: any) => {
               xl:h-[250px] 
               xl:min-w-[250px]"
           >
-            <Image
-              src={(props.User.photo && `/${props.User.photo}`) || randomImageFromUnsplash}
-              alt="nahid"
-              layout="fill"
-              style={{ objectFit: "cover" }}
-            />
+            <FileUpload onUpload={async () => {}}>
+              <Avatar className="h-full w-full text-2xl">
+                <AvatarImage
+                  className="object-cover"
+                  src={getImgSrc("admin", props.User.photo)}
+                  alt={props.User.name}
+                />
+                <AvatarFallback>{props.User.name}</AvatarFallback>
+              </Avatar>
+              <Label
+                className="absolute -bottom-2 right-0 cursor-pointer rounded-full bg-blue-600 p-2"
+                title="Change avatar"
+              >
+                <ImagePlus size={20} color="white" />
+              </Label>
+            </FileUpload>
           </div>
           <div className="relative flex min-h-[100px] w-full justify-center md:justify-between md:pl-10 md:pt-6 ">
             {/* name */}

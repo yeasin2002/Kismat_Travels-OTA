@@ -1,3 +1,11 @@
+import { $post } from "$/utils";
+import { Input } from "$components";
+import { SpinnerIcon } from "$icons";
+import { POST } from "$lib";
+import { useMutation } from "@tanstack/react-query";
+import Cookies from "js-cookie";
+import { Settings } from "lucide-react";
+import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
 import { useForm } from "react-hook-form";
 import { Button } from "shadcn/components/ui/button";
 import {
@@ -8,25 +16,41 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "shadcn/components/ui/dialog";
-
-interface UpdateUserInfo {
-  name: string;
-  email: string;
-  password: string;
-}
-
-import { Input } from "$components";
-import { SpinnerIcon } from "$icons";
-import { emailRegex } from "$lib";
-import { Settings } from "lucide-react";
-import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
+import { toast } from "sonner";
 
 interface UpdateUserProfileProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
 
-export const UpdateUserProfile: FC<UpdateUserProfileProps> = ({ ...rest }) => {
-  const { register, formState, handleSubmit } = useForm<UpdateUserInfo>();
+interface UpdateUserInfo {
+  current: string;
+  password: string;
+}
 
-  async function signup(formData: UpdateUserInfo) {}
+export const UpdateUserProfile: FC<UpdateUserProfileProps> = ({ ...rest }) => {
+  const { register, formState, handleSubmit, reset } = useForm<UpdateUserInfo>();
+
+  const { mutateAsync } = useMutation({
+    mutationFn: (req: any) =>
+      POST(
+        `/admins/change-password`,
+        Object.assign(req, {
+          Headers: {
+            sessions: Cookies.get("value_ad"),
+            key: Cookies.get("key_ad"),
+          },
+        })
+      ),
+    onSuccess() {
+      toast.success("Password changed successfully");
+    },
+    onError() {
+      toast.error("Something went wrong");
+    },
+  });
+
+  async function change(data: UpdateUserInfo) {
+    await mutateAsync(data);
+    reset();
+  }
 
   return (
     <div {...rest}>
@@ -38,40 +62,31 @@ export const UpdateUserProfile: FC<UpdateUserProfileProps> = ({ ...rest }) => {
         </DialogTrigger>
         <DialogContent className=" rounded-lg">
           <DialogHeader>
-            <DialogTitle className="my-2"> Update User Profile </DialogTitle>
+            <DialogTitle className="my-2"> Change password </DialogTitle>
             <DialogDescription>
-              <form className=" flex flex-col gap-4" onSubmit={handleSubmit(signup)}>
+              <form className=" flex flex-col gap-4" onSubmit={handleSubmit(change)}>
                 <Input
-                  label="Email *"
-                  error={formState.errors.email}
+                  label="Current Password *"
+                  error={formState.errors.current}
                   disabled={formState.isSubmitting}
-                  register={register("email", {
-                    required: { value: true, message: "Please provide a valid email address" },
-                    pattern: { value: emailRegex, message: "Invalid email address" },
+                  register={register("current", {
+                    required: "Please provide your current password",
+                    minLength: { value: 6, message: "Password must've greater then 6 character" },
                   })}
                 />
 
                 <Input
-                  label="Name *"
-                  error={formState.errors.name}
+                  label="New Password *"
+                  error={formState.errors.password}
                   disabled={formState.isSubmitting}
-                  register={register("name", {
-                    required: { value: true, message: "Please provide your name" },
-                  })}
-                />
-
-                <Input
-                  label="Email *"
-                  error={formState.errors.email}
-                  disabled={formState.isSubmitting}
-                  register={register("email", {
-                    required: { value: true, message: "Please provide a valid email address" },
-                    pattern: { value: emailRegex, message: "Invalid email address" },
+                  register={register("password", {
+                    required: "Please provide your new password",
+                    minLength: { value: 6, message: "New password must've greater then 6 character" },
                   })}
                 />
 
                 <Button disabled={formState.isSubmitting} className="select-none gap-2 rounded">
-                  Update User Profile {formState.isSubmitting && <SpinnerIcon className="text-lg" />}
+                  Change {formState.isSubmitting && <SpinnerIcon className="text-lg" />}
                 </Button>
               </form>
             </DialogDescription>
