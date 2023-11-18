@@ -34,3 +34,4 @@ export function GlobalProvider({ children }: { children: React.ReactNode }) {
 
 export * from "./auth-provider";
 export * from "./profit-provider";
+export * from "./statics-provider";
