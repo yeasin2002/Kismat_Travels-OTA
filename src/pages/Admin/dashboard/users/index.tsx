@@ -8,10 +8,7 @@ import React, { SVGProps, useState } from "react";
 
 import { useAllUser } from "$hooks/admin/useAllUser";
 const index = (props: any) => {
-  const { data, isLoading } = useAllUser();
-
-  clearTimeout;
-
+  const { data, isLoading, Reload } = useAllUser();
   return (
     <AdminLayout User={props.User}>
       <div className="relative w-full pl-0 md:pl-6">
@@ -22,7 +19,7 @@ const index = (props: any) => {
             </span>{" "}
             User information
           </h1>
-          <AddNewUser />
+          <AddNewUser Reload={Reload} />
         </div>
 
         {/* status  */}
