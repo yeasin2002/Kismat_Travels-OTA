@@ -8,11 +8,12 @@ import { Dialog, DialogClose, DialogContent, DialogFooter, DialogTrigger } from 
 import { cn } from "shadcn/lib/utils";
 
 interface FileUploadProps {
-  onUpload: (file: File[]) => void;
+  onUpload: (file: File[]) => Promise<any>;
 }
 
 export function FileUpload({ onUpload, children }: PropsWithChildren<FileUploadProps>) {
   const [files, setFiles] = useState<File[]>([]);
+  const [isOpen, setIsOpen] = useState(false);
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     maxFiles: 1,
@@ -29,7 +30,7 @@ export function FileUpload({ onUpload, children }: PropsWithChildren<FileUploadP
   });
 
   return (
-    <Dialog>
+    <Dialog onOpenChange={setIsOpen} open={isOpen}>
       <DialogTrigger>{children}</DialogTrigger>
       <DialogContent className="sm:max-w-md" topClose={false}>
         <div className="flex items-center space-x-2">
@@ -86,7 +87,15 @@ export function FileUpload({ onUpload, children }: PropsWithChildren<FileUploadP
               Close
             </Button>
           </DialogClose>
-          <Button type="button" onClick={() => onUpload(files)}>
+          <Button
+            type="button"
+            onClick={() =>
+              onUpload(files).then(() => {
+                setFiles([]);
+                setIsOpen(false);
+              })
+            }
+          >
             Upload
           </Button>
         </DialogFooter>
