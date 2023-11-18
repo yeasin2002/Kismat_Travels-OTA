@@ -16,7 +16,7 @@ const index = (props: any) => {
     <AdminLayout User={props.User}>
       {UserDetailsState ? (
         <div>
-          <UserDetails data={UserDetailsState} />
+          <UserDetails data={UserDetailsState} close={SetUserDetails} />
         </div>
       ) : (
         ""
