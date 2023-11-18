@@ -22,9 +22,16 @@ export const LeadPassenger: FC<LeadPassengerProps> = ({ ...rest }) => {
 
   return (
     <Fragment>
-      <Accordion type="single" collapsible defaultValue="LeadPassenger">
+      <Accordion
+        type="single"
+        collapsible
+        defaultValue="LeadPassenger"
+        className="mx-8 my-2 rounded-lg bg-gray-50 px-[var(--gap-x)] py-[var(--gap-y)] shadow-sm
+        data-[state=open]:pb-0 lg:px-8
+        "
+      >
         <AccordionItem value="LeadPassenger">
-          <AccordionTrigger className="px-8">
+          <AccordionTrigger className=" ">
             <p className="  text-xl font-bold text-gray-800">Provide your Details</p>
           </AccordionTrigger>
           <AccordionContent>
