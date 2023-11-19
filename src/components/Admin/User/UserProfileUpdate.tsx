@@ -55,10 +55,8 @@ export const UpdateUserProfile: FC<UpdateUserProfileProps> = ({ ...rest }) => {
   return (
     <div {...rest}>
       <Dialog>
-        <DialogTrigger>
-          <button className="cursor-pointer rounded-full bg-slate-50 p-2 text-3xl transition-all duration-300 hover:bg-slate-200">
-            <Settings />
-          </button>
+        <DialogTrigger className="cursor-pointer rounded-full bg-slate-50 p-2 text-3xl transition-all duration-300 hover:bg-slate-200">
+          <Settings />
         </DialogTrigger>
         <DialogContent className=" rounded-lg">
           <DialogHeader>
