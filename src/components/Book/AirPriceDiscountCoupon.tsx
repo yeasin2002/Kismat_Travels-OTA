@@ -6,17 +6,18 @@ import { CouponDisplay } from "./CouponDisplay";
 export interface AirPriceProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   airPriceData: AirPriceResponse | undefined;
   isPending?: boolean;
-  Error?: Error | null;
+  error?: Error | null;
   isError?: boolean;
 }
 
-export const AirPriceDiscountCoupon: FC<AirPriceProps> = ({ airPriceData, isPending, Error, isError, ...rest }) => {
+export const AirPriceDiscountCoupon: FC<AirPriceProps> = ({ airPriceData, isPending, error, isError, ...rest }) => {
   console.table({
     isPending,
-    Error,
+
     isError,
   });
 
+  console.log(error);
   console.log(airPriceData);
   return (
     <div
@@ -24,7 +25,7 @@ export const AirPriceDiscountCoupon: FC<AirPriceProps> = ({ airPriceData, isPend
       className="mx-8  my-20 flex items-center justify-between space-y-5
      rounded-lg bg-gray-50 px-[var(--gap-x)] py-[var(--gap-y)] shadow-lg  data-[state=open]:pb-0 lg:px-8"
     >
-      <AirPrice airPriceData={airPriceData} Error={Error} isPending={isPending} isError={isError} />
+      <AirPrice airPriceData={airPriceData} error={error} isPending={isPending} isError={isError} />
       <CouponDisplay />
     </div>
   );

@@ -4,7 +4,7 @@ import { FC, Fragment } from "react";
 import { Skeleton } from "shadcn/components/ui";
 import { AirPriceProps } from "./AirPriceDiscountCoupon";
 
-export const AirPrice: FC<AirPriceProps> = ({ airPriceData, isPending, Error, isError, ...rest }) => {
+export const AirPrice: FC<AirPriceProps> = ({ airPriceData, isPending, error, isError, ...rest }) => {
   const Loading = (
     <Fragment>
       <Skeleton className="grid h-20 w-full place-items-center bg-gray-300">

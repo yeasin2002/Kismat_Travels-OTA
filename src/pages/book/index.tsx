@@ -45,8 +45,8 @@ const Book: FC<BookProps> = ({ ...rest }) => {
         >
           <div className="rounded-lg bg-gray-100 shadow-lg [--gap-x:2rem] [--gap-y:2rem]">
             <Nav />
-            <AirPriceDiscountCoupon airPriceData={airPriceData} Error={error} isPending={isPending} isError={isError} />
-            <PassengerForm allowHold={currentFlightForBooking?.HoldAllowed || false} />
+            <AirPriceDiscountCoupon airPriceData={airPriceData} error={error} isPending={isPending} isError={isError} />
+            <PassengerForm />
           </div>
         </section>
       )}
