@@ -44,7 +44,7 @@ export const LeadPassenger: FC<LeadPassengerProps> = ({ ...rest }) => {
                 register={register("Title", {
                   required: { value: true, message: "Title Name is required!" },
                 })}
-                label="Title"
+                label="Title*"
                 placeholder="Select Title"
                 error={formState.errors.Title}
                 name="Title"
@@ -55,7 +55,7 @@ export const LeadPassenger: FC<LeadPassengerProps> = ({ ...rest }) => {
                 register={register("PaxType", {
                   required: { value: true, message: "PaxType Name is required!" },
                 })}
-                label="PaxType"
+                label="PaxType*"
                 placeholder="Select PaxType"
                 error={formState.errors.PaxType}
                 name="PaxType"
@@ -67,7 +67,7 @@ export const LeadPassenger: FC<LeadPassengerProps> = ({ ...rest }) => {
                   required: { value: true, message: "First Name is required!" },
                   minLength: { value: 2, message: "First Name must've 2 character long!" },
                 })}
-                label="First Name"
+                label="First Name*"
                 placeholder="write your first name"
                 error={formState.errors.FirstName}
               />
@@ -75,15 +75,15 @@ export const LeadPassenger: FC<LeadPassengerProps> = ({ ...rest }) => {
                 register={register("MiddleName", {
                   required: { value: true, message: "Middle Name is required!" },
                 })}
-                label="Middle Name"
-                placeholder="example@gmail.com"
+                label="Middle Name*"
+                placeholder="Middle  Name"
                 error={formState.errors.MiddleName}
               />
               <Input
                 register={register("LastName", {
                   required: { value: true, message: "Last Name is required!" },
                 })}
-                label="Last Name"
+                label="Last Name*"
                 placeholder="write your last name"
                 error={formState.errors.LastName}
               />
@@ -91,7 +91,7 @@ export const LeadPassenger: FC<LeadPassengerProps> = ({ ...rest }) => {
                 register={register("PassportNumber", {
                   required: { value: true, message: "Passport Number is required!" },
                 })}
-                label="Passport Number"
+                label="Passport Number*"
                 placeholder="write your last Passport Number"
                 error={formState.errors.PassportNumber}
               />
@@ -100,7 +100,7 @@ export const LeadPassenger: FC<LeadPassengerProps> = ({ ...rest }) => {
                   required: { value: true, message: "PassportExpiryDate is required!" },
                 })}
                 label="Passport Expiry Date"
-                placeholder="write your Birth Date"
+                placeholder="write your Birth Date*"
                 error={formState.errors.PassportExpiryDate}
                 type="date"
               />
@@ -108,8 +108,8 @@ export const LeadPassenger: FC<LeadPassengerProps> = ({ ...rest }) => {
                 register={register("PassportNationality", {
                   required: { value: true, message: "Passport Nationality is required!" },
                 })}
-                label="Passport Nationality"
-                placeholder="write your last name"
+                label="Passport Nationality*"
+                placeholder="write your  Nationality"
                 error={formState.errors.PassportNationality}
               />
               <Input
@@ -117,13 +117,13 @@ export const LeadPassenger: FC<LeadPassengerProps> = ({ ...rest }) => {
                   required: { value: true, message: "Address1 is required!" },
                   minLength: { value: 6, message: "Address1 must've 6 character long!" },
                 })}
-                label="Address1"
+                label="Address1*"
                 placeholder="write your 1st  Address"
                 error={formState.errors.Address1}
               />
               <Input
                 register={register("Address2")}
-                label="Address2"
+                label="Address2*"
                 placeholder="write your 2nd Address"
                 error={formState.errors.Address2}
               />
@@ -133,7 +133,7 @@ export const LeadPassenger: FC<LeadPassengerProps> = ({ ...rest }) => {
                   maxLength: { value: 2, message: "Country Code should be maximum 2 Character" },
                 })}
                 type="text"
-                label="Country Code"
+                label="Country Code*"
                 placeholder="write your Country Code"
                 error={formState.errors.CountryCode}
               />
@@ -142,11 +142,55 @@ export const LeadPassenger: FC<LeadPassengerProps> = ({ ...rest }) => {
                   required: { value: true, message: "Email is required!" },
                   pattern: { value: /\S+@\S+\.\S+/, message: "Entered value does not match email format" },
                 })}
-                label="Email"
-                placeholder="write your Country Code"
+                label="Email*"
+                placeholder="write your Email"
                 error={formState.errors.Email}
                 type="email"
               />
+
+              <Input
+                register={register("DateOfBirth", {
+                  required: { value: true, message: "Birth Date is required!" },
+                  minLength: { value: 6, message: "Birth Date must've 6 character long!" },
+                })}
+                label="Birth Date*"
+                placeholder="write your Birth Date"
+                error={formState.errors.DateOfBirth}
+                type="date"
+              />
+              <SelectNotCreatable
+                register={register("Gender", {
+                  required: { value: true, message: "Gender  is required!" },
+                })}
+                label="Gender*"
+                placeholder="Select Gender"
+                error={formState.errors.Gender}
+                name="Gender"
+                control={control}
+                options={optionsIndex(["Male", "Female"])}
+              />
+              <Input
+                register={register("Nationality", {
+                  required: { value: true, message: "Nationality is required!" },
+                })}
+                label="Nationality*"
+                placeholder="write your Nationality"
+                error={formState.errors.DateOfBirth}
+                type="text"
+              />
+              <Input
+                register={register("ContactNumber", {
+                  required: { value: true, message: "Contact Number is required!" },
+                  minLength: { value: 6, message: "Contact Number must've 6 character long!" },
+                })}
+                label="ContactNumber*"
+                placeholder="write your Contact Number"
+                error={formState.errors.DateOfBirth}
+                type="text"
+              />
+              {/* 
+                   //! Optional Fields
+              */}
               <Input
                 register={register("FFAirline", {})}
                 label="FF Airline"
@@ -171,46 +215,7 @@ export const LeadPassenger: FC<LeadPassengerProps> = ({ ...rest }) => {
                 placeholder="write your Baggage ID"
                 error={formState.errors.BaggageID}
               />
-              <Input
-                register={register("DateOfBirth", {
-                  required: { value: true, message: "Birth Date is required!" },
-                  minLength: { value: 6, message: "Birth Date must've 6 character long!" },
-                })}
-                label="Birth Date"
-                placeholder="write your Birth Date"
-                error={formState.errors.DateOfBirth}
-                type="date"
-              />
-              <SelectNotCreatable
-                register={register("Gender", {
-                  required: { value: true, message: "Gender  is required!" },
-                })}
-                label="Gender"
-                placeholder="Select Gender"
-                error={formState.errors.Gender}
-                name="Gender"
-                control={control}
-                options={optionsIndex(["Male", "Female"])}
-              />
-              <Input
-                register={register("Nationality", {
-                  required: { value: true, message: "Nationality is required!" },
-                })}
-                label="Nationality"
-                placeholder="write your Nationality"
-                error={formState.errors.DateOfBirth}
-                type="text"
-              />
-              <Input
-                register={register("ContactNumber", {
-                  required: { value: true, message: "Contact Number is required!" },
-                  minLength: { value: 6, message: "Contact Number must've 6 character long!" },
-                })}
-                label="ContactNumber"
-                placeholder="write your Contact Number"
-                error={formState.errors.DateOfBirth}
-                type="text"
-              />
+
               <div className="col-span-full">
                 <Button type="submit">Submit</Button>
               </div>
