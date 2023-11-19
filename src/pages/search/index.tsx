@@ -1,9 +1,12 @@
 import { $post } from "$/utils";
+
 import noDataFound from "$assets/Illustrations/3D/no-results.png";
+
 import { FancySelectString, FlightDetails, Nav, StatCard, TravelersAndClass } from "$components";
+import { ErrorDisplay } from "$components/Global";
 import { useProfit } from "$hooks";
 import { SpinnerIcon } from "$icons";
-import { Modify, Search } from "$interface";
+import { Modify, type Search } from "$interface";
 import { POST, addPercentage } from "$lib";
 import { useTripType } from "$store";
 import { useMutation } from "@tanstack/react-query";
@@ -25,7 +28,7 @@ export default function Search() {
   const [searchResult, setSearchResult] = useState<SearchType | null>(null);
   const { profit } = useProfit();
 
-  const { mutate, isPending } = useMutation<SearchType, Error, ReturnType<typeof getCurrentStore>>({
+  const { mutate, isPending, isError, error } = useMutation<SearchType, Error, ReturnType<typeof getCurrentStore>>({
     mutationKey: ["airSearchRequest"],
     mutationFn: (arg: any) => $post("private/AirSearch", arg),
     onSuccess: (data) => {
@@ -153,13 +156,18 @@ export default function Search() {
                 selected={selectedAirline}
               />
             )}
-
-            {flights?.length === 0 ? (
-              <img src={noDataFound.src} alt="Not Found" className="mx-auto aspect-square w-96" />
+            {isError ? (
+              <ErrorDisplay />
             ) : (
-              flights?.map((flight) => (
-                <FlightDetails key={flight.ResultID} searchId={searchResult?.SearchId} flightDetails={flight} />
-              ))
+              <Fragment>
+                {flights?.length === 0 ? (
+                  <img src={noDataFound.src} alt="Not Found" className="mx-auto aspect-square w-96" />
+                ) : (
+                  flights?.map((flight) => (
+                    <FlightDetails key={flight.ResultID} searchId={searchResult?.SearchId} flightDetails={flight} />
+                  ))
+                )}
+              </Fragment>
             )}
           </Fragment>
         )}

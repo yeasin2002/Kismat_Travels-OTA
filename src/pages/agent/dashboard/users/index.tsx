@@ -6,39 +6,37 @@ import Status from "$components/Admin/util/Status";
 import UserTable from "$components/Admin/User/UserTable";
 import React, { SVGProps, useState } from "react";
 
+import { useAllUser } from "$hooks/admin/useAllUser";
 const index = (props: any) => {
-  const [data, setData] = useState(true);
+  const { data, isLoading, Reload } = useAllUser();
   return (
     <AdminLayout User={props.User}>
-      <div className="flex flex-col justify-start p-2 md:flex-row md:justify-between">
-        <h1 className="flex items-center gap-3 text-2xl">
-          <span className="rounded-full bg-gray-100 p-3 shadow-inner ">
-            <User />
-          </span>{" "}
-          User information
-          {data && "true"}
-        </h1>
-        <AddNewUser />
-      </div>
-
-      {/* status  */}
-      <div className="relative p-3">
-        <div className="grid w-full grid-cols-2 gap-2 md:grid-cols-3 xl:grid-cols-4">
-          <Status Title="Total User" Data="100" Icon={Users} />
-          <Status Title="User in Month" Data="100" Icon={User} />
-          <Status Title="Block User" Data="100" Icon={User} />
-          <Status Title="Reported User" Data="100" Icon={User} />
+      <div className="relative w-full pl-0 md:pl-6">
+        <div className="flex flex-col justify-start p-2 md:flex-row md:justify-between">
+          <h1 className="flex items-center gap-3 text-2xl">
+            <span className="rounded-full bg-gray-100 p-3 shadow-inner ">
+              <User />
+            </span>{" "}
+            User information
+          </h1>
+          <AddNewUser Reload={Reload} />
         </div>
-      </div>
-      {/* chart for user data  */}
 
-      <div className="h-64 w-full">
-        <UserYearReportChart key={"userChart"} />
-      </div>
+        {/* status  */}
+        <div className="relative p-3">
+          <div className="grid w-full grid-cols-2 gap-2 md:grid-cols-3 xl:grid-cols-4">
+            <Status Title="Total User" Data="100" Icon={Users} />
+            <Status Title="User in Month" Data="100" Icon={User} />
+            <Status Title="Block User" Data="100" Icon={User} />
+            <Status Title="Reported User" Data="100" Icon={User} />
+          </div>
+        </div>
+        {/* chart for user data  */}
 
-      {/* table  */}
-      <div className="p-5">
-        <UserTable />
+        <div className="h-64 w-full">{<UserYearReportChart key={"userChart"} />}</div>
+
+        {/* table  */}
+        <div className="relative w-full px-5 ">{isLoading ? "Loading" : data && <UserTable data={data} />}</div>
       </div>
     </AdminLayout>
   );

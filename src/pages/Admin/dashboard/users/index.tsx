@@ -5,12 +5,22 @@ import UserYearReportChart from "$components/Admin/util/Charts/UserYearReportCha
 import Status from "$components/Admin/util/Status";
 import UserTable from "$components/Admin/User/UserTable";
 import React, { SVGProps, useState } from "react";
+import UserDetails from "$components/Admin/User/UserDetails";
 
 import { useAllUser } from "$hooks/admin/useAllUser";
 const index = (props: any) => {
   const { data, isLoading, Reload } = useAllUser();
+  const [UserDetailsState, SetUserDetails] = useState<any>();
+
   return (
     <AdminLayout User={props.User}>
+      {UserDetailsState ? (
+        <div>
+          <UserDetails data={UserDetailsState} close={SetUserDetails} />
+        </div>
+      ) : (
+        ""
+      )}
       <div className="relative w-full pl-0 md:pl-6">
         <div className="flex flex-col justify-start p-2 md:flex-row md:justify-between">
           <h1 className="flex items-center gap-3 text-2xl">
@@ -36,7 +46,9 @@ const index = (props: any) => {
         <div className="h-64 w-full">{<UserYearReportChart key={"userChart"} />}</div>
 
         {/* table  */}
-        <div className="relative w-full px-5 ">{isLoading ? "Loading" : data && <UserTable data={data} />}</div>
+        <div className="relative w-full px-5 ">
+          {isLoading ? "Loading" : data && <UserTable SetUserDetails={SetUserDetails} data={data} />}
+        </div>
       </div>
     </AdminLayout>
   );
