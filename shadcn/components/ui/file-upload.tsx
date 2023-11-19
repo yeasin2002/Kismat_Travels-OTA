@@ -9,9 +9,10 @@ import { cn } from "shadcn/lib/utils";
 
 interface FileUploadProps {
   onUpload: (file: File[]) => Promise<any>;
+  className?: string;
 }
 
-export function FileUpload({ onUpload, children }: PropsWithChildren<FileUploadProps>) {
+export function FileUpload({ onUpload, children, className }: PropsWithChildren<FileUploadProps>) {
   const [files, setFiles] = useState<File[]>([]);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -31,12 +32,12 @@ export function FileUpload({ onUpload, children }: PropsWithChildren<FileUploadP
 
   return (
     <Dialog onOpenChange={setIsOpen} open={isOpen}>
-      <DialogTrigger>{children}</DialogTrigger>
+      <DialogTrigger className={className}>{children}</DialogTrigger>
       <DialogContent className="sm:max-w-md" topClose={false}>
         <div className="flex items-center space-x-2">
           {files.length > 0 ? (
             files.map((file) => (
-              <div className="stack">
+              <div className="stack" key={file.webkitRelativePath}>
                 <button
                   onClick={() => setFiles([])}
                   className="z-0 ml-auto mr-2 mt-2 flex h-8 w-8 items-center justify-center rounded-full bg-white p-2"

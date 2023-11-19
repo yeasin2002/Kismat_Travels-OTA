@@ -33,7 +33,6 @@ export const UpdateProfileNameAndAvatar: FC<UpdateProfileNameAndAvatarProps> = (
     const form = new FormData();
     form.append("avatar", File[0]);
     await mutateAsync({ id: currentUser?.id!, form });
-    return;
   }
 
   return (

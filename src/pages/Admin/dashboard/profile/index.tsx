@@ -1,18 +1,33 @@
 import Image from "next/image";
 import React, { SVGProps } from "react";
 
+import { $post } from "$/utils";
 import Admin_secure from "$Secure/admin_secure";
 import { UpdateUserProfile } from "$components/Admin/User";
 import MainLayout from "$components/Admin/layout/MainLayout";
 import { getImgSrc } from "$lib/getImgSrc";
+import { useMutation } from "@tanstack/react-query";
+import Cookies from "js-cookie";
 import { ImagePlus } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage, Label } from "shadcn/components/ui";
 import { FileUpload } from "shadcn/components/ui/file-upload";
+import { toast } from "sonner";
 import Header from "./Header";
 
-const randomImageFromUnsplash = "https://source.unsplash.com/random/?toy";
-
 const index = (props: any) => {
+  const { mutateAsync } = useMutation({
+    mutationFn: ({ form }: { form: FormData }) => $post(`admins/photo-upload/${props.User.id}`, form),
+    onError: () => toast.error("Something went wrong"),
+    onSuccess: () => toast.success("Profile updated successfully"),
+  });
+
+  async function upload(File: File[]) {
+    if (File.length === 0) return toast.error("Please select a file");
+    const form = new FormData();
+    form.append("avatar", File[0]);
+    await mutateAsync({ form });
+  }
+
   return (
     <MainLayout User={props.User}>
       <div className="relative w-full">
@@ -21,33 +36,29 @@ const index = (props: any) => {
           <div
             className="
               relative
+              isolate
               h-[150px]
               min-w-[150px]
-              overflow-hidden 
-              rounded-full
-              ring-4
-              ring-slate-100
               md:h-[200px] 
               md:min-w-[200px] 
-              md:ring-8 
               xl:h-[250px] 
               xl:min-w-[250px]"
           >
-            <FileUpload onUpload={async () => {}}>
-              <Avatar className="h-full w-full text-2xl">
+            <FileUpload onUpload={upload} className="stack isolate h-full w-full ring-0">
+              <Label
+                className="z-10 mb-2 ml-auto mr-2 mt-auto cursor-pointer rounded-full !bg-red-600 p-2 md:mb-4 md:mr-4 lg:mb-5 lg:mr-5"
+                title="Change avatar"
+              >
+                <ImagePlus size={20} color="white" />
+              </Label>
+              <Avatar className="h-full w-full text-2xl ring-2 ring-blue-50">
                 <AvatarImage
                   className="object-cover"
                   src={getImgSrc("admin", props.User.photo)}
                   alt={props.User.name}
                 />
-                <AvatarFallback>{props.User.name}</AvatarFallback>
+                <AvatarFallback className="bg-blue-600 font-bold text-white"> {props.User.name}</AvatarFallback>
               </Avatar>
-              <Label
-                className="absolute -bottom-2 right-0 cursor-pointer rounded-full bg-blue-600 p-2"
-                title="Change avatar"
-              >
-                <ImagePlus size={20} color="white" />
-              </Label>
             </FileUpload>
           </div>
           <div className="relative flex min-h-[100px] w-full justify-center md:justify-between md:pl-10 md:pt-6 ">
