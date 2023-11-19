@@ -5,11 +5,9 @@ import { useTripType } from "$store";
 import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "shadcn/components/ui/accordion";
 
-interface PassengerFormProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
-  allowHold: boolean;
-}
+interface PassengerFormProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
 
-export const PassengerForm: FC<PassengerFormProps> = ({ allowHold, ...rest }) => {
+export const PassengerForm: FC<PassengerFormProps> = ({ ...rest }) => {
   const currentStore = useTripType((store) => store.getCurrentStore());
 
   function createArray(length: number | any) {
@@ -101,7 +99,7 @@ export const PassengerForm: FC<PassengerFormProps> = ({ allowHold, ...rest }) =>
           </div>
         </div>
       )}
-      <BookingBtn allowHold={allowHold} />
+      <BookingBtn />
     </div>
   );
 };
