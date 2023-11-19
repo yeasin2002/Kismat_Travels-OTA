@@ -8,6 +8,7 @@ import { useAuth } from "$hooks";
 import { getImgSrc } from "$lib/getImgSrc";
 import { ImagePlus } from "lucide-react";
 import { Label } from "shadcn/components/ui";
+import { FileUpload } from "shadcn/components/ui/file-upload";
 import { toast } from "sonner";
 import { DisplayName } from "./DisplayName";
 import { UpdateNames } from "./UpdateNames";
@@ -27,39 +28,34 @@ export const UpdateProfileNameAndAvatar: FC<UpdateProfileNameAndAvatarProps> = (
     },
   });
 
+  async function upload(File: File[]) {
+    if (File.length === 0) return toast.error("Please select a file");
+    const form = new FormData();
+    form.append("avatar", File[0]);
+    await mutateAsync({ id: currentUser?.id!, form });
+  }
+
   return (
     <div {...rest}>
       <div className="flex items-center gap-x-2">
         <div className="relative">
-          <img
-            src={getImgSrc("avatar", currentUser?.photoUrl!)}
-            alt="Avatar"
-            className={cn("block aspect-square w-16 rounded-full object-cover object-center p-[0.10rem]  ring")}
-            crossOrigin="anonymous"
-            onError={(e) => {
-              e.currentTarget.src = avatar.src;
-            }}
-          />
-          <Label
-            htmlFor="avatar"
-            className="absolute -bottom-2 right-0 cursor-pointer rounded-full bg-blue-600 p-2"
-            title="Change avatar"
-          >
-            <ImagePlus size={20} color="white" />
-          </Label>
-          <input
-            type="file"
-            id="avatar"
-            name="avatar"
-            className="hidden"
-            onChange={async (evt) => {
-              if (!evt.currentTarget.files) return;
-
-              const form = new FormData();
-              form.append("avatar", evt.currentTarget.files[0]);
-              await mutateAsync({ id: currentUser?.id!, form });
-            }}
-          />
+          <FileUpload onUpload={upload}>
+            <img
+              src={getImgSrc("avatar", currentUser?.photoUrl!)}
+              alt="Avatar"
+              className={cn("block aspect-square w-16 rounded-full object-cover object-center p-[0.10rem]  ring")}
+              crossOrigin="anonymous"
+              onError={(e) => {
+                e.currentTarget.src = avatar.src;
+              }}
+            />
+            <Label
+              className="absolute -bottom-2 right-0 cursor-pointer rounded-full bg-blue-600 p-2"
+              title="Change avatar"
+            >
+              <ImagePlus size={20} color="white" />
+            </Label>
+          </FileUpload>
         </div>
         {!isNameChanging ? (
           <DisplayName setIsNameChanging={setIsNameChanging} />
