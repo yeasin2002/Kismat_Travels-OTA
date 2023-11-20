@@ -34,7 +34,8 @@ export const BookingBtn: FC<BookingBtnProps> = ({ ...rest }) => {
       }
 
       const fluHubPrebookRes = await fluHubPrebook.mutateAsync(flyHubRequestPayload);
-      if (fluHubPrebookRes.Error !== null) {
+      console.log("🚀 ~ file: BookingBtn.tsx:37 ~ bookingHandler ~ fluHubPrebookRes:", fluHubPrebookRes);
+      if (!fluHubPrebookRes) {
         return toast.error("Something went wrong, please try again later");
       }
       window.location.href = fluHubPrebookRes;
