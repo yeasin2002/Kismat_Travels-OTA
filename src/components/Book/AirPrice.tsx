@@ -1,8 +1,10 @@
+import DemoFlight from "$data/FlyHub/Response/Flight.json";
 import { SpinnerIcon } from "$icons";
-import { AlertOctagon, CheckCircle } from "lucide-react";
+import { PanelTop, Send } from "lucide-react";
 import { FC, Fragment } from "react";
 import { Skeleton } from "shadcn/components/ui";
 import { AirPriceProps } from "./AirPriceDiscountCoupon";
+import { DoneOrNot } from "./DoneOrNot";
 
 export const AirPrice: FC<AirPriceProps> = ({ airPriceData, isPending, error, isError, ...rest }) => {
   const Loading = (
@@ -25,28 +27,40 @@ export const AirPrice: FC<AirPriceProps> = ({ airPriceData, isPending, error, is
 
   const main = (
     <div>
-      {airPriceData?.Results?.map((air) => {
+      {/* {airPriceData?.Results?.map((air) => {
         console.log(air);
         return (
           <div {...rest} className="w-full flex-1">
-            <div className=" flex gap-x-2">
-              {air.IsRefundable ? (
-                <>
-                  <CheckCircle />
-                  Refundable
-                </>
-              ) : (
-                <>
-                  <AlertOctagon />
-                  not-refundable
-                </>
-              )}
-            </div>
+            <DoneOrNot value={true} possitioveTitle="Refundable" negetiveTitle="Not-Refundable" />
           </div>
         );
-      })}
+      })} */}
+      <div {...rest} className="w-full flex-1">
+        .
+        <DoneOrNot value={true} possitioveTitle="Refundable" negetiveTitle="Not-Refundable" />
+        <div className="mt-5">
+          <div className="space-y-3">
+            <div className="flex items-center gap-x-2">
+              <Send />
+              <div>
+                <p>Zia Airport </p>
+                <p>Dhaka, Bangladesh</p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-x-2">
+              <Send />
+              <div>
+                <p>Dubai Airport </p>
+                <p>United Arab Emirates</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 
-  return <Fragment>{isPending ? Loading : isError ? ErrorComponent : main}</Fragment>;
+  // return <Fragment>{isPending ? Loading : isError ? ErrorComponent : main}</Fragment>;
+  return <Fragment> {main}</Fragment>;
 };

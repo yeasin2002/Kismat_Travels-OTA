@@ -13,7 +13,7 @@ interface BookProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HT
 
 const Book: FC<BookProps> = ({ ...rest }) => {
   const { resultId, emptyPassenger, searchId, flightDetails } = usePassengers();
-  const currentFlightForBooking = flightDetails.find((val) => val.ResultID === resultId);
+  
 
   const {
     mutate,
