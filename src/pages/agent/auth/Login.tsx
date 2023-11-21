@@ -1,12 +1,12 @@
 import { Input, LoginAndSingInWrapper } from "$components";
+import axios from "axios";
+import cookie from "js-cookie";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { SVGProps, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
 import { Button } from "shadcn/components/ui/button";
-import axios from "axios";
-import cookie from "js-cookie";
-import { useState, SVGProps } from "react";
-import { useRouter } from "next/router";
 
 interface FormInputs {
   email: string;
@@ -38,8 +38,6 @@ export default function LogIn() {
     } catch (error: any) {
       setLoading(false);
       setError(error?.response?.data?.message);
-
-      console.log("🚀 ~ file: Login.tsx:22 ~ SendLogin ~ error:", error);
     }
   };
   return (

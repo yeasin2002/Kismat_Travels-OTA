@@ -26,8 +26,8 @@ export const LeadPassenger: FC<LeadPassengerProps> = ({ ...rest }) => {
         type="single"
         collapsible
         defaultValue="LeadPassenger"
-        className="mx-8 my-2 rounded-lg bg-gray-50 px-[var(--gap-x)] py-[var(--gap-y)] shadow-sm
-        data-[state=open]:pb-0 lg:px-8
+        className=" my-2 rounded-lg bg-gray-50 px-[var(--gap-x)] py-[var(--gap-y)] shadow-sm
+        data-[state=open]:pb-0 
         "
       >
         <AccordionItem value="LeadPassenger">
