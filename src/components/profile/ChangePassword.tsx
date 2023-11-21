@@ -36,7 +36,6 @@ export const ChangePassword: FC<ChangePasswordProps> = ({ ...rest }) => {
 
   const { register, handleSubmit, formState } = useForm<ChangePass>();
   const onSubmit = async (data: ChangePass) => {
-    console.log(data);
     await mutateAsync({
       current: data.CurrentPassword,
       password: data.newPassword,

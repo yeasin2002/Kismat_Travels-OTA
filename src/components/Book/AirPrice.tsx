@@ -27,16 +27,7 @@ export const AirPrice: FC<AirPriceProps> = ({ airPriceData, isPending, error, is
 
   const main = (
     <div>
-      {/* {airPriceData?.Results?.map((air) => {
-        console.log(air);
-        return (
-          <div {...rest} className="w-full flex-1">
-            <DoneOrNot value={true} possitioveTitle="Refundable" negetiveTitle="Not-Refundable" />
-          </div>
-        );
-      })} */}
       <div {...rest} className="w-full flex-1">
-        .
         <DoneOrNot value={true} possitioveTitle="Refundable" negetiveTitle="Not-Refundable" />
         <div className="mt-5">
           <div className="space-y-3">

@@ -147,7 +147,6 @@ const AuthProvider: FunctionComponent<AuthProviderProps> = ({ children }) => {
   const googleAuth: GoogleAuth = async ({ token, onError = cb, onSuccess = cb }) => {
     return new Promise(async (resolve) => {
       try {
-        console.log(`Bearer ${token}`);
         const { data } = await GET<User>("auth/current", {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -188,3 +187,4 @@ const AuthProvider: FunctionComponent<AuthProviderProps> = ({ children }) => {
 };
 
 export { AuthContext, AuthProvider };
+
