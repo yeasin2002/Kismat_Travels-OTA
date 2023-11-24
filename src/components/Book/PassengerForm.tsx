@@ -23,12 +23,12 @@ export const PassengerForm: FC<PassengerFormProps> = ({ ...rest }) => {
   const total = currentStore?.AdultQuantity! + currentStore?.ChildQuantity! + currentStore?.InfantQuantity!;
 
   return (
-    <div {...rest}>
+    <div {...rest} className="px-8">
       <LeadPassenger />
 
       {total > 1 && (
         <div>
-          <div id="travelerDetails" className="space-y-8 rounded-lg bg-gray-100 px-4 py-8 shadow-lg lg:px-8">
+          <div id="travelerDetails" className="space-y-8 rounded-lg bg-gray-100  py-8 shadow-lg ">
             <p className="col-span-full text-2xl font-bold text-gray-800">Passenger details</p>
 
             {totalAdultPassengers.length > 0 && (

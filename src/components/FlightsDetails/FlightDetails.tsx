@@ -34,7 +34,7 @@ export const FlightDetails: FC<FlightDetailsProps> = ({ flightDetails, searchId,
         const hourLeft = convertMinutes(airBus.JourneyDuration);
 
         return (
-          <div className="flex items-center gap-8">
+          <div className="flex flex-col md:flex-row items-center gap-8">
             <div className="my-6 flex flex-1 flex-col items-center justify-between gap-y-6 md:flex-row md:gap-y-0">
               <div className="flex items-center space-x-2 ">
                 <Image

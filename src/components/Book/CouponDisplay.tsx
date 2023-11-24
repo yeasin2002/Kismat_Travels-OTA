@@ -23,9 +23,9 @@ export const CouponDisplay: FC<CouponDisplayProps> = ({ ...rest }) => {
 
   const Loading = (
     <Fragment>
-      <Skeleton className="grid h-20 w-full place-items-center bg-gray-300">
+      <div className="grid h-20 w-full place-items-center ">
         <SpinnerIcon className="h-3/5 w-3/5" />
-      </Skeleton>
+      </div>
     </Fragment>
   );
 

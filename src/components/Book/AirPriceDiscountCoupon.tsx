@@ -11,18 +11,10 @@ export interface AirPriceProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivE
 }
 
 export const AirPriceDiscountCoupon: FC<AirPriceProps> = ({ airPriceData, isPending, error, isError, ...rest }) => {
-  console.table({
-    isPending,
-
-    isError,
-  });
-
-  console.log(error);
-  console.log(airPriceData);
   return (
     <div
       {...rest}
-      className="mx-8  my-20 flex items-center justify-between space-y-5
+      className="mx-8  my-20 flex  justify-between space-y-5
      rounded-lg bg-gray-50 px-[var(--gap-x)] py-[var(--gap-y)] shadow-lg  data-[state=open]:pb-0 lg:px-8"
     >
       <AirPrice airPriceData={airPriceData} error={error} isPending={isPending} isError={isError} />

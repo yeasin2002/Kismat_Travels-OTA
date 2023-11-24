@@ -5,6 +5,7 @@ import { addPercentage } from "$lib";
 import { usePassengers } from "$store";
 import { useMutation } from "@tanstack/react-query";
 import { ButtonHTMLAttributes, DetailedHTMLProps, FC } from "react";
+import { Button } from "shadcn/components/ui";
 import { toast } from "sonner";
 
 interface BookingBtnProps extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {}
@@ -57,7 +58,7 @@ export const BookingBtn: FC<BookingBtnProps> = ({ ...rest }) => {
     <button
       {...rest}
       onClick={bookingHandler}
-      className="my-4 rounded-md bg-white px-10  py-2 text-xl font-semibold uppercase text-slate-800"
+      className="my-4 rounded-md bg-gray-900 px-10  py-2 text-xl font-semibold uppercase text-slate-100"
     >
       Continue
     </button>
