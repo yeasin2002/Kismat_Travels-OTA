@@ -31,7 +31,7 @@ export const BookingBtn: FC<BookingBtnProps> = ({ ...rest }) => {
       };
 
       if (!(searchId && resultId && passengers && currentUser?.id)) {
-        return toast.error("Something went wrong, please try again later");
+        return toast.error("Something went wrong, please try again later NO Information found");
       }
 
       const fluHubPrebookRes = await fluHubPrebook.mutateAsync(flyHubRequestPayload);
@@ -41,6 +41,7 @@ export const BookingBtn: FC<BookingBtnProps> = ({ ...rest }) => {
       }
       window.location.href = fluHubPrebookRes;
     } catch (error) {
+      console.log("🚀 ~ file: BookingBtn.tsx:43 ~ bookingHandler ~ error:", error);
       toast.error("Something went wrong, please try again later");
     }
 
