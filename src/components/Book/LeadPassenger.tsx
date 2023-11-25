@@ -1,6 +1,7 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "shadcn/components/ui/accordion";
 
 import { Button, Input, SelectNotCreatable } from "$components";
+import { useAuth } from "$hooks";
 import { PassengersType } from "$interface/Passengers.interface";
 import { optionsIndex, transform } from "$lib";
 import { usePassengers } from "$store";
@@ -11,8 +12,13 @@ import { toast } from "sonner";
 interface LeadPassengerProps extends DetailedHTMLProps<FormHTMLAttributes<HTMLFormElement>, HTMLFormElement> {}
 export const LeadPassenger: FC<LeadPassengerProps> = ({ ...rest }) => {
   const ps = usePassengers();
+  const { currentUser } = useAuth();
 
-  const { register, formState, handleSubmit, control } = useForm<PassengersType>();
+  const { register, formState, handleSubmit, control } = useForm<PassengersType>({
+    defaultValues: {
+      Email: currentUser?.email,
+    },
+  });
 
   const FormHandler = (data: PassengersType) => {
     const tsData = transform<PassengersType>(data);
@@ -127,7 +133,7 @@ export const LeadPassenger: FC<LeadPassengerProps> = ({ ...rest }) => {
                 placeholder="write your 2nd Address"
                 error={formState.errors.Address2}
               />
-              <Input
+              {/* <Input
                 register={register("CountryCode", {
                   required: { value: true, message: "Country Code is required!" },
                   maxLength: { value: 2, message: "Country Code should be maximum 2 Character" },
@@ -136,6 +142,18 @@ export const LeadPassenger: FC<LeadPassengerProps> = ({ ...rest }) => {
                 label="Country Code*"
                 placeholder="write your Country Code"
                 error={formState.errors.CountryCode}
+              /> */}
+
+              <SelectNotCreatable
+                register={register("CountryCode", {
+                  required: { value: true, message: "CountryCode is required!" },
+                })}
+                label="CountryCode*"
+                placeholder=" Select Country Code"
+                error={formState.errors.Title}
+                name="CountryCode"
+                control={control}
+                options={optionsIndex(["BD", "IND", "PN"])}
               />
               <Input
                 register={register("Email", {
