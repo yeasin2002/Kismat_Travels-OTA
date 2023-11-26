@@ -22,6 +22,8 @@ interface FlightDetailsProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivEle
 }
 
 export const FlightDetails: FC<FlightDetailsProps> = ({ flightDetails, searchId, ...rest }) => {
+  console.log("flightDetails", flightDetails);
+  
   const [isOpen, setIsOpen] = useState(false);
   const store = usePassengers();
 

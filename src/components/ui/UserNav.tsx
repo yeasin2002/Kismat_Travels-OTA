@@ -38,7 +38,9 @@ export function UserNav() {
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuItem asChild>
-            <Link href="/profile">Settings</Link>
+            <Link href="/profile" className="cursor-pointer">
+              Profile
+            </Link>
           </DropdownMenuItem>
           <DropdownMenuItem onClick={() => signOut({})}>
             Logout

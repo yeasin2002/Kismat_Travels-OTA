@@ -1,7 +1,7 @@
-import React, { SVGProps } from "react";
 import AdminLayout from "$components/Admin/layout/MainLayout";
+// import BookingVsUserWeekBarChart from "$components/Admin/util/Charts/BookingVsUserWeekBarChart";
 import Status from "$components/Admin/util/Status";
-import BookingVsUserWeekBarChart from "$components/Admin/util/Charts/BookingVsUserWeekBarChart";
+import React, { SVGProps } from "react";
 
 import Admin_secure from "$Secure/admin_secure";
 const index = (props: any) => {

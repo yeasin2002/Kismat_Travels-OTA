@@ -1,5 +1,6 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "shadcn/components/ui/accordion";
 
+import { countryCodes } from "$/utils";
 import { Button, Input, SelectNotCreatable } from "$components";
 import { useAuth } from "$hooks";
 import { PassengersType } from "$interface/Passengers.interface";
@@ -153,7 +154,7 @@ export const LeadPassenger: FC<LeadPassengerProps> = ({ ...rest }) => {
                 error={formState.errors.Title}
                 name="CountryCode"
                 control={control}
-                options={optionsIndex(["BD", "IND", "PN"])}
+                options={optionsIndex(countryCodes)}
               />
               <Input
                 register={register("Email", {
