@@ -2,21 +2,28 @@ import { Nav } from "$components";
 import { usePassengers } from "$store";
 import { DetailedHTMLProps, FC, Fragment, HTMLAttributes, useEffect } from "react";
 
+
 import { $post } from "$/utils";
 import { AirPriceDiscountCoupon } from "$components/Book/AirPriceDiscountCoupon";
 import { BookPendingSkeleton } from "$components/Book/BookPendingSkeleton";
 import { PassengerForm } from "$components/Book/PassengerForm";
+import { useAuth } from "$hooks";
 import { AirPriceResponse } from "$interface/airPrice.interface";
 import { useMutation } from "@tanstack/react-query";
+import { useRouter } from "next/router";
 import { toast } from "sonner";
 interface BookProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
 
-
-
-
 const Book: FC<BookProps> = ({ ...rest }) => {
-  const { resultId, emptyPassenger, searchId, flightDetails } = usePassengers();
-  
+  const { resultId, emptyPassenger, searchId } = usePassengers();
+  const router = useRouter();
+  const auth = useAuth();
+  useEffect(() => {
+    if (!auth.currentUser) {
+      router.push("/");
+      toast("Please Login First");
+    }
+  }, [auth.currentUser]);
 
   const {
     mutate,

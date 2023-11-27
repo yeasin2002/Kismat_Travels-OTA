@@ -1,3 +1,4 @@
+//  Temporary Data for testing, Remove it now
 import data from "$data/FlyHub/Response/PRE-BOOK.json";
 
 import { $get } from "$/utils";
@@ -13,11 +14,18 @@ interface OnHoldProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, 
 export const Booked: FC<OnHoldProps> = ({ ...rest }) => {
   const { currentUser } = useAuth();
 
-  const { isLoading, error } = useQuery({
+  const {
+    isLoading,
+    error,
+    data: holdData,
+  } = useQuery({
     queryKey: ["onHold"],
-    queryFn: async () => $get(`pre-booking/${currentUser?.id}`),
+    queryFn: async () => $get("/booking/all"),
     staleTime: 0,
   });
+
+  //  Replace holdData with data
+  console.log(holdData);
 
   return (
     <Fragment>
