@@ -160,3 +160,4 @@ export const FlightDetails: FC<FlightDetailsProps> = ({ flightDetails, searchId,
     </div>
   );
 };
+

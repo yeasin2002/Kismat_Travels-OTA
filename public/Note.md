@@ -7,4 +7,8 @@
 
 - ✔  show price on search page  and summery 
 
+- ✔  make Loader for Booking 
+
+- ✔  enhanced Booking page Loading
+
 
