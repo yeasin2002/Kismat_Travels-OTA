@@ -16,6 +16,7 @@ export const CouponDisplay: FC<CouponDisplayProps> = ({ ...rest }) => {
     mutationFn: ({ SearchID, ResultID }: any) =>
       $post("/private/AirPromotion", { SearchID, ResultID }) as Promise<AirPromotion>,
   });
+  console.log(data);
 
   useEffect(() => {
     mutate({ ResultID: resultId, SearchID: searchId });
@@ -45,12 +46,12 @@ export const CouponDisplay: FC<CouponDisplayProps> = ({ ...rest }) => {
       ) : (
         data?.PromoCodes?.map((code) => {
           return (
-            <div className="flex items-center justify-between">
-              <p>{code?.Code}</p>
-              <p>{code?.MaxAmount}</p>
+            <div className="space-y-4 ">
               <p>
-                {code?.Description} {code?.Currency}
+                {code?.Code} {code?.Currency}
               </p>
+              <p>{code?.MaxAmount}</p>
+              <p className="w-full">{code?.Description}</p>
             </div>
           );
         })
@@ -70,7 +71,7 @@ export const CouponDisplay: FC<CouponDisplayProps> = ({ ...rest }) => {
   }
 
   return (
-    <div {...rest} className="w-1/5">
+    <div {...rest} className="text-end md:w-2/5">
       {render}
     </div>
   );

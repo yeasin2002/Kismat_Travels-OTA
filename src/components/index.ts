@@ -27,7 +27,6 @@ export * from "./auth/LoginAndSingInWrapper";
 export * from "./modal/TravelersAndClass";
 export * from "./profile/Account";
 export * from "./profile/ChangePassword";
-export * from "./profile/OnHold";
 export * from "./ui/PageLoading";
 export * from "./ui/Title";
 export * from "./ui/TravelDate";

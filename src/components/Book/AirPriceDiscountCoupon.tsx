@@ -14,8 +14,8 @@ export const AirPriceDiscountCoupon: FC<AirPriceProps> = ({ airPriceData, isPend
   return (
     <div
       {...rest}
-      className="mx-8  my-20 flex  justify-between space-y-5
-     rounded-lg bg-gray-50 px-[var(--gap-x)] py-[var(--gap-y)] shadow-lg  data-[state=open]:pb-0 lg:px-8"
+      className="mx-8  my-20 flex   flex-col justify-between
+     space-y-5 rounded-lg bg-gray-50 px-[var(--gap-x)] py-[var(--gap-y)]  shadow-lg data-[state=open]:pb-0  md:flex-row lg:px-8"
     >
       <AirPrice airPriceData={airPriceData} error={error} isPending={isPending} isError={isError} />
       <CouponDisplay />

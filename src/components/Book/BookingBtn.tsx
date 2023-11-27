@@ -1,4 +1,5 @@
 import { $post } from "$/utils";
+import { LoadSpinner } from "$components/Icons/Spinner";
 import { useAuth, useProfit } from "$hooks";
 
 import { addPercentage } from "$lib";
@@ -58,9 +59,9 @@ export const BookingBtn: FC<BookingBtnProps> = ({ ...rest }) => {
     <button
       {...rest}
       onClick={bookingHandler}
-      className="my-4 rounded-md bg-gray-900 px-10  py-2 text-xl font-semibold uppercase text-slate-100"
+      className="my-4 flex h-10 w-40  items-center justify-center rounded-md bg-gray-900 text-xl font-semibold uppercase text-slate-100"
     >
-      Continue
+      {fluHubPrebook.isPending ? <LoadSpinner /> : "Continue"}
     </button>
   );
 };
