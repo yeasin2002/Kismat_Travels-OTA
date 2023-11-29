@@ -28,7 +28,7 @@ export default function Search() {
   const [searchResult, setSearchResult] = useState<SearchType | null>(null);
   const { profit } = useProfit();
 
-  const { mutate, isPending, isError, error } = useMutation<SearchType, Error, ReturnType<typeof getCurrentStore>>({
+  const { mutate, isPending, isError, data } = useMutation<SearchType, Error, ReturnType<typeof getCurrentStore>>({
     mutationKey: ["airSearchRequest"],
     mutationFn: (arg: any) => $post("private/AirSearch", arg),
     onSuccess: (data) => {
@@ -57,6 +57,7 @@ export default function Search() {
   useEffect(() => {
     searchAction();
   }, []);
+  console.log(data);
 
   const filterAirline = useMemo(
     () =>

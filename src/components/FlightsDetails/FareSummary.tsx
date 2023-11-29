@@ -1,5 +1,6 @@
+import { calculateTotalChargeWithProfit } from "$/utils";
+import { useProfit } from "$hooks";
 import { Fare } from "$interface";
-import { X } from "lucide-react";
 import { DetailedHTMLProps, FC, HTMLAttributes, useId } from "react";
 
 interface FareSummaryProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
@@ -8,13 +9,14 @@ interface FareSummaryProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivEleme
 
 // const totalCost = fare.BaseFare + fare.Tax + fare.OtherCharges * fare.PassengerCount;
 const FareSummary: FC<FareSummaryProps> = ({ FareDetails, ...rest }) => {
+  const { profit } = useProfit();
 
-  
   const sumCost = FareDetails.reduce((acc, fare) => {
     const totalCost = fare.BaseFare + fare.Tax + fare.OtherCharges * fare.PassengerCount;
     return acc + totalCost;
   }, 0);
 
+  const TotalChargeWithProfit = calculateTotalChargeWithProfit(sumCost);
   return (
     <div className="space-y-4 rounded-md border border-gray-200 p-4" {...rest}>
       <h3 className="text-xl font-bold ">Fares </h3>
@@ -55,6 +57,11 @@ const FareSummary: FC<FareSummaryProps> = ({ FareDetails, ...rest }) => {
           </tr>
         </tbody>
       </table>
+
+      <div className="flex items-center justify-between">
+        <p className="text-sm font-semibold text-gray-500">Extra Charge : {profit?.$user}%</p>
+        <p className="text-sm font-semibold text-gray-700">Total Cost: {TotalChargeWithProfit}</p>
+      </div>
     </div>
   );
 };

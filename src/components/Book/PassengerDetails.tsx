@@ -118,6 +118,22 @@ export const PassengerDetails: FC<ContactDetailsProps> = ({ index, paxType, ...r
       />
 
       <Input
+        register={register("Address1", {
+          required: { value: true, message: "Address1 is required!" },
+          minLength: { value: 6, message: "Address1 must've 6 character long!" },
+        })}
+        label="Address1*"
+        placeholder="write your 1st  Address"
+        error={formState.errors.Address1}
+      />
+      <Input
+        register={register("Address2")}
+        label="Address2*"
+        placeholder="write your 2nd Address"
+        error={formState.errors.Address2}
+      />
+
+      {/* <Input
         register={register("CountryCode", {
           required: { value: true, message: "Country Code is required!" },
           maxLength: { value: 2, message: "Country Code should be maximum 2 Character" },
@@ -125,7 +141,7 @@ export const PassengerDetails: FC<ContactDetailsProps> = ({ index, paxType, ...r
         label="Country Code*"
         placeholder="write your Country Code"
         error={formState.errors.CountryCode}
-      />
+      /> */}
 
       <Input
         register={register("DateOfBirth", {

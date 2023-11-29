@@ -14,6 +14,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "shadcn/components/ui/t
 import Details from "./Details";
 import FareSummary from "./FareSummary";
 
+import { calculateTotalChargeWithProfit } from "$/utils";
 import FlightRules from "./FlightRules";
 
 interface FlightDetailsProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
@@ -25,6 +26,12 @@ export const FlightDetails: FC<FlightDetailsProps> = ({ flightDetails, searchId,
   const [isOpen, setIsOpen] = useState(false);
   const store = usePassengers();
 
+  const sumCost = flightDetails?.Fares?.reduce((acc, fare) => {
+    const totalCost = fare.BaseFare + fare.Tax + fare.OtherCharges * fare.PassengerCount;
+    return acc + totalCost;
+  }, 0);
+
+  const TotalChargeWithProfit = calculateTotalChargeWithProfit(sumCost).toFixed(2);
 
   return (
     <div {...rest} className="flex flex-col gap-4 rounded-md bg-white p-4 text-slate-700">
@@ -34,22 +41,27 @@ export const FlightDetails: FC<FlightDetailsProps> = ({ flightDetails, searchId,
         const hourLeft = convertMinutes(airBus.JourneyDuration);
 
         return (
-          <div className="flex flex-col md:flex-row items-center gap-8">
+          <div className="flex flex-col items-center gap-8 md:flex-row">
             <div className="my-6 flex flex-1 flex-col items-center justify-between gap-y-6 md:flex-row md:gap-y-0">
-              <div className="flex items-center space-x-2 ">
-                <Image
-                  src={`https://airlineimages.s3.ap-southeast-1.amazonaws.com/128/${flightDetails.Validatingcarrier}.png`}
-                  width={40}
-                  height={40}
-                  alt="Picture of the airways"
-                  className="h-10 w-10 rounded-sm"
-                />
-                <span>
-                  <p className="text-base font-semibold">{airBus.Airline.AirlineName}</p>
-                  <p className="text-xs">
-                    {airBus.Airline?.AirlineCode}-{airBus.Airline?.FlightNumber}
-                  </p>
-                </span>
+              <div className="space-y-3">
+                <div className="flex items-center space-x-2 ">
+                  <Image
+                    src={`https://airlineimages.s3.ap-southeast-1.amazonaws.com/128/${flightDetails.Validatingcarrier}.png`}
+                    width={40}
+                    height={40}
+                    alt="Picture of the airways"
+                    className="h-10 w-10 rounded-sm"
+                  />
+                  <span>
+                    <p className="text-base font-semibold">{airBus.Airline.AirlineName}</p>
+                    <p className="text-xs">
+                      {airBus.Airline?.AirlineCode}-{airBus.Airline?.FlightNumber}
+                    </p>
+                  </span>
+                </div>
+                <p>
+                  Price : {TotalChargeWithProfit} {flightDetails.Currency}
+                </p>
               </div>
 
               <div className="space-y-1">
@@ -128,7 +140,6 @@ export const FlightDetails: FC<FlightDetailsProps> = ({ flightDetails, searchId,
                 <TabsTrigger value="details">Flight Details </TabsTrigger>
                 <TabsTrigger value="FareSummary">Fare Summary</TabsTrigger>
                 {!flightDetails.isMiniRulesAvailable && <TabsTrigger value="FlightRules">Flight Rules</TabsTrigger>}
-          
               </TabsList>
 
               <TabsContent value="details" className="w-full">
@@ -142,7 +153,6 @@ export const FlightDetails: FC<FlightDetailsProps> = ({ flightDetails, searchId,
                   <FlightRules />
                 </TabsContent>
               )}
-            
             </Tabs>
           </AccordionContent>
         </AccordionItem>
@@ -150,3 +160,4 @@ export const FlightDetails: FC<FlightDetailsProps> = ({ flightDetails, searchId,
     </div>
   );
 };
+

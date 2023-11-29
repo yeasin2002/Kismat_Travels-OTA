@@ -1,10 +1,12 @@
+//  Temporary Data for testing, Remove it now
 import data from "$data/FlyHub/Response/PRE-BOOK.json";
 
 import { $get } from "$/utils";
 import { useAuth } from "$hooks";
 import { useQuery } from "@tanstack/react-query";
+import Link from "next/link";
 import { DetailedHTMLProps, FC, Fragment, HTMLAttributes, useEffect } from "react";
-import { Button } from "shadcn/components/ui";
+import { Button, buttonVariants } from "shadcn/components/ui";
 
 interface OnHoldProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
 
@@ -12,11 +14,18 @@ interface OnHoldProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, 
 export const Booked: FC<OnHoldProps> = ({ ...rest }) => {
   const { currentUser } = useAuth();
 
-  const { isLoading, error } = useQuery({
+  const {
+    isLoading,
+    error,
+    data: holdData,
+  } = useQuery({
     queryKey: ["onHold"],
-    queryFn: async () => $get(`pre-booking/${currentUser?.id}`),
+    queryFn: async () => $get("/booking/all"),
     staleTime: 0,
   });
+
+  //  Replace holdData with data
+  console.log(holdData);
 
   return (
     <Fragment>
@@ -60,7 +69,12 @@ export const Booked: FC<OnHoldProps> = ({ ...rest }) => {
                         <td className="px-6 py-4">{item.Destination.Airport.AirportName}</td>
                         <td className="px-6 py-4">{"$100  "}</td>
                         <td className="px-6 py-4">
-                          <Button>Details</Button>
+                          <Link
+                            className={buttonVariants()}
+                            href={"/profile/" + item.Airline.AirlineCode + item.Destination.Airport.AirportName}
+                          >
+                            Details
+                          </Link>
                         </td>
                       </tr>
                     );

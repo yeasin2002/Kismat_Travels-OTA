@@ -1,15 +1,15 @@
 import { useMutation } from "@tanstack/react-query";
+import { ImagePlus } from "lucide-react";
 import { DetailedHTMLProps, FC, HTMLAttributes, useState } from "react";
 import { cn } from "shadcn/lib/utils";
+import { toast } from "sonner";
 
 import { $post } from "$/utils";
 import avatar from "$assets/temp/avatar.jpg";
 import { useAuth } from "$hooks";
 import { getImgSrc } from "$lib/getImgSrc";
-import { ImagePlus } from "lucide-react";
 import { Label } from "shadcn/components/ui";
 import { FileUpload } from "shadcn/components/ui/file-upload";
-import { toast } from "sonner";
 import { DisplayName } from "./DisplayName";
 import { UpdateNames } from "./UpdateNames";
 
