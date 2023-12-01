@@ -3,23 +3,50 @@ import FareSummary from "$components/FlightsDetails/FareSummary";
 import BookedFlight from "$data/FlyHub/Response/PRE-BOOK.json";
 import { usePassengers } from "$store";
 import { useRouter } from "next/router";
-import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
+import { GET } from "$lib";
+import { DetailedHTMLProps, FC, HTMLAttributes, useEffect, useState } from "react";
 interface flightProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
 
 const Flight: FC<flightProps> = ({ ...rest }) => {
-  const { passengers } = usePassengers();
-
   const router = useRouter();
+  const { flight } = router.query;
+
+  const [load, SetLoad] = useState<Boolean>(false);
+  const [data, SetData] = useState<any>();
+  console.log("🚀 ~ file: [flight].tsx:16 ~ data:", data);
+
+  // get Data by db id
+  const GetById = async () => {
+    try {
+      SetLoad(true);
+      const resServer = await GET("/booking/" + flight);
+      if (resServer.status === 200) {
+        if (resServer.data.length) {
+          SetData(resServer.data[0]);
+          SetLoad(false);
+        }
+      }
+    } catch (error) {
+      console.log("🚀 ~ file: [flight].tsx:20 ~ GetById ~ error:", error);
+      SetLoad(false);
+    }
+  };
+
+  useEffect(() => {
+    GetById();
+  }, []);
+
   return (
     <section {...rest} className="p-4">
-      {BookedFlight.Results.map((val) => {
-        return (
-          <div className="space-y-5">
-            <Details SegmentDetails={val.segments} airbusImg={val.Validatingcarrier} />
-            <FareSummary FareDetails={val.Fares} />
-          </div>
-        );
-      })}
+      {data &&
+        data?.response.Results.map((val: any) => {
+          return (
+            <div className="space-y-5">
+              <Details SegmentDetails={val.segments} airbusImg={val.Validatingcarrier} />
+              <FareSummary FareDetails={val.Fares} />
+            </div>
+          );
+        })}
 
       {/*  tables  */}
 
