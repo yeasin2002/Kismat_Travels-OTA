@@ -38,30 +38,26 @@ const FareSummary: FC<FareSummaryProps> = ({ FareDetails, ...rest }) => {
             return (
               <tr>
                 <td className="tablesItems"> {fare.PaxType} </td>
-                <td className="tablesItems"> {fare.BaseFare} </td>
-                <td className="tablesItems"> {totalOtherCharge} </td>
+                <td className="tablesItems"> {calculateTotalChargeWithProfit(fare.BaseFare)} </td>
+                <td className="tablesItems"> {calculateTotalChargeWithProfit(totalOtherCharge)} </td>
                 <td className="tablesItems flex">
-                  {fare.BaseFare + totalOtherCharge} X {fare.PassengerCount}
+                  {calculateTotalChargeWithProfit(fare.BaseFare) + calculateTotalChargeWithProfit(totalOtherCharge)} X{" "}
+                  {fare.PassengerCount}
                 </td>
-                <td className="tablesItems font-bold">{totalCost}</td>
+                <td className="tablesItems font-bold">{calculateTotalChargeWithProfit(totalCost)}</td>
               </tr>
             );
           })}
           <tr>
-            <td className="tablesItems font-bold">Total</td>
+            <td className="tablesItems font-bold">Total </td>
 
             <td className="tablesItems font-bold"></td>
             <td className="tablesItems font-bold"></td>
             <td className="tablesItems font-bold"></td>
-            <td className="tablesItems font-bold">{sumCost}</td>
+            <td className="tablesItems font-bold">{calculateTotalChargeWithProfit(sumCost)}</td>
           </tr>
         </tbody>
       </table>
-
-      <div className="flex items-center justify-between">
-        <p className="text-sm font-semibold text-gray-500">Extra Charge : {profit?.$user}%</p>
-        <p className="text-sm font-semibold text-gray-700">Total Cost: {TotalChargeWithProfit}</p>
-      </div>
     </div>
   );
 };

@@ -11,6 +11,8 @@ interface DetailsProps extends React.DetailedHTMLProps<HTMLAttributes<HTMLDivEle
 }
 
 const Details: FC<DetailsProps> = ({ SegmentDetails, airbusImg, ...rest }) => {
+  console.log("🚀 ~ file: Details.tsx:14 ~ airbusImg:", airbusImg);
+
   const availableAirline = SegmentDetails.map((item) => {
     return item.Airline.AirlineCode + "-" + item.Airline.FlightNumber;
   });
